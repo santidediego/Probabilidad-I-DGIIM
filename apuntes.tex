@@ -10,6 +10,9 @@
 \date{}
 \begin{document}
 \maketitle
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lemma}{Lema}[section]
+\newtheorem{proof}{Demostración}[section]
 \newpage
 \chapter*{Agradecimientos} % si no queremos que añada la palabra "Capitulo"
 \addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
@@ -30,14 +33,24 @@ $$\varphi : \mathbb{C}\rightarrow \mathbb{R}$$
 $\varphi (s)$ es único\\\\
 Se dice que $\varphi$ es aditiva si $\varphi(\displaystyle\sum_{1}^{n}A_k)=\displaystyle\sum_1^n\mu(A_k)$\\
 Se dice que $\varphi$ es $\sigma$ es aditiva si $\varphi(\displaystyle\sum_1^\infty A_k)=\displaystyle\sum_1^\infty \mu(A_k)$\\\\
-\textbf{Lema:} Si $\exists B\, : \, \varphi(B)<\infty \Rightarrow \varphi(\emptyset)=0$\\\\
-\textbf{Teorema}: Si $\varphi$ es $\sigma$ aditiva y $\displaystyle\sum\varphi(A_i)<\infty\Rightarrow\displaystyle\sum(\vert \varphi(A_i)\vert)<\infty$\\\\
-\textit{\textbf{Demostración}}\\\\
+\begin{lemma} 
+Si $\exists B\, : \, \varphi(B)<\infty \Rightarrow \varphi(\emptyset)=0$\\\\
+\end{lemma}
+
+\begin{theorem}
+Si $\varphi$ es $\sigma$ aditiva y $\displaystyle\sum\varphi(A_i)<\infty\Rightarrow\displaystyle\sum(\vert \varphi(A_i)\vert)<\infty$\\\\
+\end{theorem}
+\begin{proof}
 Tomemos las sucesiones: \\\\
 Si $\varphi(A_n)\geq 0 \Longrightarrow A_n^{+}=A_n$ y $A_n^{-}=\emptyset$\\
 Si $\varphi(A_n)<0 \Longrightarrow A_n^{+}=\emptyset$ y $A_n^{-}=A_n$\\
 Entonces $\varphi(\displaystyle\sum A_n^{+})=\displaystyle\sum\varphi(A_n^{+})$ y $\varphi(\displaystyle\sum A_n^{-})=\displaystyle\sum\varphi(A_n^{-})$\\\\
-\textbf{Teorema}: Si $\varphi$ es $\sigma$ aditiva, $\varphi\geq 0$, entonces: $\varphi$ es no decreciente y subaditiva
+\end{proof}
+
+\begin{theorem} 
+Si $\varphi$ es $\sigma$ aditiva, $\varphi\geq 0$, entonces: $\varphi$ es no decreciente y subaditiva
+\end{theorem}
+
 \section{Límites en sucesiones de conjuntos}
 \subsection{Límites en sucesiones monótonas}
 Si tomamos la relación de inclusión entre conjuntos ($\subseteq$) como una relación de orden, podemos hablar sin ningún tipo de problema de sucesiones monótonas. En este sentido, una sucesión creciente de conjuntos sería una sucesión $\{A_n\}_{n \in \mathbb{N}}$ en la que se cumple que $A_i \subseteq A_{i+1} \forall i \in \mathbb{N}$. De forma análoga se podría ver qué es una sucesión decreciente de conjuntos.
@@ -82,7 +95,8 @@ $$ \lim A_n = \liminf A_n = \limsup A_n $$
 en caso de que límite superior e inferior coincidan.
 
 \section{Espacios de probabilidad y variables aleatorias}
-\textbf{Teorema de extensión de Caratheodory}:  Una medida $\mu$ sobre $\mathbb{C}$ se extiende a $A(\mathbb{C})$. La extensión es mínima si $\mu$ es finita.
+\begin{theorem} (de extensión de Caratheodory) 
+Una medida $\mu$ sobre $\mathbb{C}$ se extiende a $A(\mathbb{C})$. La extensión es mínima si $\mu$ es finita.
 $$(\Omega,\mathbb{C},\mu)\overbrace{\longrightarrow}^{extension}(\Omega,S(\Omega),\mu^\circ)\overbrace{\longrightarrow}^{restriccion}(\Omega,A^\circ,\mu^\circ)\overbrace{\longrightarrow}^{restriccion}(\Omega,A(\mathbb{C}),\mu^\circ)$$
 donde:\\\\
 $\mu^\circ$ es la medida exterior que es extensión de $\mu$\\
@@ -92,8 +106,12 @@ $\mu^\circ$ es medida exterior si es subaditiva, no decreciente y $\mu^\circ(\em
 $A\in \Omega$, $\mu^\circ(A)=inf\displaystyle\sum(A_j)$\\\\
 $\mu^\circ(\emptyset)\leq\mu(\emptyset)$\\\\
 $a\in A^\circ$ si $D\in S(\Omega)$ se cumple que $\mu^\circ(D)\geq\mu^\circ(AD)+\mu^\circ(A^c D)$
-\textbf{Lema:} $\mathbb{X}(w)=\varphi(w)\,\forall w \in \Omega - \Lambda\, t.q.\, P(\Lambda)=0$. Entonces, $\mathbb{X}=\varphi$ \\\\
+\end{theorem}
+
+\begin{lemma} 
+$\mathbb{X}(w)=\varphi(w)\,\forall w \in \Omega - \Lambda\, t.q.\, P(\Lambda)=0$. Entonces, $\mathbb{X}=\varphi$ \\\\
 $P(\mathbb{X}=\varphi)=1$\\\\
+\end{lemma}
 Definimos la relación de equivalencia $\mathbb{X}R\varphi\leftrightarrow P(\mathbb{X}=\varphi)=1$
 \section{Distribuciones de probabilidad}
 \section{Funciones de distribución}
