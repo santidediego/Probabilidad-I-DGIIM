@@ -82,6 +82,21 @@ $$ \lim A_n = \liminf A_n = \limsup A_n $$
 en caso de que límite superior e inferior coincidan.
 
 \section{Espacios de probabilidad y variables aleatorias}
+\textbf{Teorema de extensión de Caratheodory}:  Una medida $\mu$ sobre $\mathbb{C}$ se extiende a $A(\mathbb{C})$. La extensión es mínima si $\mu$ es finita.
+$$(\Omega,\mathbb{C},\mu)\overbrace{\longrightarrow}^{extension}(\Omega,S(\Omega),\mu^\circ)\overbrace{\longrightarrow}^{restriccion}(\Omega,A^\circ,\mu^\circ)\overbrace{\longrightarrow}^{restriccion}(\Omega,A(\mathbb{C}),\mu^\circ)$$
+donde:\\\\
+$\mu^\circ$ es la medida exterior que es extensión de $\mu$\\
+$A^\circ$ es el $\sigma$-campo\\\\
+$\mu^\circ$ es medida exterior si es subaditiva, no decreciente y $\mu^\circ(\emptyset)=0$
+\\\\
+$A\in \Omega$, $\mu^\circ(A)=inf\displaystyle\sum(A_j)$\\\\
+$\mu^\circ(\emptyset)\leq\mu(\emptyset)$\\\\
+$a\in A^\circ$ si $D\in S(\Omega)$ se cumple que $\mu^\circ(D)\geq\mu^\circ(AD)+\mu^\circ(A^c D)$
+\textbf{Lema:} $\mathbb{X}(w)=\varphi(w)\,\forall w \in \Omega - \Lambda\, t.q.\, P(\Lambda)=0$. Entonces, $\mathbb{X}=\varphi$ \\\\
+$P(\mathbb{X}=\varphi)=1$\\\\
+Definimos la relación de equivalencia $\mathbb{X}R\varphi\leftrightarrow P(\mathbb{X}=\varphi)=1$
+\\\\
+\textbf{Definición de convergencia en probabilidad:} Si $P(| \mathbb{X}_n- \mathbb{X} | \geq\epsilon)\rightarrow 1$, entonces se dice que $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X}$, es decir, $\mathbb{X}_n$ converge en probabilidad a $\mathbb{X}$
 \section{Distribuciones de probabilidad}
 \section{Funciones de distribución}
 \section{Convergencia en probabilidad de espacios métricos}
