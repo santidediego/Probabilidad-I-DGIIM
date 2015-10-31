@@ -95,7 +95,9 @@ $a\in A^\circ$ si $D\in S(\Omega)$ se cumple que $\mu^\circ(D)\geq\mu^\circ(AD)+
 \textbf{Lema:} $\mathbb{X}(w)=\varphi(w)\,\forall w \in \Omega - \Lambda\, t.q.\, P(\Lambda)=0$. Entonces, $\mathbb{X}=\varphi$ \\\\
 $P(\mathbb{X}=\varphi)=1$\\\\
 Definimos la relación de equivalencia $\mathbb{X}R\varphi\leftrightarrow P(\mathbb{X}=\varphi)=1$
-\\\\
+\section{Distribuciones de probabilidad}
+\section{Funciones de distribución}
+\section{Convergencia en probabilidad de espacios métricos}
 \textbf{Definición de convergencia en probabilidad:} Si $P(| \mathbb{X}_n- \mathbb{X} | \geq\epsilon)\rightarrow 1$, entonces se dice que $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X}$, es decir, $\mathbb{X}_n$ converge en probabilidad a $\mathbb{X}$
 \\\\
 \textbf{Lema:} $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X} \bigwedge \mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{\varphi}\Longrightarrow P(\mathbb{X}=\varphi)=1$\\\\
@@ -118,9 +120,23 @@ $P(\mathbb{X}_n=1)=\dfrac{1}{n}$ y $P(\mathbb{X}_n=0)=1-\dfrac{1}{n}$\\\\
 La pregunta es, ¿a dónde converge en probabilidad $\mathbb{X}_n$?\\\\
 Podemos afirmar que $\mathbb{X}_n\overbrace{\longrightarrow}^P 0$ ya que:\\\\
 $P ( | \mathbb{X}_n - 0 | \geq\epsilon)=P(| \mathbb{X}_n | \geq\epsilon)=P(| \mathbb{X}_n | =1)=\dfrac{1}{n}\rightarrow 0$
-\section{Distribuciones de probabilidad}
-\section{Funciones de distribución}
-\section{Convergencia en probabilidad de espacios métricos}
+\subsection{Propiedades}
+\begin{enumerate}
+\item $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X} \bigwedge \varphi_n\overbrace{\longrightarrow}^P \varphi \Longrightarrow \mathbb{X}_n + \varphi_n\overbrace{\longrightarrow}^P\mathbb{X}+\varphi$
+\item $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X}\Longrightarrow K\mathbb{X}_n\overbrace{\longrightarrow}^P K\mathbb{X}$
+\item $\mathbb{X}_n\overbrace{\longrightarrow}^P K$ (es decir, que degenera), entonces ${\mathbb{X}_n}^2\overbrace{\longrightarrow}^P K^2$.\\\\
+Para demostrarlo basta notar que: ${\mathbb{X}_n}^2-K^2=(\mathbb{X}_n + K)(\mathbb{X}_n -K)$
+\item $\mathbb{X}_n\overbrace{\longrightarrow}^P a \bigwedge \mathbb{X}_n\overbrace{\longrightarrow}^P b\Longrightarrow \mathbb{X}_n \mathbb{\varphi}_n \overbrace{\longrightarrow}^P a\cdot b$
+\\\\
+Para demostrarlo tenemos que notar que: 
+$$\mathbb{X}_n\varphi_n=\dfrac{(\mathbb{X}_n + \varphi_n)^2-\mathbb{X}_n - \varphi_n)^2}{4}\overbrace{\longrightarrow}^P \dfrac{(a+b)^2-(a-b)^2}{4}=ab$$
+\item $\mathbb{X}_n\overbrace{\longrightarrow}^P 1 \Longrightarrow \dfrac{1}{\mathbb{X}_n}\overbrace{\longrightarrow}^P 1$
+\item $\mathbb{X}_n\overbrace{\longrightarrow}^P a \bigwedge \varphi_n\overbrace{\longrightarrow}^P b\Longrightarrow \mathbb{X}_n\varphi_n^{-1}\overbrace{\longrightarrow}^P ab^{-1}$
+\item $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X}\bigwedge \varphi_n\overbrace{\longrightarrow}^P \varphi \Longrightarrow\mathbb{X}_n\varphi_n\overbrace{\longrightarrow}^P\mathbb{X}\varphi$
+\\\\
+Para demostrarlo basta notar que: $(\mathbb{X}_n - \mathbb{X})(\varphi_n - \varphi)\overbrace{\longrightarrow}^P 0$ y luego $\mathbb{X}_n\varphi_n-\mathbb{X}\varphi_n-\mathbb{X}_n\varphi-\mathbb{X}\varphi\overbrace{\longrightarrow}^P 0$ (Por la propiedad siguiente)
+\item $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X}$, entonces $\varphi\mathbb{X}_n\overbrace{\longrightarrow}^P \varphi\mathbb{X}$
+\end{enumerate}
 \section{Funciones características y funciones de distribución}
 \section{Leyes de la probabilidad y tipos de leyes}
 \end{document}
