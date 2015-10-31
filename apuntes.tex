@@ -102,6 +102,22 @@ Definimos la relación de equivalencia $\mathbb{X}R\varphi\leftrightarrow P(\mat
 \textit{\textbf{Demostración}}\\\\
 $| \mathbb{X}-\varphi |=|-\mathbb{X}_n - \mathbb{X}-\varphi + \mathbb{X}_n | \leq |\mathbb{X}_n - \mathbb{X}|+|\mathbb{X}_n-\varphi |$\\\\
 $P(| \mathbb{X}- \varphi | \geq\epsilon)\leq P(| \mathbb{X}_n- \mathbb{X} | \geq\frac{\epsilon}{2})+P(| \mathbb{X}_n- \varphi | \leq\frac{\epsilon}{2})\rightarrow 0$
+\begin{flushright}
+$\square$
+\end{flushright}
+\textbf{Teorema:} Una sucesión $\mathbb{X}_n$ converge en probabilidad a $\mathbb{X}$ si y solo si:
+$$P(| \mathbb{X}_{n+\delta}-\mathbb{X}_n |\geq\epsilon)\longrightarrow 0$$
+\textit{\textbf{Demostración}}\\\\
+ $| \mathbb{X}_{n+\delta}-\mathbb{X}_n |= |   \mathbb{X}_{n+\delta}-\mathbb{X}+\mathbb{X}-\mathbb{X}_n  |$\\\\
+ Y se termina aplicando la desigualdad de Cauchy como antes.
+ \begin{flushright}
+$\square$
+\end{flushright}
+En el siguiente ejemplo consideramos una sucesión de variables aleatorias indicadoras tal que:\\\\
+$P(\mathbb{X}_n=1)=\dfrac{1}{n}$ y $P(\mathbb{X}_n=0)=1-\dfrac{1}{n}$\\\\
+La pregunta es, ¿a dónde converge en probabilidad $\mathbb{X}_n$?\\\\
+Podemos afirmar que $\mathbb{X}_n\overbrace{\longrightarrow}^P 0$ ya que:\\\\
+$P ( | \mathbb{X}_n - 0 | \geq\epsilon)=P(| \mathbb{X}_n | \geq\epsilon)=P(| \mathbb{X}_n | =1)=\dfrac{1}{n}\rightarrow 0$
 \section{Distribuciones de probabilidad}
 \section{Funciones de distribución}
 \section{Convergencia en probabilidad de espacios métricos}
