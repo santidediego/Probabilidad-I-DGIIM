@@ -97,6 +97,11 @@ $P(\mathbb{X}=\varphi)=1$\\\\
 Definimos la relación de equivalencia $\mathbb{X}R\varphi\leftrightarrow P(\mathbb{X}=\varphi)=1$
 \\\\
 \textbf{Definición de convergencia en probabilidad:} Si $P(| \mathbb{X}_n- \mathbb{X} | \geq\epsilon)\rightarrow 1$, entonces se dice que $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X}$, es decir, $\mathbb{X}_n$ converge en probabilidad a $\mathbb{X}$
+\\\\
+\textbf{Lema:} $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X} \bigwedge \mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{\varphi}\Longrightarrow P(\mathbb{X}=\varphi)=1$\\\\
+\textit{\textbf{Demostración}}\\\\
+$| \mathbb{X}-\varphi |=|-\mathbb{X}_n - \mathbb{X}-\varphi + \mathbb{X}_n | \leq |\mathbb{X}_n - \mathbb{X}|+|\mathbb{X}_n-\varphi |$\\\\
+$P(| \mathbb{X}- \varphi | \geq\epsilon)\leq P(| \mathbb{X}_n- \mathbb{X} | \geq\frac{\epsilon}{2})+P(| \mathbb{X}_n- \varphi | \leq\frac{\epsilon}{2})\rightarrow 0$
 \section{Distribuciones de probabilidad}
 \section{Funciones de distribución}
 \section{Convergencia en probabilidad de espacios métricos}
