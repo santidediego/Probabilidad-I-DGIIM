@@ -1,13 +1,22 @@
-\documentclass[12pt,a4paper,openright]{book}
+\documentclass[12pt,a4paper]{book}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
+% \usepackage[spanish]{babel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+
+\newcommand*{\qed}{\hfill\ensuremath{\blacksquare}}
+
+\setlength{\parindent}{0pt}
+
+\pretolerance=2000
+\tolerance=3000
+
 \author{Santiago de Diego\\Braulio Valdivielso\\Francisco Luque}
 \title{Probabilidad I}
 \date{}
+
 \begin{document}
 \maketitle
 \newtheorem{theorem}{Teorema}[section]
@@ -18,7 +27,7 @@
 \addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
 \markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado 
  
-¡Muchas gracias a todos!yo
+¡Un saludo a mi gente de Tinder, se os quiere!
 
 \chapter*{Resumen} % si no queremos que añada la palabra "Capitulo"
 \addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
@@ -27,74 +36,161 @@
 
 \tableofcontents
 \chapter{Conjuntos y funciones $\sigma$-aditivas}
-\section{Introducción: concepto de $\sigma$ aditividad}
-Sea un conjunto $\Omega$ y una clase de conjuntos $\mathbb{C}$ sobre $\Omega$. Definimos:
-$$\varphi : \mathbb{C}\rightarrow \mathbb{R}$$
-$\varphi (s)$ es único\\\\
+
+\section{Introducción: Espacio medible}
+
+\subsection*{Concepto de $\sigma$-álgebra}
+Sea un conjunto $\Omega$, y sea $\mathcal{A}$ una $\sigma$-álgebra sobre $\Omega$. Se dice que $\mathcal{A}$ es una $\sigma$-álgebra si cumple las siguientes propiedades:
+
+\begin{enumerate}
+\item $\Omega \in \mathcal{A}$
+\item Si $A \in \mathcal{A} \Rightarrow \overline{A} \in \mathcal{A}$
+\item Si $E_1, E_2, E_3... \in \mathcal{A} \Rightarrow \displaystyle \bigcup_{n \in \mathbb{N}}^{\infty} A_n \in \mathcal{A}$
+\end{enumerate}
+
+Es decir, una $\sigma$-álgebra es una clase de conjuntos cerrada para las operaciones complementario y unión numerable. Existen una serie de propiedades inmediatas derivadas de las propiedades que definen a la $\sigma$-álgebra:\\\\
+$\emptyset \in \mathcal{A}$\\\\
+$\mathcal{A}$ es cerrada para la operación intersección finita.
+
+\subsection*{Espacio medible}
+
+Al par ($\Omega$, $\mathcal{A}$) se le llama espacio medible, y a los conjuntos que pertenecen a $\mathcal{A}$ se les denomina conjuntos medibles.
+
+\section{Concepto de $\sigma$-aditividad}
+
+Sea un conjunto $\Omega$ y una $\sigma$-álgebra $\mathcal{A}$ sobre $\Omega$. Definimos:
+$$\varphi : \mathcal{A} \rightarrow \mathbb{R}$$
+\begin{center}
+$\varphi (s)$ es único\\
+\end{center}
 Se dice que $\varphi$ es aditiva si $\varphi(\displaystyle\sum_{1}^{n}A_k)=\displaystyle\sum_1^n\mu(A_k)$\\
-Se dice que $\varphi$ es $\sigma$ es aditiva si $\varphi(\displaystyle\sum_1^\infty A_k)=\displaystyle\sum_1^\infty \mu(A_k)$\\\\
+Se dice que $\varphi$ es $\sigma$-aditiva si $\varphi(\displaystyle\sum_1^\infty A_k)=\displaystyle\sum_1^\infty \mu(A_k)$\\
 \begin{lemma} 
-Si $\exists B\, : \, \varphi(B)<\infty \Rightarrow \varphi(\emptyset)=0$\\\\
+Si $\exists B\, : \, \varphi(B)<\infty \Rightarrow \varphi(\emptyset)=0$
 \end{lemma}
 
 \begin{theorem}
-Si $\varphi$ es $\sigma$ aditiva y $\displaystyle\sum\varphi(A_i)<\infty\Rightarrow\displaystyle\sum(\vert \varphi(A_i)\vert)<\infty$\\\\
+Si $\varphi$ es $\sigma$-aditiva y $\displaystyle\sum\varphi(A_i)<\infty\Rightarrow\displaystyle\sum(\vert \varphi(A_i)\vert)<\infty$
 \end{theorem}
+
 \begin{proof}
-Tomemos las sucesiones: \\\\
+Tomemos las sucesiones: \\
 Si $\varphi(A_n)\geq 0 \Longrightarrow A_n^{+}=A_n$ y $A_n^{-}=\emptyset$\\
 Si $\varphi(A_n)<0 \Longrightarrow A_n^{+}=\emptyset$ y $A_n^{-}=A_n$\\
-Entonces $\varphi(\displaystyle\sum A_n^{+})=\displaystyle\sum\varphi(A_n^{+})$ y $\varphi(\displaystyle\sum A_n^{-})=\displaystyle\sum\varphi(A_n^{-})$\\\\
+Entonces $\varphi(\displaystyle\sum A_n^{+})=\displaystyle\sum\varphi(A_n^{+})$ y $\varphi(\displaystyle\sum A_n^{-})=\displaystyle\sum\varphi(A_n^{-})$, ambas finitas. Sumando ambas cantidades obtenemos que $\displaystyle\sum(\vert \varphi(A_i)\vert)<\infty$
+\qed
 \end{proof}
 
 \begin{theorem} 
-Si $\varphi$ es $\sigma$ aditiva, $\varphi\geq 0$, entonces: $\varphi$ es no decreciente y subaditiva
+Si $\varphi$ es $\sigma$-aditiva, $\varphi \geq 0$, entonces: $\varphi$ es no decreciente y subaditiva
 \end{theorem}
 
+\begin{proof}
+Veamos que es no decreciente $(A \subseteq B \Rightarrow \varphi (A) \leq \varphi (B))$. Podemos escribir $B = (B \cap A) + (B \cap \overline{A}) = A + (B \cap \overline{A})$. Entonces $\varphi (A) \leq \varphi (A) + \varphi (B \cap \overline{A}) = \varphi (B)$.\\
+
+Veamos ahora que es subaditiva $(\varphi(A \cup B) \leq \varphi(A) + \varphi(B))$. Tenemos que $ A \cup B = A + (B \setminus A)$. Tenemos entonces que $\varphi (A \cup B) = \varphi (A) + \varphi (B \setminus A) \leq \varphi (A) + \varphi (B)$.
+\qed
+\end{proof}
+
 \section{Límites en sucesiones de conjuntos}
+
 \subsection{Límites en sucesiones monótonas}
-Si tomamos la relación de inclusión entre conjuntos ($\subseteq$) como una relación de orden, podemos hablar sin ningún tipo de problema de sucesiones monótonas. En este sentido, una sucesión creciente de conjuntos sería una sucesión $\{A_n\}_{n \in \mathbb{N}}$ en la que se cumple que $A_i \subseteq A_{i+1} \forall i \in \mathbb{N}$. De forma análoga se podría ver qué es una sucesión decreciente de conjuntos.
+
+Si tomamos la relación de inclusión entre conjuntos ($\subseteq$) como una relación de orden, podemos hablar sin ningún tipo de problema de sucesiones monótonas. En este sentido, una sucesión creciente de conjuntos sería una sucesión $\{A_n\}_{n \in \mathbb{N}}$ en la que se cumple que $A_i \subseteq A_{i+1}, \forall i \in \mathbb{N}$. De forma análoga se podría ver qué es una sucesión decreciente de conjuntos.\\
 
 Resulta que existe una forma intuitiva de definir el límite de una sucesión monótona de conjuntos. En particular, el límite de una sucesión creciente de conjuntos $\{A_n\}_{n \in \mathbb{N} }$ se puede definir como 
 
-
 $$\lim_{n\to\infty} A_n = \bigcap_{k \in \mathbb{N}}^{\infty} A_k$$
 
-
-Esta definición aprovecha la relación de orden entre los conjuntos de la sucesión para afirmar que \textit{si un elemento está en el último conjunto de la sucesión, entonces está en todos los anteriores, y por tanto en \textbf{todos}}, por ello se puede utilizar una intersección numerable (que está perfectamente definida) para formalizar el concepto.
+Esta definición aprovecha la relación de orden entre los conjuntos de la sucesión para afirmar que \textit{si un elemento está en el último conjunto de la sucesión, entonces está en todos los anteriores, y por tanto en \textbf{todos}}, por ello se puede utilizar una intersección numerable (que está perfectamente definida) para formalizar el concepto.\\
 
 Con una intuición análoga se define el límite de una sucesión decreciente de conjuntos. Si $\{A_n\}_{n\in\mathbb{N}}$ es una sucesión decreciente de conjuntos, entonces:
+
 $$ \lim_{n\to\infty} A_n = \bigcup_{k\in\mathbb{N}}^{\infty} A_k $$
 
 \subsection{Límites superiores e inferiores}
-No solo se puede hablar de límites en sucesiones monótonas. Para definir los límites en sucesiones arbitrarias de conjuntos tenemos que recurrir a los conceptos de límite inferior y límite superior. La intuición de estos límites superior e inferior pasan por el concepto de las colas de la sucesión.
+
+No solo se puede hablar de límites en sucesiones monótonas. Para definir los límites en sucesiones arbitrarias de conjuntos tenemos que recurrir a los conceptos de límite inferior y límite superior. La intuición de estos límites superior e inferior pasan por el concepto de las colas de la sucesión.\\
 
 Dada una sucesión de conjuntos $\{A_n\}_{n\in\mathbb{N} }$ podemos considerar el conjunto
+
 $$ B_n = \bigcap_{k=n}^{\infty} A_k $$ 
- y este conjunto contiene aquellos elementos que están en \textbf{todos} los $A_k$ para $k \geq n$. Es fácil probar que la sucesión $\{B_n\}_{n\in\mathbb{N}}$ es una sucesión creciente de conjuntos, y por tanto se puede obtener el límite $\lim_{n\to\infty} B_n$. Informalmente, ese límite es un conjunto que contiene a todos los elementos de $A_n$ que están en todos los conjuntos $A_k$ a partir de cierto $n\in\mathbb{N}$. Definimos el límite inferior de $A_n$ como
 
- $$ \liminf A_n = \lim_{n\to\infty} B_n = \bigcup_{n\in\mathbb{N}} \bigcap_{k=n}^{\infty} A_n $$
+y este conjunto contiene aquellos elementos que están en \textbf{todos} los $A_k$ para $k \geq n$. Es fácil probar que la sucesión $\{B_n\}_{n\in\mathbb{N}}$ es una sucesión creciente de conjuntos, y por tanto se puede obtener el límite $\lim_{n\to\infty} B_n$. Informalmente, ese límite es un conjunto que contiene a todos los elementos de $A_n$ que están en todos los conjuntos $A_k$ a partir de cierto $n\in\mathbb{N}$. Definimos el límite inferior de $A_n$ como
 
- Análogamente, podríamos definir la sucesión de conjuntos $\{C_n\}_{n\in\mathbb{N}}$ como
+$$ \liminf A_n = \lim_{n\to\infty} B_n = \bigcup_{n\in\mathbb{N}} \bigcap_{k=n}^{\infty} A_n $$
 
- $$ C_n = \bigcup_{k=n}^{\infty} A_n $$
+Análogamente, podríamos definir la sucesión de conjuntos $\{C_n\}_{n\in\mathbb{N}}$ como
 
-Cada $C_n$ contiene todos los elementos que están presentes en algún $A_k$ para $k \geq n$. Es fácil también ver que la sucesión $\{C_n\}_{n\in\mathbb{N}}$ es una sucesión decreciente de conjuntos, y por tanto su límite también está bien definido. Se puede definir entonces el límite superior de $\{A_n\}_{n\in\mathbb{N}}$
-como 
+$$ C_n = \bigcup_{k=n}^{\infty} A_n $$
+
+Cada $C_n$ contiene todos los elementos que están presentes en algún $A_k$ para $k \geq n$. Es fácil también ver que la sucesión $\{C_n\}_{n\in\mathbb{N}}$ es una sucesión decreciente de conjuntos, y por tanto su límite también está bien definido. Se puede definir entonces el límite superior de $\{A_n\}_{n\in\mathbb{N}}$ como 
 
 $$ \limsup A_n = \lim_{n\to\infty} C_n = \bigcap_{n\in\mathbb{N}} \bigcup_{k=n}^{\infty} A_n $$
 
-Informalmente se puede pensar en este límite superior de $A_n$ como el conjunto de los elementos que están en infinitos conjuntos de la sucesión.
+Informalmente se puede pensar en este límite superior de $A_n$ como el conjunto de los elementos que están en infinitos conjuntos de la sucesión.\\
 
 A partir de estas definiciones, es fácil comprobar que 
+
 $$ \liminf A_n \subseteq \limsup A_n $$
 
 \subsection{Límite de una sucesión de conjuntos}
+
 Diremos que una sucesión de conjuntos tiene límite si su límite inferior y superior coinciden, y el límite tendrá como valor efectivamente el de estos límites. Es decir: 
+
 $$ \lim A_n = \liminf A_n = \limsup A_n $$ 
+
 en caso de que límite superior e inferior coincidan.
 
+\section{Continuidad en funciones sobre conjuntos}
+
+Una vez introducido el concepto de límite para una sucesión de conjuntos, vamos a tratar de definir la continuidad para funciones de conjunto. Tendremos tres tipos de continuidad, cada uno relacionado con un tipo de sucesiones de conjuntos de las que hemos definido anteriormente. En esta sección trabajaremos con una función $\varphi : \Omega \to \Omega'$\\
+
+Diremos que $\varphi$ es continua por abajo si cumple que, dada una sucesión creciente de elementos $A_n \uparrow A$, se tiene que 
+
+$$ \lim \varphi (A_n) = \varphi (A) $$
+
+Por otra parte, diremos que $\varphi$ es continua por arriba si cumple que dada una sucesión decreciente de elementos $A_n \downarrow A$, se tiene que 
+
+$$ \lim \varphi (A_n) = \varphi (A)$$
+
+Por último, diremos que una función es continua si lo es por arriba y por abajo.
+
+\begin{theorem} 
+Teorema de continuidad para funciones sobre conjuntos\\
+
+Sea $\varphi$ una función $sigma$-aditiva. Entonces, $\varphi$ es aditiva y continua. Inversamente, si $\varphi$ es aditiva y, o bien continua por abajo, o finita y continua en $\emptyset$, entonces $\varphi$ es $\sigma$-aditiva.
+\end{theorem}
+
+\begin{proof}
+Por un lado, sea $\varphi$ una función $\sigma$-aditiva. Entonces es trivialmente aditiva. Ahora, veamos que es continua por abajo y por arriba. Sea $A_n \uparrow A$, entonces:
+$$ A = \lim A_n = \bigcup A_n = A_1 + (A_2 - A_1) + (A_3 - A_2) +... $$
+
+Unión de conjuntos disjuntos. Por tanto:
+$$ \varphi (A) = \varphi (\lim A_n) = \lim_{n \to \infty } \{ \varphi (A_1) + \varphi (A_2 - A_1) + ... + \varphi (A_n - A_{n-1}) \} = \lim \varphi (A_n) $$
+
+Veamos la continuidad por arriba. Sea $A_n \downarrow A$, tomamos $A_{n_0}$ tal que $\varphi (A_{n_0})$ es finito. Entonces $A_{n_0} - A_n \uparrow A_{n_0} - A$, y por el apartado anterior tenemos la convergencia desde abajo, por tanto:
+$$ \varphi (A_{n_0}) - \varphi (A) = \varphi (\lim (A_{n_0} - A_n)) = \lim \varphi (A_{n_0} - A_n) = \varphi (A_{n_0}) - \lim \varphi (A_n) $$
+
+De donde se deduce que $ \varphi (A) = \lim \varphi (A_n) $.\\
+
+Inversamente, sea $ \varphi$ una función aditiva. Si $\varphi$ es continua por abajo, tenemos
+$$ \varphi \left( \sum_{n}^{\infty} A_n \right) = \varphi \left( \lim \sum_{k=1}^n A_k \right) = \lim \varphi \left( \sum_{k=1}^n A_k \right) = \lim \sum_{k=1}^n \varphi \left( A_k \right) = \sum_{n}^{\infty} \varphi (A_n) $$
+
+Y por tanto es $\sigma$-aditiva. Si es finita y continua en $\emptyset$, entonces se obtiene la $\sigma$-aditividad de:
+$$ \varphi \left( \sum_{n}^{\infty} A_n \right) = \varphi \left( \sum_{k=1}^{n} A_k \right) + \varphi \left( \sum_{k=n+1}^{\infty} A_k \right) = \sum_{k=1}^{n} \varphi (A_k) + \varphi \left( \sum_{k=n+1}^{\infty} A_k \right) $$
+
+Y tenemos que 
+$$ \varphi \left( \sum_{k=n+1}^{\infty} A_k \right) \to \varphi (\emptyset) = 0 $$
+\qed 
+\end{proof}
+
+\section{Funciones medibles}
+
+Dados dos espacios medibles ($\Omega$, $\mathcal{A}$) y ($\Omega'$, $\mathcal{A}'$), sea una función $\varphi : \mathcal{A} \rightarrow \mathcal{A}'$. Se dice que $\varphi$ es medible si $\forall A' \in \mathcal{A}' \Rightarrow \varphi^{-1}(A') \in \mathcal{A}$. Es decir, una función se dice medible si la imagen inversa de todo conjunto medible es medible. A la tupla ($\Omega$, $\mathcal{A}$, $\varphi_{\mathcal{A}}$) se le denomina espacio de medida. Esto no debe estar aquí, pero ya lo había escrito y no sabía muy bien donde meterlo, hay que recolocarlo.
+
 \section{Espacios de probabilidad y variables aleatorias}
+
 \begin{theorem} (de extensión de Caratheodory) 
 Una medida $\mu$ sobre $\mathbb{C}$ se extiende a $A(\mathbb{C})$. La extensión es mínima si $\mu$ es finita.
 $$(\Omega,\mathbb{C},\mu)\overbrace{\longrightarrow}^{extension}(\Omega,S(\Omega),\mu^\circ)\overbrace{\longrightarrow}^{restriccion}(\Omega,A^\circ,\mu^\circ)\overbrace{\longrightarrow}^{restriccion}(\Omega,A(\mathbb{C}),\mu^\circ)$$
