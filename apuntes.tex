@@ -240,7 +240,16 @@ $g()\mathbb{X}$ es medible si la puedo escribir como límite de funciones medibl
 \begin{theorem}
 Sea $\mathbb{X}=(\mathbb{X}_1\ldots \mathbb{X}_n)$ un vector. Será medible $\Longleftrightarrow \forall j=1\ldots k\, , \, \mathbb{X}_j$ son medibles.
 \end{theorem}
-
+\begin{proof}
+$$\Longrightarrow$$
+\\\\
+$\mathbb{X}^{-1}(-\infty,-\infty,\ldots ,x_j,\ldots ,\infty)=[\mathbb{X}_j < x_j]$\\\\
+De la medibilidad de $\mathbb{X}$ se deduce la medibilidad de todas las componentes, poniendo el $x_j$ donde nos interesa\\
+$$\Longleftarrow$$
+\\
+Supongamos que las componentes son medibles:\\
+$[\mathbb{X}_n \leq X_n]=[\mathbb{X}_1\leq x_1,\ldots ,\mathbb{X}_k \leq X_k]=\bigcap_{j=1}^k{[\mathbb{X}_j\leq x_j]}\in a$
+\end{proof}
 \section{Integrales sobre funciones de conjunto en espacios de medida}
 
 Para el cálculo de probabilidades, nos será muy útil el concepto de integral sobre funciones de conjunto. Vamos a tratar de aproximarnos al concepto de función que dió Lebesgue. En este apartado trabajaremos sobre el espacio de probabilidad $(\Omega, \mathcal{A}, \mathcal{P})$. Comenzaremos definiendo la integral para las funciones simples, para dar luego una definición de integral para funciones no negativas y por último para funciones cualesquiera.\\
