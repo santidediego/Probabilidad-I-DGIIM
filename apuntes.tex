@@ -266,7 +266,7 @@ Ahora, para cualquier función no negativa $X$, se define la integral de la func
 $$\int_{\Omega} X d\mathcal{P} = \lim \int_{\Omega}X_n d \mathcal{P}$$
 Donde $\{X_{n}\} \to X$. Finalmente, la integral en $\Omega$ de una función medible $X$ se define como:
 $$\int_{\Omega} X d\mathcal{P} = \int_{\Omega}X^{+} d\mathcal{P} - \int_{\Omega} X^{-} d\mathcal{P}$$
-donde $X^{+} = XI_{[X\geq0]}$ y $X^{-} = -XI_{[X<0]}$. Si $\displaystyle \int_{\Omega}Xd\mathcal{P}$ es finita, es decir, si los dos términos de la diferencia anterior son finitos, entonces se dice que $X$ es integrable en $\Omega$. Ahora, una vez definida la integral, vamos a ver algunas de sus propiedades. Sean $X,Y$ dos funciones medibles, entonces (no se demostrarán las propiedades triviales):\\
+donde $X^{+} = XI_{[X\geq0]}$ y $X^{-} = -XI_{[X<0]}$. Si $\displaystyle \int_{\Omega}Xd\mathcal{P}$ es finita, es decir, si los dos términos de la diferencia anterior son finitos, entonces se dice que $X$ es integrable en $\Omega$. Ahora, una vez definida la integral, vamos a ver algunas de sus propiedades. Tenemos primero una serie de propiedades relacionadas con la aditividad de la integral. Sean $X,Y$ dos funciones medibles, entonces (no se demostrarán las propiedades triviales):\\
 
 $\displaystyle \int (X+Y)d\mathcal{P} = \int Xd\mathcal{P} + \int Yd\mathcal{P}$\\
 
@@ -279,8 +279,24 @@ $$ \int (X+Y)d\mathcal{P} = \sum_k + \sum_j (x_j + y_k) \mathcal{P}(A_jB_k) = \s
 
 $\displaystyle \int_{A+B} X d\mathcal{P} = \int_A X d\mathcal{P} + \int_B X d \mathcal{P}$\\
 
-$\displaystyle \int cXd\mathcal{P} = c\int Xd\mathcal{P}$
+$\displaystyle \int cXd\mathcal{P} = c\int Xd\mathcal{P}$\\
 
+Veamos ahora algunas propiedades relacionadas con el orden:\\
+
+$X \geq 0 \rightarrow \displaystyle \int X d\mathcal{P} \geq \int 0 = 0$\\
+
+$X \geq Y \rightarrow \displaystyle \int X d\mathcal{P} \geq \int Y d\mathcal{P}$\\
+
+$\displaystyle X \stackrel{c.s}{=} Y \rightarrow \int X d\mathcal{P} = \int Y d\mathcal{P}$\\
+
+\subsection{Teorema de la convergencia monótona}
+Una vez vista la definición de la integral y algunas de sus propiedades, vamos a enunciar y demostrar un teorema de convergencia que nos será de mucha utilidad para el estudio de variables aleatorias. Veamos su enunciado y demostración:\\
+
+\begin{theorem}
+Teorema de la convergencia monótona para funciones medibles no negativas\\
+
+Sea $\{X_n\} \geq 0$ tal que $X_n \uparrow X$. Entonces, se tiene que $\displaystyle \int X_n \uparrow \int X$
+\end{theorem}
 
 \section{Espacios de probabilidad y variables aleatorias}
 \begin{theorem} (de extensión de Caratheodory) 
