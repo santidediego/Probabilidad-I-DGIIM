@@ -159,7 +159,7 @@ Por último, diremos que una función es continua si lo es por arriba y por abaj
 \begin{theorem} 
 Teorema de continuidad para funciones sobre conjuntos\\
 
-Sea $\varphi$ una función $sigma$-aditiva. Entonces, $\varphi$ es aditiva y continua. Inversamente, si $\varphi$ es aditiva y, o bien continua por abajo, o finita y continua en $\emptyset$, entonces $\varphi$ es $\sigma$-aditiva.
+Sea $\varphi$ una función $\sigma$-aditiva. Entonces, $\varphi$ es aditiva y continua. Inversamente, si $\varphi$ es aditiva y, o bien continua por abajo, o finita y continua en $\emptyset$, entonces $\varphi$ es $\sigma$-aditiva.
 \end{theorem}
 
 \begin{proof}
@@ -183,6 +183,20 @@ $$ \varphi \left( \sum_{n}^{\infty} A_n \right) = \varphi \left( \sum_{k=1}^{n} 
 Y tenemos que 
 $$ \varphi \left( \sum_{k=n+1}^{\infty} A_k \right) \to \varphi (\emptyset) = 0 $$
 \qed 
+\end{proof}
+
+Una vez demostrado este teorema, vamos a ver un teorema que nos relaciona las propiedades del supremo e ínfimo de una función $\sigma$-aditiva con los conjuntos sobre los que está dicha función definida:
+
+\begin{theorem}
+Teorema del supremo e ínfimo\\
+
+Sea $\varphi$ una función $\sigma$-aditiva sobre una $\sigma$-álgebra $\mathcal{A}$. Entonces, existen $C,D \in \mathcal{A}$ tales que $\varphi (C) = \sup \varphi$ y $\varphi (D) = \inf \varphi$
+\end{theorem}
+
+\begin{proof}
+Probaremos la existencia del conjunto $C$. La del conjunto $D$ es análoga. Si $\varphi(A) = \infty$ para algún $A \in \mathcal{A}$, entonces podemos establecer $A = C$ y la demostración del teorema es trivial. Entonces, supongamos que $\varphi < \infty$ y dado que el valor $-\infty$ está excluido, $\varphi$ es finita.\\
+
+Entonces, existe una sucesión $\{A_n\} \subset \mathcal{A}$ tal que $\varphi(A_n) \to \sup \varphi$. Sea $A = \cup A_n $ y para cada $n$, consideramos la partición de $A$ en $2^n$ conjuntos $A_{nm}$ de la forma $\displaystyle \cap_{k=1}^n A'_k$, donde $A'_k = A_k$ o $A - A_k$. Para $n < n'$, cada conjunto $A_{nm}$ es una suma finita de conjuntos $A_{n'm'}$. Sea ahora $B_n$ la suma de los conjuntos $A_{nm}$ para los cuales $\varphi$ es no negativa. Si no hay ninguno, entonces $B_n = \emptyset$
 \end{proof}
 
 \section{Funciones medibles}
