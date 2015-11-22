@@ -240,6 +240,19 @@ $g()\mathbb{X}$ es medible si la puedo escribir como límite de funciones medibl
 \begin{theorem}
 Sea $\mathbb{X}=(\mathbb{X}_1\ldots \mathbb{X}_n)$ un vector. Será medible $\Longleftrightarrow \forall j=1\ldots k\, , \, \mathbb{X}_j$ son medibles.
 \end{theorem}
+
+\section{Integrales sobre funciones de conjunto en espacios de medida}
+
+Para el cálculo de probabilidades, nos será muy útil el concepto de integral sobre funciones de conjunto. Vamos a tratar de aproximarnos al concepto de función que dió Lebesgue. En este apartado trabajaremos sobre el espacio de probabilidad $(\Omega, \mathcal{A}, \mathcal{P})$. Comenzaremos definiendo la integral para las funciones simples, para dar luego una definición de integral para funciones no negativas y por último para funciones cualesquiera.\\
+
+Sea entonces $\{A_k\} \in \mathcal{A}$, tal que $\displaystyle \sum_k A_k = \Omega$, partición medible del espacio. Sea entonces la función simple $X = \displaystyle \sum_{j=1}^m x_jI_{A_j}, x_j \geq 0$. La integral de la función $X$ se define como:
+$$\int_{\Omega} X d\mathcal{P} = \sum_{j=1}^m x_j\mathcal{P}_{A_j}$$
+Ahora, para cualquier función no negativa $X$, se define la integral de la función como:
+$$\int_{\Omega} X d\mathcal{P} = \lim \int_{\Omega}X_n d \mathcal{P}$$
+Donde $\{X_{n}\} \to X$. Finalmente, la integral en $\Omega$ de una función medible $X$ se define como:
+$$\int_{\Omega} X d\mathcal{P} = \int_{\Omega}X^{+} d\mathcal{P} - \int_{\Omega} X^{-} d\mathcal{P}$$
+donde $X^{+} = XI_{[X\geq0]}$ y $X^{-} = -XI_{[X<0]}$. Si $\displaystyle \int_{\Omega}Xd\mathcal{P}$ es finita, es decir, si los dos términos de la diferencia anterior son finitos, entonces se dice que $X$ es integrable en $\Omega$
+
 \section{Espacios de probabilidad y variables aleatorias}
 \begin{theorem} (de extensión de Caratheodory) 
 Una medida $\mu$ sobre $\mathbb{C}$ se extiende a $A(\mathbb{C})$. La extensión es mínima si $\mu$ es finita.
