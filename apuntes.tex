@@ -383,5 +383,21 @@ $$\mathbb{X}_n\overbrace{\longrightarrow}^P\mathbb{X}\Longrightarrow \exists\mat
 $$0=\displaystyle\lim_{n\rightarrow\infty}P\bigcup_{m\geq n}[|\mathbb{X}_m - \mathbb{X}|\geq \epsilon ]\geq\displaystyle\lim_{n\rightarrow\infty}P[|\mathbb{X}_n - \mathbb{X}|\geq \epsilon ]$$
 \end{proof}
 \section{Funciones características y funciones de distribución}
+\subsection{Función característica}
+Función puntual que se define sobre la recta real, no negativa, no decreciente, continua por la izquierda y finita. Para nosotros será la función que está entre 0 y 1.
+\\\\
+Verifica estas tres propiedades:
+\begin{itemize}
+\item $0\leq F[a,b]\leq \infty$
+\item $F[a,b]\rightarrow 0 \, , \, a\rightarrow b$
+\item Si $a_1\leq b_1\leq a_2\leq b_2\leq\ldots\leq a_n \leq b_n$, entonces:
+$$\sum_{k=1}^n F[a_k,b_k]-\sum_{k=1}^{n-1}F[b_k,a_{k+1}]=F[a_1,b_n]$$
+\end{itemize}
+Las funciones de distribución representan medidas
+\begin{theorem}
+La relación $\mu[a,b]=F[a,b]$ establece una correspondencia uno a uno (da igual pasar de una a otra)
+$$\int_\mathbb{R} g(\mathbb{X}dP_{\mathbb{X}}(x))=\int_\mathbb{R} g\, Pg=\int_{\Omega}g(\mathbb{X}(\omega))dP(\omega)$$
+\end{theorem}
+
 \section{Leyes de la probabilidad y tipos de leyes}
 \end{document}
