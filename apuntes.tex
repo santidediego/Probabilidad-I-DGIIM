@@ -266,7 +266,21 @@ Ahora, para cualquier función no negativa $X$, se define la integral de la func
 $$\int_{\Omega} X d\mathcal{P} = \lim \int_{\Omega}X_n d \mathcal{P}$$
 Donde $\{X_{n}\} \to X$. Finalmente, la integral en $\Omega$ de una función medible $X$ se define como:
 $$\int_{\Omega} X d\mathcal{P} = \int_{\Omega}X^{+} d\mathcal{P} - \int_{\Omega} X^{-} d\mathcal{P}$$
-donde $X^{+} = XI_{[X\geq0]}$ y $X^{-} = -XI_{[X<0]}$. Si $\displaystyle \int_{\Omega}Xd\mathcal{P}$ es finita, es decir, si los dos términos de la diferencia anterior son finitos, entonces se dice que $X$ es integrable en $\Omega$
+donde $X^{+} = XI_{[X\geq0]}$ y $X^{-} = -XI_{[X<0]}$. Si $\displaystyle \int_{\Omega}Xd\mathcal{P}$ es finita, es decir, si los dos términos de la diferencia anterior son finitos, entonces se dice que $X$ es integrable en $\Omega$. Ahora, una vez definida la integral, vamos a ver algunas de sus propiedades. Sean $X,Y$ dos funciones medibles, entonces (no se demostrarán las propiedades triviales):\\
+
+$\displaystyle \int (X+Y)d\mathcal{P} = \int Xd\mathcal{P} + \int Yd\mathcal{P}$\\
+
+\textbf{Demostración}\\
+
+Sean $X = \displaystyle \sum x_jI_{A_j}$ y $y = \displaystyle \sum y_kI_{B_k}$. Entonces $X+Y = \displaystyle \sum_k \sum_j x_j I_{A_jB_k} + \sum_k \sum_j y_k I_{A_jB_k} = \sum_k \sum_j (x_k+y_j) I_{A_jB_k}$\\
+
+Si calculamos ahora las integrales:
+$$ \int (X+Y)d\mathcal{P} = \sum_k + \sum_j (x_j + y_k) \mathcal{P}(A_jB_k) = \sum_j x_j \mathcal{P}(A_j) + \sum_k y_k \mathcal{P}(B_k) = \int Xd\mathcal{P} + \int Yd\mathcal{P}$$
+
+$\displaystyle \int_{A+B} X d\mathcal{P} = \int_A X d\mathcal{P} + \int_B X d \mathcal{P}$\\
+
+$\displaystyle \int cXd\mathcal{P} = c\int Xd\mathcal{P}$
+
 
 \section{Espacios de probabilidad y variables aleatorias}
 \begin{theorem} (de extensión de Caratheodory) 
