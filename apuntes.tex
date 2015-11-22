@@ -298,6 +298,15 @@ Teorema de la convergencia monótona para funciones medibles no negativas\\
 Sea $\{X_n\} \geq 0$ tal que $X_n \uparrow X$. Entonces, se tiene que $\displaystyle \int X_n \uparrow \int X$
 \end{theorem}
 
+\subsection{Lema de Fatou-Lebesgue}
+\begin{lemma}
+Sean $Y$, $Z$ dos funciones integrables (pueden no mantener su signo), entonces:
+\begin{itemize}
+\item Si $Y_n\leq X_n\Longrightarrow \displaystyle\int\displaystyle\lim_{inf}X_n\leq\displaystyle\lim_{inf}\displaystyle\int X_n$
+\item Si $X_n\leq Z_n\Longrightarrow \displaystyle\lim_{sup}\displaystyle\int X_n\leq \displaystyle\int\displaystyle\lim_{sup} X_n$
+\end{itemize}
+\end{lemma}
+
 \section{Espacios de probabilidad y variables aleatorias}
 \begin{theorem} (de extensión de Caratheodory) 
 Una medida $\mu$ sobre $\mathbb{C}$ se extiende a $A(\mathbb{C})$. La extensión es mínima si $\mu$ es finita.
@@ -362,6 +371,10 @@ Si $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X}$ y $g(\cdot)$ es contin
 $$g(\mathbb{X}_n)\overbrace{\longrightarrow}^P g(\mathbb{X})$$
 \end{theorem}
 \section{Convergencia casi segura de espacios métricos}
+\textbf{Definición de convergencia casi segura:} Una sucesión de variables aleatorias, ${ \mathbb{X}_n }$ , converge con probabilidad 1, o de forma casi segura, a una variable aleatoria $\mathbb{X}$ ( que puede degenerar en una constante K) cuando se cumple que:
+$$P(\lim_{n\rightarrow\infty}x_n=\mathbb{X})=1$$
+De esta forma interpretamos que $\mathbb{X}_n\overbrace{\longrightarrow}^{c.s.}\mathbb{X}$ cuando la probabilidad de que en el límite la sucesión de variables  aleatorias y aquella a la que converge sean iguales es uno
+
 \begin{theorem}
 $$\mathbb{X}_n\overbrace{\longrightarrow}^{c.s.}\mathbb{X}\Longrightarrow \mathbb{X}_n\overbrace{\longrightarrow}^P\mathbb{X}$$
 $$\mathbb{X}_n\overbrace{\longrightarrow}^P\mathbb{X}\Longrightarrow \exists\mathbb{X}_{nk}\,:\, \mathbb{X}_{n_k}\overbrace{\longrightarrow}^{c.s.}_{k\rightarrow\infty}\mathbb{X}$$
