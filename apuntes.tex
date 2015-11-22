@@ -202,7 +202,13 @@ Entonces, existe una sucesión $\{A_n\} \subset \mathcal{A}$ tal que $\varphi(A_
 \section{Funciones medibles}
 
 Dados dos espacios medibles ($\Omega$, $\mathcal{A}$) y ($\Omega'$, $\mathcal{A}'$), sea una función $\varphi : \mathcal{A} \rightarrow \mathcal{A}'$. Se dice que $\varphi$ es medible si $\forall A' \in \mathcal{A}' \Rightarrow \varphi^{-1}(A') \in \mathcal{A}$. Es decir, una función se dice medible si la imagen inversa de todo conjunto medible es medible. A la tupla ($\Omega$, $\mathcal{A}$, $\varphi_{\mathcal{A}}$) se le denomina espacio de medida. Esto no debe estar aquí, pero ya lo había escrito y no sabía muy bien donde meterlo, hay que recolocarlo.
-
+\\\\
+\textbf{Definición de medida exterior:} Una función de conjuntos $\mu_0$ es una medida exterior si verifica:
+\begin{itemize}
+\item Es subaditiva, es decir,  $\mu^\circ (\cup A_j)\leq \displaystyle \sum \mu^\circ (A_j)$
+\item Es no decreciente $A\subset B \, \mu^\circ(A)\leq \mu^\circ(B)$
+\item $\mu^\circ(\emptyset)=0$
+\end{itemize} 
 \section{Espacios de probabilidad y variables aleatorias}
 
 \begin{theorem} (de extensión de Caratheodory) 
