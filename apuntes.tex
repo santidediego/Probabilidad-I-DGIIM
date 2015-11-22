@@ -197,6 +197,7 @@ Sea $\varphi$ una función $\sigma$-aditiva sobre una $\sigma$-álgebra $\mathca
 Probaremos la existencia del conjunto $C$. La del conjunto $D$ es análoga. Si $\varphi(A) = \infty$ para algún $A \in \mathcal{A}$, entonces podemos establecer $A = C$ y la demostración del teorema es trivial. Entonces, supongamos que $\varphi < \infty$ y dado que el valor $-\infty$ está excluido, $\varphi$ es finita.\\
 
 Entonces, existe una sucesión $\{A_n\} \subset \mathcal{A}$ tal que $\varphi(A_n) \to \sup \varphi$. Sea $A = \cup A_n $ y para cada $n$, consideramos la partición de $A$ en $2^n$ conjuntos $A_{nm}$ de la forma $\displaystyle \cap_{k=1}^n A'_k$, donde $A'_k = A_k$ o $A - A_k$. Para $n < n'$, cada conjunto $A_{nm}$ es una suma finita de conjuntos $A_{n'm'}$. Sea ahora $B_n$ la suma de los conjuntos $A_{nm}$ para los cuales $\varphi$ es no negativa. Si no hay ninguno, entonces $B_n = \emptyset$
+\qed
 \end{proof}
 
 \section{Funciones medibles}
@@ -225,7 +226,7 @@ Si $\mu^\circ$ es una medida exterior, entonces:
 \end{itemize}
 \end{theorem}
 \begin{proof}
-
+\qed
 \end{proof}
 \begin{lemma}
 Sea $\mathbb{X}:A\longrightarrow B$\\\\
@@ -236,6 +237,7 @@ Si g es continua $\Longrightarrow  g(\mathbb{X})$ es medible
 \end{theorem}
 \begin{proof}
 $g()\mathbb{X}$ es medible si la puedo escribir como límite de funciones medibles, es decir, $g(\mathbb{X})=\displaystyle\lim g(\mathbb{X}_n)$
+\qed
 \end{proof}
 \begin{theorem}
 Sea $\mathbb{X}=(\mathbb{X}_1\ldots \mathbb{X}_n)$ un vector. Será medible $\Longleftrightarrow \forall j=1\ldots k\, , \, \mathbb{X}_j$ son medibles.
@@ -249,6 +251,7 @@ $$\Longleftarrow$$
 \\
 Supongamos que las componentes son medibles:\\
 $[\mathbb{X}_n \leq X_n]=[\mathbb{X}_1\leq x_1,\ldots ,\mathbb{X}_k \leq X_k]=\bigcap_{j=1}^k{[\mathbb{X}_j\leq x_j]}\in a$
+\qed
 \end{proof}
 \begin{theorem}
 Si $\mathbb{X}$ es medible $\Longrightarrow g(\mathbb{X})$ es medible si $g$ es Borel
@@ -256,6 +259,7 @@ Si $\mathbb{X}$ es medible $\Longrightarrow g(\mathbb{X})$ es medible si $g$ es 
 \begin{proof}
 $$g(\mathbb{X})^{-1}B=\mathbb{X}^{-1}(g^{-1}(B))\in a$$
 $$P[|\mathbb{X}-\mathbb{Y}|\geq \epsilon]\leq P[[|\mathbb{X}_n-\mathbb{X}|\geq \dfrac{\epsilon}{2}]+P[|\mathbb{X}_n-\mathbb{Y}|\geq \dfrac{\epsilon}{2}]\underbrace{\longrightarrow}_{n\rightarrow\infty}0$$
+\qed
 \end{proof}
 \section{Integrales sobre funciones de conjunto en espacios de medida}
 Para el cálculo de probabilidades, nos será muy útil el concepto de integral sobre funciones de conjunto. Vamos a tratar de aproximarnos al concepto de función que dió Lebesgue. En este apartado trabajaremos sobre el espacio de probabilidad $(\Omega, \mathcal{A}, \mathcal{P})$. Comenzaremos definiendo la integral para las funciones simples, para dar luego una definición de integral para funciones no negativas y por último para funciones cualesquiera.\\
@@ -270,7 +274,7 @@ donde $X^{+} = XI_{[X\geq0]}$ y $X^{-} = -XI_{[X<0]}$. Si $\displaystyle \int_{\
 
 $\displaystyle \int (X+Y)d\mathcal{P} = \int Xd\mathcal{P} + \int Yd\mathcal{P}$\\
 
-\textbf{Demostración}\\
+\begin{proof}
 
 Sean $X = \displaystyle \sum x_jI_{A_j}$ y $y = \displaystyle \sum y_kI_{B_k}$. Entonces $X+Y = \displaystyle \sum_k \sum_j x_j I_{A_jB_k} + \sum_k \sum_j y_k I_{A_jB_k} = \sum_k \sum_j (x_k+y_j) I_{A_jB_k}$\\
 
@@ -288,10 +292,10 @@ $X \geq 0 \rightarrow \displaystyle \int X d\mathcal{P} \geq \int 0 = 0$\\
 $X \geq Y \rightarrow \displaystyle \int X d\mathcal{P} \geq \int Y d\mathcal{P}$\\
 
 $\displaystyle X \stackrel{c.s}{=} Y \rightarrow \int X d\mathcal{P} = \int Y d\mathcal{P}$\\
-
+\qed
+\end{proof}
 \subsection{Teorema de la convergencia monótona}
-Una vez vista la definición de la integral y algunas de sus propiedades, vamos a enunciar y demostrar un teorema de convergencia que nos será de mucha utilidad para el estudio de variables aleatorias. Veamos su enunciado y demostración:\\
-
+Una vez vista la definición de la integral y algunas de sus propiedades, vamos a enunciar y demostrar un teorema de convergencia que nos será de mucha utilidad para el estudio de variables aleatorias. Veamos su enunciado y demostración:
 \begin{theorem}
 Teorema de la convergencia monótona para funciones medibles no negativas\\
 
@@ -319,6 +323,19 @@ Sean $Y$, $Z$ dos funciones integrables (pueden no mantener su signo), entonces:
 \end{lemma}
     
 \section{Espacios de probabilidad y variables aleatorias}
+\begin{lemma}
+de Borel-Cantelli
+\\\\
+Sea $(\Omega,a,P) \, , \, A_n \in a$. Entonces, si $\displaystyle\sum P \, A_n < \infty \Longrightarrow P(\displaystyle \lim_{sup}A_n)=0$
+\end{lemma}
+
+\begin{proof}
+$$\lim_{sup}A_n=\bigcap_{n=1}^\infty \bigcup_{k=n}^{\infty}A_k=\bigcap_{n=1}^\infty B_n$$
+$$P(\lim_{sup}A_n)=P\lim B_n=\lim P\, B_n \leq \lim_n P\bigcup_{k=n}^\infty A_k \leq \lim_n \sum_{k=n}^\infty P\, A_k=0$$
+El recíproco no es cierto
+\qed
+\end{proof}
+
 \begin{theorem} (de extensión de Caratheodory) 
 Una medida $\mu$ sobre $\mathbb{C}$ se extiende a $A(\mathbb{C})$. La extensión es mínima si $\mu$ es finita.
 $$(\Omega,\mathbb{C},\mu)\overbrace{\longrightarrow}^{extension}(\Omega,S(\Omega),\mu^\circ)\overbrace{\longrightarrow}^{restriccion}(\Omega,A^\circ,\mu^\circ)\overbrace{\longrightarrow}^{restriccion}(\Omega,A(\mathbb{C}),\mu^\circ)$$
@@ -392,6 +409,7 @@ $$\mathbb{X}_n\overbrace{\longrightarrow}^P\mathbb{X}\Longrightarrow \exists\mat
 \end{theorem}
 \begin{proof}
 $$0=\displaystyle\lim_{n\rightarrow\infty}P\bigcup_{m\geq n}[|\mathbb{X}_m - \mathbb{X}|\geq \epsilon ]\geq\displaystyle\lim_{n\rightarrow\infty}P[|\mathbb{X}_n - \mathbb{X}|\geq \epsilon ]$$
+\qed
 \end{proof}
 \section{Funciones características y funciones de distribución}
 \subsection{Función característica}
