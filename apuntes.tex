@@ -275,7 +275,7 @@ $\displaystyle \int (X+Y)d\mathcal{P} = \int Xd\mathcal{P} + \int Yd\mathcal{P}$
 Sean $X = \displaystyle \sum x_jI_{A_j}$ y $y = \displaystyle \sum y_kI_{B_k}$. Entonces $X+Y = \displaystyle \sum_k \sum_j x_j I_{A_jB_k} + \sum_k \sum_j y_k I_{A_jB_k} = \sum_k \sum_j (x_k+y_j) I_{A_jB_k}$\\
 
 Si calculamos ahora las integrales:
-$$ \int (X+Y)d\mathcal{P} = \sum_k + \sum_j (x_j + y_k) \mathcal{P}(A_jB_k) = \sum_j x_j \mathcal{P}(A_j) + \sum_k y_k \mathcal{P}(B_k) = \int Xd\mathcal{P} + \int Yd\mathcal{P}$$
+$$ \int (X+Y)d\mathcal{P} = \sum_k + \sum_j (x_j + y_k) \mathcal{P}(A_jB_k) = \sum_j x_j \mathcal{P}(A_j) + \sum_k y_k \mathcal{P}(B_k) = \int Xd\mathcal{P} + \int Yd\mathcal{P}\qed$$
 
 $\displaystyle \int_{A+B} X d\mathcal{P} = \int_A X d\mathcal{P} + \int_B X d \mathcal{P}$\\
 
@@ -297,6 +297,17 @@ Teorema de la convergencia monótona para funciones medibles no negativas\\
 
 Sea $\{X_n\} \geq 0$ tal que $X_n \uparrow X$. Entonces, se tiene que $\displaystyle \int X_n \uparrow \int X$
 \end{theorem}
+
+\begin{proof}
+Tomamos las sucesiones $X_{km} \uparrow X_k$. La sucesión $Y_n = \displaystyle \max_{k \geq n} X_{kn}$ es una sucesión de funciones simples no negativas y no decreciente, y además
+$$X_{kn} \leq Y_n \leq X_n \rightarrow \int X_{kn} \leq \int Y_n \leq \int X_n$$
+Ahora, cuando $n \rightarrow \infty$, tenemos que 
+$$X_k \leq lim Y_n \leq X \rightarrow \int X_k \leq \int lim Y_n \leq \int X$$
+Por último, cuando $K \rightarrow \infty$, obtenemos
+$$X \leq lim Y_n \leq X \rightarrow lim \int X_n \leq \int lim Y_n \leq lim \int X_n$$
+De donde extraemos que $\lim Y_n = X$ y que $\displaystyle \int X = lim \int X_n$
+\qed
+\end{proof}
 
 \subsection{Lema de Fatou-Lebesgue}
 \begin{lemma}
