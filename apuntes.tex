@@ -301,8 +301,6 @@ $\mathbb{X}(w)=\varphi(w)\,\forall w \in \Omega - \Lambda\, t.q.\, P(\Lambda)=0$
 $P(\mathbb{X}=\varphi)=1$\\\\
 \end{lemma}
 Definimos la relación de equivalencia $\mathbb{X}R\varphi\leftrightarrow P(\mathbb{X}=\varphi)=1$
-\section{Distribuciones de probabilidad}
-\section{Funciones de distribución}
 \section{Convergencia en probabilidad de espacios métricos}
 \textbf{Definición de convergencia en probabilidad:} Si $P(| \mathbb{X}_n- \mathbb{X} | \geq\epsilon)\rightarrow 1$, entonces se dice que $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X}$, es decir, $\mathbb{X}_n$ converge en probabilidad a $\mathbb{X}$
 \\\\
@@ -352,6 +350,9 @@ $$g(\mathbb{X}_n)\overbrace{\longrightarrow}^P g(\mathbb{X})$$
 $$\mathbb{X}_n\overbrace{\longrightarrow}^{c.s.}\mathbb{X}\Longrightarrow \mathbb{X}_n\overbrace{\longrightarrow}^P\mathbb{X}$$
 $$\mathbb{X}_n\overbrace{\longrightarrow}^P\mathbb{X}\Longrightarrow \exists\mathbb{X}_{nk}\,:\, \mathbb{X}_{n_k}\overbrace{\longrightarrow}^{c.s.}_{k\rightarrow\infty}\mathbb{X}$$
 \end{theorem}
+\begin{proof}
+$$0=\displaystyle\lim_{n\rightarrow\infty}P\bigcup_{m\geq n}[|\mathbb{X}_m - \mathbb{X}|\geq \epsilon ]\geq\displaystyle\lim_{n\rightarrow\infty}P[|\mathbb{X}_n - \mathbb{X}|\geq \epsilon ]$$
+\end{proof}
 \section{Funciones características y funciones de distribución}
 \section{Leyes de la probabilidad y tipos de leyes}
 \end{document}
