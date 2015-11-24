@@ -357,6 +357,17 @@ Definimos la relación de equivalencia $\mathbb{X}R\varphi\leftrightarrow P(\mat
 \begin{lemma}
 Sea $Y\leq \mathbb {X}_n\leq Z$ con $Y,\, Z$ integrables y tal que $\mathbb{X}_n\overbrace{\longrightarrow}^{c.s.}\mathbb{X}$. Entonces se tiene que $\displaystyle \int\mathbb{X}_n\rightarrow\displaystyle\int\mathbb{X}$
 \end{lemma}
+\subsection{Algunas desigualdades interesantes}
+\begin{lemma}
+$|a+b|^r\leq C_r |a|^r + C_r |b|^r$ con $C_r=1$ si $r=1$ y $C_r=2^r$ si $r>1$
+\\\\
+Entonces se tiene $E|\mathbb{X}+\mathbb{Y}|^r \leq C_r E|\mathbb{X}|^r + C_r E|\mathbb{Y}|^r$
+\end{lemma}
+\subsubsection{Desigualdad de Hölder-Schwartz}
+$E|\mathbb{X}\mathbb{Y}|\leq \left(  E|\mathbb{X}|^r \right) ^{\frac{1}{r}}  \left(  E|\mathbb{Y}|^s \right) ^{\frac{1}{s}}$ con $r>s$ ; $ \dfrac{1}{r}+\dfrac{1}{s}=1$
+\subsubsection{Desigualdad de Markvov}
+Sea $\mathbb{X}$ una v.a. y sea $g$ una función borel. Entonces se tiene que si $g$ es par y no decreciente en $[0,\infty) \, \forall a>0$ , entonces:
+$$\dfrac{Eg(\mathbb{X})-g(a)}{sup\, g(\mathbb{X})}\leq P[|\mathbb{X}|\geq a]\leq \dfrac{E g(\mathbb{X})}{g(a)}$$ 
 \section{Convergencia en probabilidad de espacios métricos}
 \textbf{Definición de convergencia en probabilidad:} Si $P(| \mathbb{X}_n- \mathbb{X} | \geq\epsilon)\rightarrow 1$, entonces se dice que $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X}$, es decir, $\mathbb{X}_n$ converge en probabilidad a $\mathbb{X}$
 \\\\
