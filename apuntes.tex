@@ -57,22 +57,21 @@ $\mathcal{A}$ es cerrada para la operación intersección finita.
 Al par ($\Omega$, $\mathcal{A}$) se le llama espacio medible, y a los conjuntos que pertenecen a $\mathcal{A}$ se les denomina conjuntos medibles.
 
 \section{Concepto de $\sigma$-aditividad}
-
 Sea un conjunto $\Omega$ y una $\sigma$-álgebra $\mathcal{A}$ sobre $\Omega$. Definimos:
 $$\varphi : \mathcal{A} \rightarrow \mathbb{R}$$
 \begin{center}
 $\varphi (s)$ es único\\
 \end{center}
 Se dice que $\varphi$ es aditiva si $\varphi(\displaystyle\sum_{1}^{n}A_k)=\displaystyle\sum_1^n\varphi(A_k)$\\
-Se dice que $\varphi$ es $\sigma$-aditiva si $\varphi(\displaystyle\sum_1^\infty A_k)=\displaystyle\sum_1^\infty \varphi(A_k)$\\
+Se dice que $\varphi$ es $\sigma$-aditiva si $\varphi(\displaystyle\sum_1^\infty A_k)=\displaystyle\sum_1^\infty \varphi(A_k)$
+\subsubsection{Función subaditiva}
+Sea $\varphi$ definida como antes. Se dice que $\varphi$ es \textbf{subaditiva} si $\varphi(A \cup B) \leq \varphi(A) + \varphi(B)$
 \begin{lemma} 
 Si $\exists B\, : \, \varphi(B)<\infty \Rightarrow \varphi(\emptyset)=0$
 \end{lemma}
-
 \begin{theorem}
 Si $\varphi$ es $\sigma$-aditiva y $\displaystyle\sum\varphi(A_i)<\infty\Rightarrow\displaystyle\sum(\vert \varphi(A_i)\vert)<\infty$
 \end{theorem}
-
 \begin{proof}
 Tomemos las sucesiones: \\
 Si $\varphi(A_n)\geq 0 \Longrightarrow A_n^{+}=A_n$ y $A_n^{-}=\emptyset$\\
