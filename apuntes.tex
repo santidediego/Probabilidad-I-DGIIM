@@ -45,16 +45,135 @@ Sea un conjunto $\Omega$, y sea $\mathcal{A}$ una $\sigma$-álgebra sobre $\Omeg
 \begin{enumerate}
 \item $\Omega \in \mathcal{A}$
 \item Si $A \in \mathcal{A} \Rightarrow \overline{A} \in \mathcal{A}$
-\item Si $E_1, E_2, E_3... \in \mathcal{A} \Rightarrow \displaystyle \bigcup_{n \in \mathbb{N}}^{\infty} A_n \in \mathcal{A}$
+\item Si $A_1, A_2, A_3... \in \mathcal{A} \Rightarrow \displaystyle \bigcup_{n \in \mathbb{N}}^{\infty} A_n \in \mathcal{A}$
 \end{enumerate}
 
-Es decir, una $\sigma$-álgebra es una clase de conjuntos cerrada para las operaciones complementario y unión numerable. Existen una serie de propiedades inmediatas derivadas de las propiedades que definen a la $\sigma$-álgebra:\\\\
-$\emptyset \in \mathcal{A}$\\\\
-$\mathcal{A}$ es cerrada para la operación intersección finita.
+Es decir, una $\sigma$-álgebra es una clase de conjuntos cerrada para las operaciones complementario y unión numerable. Existen una serie de propiedades inmediatas derivadas de las propiedades que definen a la $\sigma$-álgebra:\\
+
+$\emptyset \in \mathcal{A}$\\
+
+$\mathcal{A}$ es cerrada para la operación intersección numerable.
 
 \subsection*{Espacio medible}
 
 Al par ($\Omega$, $\mathcal{A}$) se le llama espacio medible, y a los conjuntos que pertenecen a $\mathcal{A}$ se les denomina conjuntos medibles.
+
+\section{Límites en sucesiones de conjuntos}
+
+\subsection{Límites en sucesiones monótonas}
+
+Si tomamos la relación de inclusión entre conjuntos ($\subseteq$) como una relación de orden, podemos hablar sin ningún tipo de problema de sucesiones monótonas. En este sentido, una sucesión creciente de conjuntos sería una sucesión $\{A_n\}_{n \in \mathbb{N}}$ en la que se cumple que $A_i \subseteq A_{i+1}, \forall i \in \mathbb{N}$. De forma análoga se podría ver qué es una sucesión decreciente de conjuntos.\\
+
+Resulta que existe una forma intuitiva de definir el límite de una sucesión monótona de conjuntos. En particular, el límite de una sucesión creciente de conjuntos $\{A_n\}_{n \in \mathbb{N} }$ se puede definir como 
+
+$$\lim_{n\to\infty} A_n = \bigcup_{k \in \mathbb{N}}^{\infty} A_k$$
+
+Esta definición aprovecha la relación de orden entre los conjuntos de la sucesión para afirmar que \textit{si un elemento está en el último conjunto de la sucesión, entonces está en todos los anteriores, y por tanto en \textbf{todos}}, por ello se puede utilizar una intersección numerable (que está perfectamente definida) para formalizar el concepto.\\
+
+Con una intuición análoga se define el límite de una sucesión decreciente de conjuntos. Si $\{A_n\}_{n\in\mathbb{N}}$ es una sucesión decreciente de conjuntos, entonces:
+
+$$ \lim_{n\to\infty} A_n = \bigcap_{k\in\mathbb{N}}^{\infty} A_k $$
+
+\subsection{Límites superiores e inferiores}
+
+No solo se puede hablar de límites en sucesiones monótonas. Para definir los límites en sucesiones arbitrarias de conjuntos tenemos que recurrir a los conceptos de límite inferior y límite superior. La intuición de estos límites superior e inferior pasan por el concepto de las colas de la sucesión.\\
+
+Dada una sucesión de conjuntos $\{A_n\}_{n\in\mathbb{N} }$ podemos considerar el conjunto
+
+$$ B_n = \bigcap_{k=n}^{\infty} A_k $$ 
+
+y este conjunto contiene aquellos elementos que están en \textbf{todos} los $A_k$ para $k \geq n$. Es fácil probar que la sucesión $\{B_n\}_{n\in\mathbb{N}}$ es una sucesión creciente de conjuntos, y por tanto se puede obtener el límite $\lim_{n\to\infty} B_n$. Informalmente, ese límite es un conjunto que contiene a todos los elementos de $A_n$ que están en todos los conjuntos $A_k$ a partir de cierto $n\in\mathbb{N}$. Definimos el límite inferior de $A_n$ como
+
+$$ \liminf A_n = \lim_{n\to\infty} B_n = \bigcup_{n\in\mathbb{N}} \bigcap_{k=n}^{\infty} A_n $$
+
+Análogamente, podríamos definir la sucesión de conjuntos $\{C_n\}_{n\in\mathbb{N}}$ como
+
+$$ C_n = \bigcup_{k=n}^{\infty} A_n $$
+
+Cada $C_n$ contiene todos los elementos que están presentes en algún $A_k$ para $k \geq n$. Es fácil también ver que la sucesión $\{C_n\}_{n\in\mathbb{N}}$ es una sucesión decreciente de conjuntos, y por tanto su límite también está bien definido. Se puede definir entonces el límite superior de $\{A_n\}_{n\in\mathbb{N}}$ como 
+
+$$ \limsup A_n = \lim_{n\to\infty} C_n = \bigcap_{n\in\mathbb{N}} \bigcup_{k=n}^{\infty} A_n $$
+
+Informalmente se puede pensar en este límite superior de $A_n$ como el conjunto de los elementos que están en infinitos conjuntos de la sucesión.\\
+
+A partir de estas definiciones, es fácil comprobar que 
+
+$$ \liminf A_n \subseteq \limsup A_n $$
+
+\subsection{Límite de una sucesión de conjuntos}
+
+Diremos que una sucesión de conjuntos tiene límite si su límite inferior y superior coinciden, y el límite tendrá como valor efectivamente el de estos límites. Es decir: 
+
+$$ \lim A_n = \liminf A_n = \limsup A_n $$ 
+
+en caso de que límite superior e inferior coincidan.
+
+\section{Funciones sobre conjuntos}
+
+Una vez definidos los conceptos sobre conjuntos con los que vamos a trabajar, pasamos a definir las funciones sobre conjuntos. Vamos entonces a definir lo que es una función de conjunto. Sean los espacios medibles ($\Omega$, $\mathcal{A}$) y($\Omega'$, $\mathcal{A}'$), definimos la función:
+$$ X: \mathcal{A} \to \mathcal{A}'$$ 
+$$ A \longrightarrow X(A)$$
+
+A raíz de esta definición podemos definir también lo que se conoce como función inversa. Dada una función $X$, la función inversa de $X$, $X^{-1}$, asigna a cada conjunto $A' \in \mathcal{A}'$ el conjunto $A \in \mathcal{A}$ tal que $X(A) = A'$. La propiedad básica que cumplen las funciones inversas es que preservan las operaciones e inclusiones de conjuntos.
+
+\section{Funciones medibles}
+
+Dados dos espacios medibles ($\Omega$, $\mathcal{A}$) y ($\Omega'$, $\mathcal{A}'$), sea una función $\varphi : \mathcal{A} \rightarrow \mathcal{A}'$. Se dice que $\varphi$ es medible si $\forall A' \in \mathcal{A}' \Rightarrow \varphi^{-1}(A') \in \mathcal{A}$. Es decir, una función se dice medible si la imagen inversa de todo conjunto medible es medible. A la tupla ($\Omega$, $\mathcal{A}$, $\varphi_{\mathcal{A}}$) se le denomina espacio de medida.\\
+
+\textbf{Definición de medida exterior:} Una función de conjuntos $\mu_0$ es una medida exterior si verifica:
+\begin{itemize}
+\item Es subaditiva, es decir,  $\mu^\circ (\cup A_j)\leq \displaystyle \sum \mu^\circ (A_j)$
+\item Es no decreciente $A\subset B \, \mu^\circ(A)\leq \mu^\circ(B)$
+\item $\mu^\circ(\emptyset)=0$
+\end{itemize}
+\textbf{Definición de medida:} Una medida es una función de conjuntos positiva y $\sigma$-aditiva: una medida puede ser infinita y una probabilidad no.
+\\\\
+Para que una medida exterior fuera una medida tendría que ser $\sigma$-aditiva. Es decir, lr falla la primera condición. Sí que es positiva ya que $\mu^\circ(\emptyset)=0$ y es creciente. Esta medida exterior se aplica a cualquier conjunto.
+\\\\
+\textbf{Definición:} Un conjunto $A\in S(\Omega)$ es $\mu^\circ$ medible si se cumple que $\mu^\circ(D)\geq\mu^\circ(AD)+\mu^\circ(A^cD)\,\, D \in S(\Omega)$
+\\\\
+Va a haber unos subconjuntos en los que la función se comporte como si fuera aditiva
+
+\begin{theorem}
+Si $\mu^\circ$ es una medida exterior, entonces:
+\begin{itemize}
+\item $a^\circ$ es un $\sigma$-campo
+\item $\mu^\circ$ en $a^\circ$ es una medida
+\end{itemize}
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+\begin{lemma}
+Sea $\mathbb{X}:A\longrightarrow B$\\\\
+$\mathbb{X}$ es medible $\Longleftrightarrow$ $\mathbb{X}^{-1}(S)\in A,S \in B$
+\end{lemma}
+\begin{theorem}
+Si g es continua $\Longrightarrow  g(\mathbb{X})$ es medible
+\end{theorem}
+\begin{proof}
+$g()\mathbb{X}$ es medible si la puedo escribir como límite de funciones medibles, es decir, $g(\mathbb{X})=\displaystyle\lim g(\mathbb{X}_n)$
+\end{proof}
+\begin{theorem}
+Sea $\mathbb{X}=(\mathbb{X}_1\ldots \mathbb{X}_n)$ un vector. Será medible $\Longleftrightarrow \forall j=1\ldots k\, , \, \mathbb{X}_j$ son medibles.
+\end{theorem}
+\begin{proof}
+$$\Longrightarrow$$
+\\\\
+$\mathbb{X}^{-1}(-\infty,-\infty,\ldots ,x_j,\ldots ,\infty)=[\mathbb{X}_j < x_j]$\\\\
+De la medibilidad de $\mathbb{X}$ se deduce la medibilidad de todas las componentes, poniendo el $x_j$ donde nos interesa\\
+$$\Longleftarrow$$
+\\
+Supongamos que las componentes son medibles:\\
+$[\mathbb{X}_n \leq X_n]=[\mathbb{X}_1\leq x_1,\ldots ,\mathbb{X}_k \leq X_k]=\bigcap_{j=1}^k{[\mathbb{X}_j\leq x_j]}\in a$
+\end{proof}
+\begin{theorem}
+Si $\mathbb{X}$ es medible $\Longrightarrow g(\mathbb{X})$ es medible si $g$ es Borel
+\end{theorem}
+\begin{proof}
+$$g(\mathbb{X})^{-1}B=\mathbb{X}^{-1}(g^{-1}(B))\in a$$
+$$P[|\mathbb{X}-\mathbb{Y}|\geq \epsilon]\leq P[[|\mathbb{X}_n-\mathbb{X}|\geq \dfrac{\epsilon}{2}]+P[|\mathbb{X}_n-\mathbb{Y}|\geq \dfrac{\epsilon}{2}]\underbrace{\longrightarrow}_{n\rightarrow\infty}0$$
+\end{proof}
 
 \section{Concepto de $\sigma$-aditividad}
 
@@ -91,56 +210,6 @@ Veamos que es no decreciente $(A \subseteq B \Rightarrow \varphi (A) \leq \varph
 Veamos ahora que es subaditiva $(\varphi(A \cup B) \leq \varphi(A) + \varphi(B))$. Tenemos que $ A \cup B = A + (B \setminus A)$. Tenemos entonces que $\varphi (A \cup B) = \varphi (A) + \varphi (B \setminus A) \leq \varphi (A) + \varphi (B)$.
 \qed
 \end{proof}
-
-\section{Límites en sucesiones de conjuntos}
-
-\subsection{Límites en sucesiones monótonas}
-
-Si tomamos la relación de inclusión entre conjuntos ($\subseteq$) como una relación de orden, podemos hablar sin ningún tipo de problema de sucesiones monótonas. En este sentido, una sucesión creciente de conjuntos sería una sucesión $\{A_n\}_{n \in \mathbb{N}}$ en la que se cumple que $A_i \subseteq A_{i+1}, \forall i \in \mathbb{N}$. De forma análoga se podría ver qué es una sucesión decreciente de conjuntos.\\
-
-Resulta que existe una forma intuitiva de definir el límite de una sucesión monótona de conjuntos. En particular, el límite de una sucesión creciente de conjuntos $\{A_n\}_{n \in \mathbb{N} }$ se puede definir como 
-
-$$\lim_{n\to\infty} A_n = \bigcap_{k \in \mathbb{N}}^{\infty} A_k$$
-
-Esta definición aprovecha la relación de orden entre los conjuntos de la sucesión para afirmar que \textit{si un elemento está en el último conjunto de la sucesión, entonces está en todos los anteriores, y por tanto en \textbf{todos}}, por ello se puede utilizar una intersección numerable (que está perfectamente definida) para formalizar el concepto.\\
-
-Con una intuición análoga se define el límite de una sucesión decreciente de conjuntos. Si $\{A_n\}_{n\in\mathbb{N}}$ es una sucesión decreciente de conjuntos, entonces:
-
-$$ \lim_{n\to\infty} A_n = \bigcup_{k\in\mathbb{N}}^{\infty} A_k $$
-
-\subsection{Límites superiores e inferiores}
-
-No solo se puede hablar de límites en sucesiones monótonas. Para definir los límites en sucesiones arbitrarias de conjuntos tenemos que recurrir a los conceptos de límite inferior y límite superior. La intuición de estos límites superior e inferior pasan por el concepto de las colas de la sucesión.\\
-
-Dada una sucesión de conjuntos $\{A_n\}_{n\in\mathbb{N} }$ podemos considerar el conjunto
-
-$$ B_n = \bigcap_{k=n}^{\infty} A_k $$ 
-
-y este conjunto contiene aquellos elementos que están en \textbf{todos} los $A_k$ para $k \geq n$. Es fácil probar que la sucesión $\{B_n\}_{n\in\mathbb{N}}$ es una sucesión creciente de conjuntos, y por tanto se puede obtener el límite $\lim_{n\to\infty} B_n$. Informalmente, ese límite es un conjunto que contiene a todos los elementos de $A_n$ que están en todos los conjuntos $A_k$ a partir de cierto $n\in\mathbb{N}$. Definimos el límite inferior de $A_n$ como
-
-$$ \liminf A_n = \lim_{n\to\infty} B_n = \bigcup_{n\in\mathbb{N}} \bigcap_{k=n}^{\infty} A_n $$
-
-Análogamente, podríamos definir la sucesión de conjuntos $\{C_n\}_{n\in\mathbb{N}}$ como
-
-$$ C_n = \bigcup_{k=n}^{\infty} A_n $$
-
-Cada $C_n$ contiene todos los elementos que están presentes en algún $A_k$ para $k \geq n$. Es fácil también ver que la sucesión $\{C_n\}_{n\in\mathbb{N}}$ es una sucesión decreciente de conjuntos, y por tanto su límite también está bien definido. Se puede definir entonces el límite superior de $\{A_n\}_{n\in\mathbb{N}}$ como 
-
-$$ \limsup A_n = \lim_{n\to\infty} C_n = \bigcap_{n\in\mathbb{N}} \bigcup_{k=n}^{\infty} A_n $$
-
-Informalmente se puede pensar en este límite superior de $A_n$ como el conjunto de los elementos que están en infinitos conjuntos de la sucesión.\\
-
-A partir de estas definiciones, es fácil comprobar que 
-
-$$ \liminf A_n \subseteq \limsup A_n $$
-
-\subsection{Límite de una sucesión de conjuntos}
-
-Diremos que una sucesión de conjuntos tiene límite si su límite inferior y superior coinciden, y el límite tendrá como valor efectivamente el de estos límites. Es decir: 
-
-$$ \lim A_n = \liminf A_n = \limsup A_n $$ 
-
-en caso de que límite superior e inferior coincidan.
 
 \section{Continuidad en funciones sobre conjuntos}
 
@@ -199,64 +268,6 @@ Probaremos la existencia del conjunto $C$. La del conjunto $D$ es análoga. Si $
 Entonces, existe una sucesión $\{A_n\} \subset \mathcal{A}$ tal que $\varphi(A_n) \to \sup \varphi$. Sea $A = \cup A_n $ y para cada $n$, consideramos la partición de $A$ en $2^n$ conjuntos $A_{nm}$ de la forma $\displaystyle \cap_{k=1}^n A'_k$, donde $A'_k = A_k$ o $A - A_k$. Para $n < n'$, cada conjunto $A_{nm}$ es una suma finita de conjuntos $A_{n'm'}$. Sea ahora $B_n$ la suma de los conjuntos $A_{nm}$ para los cuales $\varphi$ es no negativa. Si no hay ninguno, entonces $B_n = \emptyset$
 \end{proof}
 
-\section{Funciones medibles}
-
-Dados dos espacios medibles ($\Omega$, $\mathcal{A}$) y ($\Omega'$, $\mathcal{A}'$), sea una función $\varphi : \mathcal{A} \rightarrow \mathcal{A}'$. Se dice que $\varphi$ es medible si $\forall A' \in \mathcal{A}' \Rightarrow \varphi^{-1}(A') \in \mathcal{A}$. Es decir, una función se dice medible si la imagen inversa de todo conjunto medible es medible. A la tupla ($\Omega$, $\mathcal{A}$, $\varphi_{\mathcal{A}}$) se le denomina espacio de medida. Esto no debe estar aquí, pero ya lo había escrito y no sabía muy bien donde meterlo, hay que recolocarlo.
-\\\\
-\textbf{Definición de medida exterior:} Una función de conjuntos $\mu_0$ es una medida exterior si verifica:
-\begin{itemize}
-\item Es subaditiva, es decir,  $\mu^\circ (\cup A_j)\leq \displaystyle \sum \mu^\circ (A_j)$
-\item Es no decreciente $A\subset B \, \mu^\circ(A)\leq \mu^\circ(B)$
-\item $\mu^\circ(\emptyset)=0$
-\end{itemize}
-\textbf{Definición de medida:} Una medida es una función de conjuntos positiva y $\sigma$-aditiva: una medida puede ser infinita y una probabilidad no.
-\\\\
-Para que una medida exterior fuera una medida tendría que ser $\sigma$-aditiva. Es decir, lr falla la primera condición. Sí que es positiva ya que $\mu^\circ(\emptyset)=0$ y es creciente. Esta medida exterior se aplica a cualquier conjunto.
-\\\\
-\textbf{Definición:} Un conjunto $A\in S(\Omega)$ es $\mu^\circ$ medible si se cumple que $\mu^\circ(D)\geq\mu^\circ(AD)+\mu^\circ(A^cD)\,\, D \in S(\Omega)$
-\\\\
-Va a haber unos subconjuntos en los que la función se comporte como si fuera aditiva
-
-\begin{theorem}
-Si $\mu^\circ$ es una medida exterior, entonces:
-\begin{itemize}
-\item $a^\circ$ es un $\sigma$-campo
-\item $\mu^\circ$ en $a^\circ$ es una medida
-\end{itemize}
-\end{theorem}
-\begin{proof}
-
-\end{proof}
-\begin{lemma}
-Sea $\mathbb{X}:A\longrightarrow B$\\\\
-$\mathbb{X}$ es medible $\Longleftrightarrow$ $\mathbb{X}^{-1}(S)\in A,S \in B$
-\end{lemma}
-\begin{theorem}
-Si g es continua $\Longrightarrow  g(\mathbb{X})$ es medible
-\end{theorem}
-\begin{proof}
-$g()\mathbb{X}$ es medible si la puedo escribir como límite de funciones medibles, es decir, $g(\mathbb{X})=\displaystyle\lim g(\mathbb{X}_n)$
-\end{proof}
-\begin{theorem}
-Sea $\mathbb{X}=(\mathbb{X}_1\ldots \mathbb{X}_n)$ un vector. Será medible $\Longleftrightarrow \forall j=1\ldots k\, , \, \mathbb{X}_j$ son medibles.
-\end{theorem}
-\begin{proof}
-$$\Longrightarrow$$
-\\\\
-$\mathbb{X}^{-1}(-\infty,-\infty,\ldots ,x_j,\ldots ,\infty)=[\mathbb{X}_j < x_j]$\\\\
-De la medibilidad de $\mathbb{X}$ se deduce la medibilidad de todas las componentes, poniendo el $x_j$ donde nos interesa\\
-$$\Longleftarrow$$
-\\
-Supongamos que las componentes son medibles:\\
-$[\mathbb{X}_n \leq X_n]=[\mathbb{X}_1\leq x_1,\ldots ,\mathbb{X}_k \leq X_k]=\bigcap_{j=1}^k{[\mathbb{X}_j\leq x_j]}\in a$
-\end{proof}
-\begin{theorem}
-Si $\mathbb{X}$ es medible $\Longrightarrow g(\mathbb{X})$ es medible si $g$ es Borel
-\end{theorem}
-\begin{proof}
-$$g(\mathbb{X})^{-1}B=\mathbb{X}^{-1}(g^{-1}(B))\in a$$
-$$P[|\mathbb{X}-\mathbb{Y}|\geq \epsilon]\leq P[[|\mathbb{X}_n-\mathbb{X}|\geq \dfrac{\epsilon}{2}]+P[|\mathbb{X}_n-\mathbb{Y}|\geq \dfrac{\epsilon}{2}]\underbrace{\longrightarrow}_{n\rightarrow\infty}0$$
-\end{proof}
 \section{Integrales sobre funciones de conjunto en espacios de medida}
 Para el cálculo de probabilidades, nos será muy útil el concepto de integral sobre funciones de conjunto. Vamos a tratar de aproximarnos al concepto de función que dió Lebesgue. En este apartado trabajaremos sobre el espacio de probabilidad $(\Omega, \mathcal{A}, \mathcal{P})$. Comenzaremos definiendo la integral para las funciones simples, para dar luego una definición de integral para funciones no negativas y por último para funciones cualesquiera.\\
 
