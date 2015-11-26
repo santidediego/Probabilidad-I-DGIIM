@@ -148,68 +148,6 @@ Si $\varphi$ es $\sigma$-aditiva, $\varphi \geq 0$, entonces: $\varphi$ es no de
 Veamos que es no decreciente $(A \subseteq B \Rightarrow \varphi (A) \leq \varphi (B))$. Podemos escribir $B = (B \cap A) + (B \cap \overline{A}) = A + (B \cap \overline{A})$. Entonces $\varphi (A) \leq \varphi (A) + \varphi (B \cap \overline{A}) = \varphi (B)$.\\
 \end{proof}
 
-\section{Funciones medibles}
-
-Dados dos espacios medibles ($\Omega$, $\mathcal{A}$) y ($\Omega'$, $\mathcal{A}'$), sea una función $\varphi : \mathcal{A} \rightarrow \mathcal{A}'$. Se dice que $\varphi$ es medible si $\forall A' \in \mathcal{A}' \Rightarrow \varphi^{-1}(A') \in \mathcal{A}$. Es decir, una función se dice medible si la imagen inversa de todo conjunto medible es medible. A la tupla ($\Omega$, $\mathcal{A}$, $\varphi_{\mathcal{A}}$) se le denomina espacio de medida.\\
-
-\textbf{Definición de medida exterior:} Una función de conjuntos $\mu_0$ es una medida exterior si verifica:
-\begin{itemize}
-\item Es subaditiva, es decir,  $\mu^\circ (\cup A_j)\leq \displaystyle \sum \mu^\circ (A_j)$
-\item Es no decreciente $A\subset B \, \mu^\circ(A)\leq \mu^\circ(B)$
-\item $\mu^\circ(\emptyset)=0$
-\end{itemize}
-\textbf{Definición de medida:} Una medida es una función de conjuntos positiva y $\sigma$-aditiva: una medida puede ser infinita y una probabilidad no.
-\\\\
-Para que una medida exterior fuera una medida tendría que ser $\sigma$-aditiva. Es decir, lr falla la primera condición. Sí que es positiva ya que $\mu^\circ(\emptyset)=0$ y es creciente. Esta medida exterior se aplica a cualquier conjunto.
-\\\\
-\textbf{Definición:} Un conjunto $A\in S(\Omega)$ es $\mu^\circ$ medible si se cumple que $\mu^\circ(D)\geq\mu^\circ(AD)+\mu^\circ(A^cD)\,\, D \in S(\Omega)$
-\\\\
-Va a haber unos subconjuntos en los que la función se comporte como si fuera aditiva
-
-\begin{theorem}
-Si $\mu^\circ$ es una medida exterior, entonces:
-\begin{itemize}
-\item $a^\circ$ es un $\sigma$-campo
-\item $\mu^\circ$ en $a^\circ$ es una medida
-\end{itemize}
-\end{theorem}
-\begin{proof}
-\qed
-\end{proof}
-\begin{lemma}
-Sea $\mathbb{X}:A\longrightarrow B$\\\\
-$\mathbb{X}$ es medible $\Longleftrightarrow$ $\mathbb{X}^{-1}(S)\in A,S \in B$
-\end{lemma}
-\begin{theorem}
-Si g es continua $\Longrightarrow  g(\mathbb{X})$ es medible
-\end{theorem}
-\begin{proof}
-$g()\mathbb{X}$ es medible si la puedo escribir como límite de funciones medibles, es decir, $g(\mathbb{X})=\displaystyle\lim g(\mathbb{X}_n)$
-\qed
-\end{proof}
-\begin{theorem}
-Sea $\mathbb{X}=(\mathbb{X}_1\ldots \mathbb{X}_n)$ un vector. Será medible $\Longleftrightarrow \forall j=1\ldots k\, , \, \mathbb{X}_j$ son medibles.
-\end{theorem}
-\begin{proof}
-$$\Longrightarrow$$
-\\\\
-$\mathbb{X}^{-1}(-\infty,-\infty,\ldots ,x_j,\ldots ,\infty)=[\mathbb{X}_j < x_j]$\\\\
-De la medibilidad de $\mathbb{X}$ se deduce la medibilidad de todas las componentes, poniendo el $x_j$ donde nos interesa\\
-$$\Longleftarrow$$
-\\
-Supongamos que las componentes son medibles:\\
-$[\mathbb{X}_n \leq X_n]=[\mathbb{X}_1\leq x_1,\ldots ,\mathbb{X}_k \leq X_k]=\bigcap_{j=1}^k{[\mathbb{X}_j\leq x_j]}\in a$
-\qed
-\end{proof}
-\begin{theorem}
-Si $\mathbb{X}$ es medible $\Longrightarrow g(\mathbb{X})$ es medible si $g$ es Borel
-\end{theorem}
-\begin{proof}
-$$g(\mathbb{X})^{-1}B=\mathbb{X}^{-1}(g^{-1}(B))\in a$$
-$$P[|\mathbb{X}-\mathbb{Y}|\geq \epsilon]\leq P[[|\mathbb{X}_n-\mathbb{X}|\geq \dfrac{\epsilon}{2}]+P[|\mathbb{X}_n-\mathbb{Y}|\geq \dfrac{\epsilon}{2}]\underbrace{\longrightarrow}_{n\rightarrow\infty}0$$
-\qed
-\end{proof}
-
 \section{Continuidad en funciones sobre conjuntos}
 
 Una vez introducido el concepto de límite para una sucesión de conjuntos, vamos a tratar de definir la continuidad para funciones de conjunto. Tendremos tres tipos de continuidad, cada uno relacionado con un tipo de sucesiones de conjuntos de las que hemos definido anteriormente. En esta sección trabajaremos con una función $\varphi : \Omega \to \Omega'$\\
@@ -265,6 +203,68 @@ Sea $\varphi$ una función $\sigma$-aditiva sobre una $\sigma$-álgebra $\mathca
 Probaremos la existencia del conjunto $C$. La del conjunto $D$ es análoga. Si $\varphi(A) = \infty$ para algún $A \in \mathcal{A}$, entonces podemos establecer $A = C$ y la demostración del teorema es trivial. Entonces, supongamos que $\varphi < \infty$ y dado que el valor $-\infty$ está excluido, $\varphi$ es finita.\\
 
 Entonces, existe una sucesión $\{A_n\} \subset \mathcal{A}$ tal que $\varphi(A_n) \to \sup \varphi$. Sea $A = \cup A_n $ y para cada $n$, consideramos la partición de $A$ en $2^n$ conjuntos $A_{nm}$ de la forma $\displaystyle \cap_{k=1}^n A'_k$, donde $A'_k = A_k$ o $A - A_k$. Para $n < n'$, cada conjunto $A_{nm}$ es una suma finita de conjuntos $A_{n'm'}$. Sea ahora $B_n$ la suma de los conjuntos $A_{nm}$ para los cuales $\varphi$ es no negativa. Si no hay ninguno, entonces $B_n = \emptyset$
+\end{proof}
+
+\section{Funciones medibles}
+
+\textbf{Definición de medida:} Una función de conjuntos $\mu_0$ es una medida si verifica:
+\begin{itemize}
+\item Es $\sigma$-aditiva, es decir,  $\mu_0 (\cup A_j) = \displaystyle \sum \mu_0 (A_j)$
+\item Es no decreciente $A\subset B \, \mu^\circ(A)\leq \mu^\circ(B)$
+\item $\mu^\circ(\emptyset)=0$
+\end{itemize}
+\textbf{Definición de medida exterior:} Una medida exterior es una función de conjuntos positiva y $\sigma$-subaditiva, es decir, no se cumple la primera propiedad. La $\sigma$-subaditividad implica que $\mu(A \cup B) \leq \mu(A) + \mu(B)$.\\
+
+Para que una medida exterior fuera una medida tendría que ser $\sigma$-aditiva. Es decir, la falla la primera condición. Sí que es positiva ya que $\mu^\circ(\emptyset)=0$ y es creciente. Esta medida exterior se aplica a cualquier conjunto.\\
+
+\textbf{Definición:} Un conjunto $A\in S(\Omega)$ es $\mu^\circ$ medible si se cumple que $\mu^\circ(D)\geq\mu^\circ(AD)+\mu^\circ(A^cD)\,\, D \in S(\Omega)$\\
+
+Va a haber unos subconjuntos en los que la función se comporte como si fuera aditiva
+
+Dados dos espacios medibles ($\Omega$, $\mathcal{A}$) y ($\Omega'$, $\mathcal{A}'$), sea una función $\varphi : \mathcal{A} \rightarrow \mathcal{A}'$. Se dice que $\varphi$ es medible si $\forall A' \in \mathcal{A}' \Rightarrow \varphi^{-1}(A') \in \mathcal{A}$. Es decir, una función se dice medible si la imagen inversa de todo conjunto medible es medible. A la tupla ($\Omega$, $\mathcal{A}$, $\varphi_{\mathcal{A}}$) se le denomina espacio de medida.\\
+
+\begin{theorem}
+Si $\mu^\circ$ es una medida exterior, entonces:
+\begin{itemize}
+\item $a^\circ$ es un $\sigma$-campo
+\item $\mu^\circ$ en $a^\circ$ es una medida
+\end{itemize}
+\end{theorem}
+\begin{proof}
+\qed
+\end{proof}
+\begin{lemma}
+Sea $\mathbb{X}:A\longrightarrow B$\\\\
+$\mathbb{X}$ es medible $\Longleftrightarrow$ $\mathbb{X}^{-1}(S)\in A,S \in B$
+\end{lemma}
+\begin{theorem}
+Si g es continua $\Longrightarrow  g(\mathbb{X})$ es medible
+\end{theorem}
+\begin{proof}
+$g()\mathbb{X}$ es medible si la puedo escribir como límite de funciones medibles, es decir, $g(\mathbb{X})=\displaystyle\lim g(\mathbb{X}_n)$
+\qed
+\end{proof}
+\begin{theorem}
+Sea $\mathbb{X}=(\mathbb{X}_1\ldots \mathbb{X}_n)$ un vector. Será medible $\Longleftrightarrow \forall j=1\ldots k\, , \, \mathbb{X}_j$ son medibles.
+\end{theorem}
+\begin{proof}
+$$\Longrightarrow$$
+\\\\
+$\mathbb{X}^{-1}(-\infty,-\infty,\ldots ,x_j,\ldots ,\infty)=[\mathbb{X}_j < x_j]$\\\\
+De la medibilidad de $\mathbb{X}$ se deduce la medibilidad de todas las componentes, poniendo el $x_j$ donde nos interesa\\
+$$\Longleftarrow$$
+\\
+Supongamos que las componentes son medibles:\\
+$[\mathbb{X}_n \leq X_n]=[\mathbb{X}_1\leq x_1,\ldots ,\mathbb{X}_k \leq X_k]=\bigcap_{j=1}^k{[\mathbb{X}_j\leq x_j]}\in a$
+\qed
+\end{proof}
+\begin{theorem}
+Si $\mathbb{X}$ es medible $\Longrightarrow g(\mathbb{X})$ es medible si $g$ es Borel
+\end{theorem}
+\begin{proof}
+$$g(\mathbb{X})^{-1}B=\mathbb{X}^{-1}(g^{-1}(B))\in a$$
+$$P[|\mathbb{X}-\mathbb{Y}|\geq \epsilon]\leq P[[|\mathbb{X}_n-\mathbb{X}|\geq \dfrac{\epsilon}{2}]+P[|\mathbb{X}_n-\mathbb{Y}|\geq \dfrac{\epsilon}{2}]\underbrace{\longrightarrow}_{n\rightarrow\infty}0$$
+\qed
 \end{proof}
 
 \section{Integrales sobre funciones de conjunto en espacios de medida}
