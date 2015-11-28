@@ -393,7 +393,7 @@ $$ X\mathcal{R}Y \Leftrightarrow \mathcal{P}[X = Y] = 1$$
 Análogamente:
 $$X(\omega) = Y(\omega) \forall \omega \in \Omega \setminus \Lambda, \mathcal{P}(\Lambda) = 0$$
 
-\subsection{Definición de convergencia en probabilidad:}
+\subsection{Definición de convergencia en probabilidad}
 
 Si $P[|X_n- X| \geq \varepsilon]\rightarrow 0$, entonces se dice que $X_n\stackrel{\mathbb{P}}{\longrightarrow} X$, es decir, $X_n$ converge en probabilidad a $X$\\
 
@@ -409,7 +409,7 @@ Y por tanto, $X \mathcal{R} Y$
 \qed
 \end{proof}
 
-\subsection{Definición de convergencia uniforme en u:}
+\subsection{Definición de convergencia uniforme en u}
 
 Se dice que una variable aleatoria $X$ converge uniformemente en $u$ si se cumple que $\mathcal{P}[\mid X_{n+u} - X_n \mid \geq \varepsilon] \to 0$
 
@@ -419,7 +419,7 @@ La convergencia en probabilidad implica la convergencia uniforme
 
 \begin{proof}
 $$ \mid X_{n+u} - X_n \mid \leq \mid X_{n+u} + X \mid + \mid X_n - X \mid \Rightarrow$$
-$$ \Rightarrow \mathcal{P}[\mid X_{n+u} - X_n \mid \varepsilon] \leq \mathcal{P}\Big[\mid X_{n+u} - X \mid \frac{\varepsilon}{2}\Big] + \mathcal{P}\Big[\mid X_{n} - X \mid \frac{\varepsilon}{2}\Big] \to 0$$
+$$ \Rightarrow \mathcal{P}[\mid X_{n+u} - X_n \mid \geq \varepsilon] \leq \mathcal{P}\Big[\mid X_{n+u} - X \mid \geq \frac{\varepsilon}{2}\Big] + \mathcal{P}\Big[\mid X_{n} - X \mid \geq \frac{\varepsilon}{2}\Big] \to 0$$
 \end{proof}
 
 \subsection{Propiedades}
@@ -448,10 +448,29 @@ $$g(X_n)\stackrel{\mathcal{P}}{\longrightarrow} g(X)$$
 \end{theorem}
 
 \begin{proof}
+$\mathcal{P}[|X| \geq k] < \frac{\varepsilon}{2} \forall \varepsilon > 0, \exists k$. Consideramos el compacto $[-k,k], A = [|X| < k], B = [|X_n - X| < \delta] \: y \: C = [|g(X_n) - g(X)| < \varepsilon]$. Tenemos que ver si $\mathcal{P}(B)\to 1 \Rightarrow \mathcal{P}(C)\to 1 $:
+$$ AB \subset C \Rightarrow C^c \subset A^c \cup B^c \Rightarrow \mathcal{P}(C^c) \leq \mathcal{P}(A^c) + \mathcal{P}(B^c) \leq $$
+$$ \leq \mathcal{P}[|X| \geq k] + \mathcal{P}[|X_n - X| \geq \delta] \leq \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$$
 \end{proof}
-\section{Integrales sobre funciones de conjunto en espacios de medida}
 
-Para el cálculo de probabilidades, nos será muy útil el concepto de integral sobre funciones de conjunto. Vamos a tratar de aproximarnos al concepto de función que dió Lebesgue. En este apartado trabajaremos sobre el espacio de probabilidad $(\Omega, \mathcal{A}, \mathcal{P})$. Comenzaremos definiendo la integral para las funciones simples, para dar luego una definición de integral para funciones no negativas y por último para funciones cualesquiera.\\
+\subsection{Definición de convergencia casi segura}
+
+Una sucesión de variables aleatorias, ${ X_n }$ , converge con probabilidad 1, o de forma casi segura, a una variable aleatoria $X$ ( que puede degenerar en una constante K) cuando se cumple que:
+$$P(\lim_{n\rightarrow\infty}X_n=X)=1$$
+De esta forma interpretamos que $X_n\stackrel{c.s}{\longrightarrow}X$ cuando la probabilidad de que en el límite la sucesión de variables  aleatorias y aquella a la que converge sean iguales es uno
+
+\begin{theorem}
+$$X_n\stackrel{c.s}{\longrightarrow}X\Longrightarrow X_n\stackrel{\mathcal{P}}{\longrightarrow}X$$
+$$X_n\stackrel{\mathcal{P}}{\longrightarrow}X\Longrightarrow \exists X_{nk}\,:\, X_{n_k}\stackrel{c.s}{\longrightarrow}_{k\rightarrow\infty}X$$
+\end{theorem}
+\begin{proof}
+$$0=\displaystyle\lim_{n\rightarrow\infty}P\bigcup_{m\geq n}[|X_m - X|\geq \epsilon ]\geq\displaystyle\lim_{n\rightarrow\infty}P[|X_n - X|\geq \epsilon ]$$
+\qed
+\end{proof}
+
+\section{Esperanza matemática}
+
+Para el cálculo de probabilidades, nos será muy útil el concepto de integral sobre funciones de conjunto. Este concepto nos servirá para calcular lo que se conoce como la esperanza matemática de una variable aleatoria $X$. En este apartado trabajaremos sobre el espacio de probabilidad $(\Omega, \mathcal{A}, \mathcal{P})$. Comenzaremos definiendo la integral para las funciones simples, para dar luego una definición de integral para funciones no negativas y por último para funciones cualesquiera.\\
 
 Sea entonces $\{A_k\} \in \mathcal{A}$, tal que $\displaystyle \sum_k A_k = \Omega$, partición medible del espacio. Sea entonces la función simple $X = \displaystyle \sum_{j=1}^m x_jI_{A_j}, x_j \geq 0$. La integral de la función $X$ se define como:
 $$\int_{\Omega} X d\mathcal{P} = \sum_{j=1}^m x_j\mathcal{P}_{A_j}$$
@@ -483,8 +502,6 @@ $X \geq Y \rightarrow \displaystyle \int X d\mathcal{P} \geq \int Y d\mathcal{P}
 $\displaystyle X \stackrel{c.s}{=} Y \rightarrow \int X d\mathcal{P} = \int Y d\mathcal{P}$\\
 \qed
 \end{proof}
-
-\subsection{Esperanza matemática}
 
 \subsection{Teorema de la convergencia monótona}
 
@@ -551,7 +568,7 @@ El recíproco no es cierto
 \end{proof}
 
 \begin{lemma}
-Sea $Y\leq \mathbb {X}_n\leq Z$ con $Y,\, Z$ integrables y tal que $X_n\overbrace{\longrightarrow}^{c.s.}X$. Entonces se tiene que $\displaystyle \int X_n \rightarrow \displaystyle \int X$
+Sea $Y\leq \mathbb {X}_n\leq Z$ con $Y,\, Z$ integrables y tal que $X_n\stackrel{c.s}{\longrightarrow}X$. Entonces se tiene que $\displaystyle \int X_n \rightarrow \displaystyle \int X$
 \end{lemma}
 \subsection{Algunas desigualdades interesantes}
 \begin{lemma}
@@ -565,19 +582,6 @@ $E|X\mathbb{Y}|\leq \left(  E|X|^r \right) ^{\frac{1}{r}}  \left(  E|\mathbb{Y}|
 Sea $X$ una v.a. y sea $g$ una función borel. Entonces se tiene que si $g$ es par y no decreciente en $[0,\infty) \, \forall a>0$ , entonces:
 $$\dfrac{Eg(X)-g(a)}{sup\, g(X)}\leq P[|X|\geq a]\leq \dfrac{E g(X)}{g(a)}$$ 
 
-\section{Convergencia casi segura de espacios métricos}
-\textbf{Definición de convergencia casi segura:} Una sucesión de variables aleatorias, ${ X_n }$ , converge con probabilidad 1, o de forma casi segura, a una variable aleatoria $X$ ( que puede degenerar en una constante K) cuando se cumple que:
-$$P(\lim_{n\rightarrow\infty}X_n=X)=1$$
-De esta forma interpretamos que $X_n\overbrace{\longrightarrow}^{c.s.}X$ cuando la probabilidad de que en el límite la sucesión de variables  aleatorias y aquella a la que converge sean iguales es uno
-
-\begin{theorem}
-$$X_n\overbrace{\longrightarrow}^{c.s.}X\Longrightarrow X_n\stackrel{\mathcal{P}}{\longrightarrow}X$$
-$$X_n\stackrel{\mathcal{P}}{\longrightarrow}X\Longrightarrow \exists X_{nk}\,:\, X_{n_k}\overbrace{\longrightarrow}^{c.s.}_{k\rightarrow\infty}X$$
-\end{theorem}
-\begin{proof}
-$$0=\displaystyle\lim_{n\rightarrow\infty}P\bigcup_{m\geq n}[|X_m - X|\geq \epsilon ]\geq\displaystyle\lim_{n\rightarrow\infty}P[|X_n - X|\geq \epsilon ]$$
-\qed
-\end{proof}
 \section{Funciones características y funciones de distribución}
 \subsection{Función característica}
 Función puntual que se define sobre la recta real, no negativa, no decreciente, continua por la izquierda y finita. Para nosotros será la función que está entre 0 y 1.
