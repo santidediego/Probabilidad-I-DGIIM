@@ -220,19 +220,6 @@ A la tupla ($\Omega$, $\mathcal{A}$, $\mu_{\mathcal{A}}$) se le denomina espacio
 
 Para que una medida exterior fuera una medida tendría que ser $\sigma$-aditiva. Es decir, la falla la primera condición. Sí que es positiva ya que $\mu^\circ(\emptyset)=0$ y es creciente. Esta medida exterior se aplica a cualquier conjunto. Va a haber unos subconjuntos en los que la función se comporte como si fuera aditiva.\\
 
-\textbf{Definición:} Un conjunto $A\in S(\Omega)$ es $\mu^\circ$ medible si se cumple que $\mu^\circ(D) = \mu^\circ(AD)+\mu^\circ(A^cD), \forall D \in S(\Omega)$\\
-
-\begin{theorem}
-Si $\mu^\circ$ es una medida exterior, entonces:
-\begin{itemize}
-\item $a^\circ$ es un $\sigma$-campo
-\item $\mu^\circ$ en $a^\circ$ es una medida
-\end{itemize}
-\end{theorem}
-\begin{proof}
-\qed
-\end{proof}
-
 Una vez definido el concepto de medida, vamos a dar ahora el de probabilidad. Una probabilidad $\mathcal{P}$ sobre un espacio medible ($\Omega$, $\mathcal{A}$) es una medida que además cumple que $\mathcal{P}(\Omega)=1$. Por tanto, tiene las siguientes propiedades:\\
 
 $\mathcal{P}(\emptyset)=0$\\
@@ -256,7 +243,43 @@ Teorema de sucesión
 Falta la demostración del teorema de sucesión
 \end{proof}
 
-\subsection{Teorema de Carathéodory}
+\subsection{Teorema de extensión de Carathéodory}
+
+Una vez vistas las definiciones anteriores de medida y medida exterior, vamos a ver un teorema fundamental, que nos servirá para justificar la forma en la que haremos el cálculo de probabilidades a posteriori. Veamos dos lemas antes que nos serán necesarios para la demostración del teorema principal.
+
+\textbf{Definición:} Un conjunto $A\in S(\Omega)$ es $\mu^\circ$-medible si se cumple que $\mu^\circ(D) = \mu^\circ(AD)+\mu^\circ(A^cD), \forall D \in S(\Omega)$\\
+
+\begin{theorem}
+La extensión exterior $\mu^\circ$ de una medida $\mu$ sobre un álgebra es una extensión de $\mu$ a una medida exterior
+\end{theorem}
+
+\begin{proof}
+
+\begin{theorem}
+Sea $\mu^\circ$ una medida exterior sobre la $\sigma$-álgebra $\mathcal{A}$, y sea $\mathcal{A}^\circ$ la clase de conjuntos $\mu^\circ$-medibles:
+\begin{itemize}
+\item $\mathcal{A}^\circ$ es un $\sigma$-campo
+\item $\mu^\circ$ en $\mathcal{A}^\circ$ es una medida
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+Primero, veamos que $\mathcal{A}^\circ$ es un álgebra. Sea $A \in \mathcal{A}^\circ$, entonces $A^c \in \mathcal{A}^\circ$ dado que la definición de $\mu^\circ$-medibilidad es simétrica. Sean entonces $A,B \in \mathcal{A}^\circ$. Entonces:
+$$ \mu^\circ(D) = \mu^\circ(AD) + \mu^\circ(A^cD) = $$
+$$ = \mu^\circ(ABD) + \mu^\circ(AB^cD) + \mu^\circ(A^cBD) + \mu^\circ(A^cB^cD) \leq$$
+$$ \leq \mu^\circ(ABD) + \mu^\circ (AB^cD \cup A^cBD \cup A^cB^cD) =$$
+$$ = \mu^\circ(ABD) + \mu^\circ(AB)^cD$$
+Dado entonces que $\mathcal{A}^\circ$ es cerrada bajo la operación complementario e intersección finita, lo es para la unión finita, así que nos encontramos ante un álgebra. Veamos ahora que $\mu^\circ$ es aditiva en $\mathcal{A}^\circ$. Sean $A,B \in \mathcal{A}^\circ$ disjuntos. Entonces:
+$$\mu^\circ(A+B) = \mu^\circ((A+B)A) + \mu^\circ((A+B)A^c) = \mu^\circ(A) + \mu^\circ(B)$$
+Y teniendo que $\mu^\circ(A) \geq \mu^\circ(\emptyset) = 0$, $\mu^\circ$ sobre $\mathcal{A}^\circ$ es una función aditiva y positiva. Para completar la prueba, veamos que $\mu^\circ$ es $\sigma$-aditiva. Sean $A_n \in \mathcal{A}^\circ$, $A = \displaystyle \sum A_n$. Tomamos los conjuntos $B_n = \displaystyle \sum_{k=1}^n A_k \in \mathcal{A}^\circ$. Tenemos que:
+$$ \mu^\circ(D) \geq \mu^\circ (B_nD) + \mu^\circ (B_n^cD) \geq \sum_{k=1}^n\mu^\circ(A_kD) + \mu^\circ(A^cD) $$
+Haciendo $n \to +\infty$
+$$\mu^\circ(D) \geq \sum_{n=1}^{+\infty} \mu^\circ(A_nD) + \mu^\circ(A^cD) \geq \mu^\circ(AD) + \mu^\circ(A^cD)$$
+Además queda demostrado que $A \in \mathcal{A}^\circ$, así que tenemos que $\mathcal{A}^\circ$ es un $\sigma$-campo.
+Por último, tomando $D = A$, tenemos que $\mu^\circ(A) \geq \displaystyle \sum \mu^\circ(A_n) \Rightarrow \mu^\circ(A) = \sum \mu^\circ(A_n) \Rightarrow \mu^\circ$ es una medida.
+\qed
+\end{proof}
+
 
 \section{Funciones medibles}
 
