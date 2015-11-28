@@ -245,15 +245,27 @@ Falta la demostración del teorema de sucesión
 
 \subsection{Teorema de extensión de Carathéodory}
 
-Una vez vistas las definiciones anteriores de medida y medida exterior, vamos a ver un teorema fundamental, que nos servirá para justificar la forma en la que haremos el cálculo de probabilidades a posteriori. Veamos dos lemas antes que nos serán necesarios para la demostración del teorema principal.
+Una vez vistas las definiciones anteriores de medida y medida exterior, vamos a ver un teorema fundamental, que nos servirá para justificar la forma en la que haremos el cálculo de probabilidades a posteriori. Veamos dos lemas antes que nos serán necesarios para la demostración del teorema principal.\\
 
 \textbf{Definición:} Un conjunto $A\in S(\Omega)$ es $\mu^\circ$-medible si se cumple que $\mu^\circ(D) = \mu^\circ(AD)+\mu^\circ(A^cD), \forall D \in S(\Omega)$\\
+
+\textbf{Definición:} Una extensión exterior $\mu^\circ$ de una medida $\mu$ se define como:
+$$\mu^\circ (A) = \inf \sum_j (A_j), \quad A \subset \cup A_j,\quad recubrimiento $$
 
 \begin{theorem}
 La extensión exterior $\mu^\circ$ de una medida $\mu$ sobre un álgebra es una extensión de $\mu$ a una medida exterior
 \end{theorem}
 
 \begin{proof}
+Primero, veamos que es una extensión. Esto es trivial, dado que $\mu^\circ(A) = \inf \displaystyle \sum \mu(A) = \mu(A)$. Ahora, veamos que es una medida exterior.\\
+
+Veamos que es subaditiva, es decir, $\mu^\circ(\displaystyle \cup_j A_j) \leq \sum_j \mu^\circ(A_j)$. Sea entonces, para cada $A_j$, un recubrimiento $ \displaystyle \cup_k A_{kj} \supset A_j$. Entonces:
+$$ \sum_k \mu (A_{kj}) \leq \frac{\varepsilon}{2^j} + \mu^\circ (A_j)$$
+$$ \mu^\circ (\cup_j A_j) \leq \sum_{j,k} \mu (A_{kj}) \leq \sum_j \Big( \mu^\circ(A_j) + \frac{\varepsilon}{2^j}\Big) \leq \sum_j (\mu^\circ(A_j)) + \varepsilon $$
+Claramente es no decreciente, ya que si $A \subseteq B$, todo recubrimiento de $B$ lo será también de $A$, y por tanto, $\mu^\circ(A) \leq \mu^\circ(B)$\\
+
+Por último, $\mu^\circ(\emptyset) = \mu(\emptyset) = 0$
+\end{proof}
 
 \begin{theorem}
 Sea $\mu^\circ$ una medida exterior sobre la $\sigma$-álgebra $\mathcal{A}$, y sea $\mathcal{A}^\circ$ la clase de conjuntos $\mu^\circ$-medibles:
@@ -280,7 +292,14 @@ Por último, tomando $D = A$, tenemos que $\mu^\circ(A) \geq \displaystyle \sum 
 \qed
 \end{proof}
 
+\begin{theorem}
+de extensión de Carathéodory\\
+Dada una medida $\mu$ sobre un álgebra $\mathcal{C}$, existe una extensión $\mu^\circ$ sobre la $\sigma$-álgebra minimal sobre $\mathcal{C}$ ($\mathcal{A}(\mathcal{C})$). Además, si $\mu$ es finita, la extensión es única.
+\end{theorem}
 
+\begin{proof}
+
+\end{proof}
 \section{Funciones medibles}
 
 Una vez definidos los conceptos sobre espacios de medida y espacios probabilísticos, vamos a aproximarnos al concepto de función medible. Para ello, daremos des definiciones de función medible, para demostrar más adelante que estas dos definiciones son equivalentes. Empecemos con la definición constructiva de función medible. Dado que nos interesa que el codominio sea $\mathbb{R}$, trabajaremos con funciones definidas entre un espacio medible ($\Omega$, $\mathcal{A}$) y ($\mathbb{R}$, $\mathcal{B}$), donde $\mathcal{B}$ representa la $\sigma$-álgebra de Borel.\\
@@ -289,13 +308,13 @@ Sea entonces la función $X = \displaystyle \sum_j x_jI_{A_j}$, donde $A_j$ son 
 
 \textbf{Definición constructiva de función medible:} Una función es medible si es límite de una sucesión de funciones simples $\{X_n\}$ convergentes.\\
 
-Esta definición que hemos dado es constructiva, y por tanto, nos será muy útil para la definición constructiva de las integrales. No obstante, para enunciar y demostrar las propiedades de las funciones medibles, suele ser más útil la definición descriptiva siguiente:\
+Esta definición que hemos dado es constructiva, y por tanto, nos será muy útil para la definición constructiva de las integrales. No obstante, para enunciar y demostrar las propiedades de las funciones medibles, suele ser más útil la definición descriptiva siguiente:\\
 
 \textbf{Definición descrptiva de función medible:} Sea una función $\varphi : \mathcal{A} \rightarrow \mathcal{B}$. Se dice que $\varphi$ es medible si $\forall B \in \mathcal{B} \Rightarrow \varphi^{-1}(B) \in \mathcal{A}$. Es decir, una función se dice medible si la imagen inversa de todo conjunto medible es medible.\\
 
 No obstante, se puede dar, a raíz de esta, otra definición más económica:\\
 
-Para la difición anterior, es suficiente con exigir la medibilidad de las imágenes inverss de los elementos de una subclase $\mathcal{a}$ para la cual la $\sigma$-álgebra minimal sobre $\mathcal{a}$ sea $\mathcal{B}$\\
+Para la difición anterior, es suficiente con exigir la medibilidad de las imágenes inversas de los elementos de una subclase $\mathcal{a}$ para la cual la $\sigma$-álgebra minimal sobre $\mathcal{a}$ sea $\mathcal{B}$\\
 
 Veamos ahora que las dos definiciones que hemos dado son equivalentes.
 
