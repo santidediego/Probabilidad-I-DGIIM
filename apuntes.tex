@@ -298,11 +298,30 @@ Dada una medida $\mu$ sobre un álgebra $\mathcal{C}$, existe una extensión $\m
 \end{theorem}
 
 \begin{proof}
+$\forall A \in \mathcal{C}, \forall D \in \mathcal{C}, \forall \varepsilon>0, \exists \{A_j\} \subset \mathcal{C}$ recubrimiento de $D$ tal que
+$$\mu^\circ(D) + \varepsilon \geq \sum \mu(A_j) \geq \sum \mu (AA_j) + \sum \mu (A^cA_j) \geq \mu^\circ(AD) + \mu^\circ(A^cD) \Rightarrow$$
+$$ \stackrel{\varepsilon \to 0}{\Rightarrow} \mu^\circ(D) \geq \mu^\circ(AD) + \mu^\circ(A^cD), A \in \mathcal{A}^\circ \Rightarrow \mathcal{C} \subseteq \mathcal{A}^\circ, \mathcal{A}(\mathcal{C}) \subseteq \mathcal{A}^\circ $$
+Por los dos teoremas que hemos demostrado antes, la restricción $\mu^\circ$ sobre $\mathcal{A}(\mathcal{C})$ es una extensión de $\mu$ a una medida sobre $\mathcal{A}(\mathcal{C})$. Ahora, veamos que es única. Para ello, sean $\mu_1, \mu_2$ extensiones de $\mu$. Sea entonces el conjunto $\mathcal{M} = \{A: \mu_1(A) = \mu_2(A)\} \Rightarrow \mathcal{C} \subset \mathcal{M}$. Tenemos entonces que:
+$$ \Omega \in \mathcal{C} \Rightarrow \Omega \in \mathcal{M} \Rightarrow \mu_1(\Omega) = \mu_2(\Omega) = \mu(\Omega) < \infty \Rightarrow \mu_1, \mu_2 \: finitos $$
+$$ A \in \mathcal{M} \Rightarrow \mu_1(A^c) = \mu(\Omega) - \mu_1(A) = \mu(\Omega) - \mu_2(A) = \mu_2(A^c) \Rightarrow A^c \in \mathcal{M} $$
+$$ A,B \in \mathcal{M} \Rightarrow \mu_1(A+B) = \mu_1(A) + \mu_1(B) = \mu_2(A) + \mu_2(B) = \mu_2(A+B) \Rightarrow A+B \in \mathcal{M}$$
+Entonces, de momento $\mathcal{M}$ es un campo.\\
 
+Sean ahora $\{A_n\} \subset \mathcal{M}$ monótona, entonces $\mu_1(\lim A_n) = \lim \mu_1(A_n) = \lim \mu_2(A_n) = \mu_2(\lim A_n) \Rightarrow \mathcal{M}$ cerrada frente al límite de sucesiones monótonas $\Rightarrow \mathcal{M} \sigma$-álgebra que contiene a $\mathcal{C}$, por tanto, contiene a la $\sigma$-álgebra minimal sobre $\mathcal{C}$
+$$ \mathcal{A}(\mathcal{C}) \subseteq \mathcal{M} \Rightarrow \mu_1 = \mu_2 \: en \: \mathcal{A}(\mathcal{C})$$
 \end{proof}
+
 \section{Funciones medibles}
 
-Una vez definidos los conceptos sobre espacios de medida y espacios probabilísticos, vamos a aproximarnos al concepto de función medible. Para ello, daremos des definiciones de función medible, para demostrar más adelante que estas dos definiciones son equivalentes. Empecemos con la definición constructiva de función medible. Dado que nos interesa que el codominio sea $\mathbb{R}$, trabajaremos con funciones definidas entre un espacio medible ($\Omega$, $\mathcal{A}$) y ($\mathbb{R}$, $\mathcal{B}$), donde $\mathcal{B}$ representa la $\sigma$-álgebra de Borel.\\
+Una vez definidos los conceptos sobre espacios de medida y espacios probabilísticos, vamos a aproximarnos al concepto de función medible. Para ello, daremos dos definiciones de función medible, para demostrar más adelante que estas dos definiciones son equivalentes. Empecemos con la definición constructiva de función medible. Dado que nos interesa que el codominio sea $\mathbb{R}$, trabajaremos con funciones definidas entre un espacio medible ($\Omega$, $\mathcal{A}$) y ($\mathbb{R}$, $\mathcal{B}$), donde $\mathcal{B}$ representa la $\sigma$-álgebra de Borel.\\
+
+Primero, se define la función puntual $X: \Omega \to \mathbb{R}$, que asigna a cada $\omega \in \Omega$ un número $x = X(\omega)$ único. Llamaremos a esta función variable aleatoria. Utilizaremos de aquí en adelante la siguiente notación:
+
+\begin{itemize}
+\item $[X]$ = dominio de la variable aleatoria $X$.
+\item $[ X \leq Y] = \{\omega: X(\omega) \leq Y(\omega)\}$
+\item $[ X = x] = \{\omega: X(\omega)= x\}$
+\end{itemize}
 
 Sea entonces la función $X = \displaystyle \sum_j x_jI_{A_j}$, donde $A_j$ son conjuntos medibles y $I_{A_j}$ denota la función indicadora de dicho conjunto. Estas funciones se llaman funciones elementales, y cuando el número de valores distintos que toma la función $X$ es finito, se conocen como funciones simples. Entonces, la definición constructiva de función medible es la que sigue:\\
 
@@ -331,50 +350,64 @@ $$ \lim \sup X_n = - \lim \inf (-X_n)$$
 son medibles en el sentido descriptivo. Por un lado, las funciones de este tipo son claramente cerradas bajo las operaciones de supremo, ínfimo, y límites. Además, toda función simple es medible en el sentido descriptivo, ya que todos los conjuntos $[X \leq x] = \displaystyle \sum_{x_j \leq x} A_j$ son medibles. Entonces, el límite de sucesiones convergentes de funciones simples son medibles, y por tanto las funciones medibles en sentido constructivo lo son en sentido descriptivo.\\
 
 Veamos la otra implicación, es decir, que las funciones medibles en sentido descriptivo lo son en sentido constructivo. Sea una función $X$ medible en sentido descriptivo. Entonces, las funciones
-$$X_n = -nI_{[X < -n]} + \sum_{-n2^n+1}^{n2^n}\frac{k-1}{2^n}I_{\big[\frac{k-1}{2^n} \leq X < \frac{k}{2^n} \big]} + nI_{X \geq n}, n \in \mathbb{N}$$
+$$X_n = -nI_{[X < n]} + \sum_{-n2^n+1}^{n2^n}\frac{k-1}{2^n}I_{\big[\frac{k-1}{2^n} \leq X < \frac{k}{2^n} \big]} + nI_{X \geq n}, n \in \mathbb{N}$$
 son simples. Entonces, dado que
 $$\mid X_n(\omega) - X(\omega)\mid < \frac{1}{2^n} \quad para \quad \mid X(\omega)\mid < n$$
 y
 $$X_n(\omega) = \pm n \quad para \quad  X(\omega) = \pm \infty$$
-se tiene entonces que $X_n \to X$ y esto, con lo anterior, prueba la equivalencia de las dos definiciones de función medible.
+se tiene entonces que $X_n \to X$ y esto, con lo anterior, prueba la equivalencia de las dos definiciones de función medible.\qed
 \end{proof}
 
 \begin{lemma}
-Sea $\mathbb{X}:A\longrightarrow B$\\\\
-$\mathbb{X}$ es medible $\Longleftrightarrow$ $\mathbb{X}^{-1}(S)\in A,S \in B$
+Sea $X:A\longrightarrow B$\\
+
+$X$ es medible $\Longleftrightarrow$ $X^{-1}(S)\in A,S \in B$
 \end{lemma}
+
 \begin{theorem}
-Si g es continua $\Longrightarrow  g(\mathbb{X})$ es medible
+Sea $X:\Omega \longrightarrow \mathbb{R}$, y $g: \mathbb{R} \longrightarrow \mathbb{R}$ continua. Entonces,$ g(\mathbb{X})$ es medible
 \end{theorem}
+
 \begin{proof}
-$g()\mathbb{X}$ es medible si la puedo escribir como límite de funciones medibles, es decir, $g(\mathbb{X})=\displaystyle\lim g(\mathbb{X}_n)$
+Si $X$ es elemental, tenemos que $\displaystyle g(X) = g\Big(\sum_jx_jI_{A_j}\Big)= \sum_j g(x_j)I_{A_j}$ función elemental, y por tanto, medible.\\
+
+Si $X$ es el límite de funciones elementales:
+$$g(X) = g(\lim X_n) = \lim g(X_n) = \lim \sum_j g(x_j)I_{A_j}$$
+
 \qed
 \end{proof}
+
 \begin{theorem}
-Sea $\mathbb{X}=(\mathbb{X}_1\ldots \mathbb{X}_n)$ un vector. Será medible $\Longleftrightarrow \forall j=1\ldots k\, , \, \mathbb{X}_j$ son medibles.
+Sean $X$ función medible y $g$ función boreliana. Entonces, $g(X)$ es medible.
 \end{theorem}
+
 \begin{proof}
-$$\Longrightarrow$$
-\\\\
-$\mathbb{X}^{-1}(-\infty,-\infty,\ldots ,x_j,\ldots ,\infty)=[\mathbb{X}_j < x_j]$\\\\
-De la medibilidad de $\mathbb{X}$ se deduce la medibilidad de todas las componentes, poniendo el $x_j$ donde nos interesa\\
-$$\Longleftarrow$$
-\\
-Supongamos que las componentes son medibles:\\
-$[\mathbb{X}_n \leq X_n]=[\mathbb{X}_1\leq x_1,\ldots ,\mathbb{X}_k \leq X_k]=\bigcap_{j=1}^k{[\mathbb{X}_j\leq x_j]}\in a$
-\qed
-\end{proof}
-\begin{theorem}
-Si $\mathbb{X}$ es medible $\Longrightarrow g(\mathbb{X})$ es medible si $g$ es Borel
-\end{theorem}
-\begin{proof}
-$$g(\mathbb{X})^{-1}B=\mathbb{X}^{-1}(g^{-1}(B))\in a$$
-$$P[|\mathbb{X}-\mathbb{Y}|\geq \epsilon]\leq P[[|\mathbb{X}_n-\mathbb{X}|\geq \dfrac{\epsilon}{2}]+P[|\mathbb{X}_n-\mathbb{Y}|\geq \dfrac{\epsilon}{2}]\underbrace{\longrightarrow}_{n\rightarrow\infty}0$$
+$$(gX)^{-1}(B)=X^{-1}(g^{-1}(B))\in \mathcal{A}$$
 \qed
 \end{proof}
 
 \section{Convergencia en probabilidad y convergencia casi segura}
 
+Vamos a establecer ahora criterios que nos permitan comparar variables aleatorias. Dado un espacio de probabilidad ($\Omega$, $\mathcal{A}$, $\mathcal{P}$), se dice que dos variables aleatorias son equivalentes si:
+$$ X\mathcal{R}Y \Leftrightarrow \mathcal{P}[X = Y] = 1$$
+Análogamente:
+$$X(\omega) = Y(\omega) \forall \omega \in \Omega \setminus \Lambda, \mathcal{P}(\Lambda) = 0$$
+
+\textbf{Definición de convergencia en probabilidad:}\\
+
+Si $P[|X_n- X| \geq \varepsilon]\rightarrow 0$, entonces se dice que $X_n\stackrel{\mathbb{P}}{\longrightarrow} X$, es decir, $X_n$ converge en probabilidad a $X$\\
+
+\begin{lemma}
+$X_n\stackrel{\mathcal{P}}{\longrightarrow} X \wedge X_n\stackrel{\mathcal{P}}{\longrightarrow} Y \Longrightarrow X\mathcal{R}Y$\\
+\end{lemma}
+
+\begin{proof}
+$$|X-Y |=|X - X_n - Y + X_n | \leq |X_n - X|+| X_n-Y |$$
+
+$$P[|X - Y| \geq \varepsilon] \leq P[|X_n - X | \geq \frac{\varepsilon}{2} ] + P[| X_n - Y | \geq \frac{\varepsilon}{2}] \rightarrow 0$$
+Y por tanto, $X \mathcal{R} Y$
+\qed
+\end{proof}
 \section{Integrales sobre funciones de conjunto en espacios de medida}
 
 Para el cálculo de probabilidades, nos será muy útil el concepto de integral sobre funciones de conjunto. Vamos a tratar de aproximarnos al concepto de función que dió Lebesgue. En este apartado trabajaremos sobre el espacio de probabilidad $(\Omega, \mathcal{A}, \mathcal{P})$. Comenzaremos definiendo la integral para las funciones simples, para dar luego una definición de integral para funciones no negativas y por último para funciones cualesquiera.\\
@@ -476,24 +509,6 @@ El recíproco no es cierto
 \qed
 \end{proof}
 
-\begin{theorem} (de extensión de Caratheodory) 
-Una medida $\mu$ sobre $\mathbb{C}$ se extiende a $A(\mathbb{C})$. La extensión es mínima si $\mu$ es finita.
-$$(\Omega,\mathbb{C},\mu)\overbrace{\longrightarrow}^{extension}(\Omega,S(\Omega),\mu^\circ)\overbrace{\longrightarrow}^{restriccion}(\Omega,A^\circ,\mu^\circ)\overbrace{\longrightarrow}^{restriccion}(\Omega,A(\mathbb{C}),\mu^\circ)$$
-donde:\\\\
-$\mu^\circ$ es la medida exterior que es extensión de $\mu$\\
-$A^\circ$ es el $\sigma$-campo\\\\
-$\mu^\circ$ es medida exterior si es subaditiva, no decreciente y $\mu^\circ(\emptyset)=0$
-\\\\
-$A\in \Omega$, $\mu^\circ(A)=inf\displaystyle\sum(A_j)$\\\\
-$\mu^\circ(\emptyset)\leq\mu(\emptyset)$\\\\
-$a\in A^\circ$ si $D\in S(\Omega)$ se cumple que $\mu^\circ(D)\geq\mu^\circ(AD)+\mu^\circ(A^c D)$
-\end{theorem}
-
-\begin{lemma} 
-$\mathbb{X}(w)=\varphi(w)\,\forall w \in \Omega - \Lambda\, t.q.\, P(\Lambda)=0$. Entonces, $\mathbb{X}=\varphi$ \\\\
-$P(\mathbb{X}=\varphi)=1$\\\\
-\end{lemma}
-Definimos la relación de equivalencia $\mathbb{X}R\varphi\leftrightarrow P(\mathbb{X}=\varphi)=1$
 \begin{lemma}
 Sea $Y\leq \mathbb {X}_n\leq Z$ con $Y,\, Z$ integrables y tal que $\mathbb{X}_n\overbrace{\longrightarrow}^{c.s.}\mathbb{X}$. Entonces se tiene que $\displaystyle \int\mathbb{X}_n\rightarrow\displaystyle\int\mathbb{X}$
 \end{lemma}
@@ -509,28 +524,7 @@ $E|\mathbb{X}\mathbb{Y}|\leq \left(  E|\mathbb{X}|^r \right) ^{\frac{1}{r}}  \le
 Sea $\mathbb{X}$ una v.a. y sea $g$ una función borel. Entonces se tiene que si $g$ es par y no decreciente en $[0,\infty) \, \forall a>0$ , entonces:
 $$\dfrac{Eg(\mathbb{X})-g(a)}{sup\, g(\mathbb{X})}\leq P[|\mathbb{X}|\geq a]\leq \dfrac{E g(\mathbb{X})}{g(a)}$$ 
 \section{Convergencia en probabilidad de espacios métricos}
-\textbf{Definición de convergencia en probabilidad:} Si $P(| \mathbb{X}_n- \mathbb{X} | \geq\epsilon)\rightarrow 0$, entonces se dice que $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X}$, es decir, $\mathbb{X}_n$ converge en probabilidad a $\mathbb{X}$
-\\\\
-\textbf{Lema:} $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X} \bigwedge \mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{\varphi}\Longrightarrow P(\mathbb{X}=\varphi)=1$\\\\
-\textit{\textbf{Demostración}}\\\\
-$| \mathbb{X}-\varphi |=|-\mathbb{X}_n + \mathbb{X}-\varphi + \mathbb{X}_n | \leq |\mathbb{X}_n - \mathbb{X}|+|\mathbb{X}_n-\varphi |$\\\\
-$P(| \mathbb{X}- \varphi | \geq\epsilon)\leq P(| \mathbb{X}_n- \mathbb{X} | \geq\frac{\epsilon}{2})+P(| \mathbb{X}_n- \varphi | \leq\frac{\epsilon}{2})\rightarrow 0$
-\begin{flushright}
-$\square$
-\end{flushright}
-\textbf{Teorema:} Una sucesión $\mathbb{X}_n$ converge en probabilidad a $\mathbb{X}$ si y solo si:
-$$P(| \mathbb{X}_{n+\delta}-\mathbb{X}_n |\geq\epsilon)\longrightarrow 0$$
-\textit{\textbf{Demostración}}\\\\
- $| \mathbb{X}_{n+\delta}-\mathbb{X}_n |= |   \mathbb{X}_{n+\delta}-\mathbb{X}+\mathbb{X}-\mathbb{X}_n  |$\\\\
- Y se termina aplicando la desigualdad de Cauchy como antes.
- \begin{flushright}
-$\square$
-\end{flushright}
-En el siguiente ejemplo consideramos una sucesión de variables aleatorias indicadoras tal que:\\\\
-$P(\mathbb{X}_n=1)=\dfrac{1}{n}$ y $P(\mathbb{X}_n=0)=1-\dfrac{1}{n}$\\\\
-La pregunta es, ¿a dónde converge en probabilidad $\mathbb{X}_n$?\\\\
-Podemos afirmar que $\mathbb{X}_n\overbrace{\longrightarrow}^P 0$ ya que:\\\\
-$P ( | \mathbb{X}_n - 0 | \geq\epsilon)=P(| \mathbb{X}_n | \geq\epsilon)=P(| \mathbb{X}_n | =1)=\dfrac{1}{n}\rightarrow 0$
+
 \subsection{Propiedades}
 \begin{enumerate}
 \item $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X} \bigwedge \varphi_n\overbrace{\longrightarrow}^P \varphi \Longrightarrow \mathbb{X}_n + \varphi_n\overbrace{\longrightarrow}^P\mathbb{X}+\varphi$
