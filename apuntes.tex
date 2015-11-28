@@ -365,7 +365,7 @@ $X$ es medible $\Longleftrightarrow$ $X^{-1}(S)\in A,S \in B$
 \end{lemma}
 
 \begin{theorem}
-Sea $X:\Omega \longrightarrow \mathbb{R}$, y $g: \mathbb{R} \longrightarrow \mathbb{R}$ continua. Entonces,$ g(\mathbb{X})$ es medible
+Sea $X:\Omega \longrightarrow \mathbb{R}$, y $g: \mathbb{R} \longrightarrow \mathbb{R}$ continua. Entonces,$ g(X)$ es medible
 \end{theorem}
 
 \begin{proof}
@@ -393,7 +393,7 @@ $$ X\mathcal{R}Y \Leftrightarrow \mathcal{P}[X = Y] = 1$$
 Análogamente:
 $$X(\omega) = Y(\omega) \forall \omega \in \Omega \setminus \Lambda, \mathcal{P}(\Lambda) = 0$$
 
-\textbf{Definición de convergencia en probabilidad:}\\
+\subsection{Definición de convergencia en probabilidad:}
 
 Si $P[|X_n- X| \geq \varepsilon]\rightarrow 0$, entonces se dice que $X_n\stackrel{\mathbb{P}}{\longrightarrow} X$, es decir, $X_n$ converge en probabilidad a $X$\\
 
@@ -407,6 +407,47 @@ $$|X-Y |=|X - X_n - Y + X_n | \leq |X_n - X|+| X_n-Y |$$
 $$P[|X - Y| \geq \varepsilon] \leq P[|X_n - X | \geq \frac{\varepsilon}{2} ] + P[| X_n - Y | \geq \frac{\varepsilon}{2}] \rightarrow 0$$
 Y por tanto, $X \mathcal{R} Y$
 \qed
+\end{proof}
+
+\subsection{Definición de convergencia uniforme en u:}
+
+Se dice que una variable aleatoria $X$ converge uniformemente en $u$ si se cumple que $\mathcal{P}[\mid X_{n+u} - X_n \mid \geq \varepsilon] \to 0$
+
+\begin{lemma}
+La convergencia en probabilidad implica la convergencia uniforme
+\end{lemma}
+
+\begin{proof}
+$$ \mid X_{n+u} - X_n \mid \leq \mid X_{n+u} + X \mid + \mid X_n - X \mid \Rightarrow$$
+$$ \Rightarrow \mathcal{P}[\mid X_{n+u} - X_n \mid \varepsilon] \leq \mathcal{P}\Big[\mid X_{n+u} - X \mid \frac{\varepsilon}{2}\Big] + \mathcal{P}\Big[\mid X_{n} - X \mid \frac{\varepsilon}{2}\Big] \to 0$$
+\end{proof}
+
+\subsection{Propiedades}
+
+\begin{enumerate}
+\item $ X_n \stackrel{\mathcal{P}}{\longrightarrow} X \wedge Y_n \stackrel{\mathcal{P}}{\longrightarrow} Y \Longrightarrow X_n + Y_n \stackrel{\mathcal{P}}{\longrightarrow} X + Y$
+\item $X_n \stackrel{\mathcal{P}}{\longrightarrow} X \Longrightarrow KX_n \stackrel{\mathcal{P}}{\longrightarrow} KX$
+\item $X_n \stackrel{\mathcal{P}}{\longrightarrow} K$ (es decir, que degenera), entonces ${X_n}^2 \stackrel{\mathcal{P}}{\longrightarrow} K^2$.\\
+Para demostrarlo basta notar que: $ {X_n}^2 - K^2 = (X_n + K) (X_n -K)$
+\item $X_n \stackrel{\mathcal{P}}{\longrightarrow} a \wedge Y _n \stackrel{\mathcal{P}}{\longrightarrow} b \Longrightarrow X_nY_n \stackrel{\mathcal{P}}{\longrightarrow} a \cdot b$\\
+
+Para demostrarlo tenemos que notar que:
+$$X_n Y_n = \dfrac{(X_n + Y_n)^2-X_n - Y_n)^2}{4}\stackrel{\mathcal{P}}{\longrightarrow} \dfrac{(a+b)^2-(a-b)^2}{4}=ab$$
+
+\item $X_n \stackrel{\mathcal{P}}{\longrightarrow} 1 \Longrightarrow \dfrac{1}{X_n} \stackrel{\mathcal{P}}{\longrightarrow} 1$
+\item $X_n \stackrel{\mathcal{P}}{\longrightarrow} a \wedge Y_n \stackrel{\mathcal{P}}{\longrightarrow} b \Longrightarrow X_nY_n^{-1}\stackrel{\mathcal{P}}{\longrightarrow} ab^{-1}$
+\item $X_n \stackrel{\mathcal{P}}{\longrightarrow} X \wedge Y_n\stackrel{\mathcal{P}}{\longrightarrow} Y \Longrightarrow X_nY_n\stackrel{\mathcal{P}}{\longrightarrow} XY$\\
+
+Para demostrarlo basta notar que: $(X_n - X)(Y_n - Y)\stackrel{\mathcal{P}}{\longrightarrow} 0$ y luego $X_nY_n-XY_n-X_nY-XY\stackrel{\mathcal{P}}{\longrightarrow} 0$ (Por la propiedad siguiente)
+\item $X_n\stackrel{\mathcal{P}}{\longrightarrow} X$, entonces $YX_n\stackrel{\mathcal{P}}{\longrightarrow} YX$
+\end{enumerate}
+
+\begin{theorem}
+Si $X_n\stackrel{\mathcal{P}}{\longrightarrow} X$ y $g(\cdot)$ es continua, entonces se cumple que:
+$$g(X_n)\stackrel{\mathcal{P}}{\longrightarrow} g(X)$$
+\end{theorem}
+
+\begin{proof}
 \end{proof}
 \section{Integrales sobre funciones de conjunto en espacios de medida}
 
@@ -488,10 +529,10 @@ Sean $Y$, $Z$ dos funciones integrables (pueden no mantener su signo), entonces:
 
 \subsection{Lema de Fatou-Lebesgue}
 \begin{lemma}
-Sean $Y$, $Z$ dos funciones integrables (pueden no mantener su signo) y $\mathbb{X}_n$ una sucesión de variables aleatorias, entonces:
+Sean $Y$, $Z$ dos funciones integrables (pueden no mantener su signo) y $X_n$ una sucesión de variables aleatorias, entonces:
 \begin{itemize}
-\item Si $X_n\leq Y \, \forall n \Longrightarrow E(\lim_{sup}\mathbb{X}_n)\geq\lim_{sup}E(\mathbb{X}_n)$
-\item  Si $X_n\geq Z \, \forall n \Longrightarrow$ si la sucesión es convergente y acotada se cumple que: $E(\lim\mathbb{X}_n)\geq\lim E(\mathbb{X}_n)$
+\item Si $X_n\leq Y \, \forall n \Longrightarrow E(\lim_{sup}X_n)\geq\lim_{sup}E(X_n)$
+\item  Si $X_n \geq Z \, \forall n \Longrightarrow$ si la sucesión es convergente y acotada se cumple que: $E(\lim X_n)\geq\lim E(X_n)$
 \end{itemize}
 \end{lemma}
     
@@ -510,53 +551,31 @@ El recíproco no es cierto
 \end{proof}
 
 \begin{lemma}
-Sea $Y\leq \mathbb {X}_n\leq Z$ con $Y,\, Z$ integrables y tal que $\mathbb{X}_n\overbrace{\longrightarrow}^{c.s.}\mathbb{X}$. Entonces se tiene que $\displaystyle \int\mathbb{X}_n\rightarrow\displaystyle\int\mathbb{X}$
+Sea $Y\leq \mathbb {X}_n\leq Z$ con $Y,\, Z$ integrables y tal que $X_n\overbrace{\longrightarrow}^{c.s.}X$. Entonces se tiene que $\displaystyle \int X_n \rightarrow \displaystyle \int X$
 \end{lemma}
 \subsection{Algunas desigualdades interesantes}
 \begin{lemma}
 $|a+b|^r\leq C_r |a|^r + C_r |b|^r$ con $C_r=1$ si $r=1$ y $C_r=2^r$ si $r>1$
 \\\\
-Entonces se tiene $E|\mathbb{X}+\mathbb{Y}|^r \leq C_r E|\mathbb{X}|^r + C_r E|\mathbb{Y}|^r$
+Entonces se tiene $E|X+\mathbb{Y}|^r \leq C_r E|X|^r + C_r E|\mathbb{Y}|^r$
 \end{lemma}
 \subsubsection{Desigualdad de Hölder-Schwartz}
-$E|\mathbb{X}\mathbb{Y}|\leq \left(  E|\mathbb{X}|^r \right) ^{\frac{1}{r}}  \left(  E|\mathbb{Y}|^s \right) ^{\frac{1}{s}}$ con $r>s$ ; $ \dfrac{1}{r}+\dfrac{1}{s}=1$
+$E|X\mathbb{Y}|\leq \left(  E|X|^r \right) ^{\frac{1}{r}}  \left(  E|\mathbb{Y}|^s \right) ^{\frac{1}{s}}$ con $r>s$ ; $ \dfrac{1}{r}+\dfrac{1}{s}=1$
 \subsubsection{Desigualdad de Markvov}
-Sea $\mathbb{X}$ una v.a. y sea $g$ una función borel. Entonces se tiene que si $g$ es par y no decreciente en $[0,\infty) \, \forall a>0$ , entonces:
-$$\dfrac{Eg(\mathbb{X})-g(a)}{sup\, g(\mathbb{X})}\leq P[|\mathbb{X}|\geq a]\leq \dfrac{E g(\mathbb{X})}{g(a)}$$ 
-\section{Convergencia en probabilidad de espacios métricos}
+Sea $X$ una v.a. y sea $g$ una función borel. Entonces se tiene que si $g$ es par y no decreciente en $[0,\infty) \, \forall a>0$ , entonces:
+$$\dfrac{Eg(X)-g(a)}{sup\, g(X)}\leq P[|X|\geq a]\leq \dfrac{E g(X)}{g(a)}$$ 
 
-\subsection{Propiedades}
-\begin{enumerate}
-\item $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X} \bigwedge \varphi_n\overbrace{\longrightarrow}^P \varphi \Longrightarrow \mathbb{X}_n + \varphi_n\overbrace{\longrightarrow}^P\mathbb{X}+\varphi$
-\item $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X}\Longrightarrow K\mathbb{X}_n\overbrace{\longrightarrow}^P K\mathbb{X}$
-\item $\mathbb{X}_n\overbrace{\longrightarrow}^P K$ (es decir, que degenera), entonces ${\mathbb{X}_n}^2\overbrace{\longrightarrow}^P K^2$.\\\\
-Para demostrarlo basta notar que: ${\mathbb{X}_n}^2-K^2=(\mathbb{X}_n + K)(\mathbb{X}_n -K)$
-\item $\mathbb{X}_n\overbrace{\longrightarrow}^P a \bigwedge \varphi _n\overbrace{\longrightarrow}^P b\Longrightarrow \mathbb{X}_n \mathbb{\varphi}_n \overbrace{\longrightarrow}^P a\cdot b$
-\\\\
-Para demostrarlo tenemos que notar que: 
-$$\mathbb{X}_n\varphi_n=\dfrac{(\mathbb{X}_n + \varphi_n)^2-\mathbb{X}_n - \varphi_n)^2}{4}\overbrace{\longrightarrow}^P \dfrac{(a+b)^2-(a-b)^2}{4}=ab$$
-\item $\mathbb{X}_n\overbrace{\longrightarrow}^P 1 \Longrightarrow \dfrac{1}{\mathbb{X}_n}\overbrace{\longrightarrow}^P 1$
-\item $\mathbb{X}_n\overbrace{\longrightarrow}^P a \bigwedge \varphi_n\overbrace{\longrightarrow}^P b\Longrightarrow \mathbb{X}_n\varphi_n^{-1}\overbrace{\longrightarrow}^P ab^{-1}$
-\item $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X}\bigwedge \varphi_n\overbrace{\longrightarrow}^P \varphi \Longrightarrow\mathbb{X}_n\varphi_n\overbrace{\longrightarrow}^P\mathbb{X}\varphi$
-\\\\
-Para demostrarlo basta notar que: $(\mathbb{X}_n - \mathbb{X})(\varphi_n - \varphi)\overbrace{\longrightarrow}^P 0$ y luego $\mathbb{X}_n\varphi_n-\mathbb{X}\varphi_n-\mathbb{X}_n\varphi-\mathbb{X}\varphi\overbrace{\longrightarrow}^P 0$ (Por la propiedad siguiente)
-\item $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X}$, entonces $\varphi\mathbb{X}_n\overbrace{\longrightarrow}^P \varphi\mathbb{X}$
-\end{enumerate}
-\begin{theorem}
-Si $\mathbb{X}_n\overbrace{\longrightarrow}^P \mathbb{X}$ y $g(\cdot)$ es continua, entonces se cumple que:
-$$g(\mathbb{X}_n)\overbrace{\longrightarrow}^P g(\mathbb{X})$$
-\end{theorem}
 \section{Convergencia casi segura de espacios métricos}
-\textbf{Definición de convergencia casi segura:} Una sucesión de variables aleatorias, ${ \mathbb{X}_n }$ , converge con probabilidad 1, o de forma casi segura, a una variable aleatoria $\mathbb{X}$ ( que puede degenerar en una constante K) cuando se cumple que:
-$$P(\lim_{n\rightarrow\infty}\mathbb{X}_n=\mathbb{X})=1$$
-De esta forma interpretamos que $\mathbb{X}_n\overbrace{\longrightarrow}^{c.s.}\mathbb{X}$ cuando la probabilidad de que en el límite la sucesión de variables  aleatorias y aquella a la que converge sean iguales es uno
+\textbf{Definición de convergencia casi segura:} Una sucesión de variables aleatorias, ${ X_n }$ , converge con probabilidad 1, o de forma casi segura, a una variable aleatoria $X$ ( que puede degenerar en una constante K) cuando se cumple que:
+$$P(\lim_{n\rightarrow\infty}X_n=X)=1$$
+De esta forma interpretamos que $X_n\overbrace{\longrightarrow}^{c.s.}X$ cuando la probabilidad de que en el límite la sucesión de variables  aleatorias y aquella a la que converge sean iguales es uno
 
 \begin{theorem}
-$$\mathbb{X}_n\overbrace{\longrightarrow}^{c.s.}\mathbb{X}\Longrightarrow \mathbb{X}_n\overbrace{\longrightarrow}^P\mathbb{X}$$
-$$\mathbb{X}_n\overbrace{\longrightarrow}^P\mathbb{X}\Longrightarrow \exists\mathbb{X}_{nk}\,:\, \mathbb{X}_{n_k}\overbrace{\longrightarrow}^{c.s.}_{k\rightarrow\infty}\mathbb{X}$$
+$$X_n\overbrace{\longrightarrow}^{c.s.}X\Longrightarrow X_n\stackrel{\mathcal{P}}{\longrightarrow}X$$
+$$X_n\stackrel{\mathcal{P}}{\longrightarrow}X\Longrightarrow \exists X_{nk}\,:\, X_{n_k}\overbrace{\longrightarrow}^{c.s.}_{k\rightarrow\infty}X$$
 \end{theorem}
 \begin{proof}
-$$0=\displaystyle\lim_{n\rightarrow\infty}P\bigcup_{m\geq n}[|\mathbb{X}_m - \mathbb{X}|\geq \epsilon ]\geq\displaystyle\lim_{n\rightarrow\infty}P[|\mathbb{X}_n - \mathbb{X}|\geq \epsilon ]$$
+$$0=\displaystyle\lim_{n\rightarrow\infty}P\bigcup_{m\geq n}[|X_m - X|\geq \epsilon ]\geq\displaystyle\lim_{n\rightarrow\infty}P[|X_n - X|\geq \epsilon ]$$
 \qed
 \end{proof}
 \section{Funciones características y funciones de distribución}
@@ -573,7 +592,7 @@ $$\sum_{k=1}^n F[a_k,b_k]-\sum_{k=1}^{n-1}F[b_k,a_{k+1}]=F[a_1,b_n]$$
 Las funciones de distribución representan medidas
 \begin{theorem}
 La relación $\mu[a,b]=F[a,b]$ establece una correspondencia uno a uno (da igual pasar de una a otra)
-$$\int_\mathbb{R} g(\mathbb{X})dP_{\mathbb{X}}(x)=\int_\mathbb{R} g\, Pg=\int_{\Omega}g(\mathbb{X}(\omega))dP(\omega)$$
+$$\int_\mathbb{R} g(X)dP_{X}(x)=\int_\mathbb{R} g\, Pg=\int_{\Omega}g(X(\omega))dP(\omega)$$
 \end{theorem}
 
 \section{Leyes de la probabilidad y tipos de leyes}
