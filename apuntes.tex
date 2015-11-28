@@ -329,11 +329,11 @@ Sea entonces la función $X = \displaystyle \sum_j x_jI_{A_j}$, donde $A_j$ son 
 
 Esta definición que hemos dado es constructiva, y por tanto, nos será muy útil para la definición constructiva de las integrales. No obstante, para enunciar y demostrar las propiedades de las funciones medibles, suele ser más útil la definición descriptiva siguiente:\\
 
-\textbf{Definición descrptiva de función medible:} Sea una función $\varphi : \mathcal{A} \rightarrow \mathcal{B}$. Se dice que $\varphi$ es medible si $\forall B \in \mathcal{B} \Rightarrow \varphi^{-1}(B) \in \mathcal{A}$. Es decir, una función se dice medible si la imagen inversa de todo conjunto medible es medible.\\
+\textbf{Definición descriptiva de función medible:} Sea una función $\varphi : \mathcal{A} \rightarrow \mathcal{B}$. Se dice que $\varphi$ es medible si $\forall B \in \mathcal{B} \Rightarrow \varphi^{-1}(B) \in \mathcal{A}$. Es decir, una función se dice medible si la imagen inversa de todo conjunto medible es medible.\\
 
 No obstante, se puede dar, a raíz de esta, otra definición más económica:\\
 
-Para la difición anterior, es suficiente con exigir la medibilidad de las imágenes inversas de los elementos de una subclase $\mathcal{a}$ para la cual la $\sigma$-álgebra minimal sobre $\mathcal{a}$ sea $\mathcal{B}$\\
+Para la definición anterior, es suficiente con exigir la medibilidad de las imágenes inversas de los elementos de una subclase $\mathcal{a}$ para la cual la $\sigma$-álgebra minimal sobre $\mathcal{a}$ sea $\mathcal{B}$\\
 
 Veamos ahora que las dos definiciones que hemos dado son equivalentes.
 
@@ -468,6 +468,23 @@ $$0=\displaystyle\lim_{n\rightarrow\infty}P\bigcup_{m\geq n}[|X_m - X|\geq \epsi
 \qed
 \end{proof}
 
+\begin{lemma}
+Sea $\mathbb{X}_n$ finita. Entonces se tiene que:
+\\\\
+$\mathbb{X}_n \stackrel{c.s.}{\longrightarrow}\mathbb{X}\Longleftrightarrow \mathbb{X}_n$ es de cauchy
+\end{lemma}
+\begin{proof}
+$$\Longrightarrow$$
+$\exists n_0\, : \, \forall n\geq n_0$ se tiene que:
+$$|\mathbb{X}_n(\omega)-\mathbb{X}(\omega)|<\frac{\epsilon}{2}\, \omega \in A \, P(A)=1$$
+$$|\mathbb{X}_n(\omega)-\mathbb{X}_m(\omega)|\leq|\mathbb{X}_n(\omega)-\mathbb{X}(\omega)|+|\mathbb{X}_m(\omega)-\mathbb{X}(\omega)|<\epsilon$$ 
+$$\Longleftarrow$$
+\begin{center}
+${\mathbb{X}_n(\omega)}$ de Cauchy
+\end{center}
+$$\lim\mathbb{X}_n(\omega)=\mathbb{X}(\omega)\, \omega \in A$$
+\qed
+\end{proof}
 \section{Esperanza matemática}
 
 Para el cálculo de probabilidades, nos será muy útil el concepto de integral sobre funciones de conjunto. Este concepto nos servirá para calcular lo que se conoce como la esperanza matemática de una variable aleatoria $X$. En este apartado trabajaremos sobre el espacio de probabilidad $(\Omega, \mathcal{A}, \mathcal{P})$. Comenzaremos definiendo la integral para las funciones simples, para dar luego una definición de integral para funciones no negativas y por último para funciones cualesquiera.\\
