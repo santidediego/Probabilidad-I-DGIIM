@@ -502,7 +502,12 @@ $X \geq Y \rightarrow \displaystyle \int X d\mathcal{P} \geq \int Y d\mathcal{P}
 $\displaystyle X \stackrel{c.s}{=} Y \rightarrow \int X d\mathcal{P} = \int Y d\mathcal{P}$\\
 \qed
 \end{proof}
+\subsection{Esperanza matemática}
+La esperanza matemática se define de forma distinta si estamos trabajando con una v.a. discreta o continua. En el caso de una v.a. discreta, sea $p(x_i)$ su función de probabilidad. Definimos la esperanza matemática como:
 
+$$E(\mathbb{X})=x_1p(\mathbb{X}=x_1)+\ldots + x_n p(\mathbb{X}=x_n)=\sum_{i=1}^{n}{x_i p(x_i)}$$
+En el caso de una v.a. continua, sea $f(x)$ la función de densidad. Definimos la esperanza matemática como:
+$$E(\mathbb{X})=\int_\infty ^\infty {xf(x)dx}$$
 \subsection{Teorema de la convergencia monótona}
 
 Una vez vista la definición de integral y esperanza matemática y algunas de sus propiedades, vamos a enunciar y demostrar un teorema de convergencia que nos será de mucha utilidad para el estudio de variables aleatorias. Veamos su enunciado y demostración:
