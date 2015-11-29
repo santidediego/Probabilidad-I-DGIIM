@@ -647,9 +647,43 @@ $$ g(a)\mathcal{P}(A) \leq Eg(X) \leq \sup g(X)\mathcal{P}(A) + g(a) $$
 \item Usando la desigualdad básica con $g(X) = X^r$ y $E|X_n - X|^r \to 0 \Rightarrow X_n \stackrel{\mathcal{P}}{\rightarrow} X$
 \item ($\Omega$, $\mathcal{A}$, $\mathcal{P}$) $\stackrel{\mathcal{P}}{\rightarrow}$ ($\mathbb{R}$, $\mathcal{B}$), definimos ahora $\mathcal{P}^X(\mathcal{B}) = \mathcal{P}(X^{-1}(\mathcal{B}))$. $\mathcal{P}^X$ es una probabilidad, ya que $\mathcal{P}^X(\mathbb{R}) = 1, \mathcal{P}^X(\mathcal{B}) \geq 0, \mathcal{P}^X(\sum B_j) = \sum \mathcal{P}^X(B_j)$, y $EX = \displaystyle \int_{x \in \mathbb{R}} x d \mathcal{P}^X(x)$; $Eg(X) = \displaystyle \int_{y \in \mathbb{R}} g d \mathcal{P}^Y(y) = \displaystyle \int_{x \in \mathbb{R}} g(x) d \mathcal{P}^X(x)$
 \end{enumerate}
-\subsection{Convergencia en r-medida}
 
-\subsection{Función de distribución, distribución inducida y función generatriz de momentos}
+\section{Convergencia en r-medida}
+Se dice que una sucesión de variables aleatorias $X_n$ converge en r-medida a $X$ si:
+$$ E|X_n - X|^r \to 0$$
+Lo notamos como $X_n \stackrel{r}{\rightarrow} X$
+
+\begin{lemma}
+Si $X_n \stackrel{r}{\rightarrow} X \Rightarrow E|X_n|^r \rightarrow E|X|^r$
+\end{lemma}
+
+\begin{proof}
+Tenemos dos casos, para $r \leq 1$ y $r \geq 1$\\
+
+Para $r \leq 1$: $|E|X_n|^r - E|X|^r| \leq E|X_n - X|^r \rightarrow 0$\\
+
+Para $r \geq 1$: $|(E|X_n|^r)^{\frac{1}{r}} - (E|X|^r)^{\frac{1}{r}}| \leq (E|X_n - X|^r)^{\frac{1}{r}} \rightarrow 0$
+\end{proof}
+
+\section{Función de distribución, distribución inducida y función generatriz de momentos}
+\subsection{Función de distribución}
+Función puntual que se define sobre la recta real, no negativa, no decreciente, continua por la izquierda y que cumple que $F(-\infty) = 0, F(+\infty) = 1$\\
+
+\subsection{Distribución inducida}
+Se conoce como distribución inducida por la variable aleatoria $X$ a ($\mathbb{R}$, $\mathcal{B}$, $\mathcal{P}^X$), donde la medida de probabilidad $\mathcal{P}^X$ se define como:
+$$ \mathcal{P}^X(B) = \mathcal{P}(X^{-1}(B)), \, \forall B \in \mathcal{B} $$
+Tenemos entonces que:
+\begin{itemize}
+\item $\mathcal{P}^X(B) \geq 0 \forall B \in \mathcal{B}$
+\item $\displaystyle \mathcal{P}^X(\sum_j B_j) = \mathcal{P}(X^{-1}(\sum_jB_j)) = \mathcal{P}(\sum_j X^{-1}(B_j)) = \sum_j \mathcal{P}(X^{-1}(B_j)) = \sum_j \mathcal{P}^X(B_j)$
+\item $\displaystyle EX = \int_{\omega \in \Omega} X(\omega) d \mathcal{P(\omega)} = \int_{x \in \mathbb{R}} x d\mathcal{P}^X(x)$
+\end{itemize}
+
+\subsection{Función generatriz de momentos}
+Llamamos función generatriz de momentos de la variable aleatoria $X$ a la función:
+$$ M_X(t) = E(e^{tX}); \, t \in \mathbb{R} $$
+
+\newpage
 
 \section{Apuntes escritos a recolocar}
 
@@ -670,12 +704,11 @@ El recíproco no es cierto
 \begin{lemma}
 Sea $Y\leq \mathbb {X}_n\leq Z$ con $Y,\, Z$ integrables y tal que $X_n\stackrel{c.s}{\longrightarrow}X$. Entonces se tiene que $\displaystyle \int X_n \rightarrow \displaystyle \int X$
 \end{lemma}
-\subsection{Algunas desigualdades interesantes}
 
 \section{Funciones características y funciones de distribución}
 \subsection{Función característica}
-Función puntual que se define sobre la recta real, no negativa, no decreciente, continua por la izquierda y finita. Para nosotros será la función que está entre 0 y 1.
-\\\\
+Función puntual que se define sobre la recta real, no negativa, no decreciente, continua por la izquierda y finita. Para nosotros será la función que está entre 0 y 1.\\
+
 Verifica estas tres propiedades:
 \begin{itemize}
 \item $0\leq F[a,b]\leq \infty$
