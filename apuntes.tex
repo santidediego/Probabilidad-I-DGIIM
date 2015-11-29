@@ -504,7 +504,10 @@ $\displaystyle \int (X+Y)d\mathcal{P} = \int Xd\mathcal{P} + \int Yd\mathcal{P}$
 Sean $X = \displaystyle \sum x_jI_{A_j}$ y $y = \displaystyle \sum y_kI_{B_k}$. Entonces $X+Y = \displaystyle \sum_k \sum_j x_j I_{A_jB_k} + \sum_k \sum_j y_k I_{A_jB_k} = \sum_k \sum_j (x_k+y_j) I_{A_jB_k}$\\
 
 Si calculamos ahora las integrales:
-$$ \int (X+Y)d\mathcal{P} = \sum_k + \sum_j (x_j + y_k) \mathcal{P}(A_jB_k) = \sum_j x_j \mathcal{P}(A_j) + \sum_k y_k \mathcal{P}(B_k) = \int Xd\mathcal{P} + \int Yd\mathcal{P}\qed$$
+$$ \int (X+Y)d\mathcal{P} = \sum_k + \sum_j (x_j + y_k) \mathcal{P}(A_jB_k) =$$
+$$ = \sum_j x_j \mathcal{P}(A_j) + \sum_k y_k \mathcal{P}(B_k) = \int Xd\mathcal{P} + \int Yd\mathcal{P}\\$$
+\qed
+\end{proof}
 
 $\displaystyle \int_{A+B} X d\mathcal{P} = \int_A X d\mathcal{P} + \int_B X d \mathcal{P}$\\
 
@@ -517,18 +520,22 @@ $X \geq 0 \rightarrow \displaystyle \int X d\mathcal{P} \geq \int 0 = 0$\\
 $X \geq Y \rightarrow \displaystyle \int X d\mathcal{P} \geq \int Y d\mathcal{P}$\\
 
 $\displaystyle X \stackrel{c.s}{=} Y \rightarrow \int X d\mathcal{P} = \int Y d\mathcal{P}$\\
-\qed
-\end{proof}
+
 \subsection{Esperanza matemática}
+
 \subsubsection{Definición general}
-Dado un espacio probabilístico $(\Omega, \mathcal{A}, P)$ y una v.a. $\mathbb{X}$, se define la esperanza matemática de $\mathbb{X}$ como:
-$$E(\mathbb{X})=\int_{\Omega}\mathbb{X}dP=\int_{\omega\in\Omega}{\mathbb{X}(\omega)dP(\omega)}$$
+
+Dado un espacio probabilístico $(\Omega, \mathcal{A}, P)$ y una v.a. $X$, se define la esperanza matemática de $X$ como:
+$$E(X)=\int_{\Omega}XdP=\int_{\omega \in \Omega}{X(\omega)dP(\omega)}$$
 \\\\
+
 La esperanza matemática se define de forma distinta si estamos trabajando con una v.a. discreta o continua. En el caso de una v.a. discreta, sea $p(x_i)$ su función de probabilidad. Definimos la esperanza matemática como:
 
-$$E(\mathbb{X})=x_1p(\mathbb{X}=x_1)+\ldots + x_n p(\mathbb{X}=x_n)=\sum_{i=1}^{n}{x_i p(x_i)}$$
+$$E(X)=x_1p(X=x_1)+\ldots + x_n p(X=x_n)=\sum_{i=1}^{n}{x_i p(x_i)}$$
 En el caso de una v.a. continua, sea $f(x)$ la función de densidad. Definimos la esperanza matemática como:
-$$E(\mathbb{X})=\int_\infty ^\infty {xf(x)dx}$$
+
+$$E(X)=\int_{-\infty}^{+\infty} {xf(x)dx}$$
+
 \subsection{Teorema de la convergencia monótona}
 
 Una vez vista la definición de integral y esperanza matemática y algunas de sus propiedades, vamos a enunciar y demostrar un teorema de convergencia que nos será de mucha utilidad para el estudio de variables aleatorias. Veamos su enunciado y demostración:
@@ -550,36 +557,102 @@ De donde extraemos que $\lim Y_n = X$ y que $\displaystyle \int X = lim \int X_n
 \end{proof}
 
 \subsection{Teorema de Fatou-Lebesgue}
+Veamos ahora un resultado que nos da información sobre el límite superior e inferior de una sucesión de variables aleatorias, en caso de que estas estén acotadas por variables aleatorias integrables
+
+\begin{theorem}
+de Fatou-Lebesgue\\
+
+Sean $Y$, $Z$ dos funciones integrables (pueden no mantener su signo) y $X_n$ una sucesión de variables aleatorias, entonces:
+\begin{enumerate}
+\item Si $Y \leq X_n \, \forall n \Longrightarrow$ $E(\lim \inf X_n) \geq \lim \inf E(X_n)$
+\item Si $X_n \leq Z \, \forall n \Longrightarrow E(\lim \sup X_n)\geq \lim \sup E(X_n)$
+\end{enumerate}
+\end{theorem}
+ 
+\begin{proof}
+Si $X_n \geq 0$, tenemos que:
+$$ X_n \geq Y_n = \inf_{k \geq n} X_n \uparrow \lim \inf X_n \stackrel{TCM}{=} \lim \inf E(X_n) \geq \lim Y_n = E(\lim \inf X_n)$$
+En otro caso:
+\begin{enumerate}
+\item $X_n - Y \geq 0 \Rightarrow \lim \inf E(X_n) - \lim \inf E(Y) \geq E(\lim \inf X_n) - E(\lim \inf Y)$
+\item $Z - X_n \geq 0 \Rightarrow - \lim \inf E(-X_n) \geq - E(\lim \inf - X_n) \Rightarrow \lim \sup E(X_n) \leq E(\lim \sup X_n)$
+\end{enumerate}
+\qed
+\end{proof}
 
 \subsection{Teorema de la convergencia dominada}
-Sea $\mathbb{X}_n$ una sucesión de variables aleatorias t.q.  $\mathbb{X}_n\rightarrow \mathbb{X}$ . Si $\exists Y \, t.q. \, |\mathbb{X}_n |\leq Y$. Entonces se tiene que $\mathbb{X}$ es integrable y:
-$$\lim\int \mathbb{X}_n\, dP=\int \mathbb{X}\, dP$$ 
-\subsection{Desigualdades de Hölder, Schwarz, Minkowsky, básica, Tchevychev, Markov}
+\begin{theorem}
+Sea $X_n$ una sucesión de variables aleatorias t.q.  $X_n \stackrel{\mathcal{P}}{\rightarrow} X$ o $X_n \stackrel{c.s.}{\rightarrow} X$  . Si $\exists Y \, t.q. \, |X_n |\leq Y$. Entonces se tiene que $X$ es integrable y:
+$$\lim\int X_n\, dP=\int X\, dP$$ 
+\end{theorem}
 
-\subsection{Convergencia en R-medida}
+\begin{proof}
+Por un lado, si tenemos la convergencia casi segura, $|X_n| \leq Y \Rightarrow -Y \leq X_n \leq Y \stackrel{F-L}{\rightarrow} \displaystyle \int X_n \to \int X$.
+Por otro, si la convergencia es en probabilidad, nos bastaría con probar que si $Y_n \stackrel{\mathcal{P}}{\rightarrow} 0 \Rightarrow \displaystyle \int Y_n \stackrel{\mathcal{P}}{\rightarrow} 0$. Entonces, tomaríamos $Y = |X_n - X|$ y tendríamos la demostración. Entonces:
+$$ Y_n \stackrel{\mathcal{P}}{\rightarrow} 0 \Rightarrow \exists \{Y_n'\} \subset \{Y_n\} \, t.q. \, \int Y_n' \rightarrow \lim \sup \int Y_n$$
+De nuevo, tenemos que $Y_n' \stackrel{\mathcal{P}}{\rightarrow} 0$. Tomando anora $\{Y_n''\} \subset \{Y_n'\} \, t.q. \, Y_n'' \stackrel{c.s.}{\rightarrow} 0 \rightarrow \displaystyle \int Y_n'' \rightarrow 0 \stackrel{unic.lim.}{\Rightarrow} \lim \sup \int Y_n = 0 \stackrel{Y_n \geq 0}{\Rightarrow} \int Y_n \rightarrow 0$
+\qed
+\end{proof}
+
+\subsection{Desigualdades}
+
+Vamos a ver algunas desigualdades que nos permitirán a posteriori simplificar el cálculo de carácterísticas asociadas a variables aleatorias.\\
+
+\textbf{Definición: Momento r-ésimo}\\
+
+Dado un espacio probabilístico ($\Omega$, $\mathcal{A}$, $\mathcal{P}$) y una variable aleatoria $X$, se define el momento r-ésimo o de orden r de la variable $X$ a:
+$$ EX^r = \int X^r \, d \mathcal{P} $$
+Dicho momento existe si $E|X|^r < \infty$
+
+\subsubsection{Desigualdad $C_r$}
+\begin{lemma}
+$|a+b|^r\leq C_r |a|^r + C_r |b|^r$ con $C_r=1$ si $r=1$ y $C_r=2^r$ si $r>1$\\
+
+Entonces se tiene $E|X+Y|^r \leq C_r E|X|^r + C_r E|Y|^r$
+\end{lemma}
+
+\subsubsection{Desigualdad de Hölder}
+$E|XY| \leq \left(E|X|^r \right)^{\frac{1}{r}}  \left(E|Y|^s \right)^{\frac{1}{s}}$ con $r>s$ ; $ \dfrac{1}{r}+\dfrac{1}{s}=1$
+
+\subsubsection{Caso particular: Desigualdad de Schwarz}
+$E|XY|\leq \left(E|X|^2 \right)^{\frac{1}{2}} \left(E|Y|^2 \right)^{\frac{1}{2}}$
+
+\subsubsection{Desigualdad de Minkowsky}
+Si $r \geq 1 \Rightarrow (E|X+X'|^r)^{\frac{1}{r}} \leq \left(E|X|^r \right)^{\frac{1}{r}} + \left(E|X'|^r \right)^{\frac{1}{r}}$
+
+\subsubsection{Desigualdad básica}
+Sea $X$ una v.a. y sea $g$ una función boreliana. Entonces se tiene:
+
+\begin{description}
+\item[i)] Si $g$ es par y no decreciente en $[0,\infty) \, \forall a>0$ , entonces:
+$$\dfrac{Eg(X)-g(a)}{sup\, g(X)}\leq P[|X|\geq a]\leq \dfrac{E g(X)}{g(a)}$$ 
+\item[ii)] (Desigualdad de Tchevychev) Si $g$ es no decreciente en $\mathbb{R}$, 
+$$ P[|X-EX] \geq a] \leq \frac{Var X}{a^2}$$
+\item[iii)] (Desigualdad de Markov) Si $g(X) = |X|^r$
+$$ \frac{EX^r - a^r}{sup X^r} \leq P[|X| \geq a] \leq \frac{EX^r}{a^r} $$
+\end{description}
+
+Vamos a demostrar que en efecto se cumple la desigualdad básica:
+\begin{proof}
+Definimos $A = [|X| \geq A]$
+$$ Eg(A) = \int_A g(X) d\mathcal{P} + \int_{A^c} g(X) d\mathcal{P} $$
+$$ g(a)\mathcal{P}(A) \leq \int_A g(X) \leq \sup g(X)\mathcal{P}(A) $$
+$$ 0 \leq \int_{A^c} g(X) d\mathcal \leq g(a) $$
+$$ g(a)\mathcal{P}(A) \leq Eg(X) \leq \sup g(X)\mathcal{P}(A) + g(a) $$
+\qed
+\end{proof}
+
+\subsubsection{Aplicaciones}
+\begin{enumerate}
+\item Usando la desigualdad básica con $g(X) = X^r$ y $E|X_n - X|^r \to 0 \Rightarrow X_n \stackrel{\mathcal{P}}{\rightarrow} X$
+\item ($\Omega$, $\mathcal{A}$, $\mathcal{P}$) $\stackrel{\mathcal{P}}{\rightarrow}$ ($\mathbb{R}$, $\mathcal{B}$), definimos ahora $\mathcal{P}^X(\mathcal{B}) = \mathcal{P}(X^{-1}(\mathcal{B}))$. $\mathcal{P}^X$ es una probabilidad, ya que $\mathcal{P}^X(\mathbb{R}) = 1, \mathcal{P}^X(\mathcal{B}) \geq 0, \mathcal{P}^X(\sum B_j) = \sum \mathcal{P}^X(B_j)$, y $EX = \displaystyle \int_{x \in \mathbb{R}} x d \mathcal{P}^X(x)$; $Eg(X) = \displaystyle \int_{y \in \mathbb{R}} g d \mathcal{P}^Y(y) = \displaystyle \int_{x \in \mathbb{R}} g(x) d \mathcal{P}^X(x)$
+\end{enumerate}
+\subsection{Convergencia en r-medida}
 
 \subsection{Función de distribución, distribución inducida y función generatriz de momentos}
 
 \section{Apuntes escritos a recolocar}
 
-\subsection{Lema de Fatou}
-\begin{lemma}
-Sean $Y$, $Z$ dos funciones integrables (pueden no mantener su signo), entonces:
-\begin{itemize}
-\item Si $Y_n\leq X_n\Longrightarrow \displaystyle\int\displaystyle\lim_{inf}X_n\leq\displaystyle\lim_{inf}\displaystyle\int X_n$
-\item Si $X_n\leq Z_n\Longrightarrow \displaystyle\lim_{sup}\displaystyle\int X_n\leq \displaystyle\int\displaystyle\lim_{sup} X_n$
-\end{itemize}
-\end{lemma}
-
-\subsection{Lema de Fatou-Lebesgue}
-\begin{lemma}
-Sean $Y$, $Z$ dos funciones integrables (pueden no mantener su signo) y $X_n$ una sucesión de variables aleatorias, entonces:
-\begin{itemize}
-\item Si $X_n\leq Y \, \forall n \Longrightarrow E(\lim_{sup}X_n)\geq\lim_{sup}E(X_n)$
-\item  Si $X_n \geq Z \, \forall n \Longrightarrow$ si la sucesión es convergente y acotada se cumple que: $E(\lim X_n)\geq\lim E(X_n)$
-\end{itemize}
-\end{lemma}
-    
 \section{Espacios de probabilidad y variables aleatorias}
 \begin{lemma}
 de Borel-Cantelli
@@ -598,16 +671,6 @@ El recíproco no es cierto
 Sea $Y\leq \mathbb {X}_n\leq Z$ con $Y,\, Z$ integrables y tal que $X_n\stackrel{c.s}{\longrightarrow}X$. Entonces se tiene que $\displaystyle \int X_n \rightarrow \displaystyle \int X$
 \end{lemma}
 \subsection{Algunas desigualdades interesantes}
-\begin{lemma}
-$|a+b|^r\leq C_r |a|^r + C_r |b|^r$ con $C_r=1$ si $r=1$ y $C_r=2^r$ si $r>1$
-\\\\
-Entonces se tiene $E|X+\mathbb{Y}|^r \leq C_r E|X|^r + C_r E|\mathbb{Y}|^r$
-\end{lemma}
-\subsubsection{Desigualdad de Hölder-Schwartz}
-$E|X\mathbb{Y}|\leq \left(  E|X|^r \right) ^{\frac{1}{r}}  \left(  E|\mathbb{Y}|^s \right) ^{\frac{1}{s}}$ con $r>s$ ; $ \dfrac{1}{r}+\dfrac{1}{s}=1$
-\subsubsection{Desigualdad de Markvov}
-Sea $X$ una v.a. y sea $g$ una función borel. Entonces se tiene que si $g$ es par y no decreciente en $[0,\infty) \, \forall a>0$ , entonces:
-$$\dfrac{Eg(X)-g(a)}{sup\, g(X)}\leq P[|X|\geq a]\leq \dfrac{E g(X)}{g(a)}$$ 
 
 \section{Funciones características y funciones de distribución}
 \subsection{Función característica}
