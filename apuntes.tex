@@ -205,9 +205,10 @@ Probaremos la existencia del conjunto $C$. La del conjunto $D$ es análoga. Si $
 Entonces, existe una sucesión $\{A_n\} \subset \mathcal{A}$ tal que $\varphi(A_n) \to \sup \varphi$. Sea $A = \cup A_n $ y para cada $n$, consideramos la partición de $A$ en $2^n$ conjuntos $A_{nm}$ de la forma $\displaystyle \cap_{k=1}^n A'_k$, donde $A'_k = A_k$ o $A - A_k$. Para $n < n'$, cada conjunto $A_{nm}$ es una suma finita de conjuntos $A_{n'm'}$. Sea ahora $B_n$ la suma de los conjuntos $A_{nm}$ para los cuales $\varphi$ es no negativa. Si no hay ninguno, entonces $B_n = \emptyset$
 \end{proof}
 
-\section{Medidas y probabilidades}
+\chapter{Medidas y probabilidades}
 
-\textbf{Definición de medida:} Una función de conjuntos $\mu_0$ es una medida si verifica:
+\section{Concepto de medida, media exterior y probabilidad} 
+Una función de conjuntos $\mu_0$ es una medida si verifica:
 \begin{itemize}
 \item Es $\sigma$-aditiva, es decir,  $\mu_0 (\cup A_j) = \displaystyle \sum \mu_0 (A_j)$
 \item Es no decreciente $A\subset B \, \mu^\circ(A)\leq \mu^\circ(B)$
@@ -243,7 +244,7 @@ Teorema de sucesión
 Falta la demostración del teorema de sucesión
 \end{proof}
 
-\subsection{Teorema de extensión de Carathéodory}
+\section{Teorema de extensión de Carathéodory}
 
 Una vez vistas las definiciones anteriores de medida y medida exterior, vamos a ver un teorema fundamental, que nos servirá para justificar la forma en la que haremos el cálculo de probabilidades a posteriori. Veamos dos lemas antes que nos serán necesarios para la demostración del teorema principal.\\
 
@@ -311,7 +312,7 @@ Sean ahora $\{A_n\} \subset \mathcal{M}$ monótona, entonces $\mu_1(\lim A_n) = 
 $$ \mathcal{A}(\mathcal{C}) \subseteq \mathcal{M} \Rightarrow \mu_1 = \mu_2 \: en \: \mathcal{A}(\mathcal{C})$$
 \end{proof}
 
-\section{Funciones medibles}
+\chapter{Funciones medibles}
 
 Una vez definidos los conceptos sobre espacios de medida y espacios probabilísticos, vamos a aproximarnos al concepto de función medible. Para ello, daremos dos definiciones de función medible, para demostrar más adelante que estas dos definiciones son equivalentes. Empecemos con la definición constructiva de función medible. Dado que nos interesa que el codominio sea $\mathbb{R}$, trabajaremos con funciones definidas entre un espacio medible ($\Omega$, $\mathcal{A}$) y ($\mathbb{R}$, $\mathcal{B}$), donde $\mathcal{B}$ representa la $\sigma$-álgebra de Borel.\\
 
@@ -485,7 +486,10 @@ ${\mathbb{X}_n(\omega)}$ de Cauchy
 $$\lim\mathbb{X}_n(\omega)=\mathbb{X}(\omega)\, \omega \in A$$
 \qed
 \end{proof}
-\section{Esperanza matemática}
+
+\chapter{Esperanza matemática}
+
+\section{Integral de una función de conjunto}
 
 Para el cálculo de probabilidades, nos será muy útil el concepto de integral sobre funciones de conjunto. Este concepto nos servirá para calcular lo que se conoce como la esperanza matemática de una variable aleatoria $X$. En este apartado trabajaremos sobre el espacio de probabilidad $(\Omega, \mathcal{A}, \mathcal{P})$. Comenzaremos definiendo la integral para las funciones simples, para dar luego una definición de integral para funciones no negativas y por último para funciones cualesquiera.\\
 
@@ -521,9 +525,9 @@ $X \geq Y \rightarrow \displaystyle \int X d\mathcal{P} \geq \int Y d\mathcal{P}
 
 $\displaystyle X \stackrel{c.s}{=} Y \rightarrow \int X d\mathcal{P} = \int Y d\mathcal{P}$\\
 
-\subsection{Esperanza matemática}
+\section{Esperanza matemática}
 
-\subsubsection{Definición general}
+\subsection{Definición general}
 
 Dado un espacio probabilístico $(\Omega, \mathcal{A}, P)$ y una v.a. $X$, se define la esperanza matemática de $X$ como:
 $$E(X)=\int_{\Omega}XdP=\int_{\omega \in \Omega}{X(\omega)dP(\omega)}$$
