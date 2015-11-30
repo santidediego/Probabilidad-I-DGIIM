@@ -202,7 +202,12 @@ Sea $\varphi$ una función $\sigma$-aditiva sobre una $\sigma$-álgebra $\mathca
 \begin{proof}
 Probaremos la existencia del conjunto $C$. La del conjunto $D$ es análoga. Si $\varphi(A) = \infty$ para algún $A \in \mathcal{A}$, entonces podemos establecer $A = C$ y la demostración del teorema es trivial. Entonces, supongamos que $\varphi < \infty$ y dado que el valor $-\infty$ está excluido, $\varphi$ es finita.\\
 
-Entonces, existe una sucesión $\{A_n\} \subset \mathcal{A}$ tal que $\varphi(A_n) \to \sup \varphi$. Sea $A = \cup A_n $ y para cada $n$, consideramos la partición de $A$ en $2^n$ conjuntos $A_{nm}$ de la forma $\displaystyle \cap_{k=1}^n A'_k$, donde $A'_k = A_k$ o $A - A_k$. Para $n < n'$, cada conjunto $A_{nm}$ es una suma finita de conjuntos $A_{n'm'}$. Sea ahora $B_n$ la suma de los conjuntos $A_{nm}$ para los cuales $\varphi$ es no negativa. Si no hay ninguno, entonces $B_n = \emptyset$
+Entonces, existe una sucesión $\{A_n\} \subset \mathcal{A}$ tal que $\varphi(A_n) \to \sup \varphi$. Sea $A = \cup A_n $ y para cada $n$, consideramos la partición de $A$ en $2^n$ conjuntos $A_{nm}$ de la forma $\displaystyle \cap_{k=1}^n A'_k$, donde $A'_k = A_k$ o $A - A_k$. Para $n < n'$, cada conjunto $A_{nm}$ es una suma finita de conjuntos $A_{n'm'}$. Sea ahora $B_n$ la suma de los conjuntos $A_{nm}$ para los cuales $\varphi$ es no negativa. Si no hay ninguno, entonces $B_n = \emptyset$. Entonces, tenemos por un lado que $A_n$ es la suma de algunos de los $A_{nm}$, y por otro lado, para $n' > n$, cada conjunto $A_{n'm'}$ está dentro de $B_n$ o son disjuntos. Entonces tenemos
+$$ \varphi(A_n) \leq \varphi(B_n) \leq \varphi (B_n \cup B_{n+1} \cup ... \cup B_{n'}) $$
+Tomando $n' \to +\infty$, se sigue de la continuidad por debajo que
+$$ \varphi(A_n) \leq \varphi (B_n) \leq \varphi \left( \cup_{k=n}^{+\infty} B_k\right) $$
+Haciendo tender ahora $n \to +\infty$ y tomando $\displaystyle C = \lim \cup_{k = n}^{+\infty} B_k$ se sigue, por la continuidad por arriba, que $\sup \varphi \leq \varphi(C)$. Pero $\varphi(C) \leq \sup \varphi$, y por tanto se tiene que $\varphi(C) = \sup \varphi$, como queríamos.
+\qed
 \end{proof}
 
 \chapter{Medidas y probabilidades}
@@ -334,7 +339,7 @@ Esta definición que hemos dado es constructiva, y por tanto, nos será muy úti
 
 No obstante, se puede dar, a raíz de esta, otra definición más económica:\\
 
-Para la definición anterior, es suficiente con exigir la medibilidad de las imágenes inversas de los elementos de una subclase $\mathcal{a}$ para la cual la $\sigma$-álgebra minimal sobre $\mathcal{a}$ sea $\mathcal{B}$\\
+Para la definición anterior, es suficiente con exigir la medibilidad de las imágenes inversas de los elementos de una subclase $\alpha$ para la cual la $\sigma$-álgebra minimal sobre $\alpha$ sea $\mathcal{B}$\\
 
 Veamos ahora que las dos definiciones que hemos dado son equivalentes.
 
@@ -419,7 +424,7 @@ La convergencia en probabilidad implica la convergencia uniforme
 \end{lemma}
 
 \begin{proof}
-$$ \mid X_{n+u} - X_n \mid \leq \mid X_{n+u} + X \mid + \mid X_n - X \mid \Rightarrow$$
+$$ \mid X_{n+u} - X_n \mid \leq \mid X_{n+u} - X \mid + \mid X - X_n \mid \Rightarrow$$
 $$ \Rightarrow \mathcal{P}[\mid X_{n+u} - X_n \mid \geq \varepsilon] \leq \mathcal{P}\Big[\mid X_{n+u} - X \mid \geq \frac{\varepsilon}{2}\Big] + \mathcal{P}\Big[\mid X_{n} - X \mid \geq \frac{\varepsilon}{2}\Big] \to 0$$
 \end{proof}
 
@@ -568,7 +573,7 @@ de Fatou-Lebesgue\\
 
 Sean $Y$, $Z$ dos funciones integrables (pueden no mantener su signo) y $X_n$ una sucesión de variables aleatorias, entonces:
 \begin{enumerate}
-\item Si $Y \leq X_n \, \forall n \Longrightarrow$ $E(\lim \inf X_n) \geq \lim \inf E(X_n)$
+\item Si $Y \leq X_n \, \forall n \Longrightarrow$ $E(\lim \inf X_n) \leq \lim \inf E(X_n)$
 \item Si $X_n \leq Z \, \forall n \Longrightarrow E(\lim \sup X_n)\geq \lim \sup E(X_n)$
 \end{enumerate}
 \end{theorem}
