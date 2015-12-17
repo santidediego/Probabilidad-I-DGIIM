@@ -213,9 +213,9 @@ Haciendo tender ahora $n \to +\infty$ y tomando $\displaystyle C = \lim \cup_{k 
 \chapter{Medidas y probabilidades}
 
 \section{Concepto de medida, media exterior y probabilidad} 
-Una función de conjuntos $\mu_0$ es una medida si verifica:
+Una función de conjuntos $\mu^\circ$ es una medida si verifica:
 \begin{itemize}
-\item Es $\sigma$-aditiva, es decir,  $\mu_0 (\cup A_j) = \displaystyle \sum \mu_0 (A_j)$
+\item Es $\sigma$-aditiva, es decir,  $\mu^\circ (\cup A_j) = \displaystyle \sum \mu^\circ (A_j)$
 \item Es no decreciente $A\subset B \, \mu^\circ(A)\leq \mu^\circ(B)$
 \item $\mu^\circ(\emptyset)=0$
 \end{itemize}
@@ -438,13 +438,13 @@ Para demostrarlo basta notar que: $ {X_n}^2 - K^2 = (X_n + K) (X_n -K)$
 \item $X_n \stackrel{\mathcal{P}}{\longrightarrow} a \wedge Y _n \stackrel{\mathcal{P}}{\longrightarrow} b \Longrightarrow X_nY_n \stackrel{\mathcal{P}}{\longrightarrow} a \cdot b$\\
 
 Para demostrarlo tenemos que notar que:
-$$X_n Y_n = \dfrac{(X_n + Y_n)^2-X_n - Y_n)^2}{4}\stackrel{\mathcal{P}}{\longrightarrow} \dfrac{(a+b)^2-(a-b)^2}{4}=ab$$
+$$X_n Y_n = \dfrac{(X_n + Y_n)^2-(X_n - Y_n)^2}{4}\stackrel{\mathcal{P}}{\longrightarrow} \dfrac{(a+b)^2-(a-b)^2}{4}=ab$$
 
 \item $X_n \stackrel{\mathcal{P}}{\longrightarrow} 1 \Longrightarrow \dfrac{1}{X_n} \stackrel{\mathcal{P}}{\longrightarrow} 1$
 \item $X_n \stackrel{\mathcal{P}}{\longrightarrow} a \wedge Y_n \stackrel{\mathcal{P}}{\longrightarrow} b \Longrightarrow X_nY_n^{-1}\stackrel{\mathcal{P}}{\longrightarrow} ab^{-1}$
 \item $X_n \stackrel{\mathcal{P}}{\longrightarrow} X \wedge Y_n\stackrel{\mathcal{P}}{\longrightarrow} Y \Longrightarrow X_nY_n\stackrel{\mathcal{P}}{\longrightarrow} XY$\\
 
-Para demostrarlo basta notar que: $(X_n - X)(Y_n - Y)\stackrel{\mathcal{P}}{\longrightarrow} 0$ y luego $X_nY_n-XY_n-X_nY-XY\stackrel{\mathcal{P}}{\longrightarrow} 0$ (Por la propiedad siguiente)
+Para demostrarlo basta notar que: $(X_n - X)(Y_n - Y)\stackrel{\mathcal{P}}{\longrightarrow} 0$ y luego $X_nY_n-XY_n-X_nY+XY\stackrel{\mathcal{P}}{\longrightarrow} 0$ (Por la propiedad siguiente)
 \item $X_n\stackrel{\mathcal{P}}{\longrightarrow} X$, entonces $YX_n\stackrel{\mathcal{P}}{\longrightarrow} YX$
 \end{enumerate}
 
