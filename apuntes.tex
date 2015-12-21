@@ -736,7 +736,7 @@ $$\int_\mathbb{R} g(X)dP_{X}(x)=\int_\mathbb{R} g\, Pg=\int_{\Omega}g(X(\omega))
 \chapter{Independencia}
 \section{Concepto de independencia}
 \textbf{Definición: }Se dice que los eventos $A_t$ son independientes si para todo subconjunto finito $(t_i,\ldots ,t_n)$ se tiene que:
-$$P\bigcap_{k=1}^n A_{tk}=\prod_{k=1}^{n}P\, A_{tk}$$
+$$P\bigcap_{k=1}^n A_{tk}=\displaystyle\prod_{k=1}^{n}P\, A_{tk}$$
 De hecho, el concepto de independencia es relativo a la familia de clases. Una clase de eventos se dice independiente si sus eventos son independientes. Además se tiene que las subclases de una clase independiente son independientes.
 \section{Suma de variables aleatorias independientes}
 \subsubsection{Teorema de Borel}
@@ -763,4 +763,23 @@ Una familia de variables aleatorias $X_{T_s}=\{ X_t \, , \, t\in T_s \}$ induce 
 \begin{theorem}
 Las familias de variables aleatorias son independientes si y solo si sus subfamilias finitas son mutuamente independientes
 \end{theorem}
+\section{Multiplicación de variables aleatorias independientes}
+\textbf{Definición: } Las variables aleatorias $X_t\, , \, t\in T$ son independientes si para cada clase finita $(S_{t_1},\ldots , S_{t_n})$ de conjuntos de Borel en R:
+$P\bigcup_{k=1}^{n}[X_{t_k}\in S{t_k}]=\displaystyle\prod_{k=1}^n P[X_{t_k}\in S_{t_k}]$
+\subsubsection{Lema de la multiplicación}
+\begin{lemma}
+Si $X_1, \ldots , X_n$ son variables aleatorias independientes no negativas, entonces $E\displaystyle\prod_{k=1}^{n}X_k=\displaystyle\prod_{k=1}^{n} E X_k$
+\end{lemma}
+\begin{proof}
+
+\end{proof}
+\subsubsection{Teorema de la multiplicación}
+\begin{theorem}
+Sean $X_1,\ldots X_n$ variables aleatorias independientes. Si dichas variables aleatorias son integrables, también lo es su producto y además $E\displaystyle\prod_{k=1}^n X_k=\displaystyle\prod_{k=1}^n E X_k$
+\\\\
+A la inversa, si su producto es integrable y ninguna de ellas degenera a $0$, entonces todas ellas son integrables.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
 \end{document}
