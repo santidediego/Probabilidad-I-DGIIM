@@ -801,4 +801,18 @@ Si los eventos $A_n$ son independientes, entonces $P(\displaystyle\lim_{sup}A_n)
 \end{proof}
 \subsection{Variables aleatorias independientes y espacios producto}
 \section{Convergencia y estabilidad de sumas; centramiento y truncamiento}
+Esta sección está dedicada a la investigación de las sumas de variables aleatorias independientes y especialmente, a sus propiedades en el límite.
+\\\\
+\textbf{Definición de estabilidad: }Dadas dos sucesiones $a_n$ y $b_n$ tendiendo a $\infty$, decimos que la sucesión $S_n$ es estable en probabilidad o c.s. si $\dfrac{S_n}{b_n}-a_n\stackrel{\mathcal{P}}{\rightarrow}0$ o $\dfrac{S_n}{b_n}-a_n\stackrel{c.s.}{\rightarrow}0$
+\\\\
+A continuación presentamos una ley que ha marcado el desarrollo de toda la teoría de la probabilidad
+\subsection{Ley de Bernouilli de los grandes números}
+Sean $X_1,\ldots X_n$ variables aleatorias independientes e idénticamente distribuidas tales que $P[X_n=1]=p$ y $P[X_n=0]=q=1-p$. Entonces se tiene que:
+$$\dfrac{S_n}{n}-p \stackrel{\mathcal{P}}{\longrightarrow}0$$
+El Teorema del Límite Central, que desarrollaremos más adelante, es una consecuencia directa del perfeccionamiento de esta ley por parte de Moivre y Laplace.
+\\\\
+Además enunciamos también otra ley muy parecida a esta y también muy importante que es la \textbf{Ley fuerte de Borel de los grandes números}, que constituye una versión de esta pero con la convergencia casi segura.
+\subsubsection{Ley fuerte de Borel de los grandes números}
+Si se tienen las hipótesis anteriores, entonces: $\dfrac{S_n}{n}-p \stackrel{c.s.}{\longrightarrow}0$
+\subsection{Centramiento y truncamiento}
 \end{document}
