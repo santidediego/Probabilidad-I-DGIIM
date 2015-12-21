@@ -732,4 +732,35 @@ $$\int_\mathbb{R} g(X)dP_{X}(x)=\int_\mathbb{R} g\, Pg=\int_{\Omega}g(X(\omega))
 \end{theorem}
 
 \section{Leyes de la probabilidad y tipos de leyes}
+
+\chapter{Independencia}
+\section{Concepto de independencia}
+\textbf{Definición: }Se dice que los eventos $A_t$ son independientes si para todo subconjunto finito $(t_i,\ldots ,t_n)$ se tiene que:
+$$P\bigcap_{k=1}^n A_{tk}=\prod_{k=1}^{n}P\, A_{tk}$$
+De hecho, el concepto de independencia es relativo a la familia de clases. Una clase de eventos se dice independiente si sus eventos son independientes. Además se tiene que las subclases de una clase independiente son independientes.
+\section{Suma de variables aleatorias independientes}
+\subsubsection{Teorema de Borel}
+\begin{theorem}
+Las funciones de Borel de funciones aleatorias independientes son independientes.
+\end{theorem}
+\subsubsection{Teorema de extensión}
+\begin{theorem}
+Los $\sigma$ campos independientes sobre clases independientes cerradas para la intersección finita son independientes
+\end{theorem}
+Esto tiene tres aplicaciones fundamentales:
+\begin{enumerate}
+\item Si los eventos $A_t$ son independientes, también lo son los $\sigma$ campos $(A_t , A_t^c , \emptyset , \Omega)$.
+\item Si la imagen inversa $\mathcal{C}_t$ de las clases de todos los intervalos $(-\infty, x_t)$ en los espacios de Borel $R_t$ son independientes, también lo son las imágenes inversas $\mathcal{B}_t$ de los campos de Borel en $R_t$. Para todo $\mathcal{C}_t$, éste es cerrado para la intersección finita y $\mathcal{B}_t$ es el $\sigma$ campo minimal sobre $\mathcal{C}_t$
+\item Sean $\mathcal{B}_t$ campos de eventos y sea $T_s$ un subconjunto de $T$. El $\sigma$ campo $\mathcal{B}_T$ compuesto por componentes $\mathcal{B}_t$, con $t\in T_s$, es el $\sigma$ campo minimal sobre la clase $\mathcal{C}$ de todas las intersecciones finitas de eventos $A_t$ y contiene a todos sus componentes
+\end{enumerate}
+\subsubsection{Teorema de composición}
+\begin{theorem}
+Los $\sigma$ campos compuestos son independientes si y solo si sus $\sigma$ subcampos finitamente compuestos son independientes
+\end{theorem}
+\subsection{Familia de variables aleatorias}
+Una familia de variables aleatorias $X_{T_s}=\{ X_t \, , \, t\in T_s \}$ induce $\sigma$ campos $\mathcal{B}(X_{T_s})$ de eventos
+\subsubsection{Teorema de las familias}
+\begin{theorem}
+Las familias de variables aleatorias son independientes si y solo si sus subfamilias finitas son mutuamente independientes
+\end{theorem}
 \end{document}
