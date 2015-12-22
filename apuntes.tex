@@ -857,4 +857,30 @@ La demostración pasa por notar que:
 $$P[\sum_{k}^{n+h}(X_k - EX_k)\geq\epsilon]\leq \dfrac{\displaystyle\sum_{k}^{n+h}\sigma^2 X_k}{\epsilon^2}\longrightarrow 0$$
 \end{proof}
 Este último corolario es debido a Tchebichev (cuando $b_n=n$). En el caso de Bernouilli, donde $b_n=n$, $EX_n=p$ , $\sigma^2 X_n=pq$ se reduce a la ley de Bernouilli de los grandes números.
+
+\chapter{El problema del límite central}
+El problema del límite central en probabilidad es el problema de convergencia de leyes de secuencias de sumas de variables aleatorias.
+\section{Preeliminares}
+Consideramos $S_n$ el número de ocurrencias de un determinado evento con probabilidad $p$ en $n$ intentos idénticos e independientes. Para evitar trivialidades asumimos que $pq\neq 0$, donde $q=1-p$. Si $X_k$ denota el indicador del evento en el $k$-ésimo intento, entonces $S_n=\displaystyle\sum_{k=1}^n X_k$ con $n=1,2,\ldots$ donde los sumandos son indicadores independientes e idénticamente distribuidos. Este es el caso de Bernouilli; como $EX_k=p$ y $EX_k^2=p$, entonces $\sigma^2 X_k=p-p^2=pq$ de donde se sigue que:
+$$ES_n=\sum_{k=1}^nEX_k=np \,\,\, , \,\,\, \sigma^2 S_n=\sum_{k=1}^n \sigma^2 X_k=npq$$
+EL primer teorema del límite central publicado en 1713 dice que $\dfrac{S_n}{n}\stackrel{\mathcal{P}}{\longrightarrow}p$
+\\\\
+Puliendo este resultado, de Moivre obtuvo el segundo teorema de límites, que en la forma integral dada por Laplace, dice que:
+$$P\left[ \frac{S_n -np}{\sqrt{npq}}< x \right]\rightarrow \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{-\frac{1}{2}y^2}dy\, ,\,\,\, -\infty\leq x\leq \infty$$
+\\\\
+El tercer teorema del límite central fue obtenido por Poisson, quien modificó el caso de Bernouilli asumiendo que la probabilidad $p=p_n$ depende del número de intentos de tal manera que $np_n\rightarrow\lambda>0$. Por consiguiente, escribiendo ahora $X_{nk}$ y $S_{nn}$ en lugar de $X_k$ y $S_n$, el caso de Poisson corresponde a una serie de sumas $S_{nn}=\displaystyle\sum_{k=1}^n X_{nk}$ donde, para cada n, los sumandos $X_{nk}$ son indicadores independientes e idénticamente distribuidos con $P[X_{nk}=1]=\dfrac{\lambda}{n}+o \left( \dfrac{1}{n}\right)$
+\\\\
+A partir de aqúi Poisson probó que para $k=0,1,2,\ldots$
+$$P[S_{nn}=k]\rightarrow \dfrac{\lambda^k}{k!}e^{-\lambda}$$
+Así nacieron las tres leyes básicas de la teoría de la probabilidad:
+\\\\
+ATENCION: ESTO HAY QUE PONERLO BIEN, ESPERAR A CLASE!!!
+\begin{enumerate}
+\item La ley de degeneración $\delta(0)$ de una variable aleatoria degenera a 0 teniendo un punto de incremento solo en $x=0$
+\item La ley normal $N(0,1)$ de una variable aleatoria normal con su derivada definida viene dada por:
+$$F(x)=\frac{1}{\sqrt{2\pi}}\int_{-x}^{x}e^{-\frac{1}{2}y^2}dy$$
+\item La ley de Poisson $\mathcal{P}(\lambda)$ de una variable aleatoria de Poisson con derivada definida viene dada por:
+$$F(x)=e^{-\lambda}\sum_{k=0}^x \frac{\lambda^k}{k!}$$
+\end{enumerate}
+Mientras que las dos primeras leyes juegan un papel central en el desarrollo de la teoría de la probabilidad, la de Poisson se ha mantenido ignorada durante mucho tiempo.
 \end{document}
