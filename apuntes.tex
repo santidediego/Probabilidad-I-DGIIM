@@ -253,7 +253,7 @@ Falta la demostración del teorema de sucesión
 
 Una vez vistas las definiciones anteriores de medida y medida exterior, vamos a ver un teorema fundamental, que nos servirá para justificar la forma en la que haremos el cálculo de probabilidades a posteriori. Veamos dos lemas antes que nos serán necesarios para la demostración del teorema principal.\\
 
-\textbf{Definición:} Un conjunto $A\in S(\Omega)$ es $\mu^\circ$-medible si se cumple que $\mu^\circ(D) = \mu^\circ(AD)+\mu^\circ(A^cD), \forall D \in S(\Omega)$\\
+\textbf{Definición:} Un conjunto $A\in S(\Omega)$ es $\mu^\circ$-medible si se cumple que $\mu^\circ(D) \geq \mu^\circ(AD)+\mu^\circ(A^cD), \forall D \in S(\Omega)$\\
 
 \textbf{Definición:} Una extensión exterior $\mu^\circ$ de una medida $\mu$ se define como:
 $$\mu^\circ (A) = \inf \sum_j (A_j), \quad A \subset \cup A_j,\quad recubrimiento $$
@@ -284,8 +284,8 @@ Sea $\mu^\circ$ una medida exterior sobre la $\sigma$-álgebra $\mathcal{A}$, y 
 \begin{proof}
 Primero, veamos que $\mathcal{A}^\circ$ es un álgebra. Sea $A \in \mathcal{A}^\circ$, entonces $A^c \in \mathcal{A}^\circ$ dado que la definición de $\mu^\circ$-medibilidad es simétrica. Sean entonces $A,B \in \mathcal{A}^\circ$. Entonces:
 $$ \mu^\circ(D) = \mu^\circ(AD) + \mu^\circ(A^cD) = $$
-$$ = \mu^\circ(ABD) + \mu^\circ(AB^cD) + \mu^\circ(A^cBD) + \mu^\circ(A^cB^cD) \leq$$
-$$ \leq \mu^\circ(ABD) + \mu^\circ (AB^cD \cup A^cBD \cup A^cB^cD) =$$
+$$ = \mu^\circ(ABD) + \mu^\circ(AB^cD) + \mu^\circ(A^cBD) + \mu^\circ(A^cB^cD) \geq$$
+$$ \geq \mu^\circ(ABD) + \mu^\circ (AB^cD \cup A^cBD \cup A^cB^cD) =$$
 $$ = \mu^\circ(ABD) + \mu^\circ(AB)^cD$$
 Dado entonces que $\mathcal{A}^\circ$ es cerrada bajo la operación complementario e intersección finita, lo es para la unión finita, así que nos encontramos ante un álgebra. Veamos ahora que $\mu^\circ$ es aditiva en $\mathcal{A}^\circ$. Sean $A,B \in \mathcal{A}^\circ$ disjuntos. Entonces:
 $$\mu^\circ(A+B) = \mu^\circ((A+B)A) + \mu^\circ((A+B)A^c) = \mu^\circ(A) + \mu^\circ(B)$$
