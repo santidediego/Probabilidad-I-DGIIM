@@ -815,4 +815,22 @@ Además enunciamos también otra ley muy parecida a esta y también muy importan
 \subsubsection{Ley fuerte de Borel de los grandes números}
 Si se tienen las hipótesis anteriores, entonces: $\dfrac{S_n}{n}-p \stackrel{c.s.}{\longrightarrow}0$
 \subsection{Centramiento y truncamiento}
+Diremos que centramos $X$ a $c$ si reemplazamos $X$ por $X-c$. Si $X$ es integrable, entonces podemos centrarla a su esperanza $EX$ de forma que $X$ es reemplazada por $X-EX$. Es decir, diremos que una variable aleatoria está centrada a su media si y solo si su media existe y es igual a 0.
+\\\\
+Ahora vamos a introducir la varianza matemática. Sea $X$ integrable, llamaremos varianza de $X$ al segundo momento de $X-EX$. Dicho momento existe pero podría ser $\infty$ y lo denotaremos como $\sigma^2 X$. Por consiguiente:
+$$\sigma^2 X=E(X-EX)^2=EX^2-(EX)^2$$
+Se tiene que para todo $c$ finito:
+$$\sigma^2(X-c)=E(X-c-E(X-c))^2=E(X-EX)^2$$
+lo que quiere decir que cuando centramos una variable su varianza no cambia
+\\\\
+Una vez visto el centramiento vamos con el \textbf{truncamiento}. Diremos que truncamos $X$ a $c>0$ (finita) cuando reemplazamos $X$ por $X^c=X$ o $0$ dependiendo de si $|X|<c$ o si $|X|\geq c$ ; se dice entonces que $X^c$ es $X$ truncada a $c$.
+\\\\
+Tenemos entonces que si $F$ es el diferencial de $X$, entonces existen todos los momentos de $X^c$ y son finitos; estos son:
+$$EX^c=\int_{|X|<c}x\, dF\,\,\, , \,\,\, E(X^c)^2=\int_{|X|<c}x^2\, dF \,\,\, , \,\,\,  \ldots$$
+Siempre podremos seleccionar un $c$ suficientemente grande para hacer que $P[X\neq X^c]=P[|X|\geq c]$ sea arbitrariamente pequeño. Además nosotros también podemos seleccionar el $c_j$ suficientemente grande para conseguir $P\bigcup [X_j\neq X_j^{c_j}]$ arbitrariamente pequeño, de tal forma que, dado $\epsilon > 0$, tenemos:
+$$P\bigcup [X_j\neq X_j^{c_j}]\leq \sum P[|X_j|\geq c_j]<\frac{\epsilon}{2^j}$$
+Por consiguiente, dada una familia contable de variables aleatorias, podemos hacer corresponder una familia de variables aleatorias que difiere de la primera en un evento de probabilidad pequeña. Además, si estamos interesados principalmente en propiedades en el límite, no necesatamos probabilidades pequeñas arbitrarias.
+\\\\
+\textbf{Definición: cola-equivalentes: }Sean dos sucesiones $X_n$ y $X_n^{\prime}$. Se dice que son cola-equivalentes si difieren casi seguramente en un número finito de elementos, en otras palabras, si $\forall \omega\in\Omega$ existe un número finito $n(\omega)$ tal que para $n\geq n(\omega)$ las dos sucesiones $X_n(\omega)$ y $X_n^{\prime}{\omega}$ son la misma.
+
 \end{document}
