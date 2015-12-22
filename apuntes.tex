@@ -823,7 +823,9 @@ Se tiene que para todo $c$ finito:
 $$\sigma^2(X-c)=E(X-c-E(X-c))^2=E(X-EX)^2$$
 lo que quiere decir que cuando centramos una variable su varianza no cambia
 \\\\
-Una vez visto el centramiento vamos con el \textbf{truncamiento}. Diremos que truncamos $X$ a $c>0$ (finita) cuando reemplazamos $X$ por $X^c=X$ o $0$ dependiendo de si $|X|<c$ o si $|X|\geq c$ ; se dice entonces que $X^c$ es $X$ truncada a $c$.
+Una vez visto el centramiento vamos con el \textbf{truncamiento}. El método del truncamiento es útil cuando no existe la media.
+\\\\
+Diremos que truncamos $X$ a $c>0$ (finita) cuando reemplazamos $X$ por $X^c=X$ o $0$ dependiendo de si $|X|<c$ o si $|X|\geq c$ ; se dice entonces que $X^c$ es $X$ truncada a $c$. Lo que estamos haciendo en realidad es definir una variable truncada, $X^c$ como hemos visto anteriormente.
 \\\\
 Tenemos entonces que si $F$ es el diferencial de $X$, entonces existen todos los momentos de $X^c$ y son finitos; estos son:
 $$EX^c=\int_{|X|<c}x\, dF\,\,\, , \,\,\, E(X^c)^2=\int_{|X|<c}x^2\, dF \,\,\, , \,\,\,  \ldots$$
@@ -833,10 +835,10 @@ Por consiguiente, dada una familia contable de variables aleatorias, podemos hac
 \\\\
 \textbf{Definición: sucesiones cola-equivalentes: }Sean dos sucesiones $X_n$ y $X_n^{\prime}$. Se dice que son cola-equivalentes si difieren casi seguramente en un número finito de elementos, en otras palabras, si $\forall \omega\in\Omega$ existe un número finito $n(\omega)$ tal que para $n\geq n(\omega)$ las dos sucesiones $X_n(\omega)$ y $X_n^{\prime}{\omega}$ son la misma.
 \\\\
-\textbf{Definición de convergencia equivalente: } Se dice que $X_n$ y $X_n^{\prime}$ son convergentemente equivalentes si solamente convergen en el mismo evento hasta un subconjunto nulo.
+\textbf{Definición de convergencia equivalente: } Se dice que $X_n$ y $X_n^{\prime}$ son equivalentes en la convergencia si el conjunto de convergencia de ambos es el mismo c.s.
 
 \begin{lemma}
-Si las series $\sum P[X_n\neq X_n^{\prime}]$ convergen, entonces las sucesiones $X_n$ y $X_n^{\prime}$ son cola-equivalentes, y por tanto, las series $\sum X_n$ y $\sum X_n^{\prime}$ son convergentemente equivalentes y las series $\dfrac{S_n}{b_n}$ y $\dfrac{S_n^{\prime}}{b_n}$ con $b\rightarrow\infty$ convergen al mismo evento y al mismo límite, excluyendo el evento nulo.
+Si las series $\sum P[X_n\neq X_n^{\prime}]$ convergen, entonces las sucesiones $X_n$ y $X_n^{\prime}$ son cola-equivalentes, y por tanto, las series $\sum X_n$ y $\sum X_n^{\prime}$ son equivalentes en la convergencia y las series $\dfrac{S_n}{b_n}$ y $\dfrac{S_n^{\prime}}{b_n}$ con $b\rightarrow\infty$ convergen al mismo evento y al mismo límite, excluyendo el evento nulo.
 \end{lemma}
 Sean $X_1$ , $X_2$ integrables. Entonces, como el centramiento no modifica la varianza, podemos asumir, cuando computamos varianzas, que esas variables aleatorias están centradas a la media. Entonces:
 $$\sigma^2 S_n=ES_n^2=\sum_{k=1}^n EX_k^2+\sum_{j,k=1}EX_jX_k=\sum_{k=1}^n\sigma^2 X_k$$
@@ -845,10 +847,14 @@ $$EX_jX_k=EX_j\cdot EX_k=0$$
 \textbf{Desigualdad de Bienaymé: }Si las variables aleatorias independientes $X_n$ son independientes e integrabless, entonces:
 $$ \sigma^2 S_n=\sum_{k=1}^n \sigma^2 X_k$$
 Con la desigualdad anterior obtenemos la siguiente:
-$$\frac{\displaystyle\sum_{k=1}^n \sigma^2 X_k-\epsilon ^2}{sup(S_n-ES_n)^2}\leq P[|S_n-ES_n|\geq \epsilon]\leq \frac{1}{\epsilon^2}\sum_{k=1}^n\sigma^2 X_k$$
-Además se tiene el siguiente lema:
-\begin{lemma}
-Si las series $\sum\sigma^2 X_n$ convergen, entonces las series $\sum (X_n-EX_n)$ convergen en probabilidad. Si $\dfrac{1}{b_n^2}\displaystyle\sum_{k=1}^n \sigma^2 X_k\rightarrow 0$, entonces $\dfrac{S_n - ES_n}{b_n}\stackrel{\mathcal{P}}{\rightarrow}0$
-\end{lemma}
-Este último lema es debido a Tchebichev (cuando $b_n=n$). En el caso de Bernouilli, donde $b_n=n$, $EX_n=p$ , $\sigma^2 X_n=pq$ se reduce a la ley de Bernouilli de los grandes números.
+$$\frac{\displaystyle\sum_{k=1}^n \sigma^2 X_k-\epsilon ^2}{sup(S_n-ES_n)^2}\leq P[|S_n-ES_n|\geq \epsilon]\leq \frac{\sigma^2(S_n-ES_n)}{\epsilon^2} \leq   \frac{1}{\epsilon^2}\sum_{k=1}^n\sigma^2 (X_k)$$
+Además se tiene el siguiente corolario:
+\\\\
+\textbf{Corolario: }Si las series $\sum\sigma^2 X_n$ convergen, entonces las series $\sum (X_n-EX_n)$ convergen en probabilidad. Si $\dfrac{1}{b_n^2}\displaystyle\sum_{k=1}^n \sigma^2 X_k\rightarrow 0$, entonces $\dfrac{S_n - ES_n}{b_n}\stackrel{\mathcal{P}}{\rightarrow}0$
+\\\\
+\begin{proof}
+La demostración pasa por notar que:
+$$P[\sum_{k}^{n+h}(X_k - EX_k)\geq\epsilon]\leq \dfrac{\displaystyle\sum_{k}^{n+h}\sigma^2 X_k}{\epsilon^2}\longrightarrow 0$$
+\end{proof}
+Este último corolario es debido a Tchebichev (cuando $b_n=n$). En el caso de Bernouilli, donde $b_n=n$, $EX_n=p$ , $\sigma^2 X_n=pq$ se reduce a la ley de Bernouilli de los grandes números.
 \end{document}
