@@ -831,6 +831,11 @@ Siempre podremos seleccionar un $c$ suficientemente grande para hacer que $P[X\n
 $$P\bigcup [X_j\neq X_j^{c_j}]\leq \sum P[|X_j|\geq c_j]<\frac{\epsilon}{2^j}$$
 Por consiguiente, dada una familia contable de variables aleatorias, podemos hacer corresponder una familia de variables aleatorias que difiere de la primera en un evento de probabilidad pequeña. Además, si estamos interesados principalmente en propiedades en el límite, no necesatamos probabilidades pequeñas arbitrarias.
 \\\\
-\textbf{Definición: cola-equivalentes: }Sean dos sucesiones $X_n$ y $X_n^{\prime}$. Se dice que son cola-equivalentes si difieren casi seguramente en un número finito de elementos, en otras palabras, si $\forall \omega\in\Omega$ existe un número finito $n(\omega)$ tal que para $n\geq n(\omega)$ las dos sucesiones $X_n(\omega)$ y $X_n^{\prime}{\omega}$ son la misma.
+\textbf{Definición: sucesiones cola-equivalentes: }Sean dos sucesiones $X_n$ y $X_n^{\prime}$. Se dice que son cola-equivalentes si difieren casi seguramente en un número finito de elementos, en otras palabras, si $\forall \omega\in\Omega$ existe un número finito $n(\omega)$ tal que para $n\geq n(\omega)$ las dos sucesiones $X_n(\omega)$ y $X_n^{\prime}{\omega}$ son la misma.
+\\\\
+\textbf{Definición de convergencia equivalente: } Se dice que $X_n$ y $X_n^{\prime}$ son convergentemente equivalentes si solamente convergen en el mismo evento hasta un subconjunto nulo.
 
+\begin{lemma}
+Si las series $\sum P[X_n\neq X_n^{\prime}]$ convergen, entonces las sucesiones $X_n$ y $X_n^{\prime}$ son cola-equivalentes, y por tanto, las series $\sum X_n$ y $\sum X_n^{\prime}$ son convergentemente equivalentes y las series $\dfrac{S_n}{b_n}$ y $\dfrac{S_n^{\prime}}{b_n}$ con $b\rightarrow\infty$ convergen al mismo evento y al mismo límite, excluyendo el evento nulo.
+\end{lemma}
 \end{document}
