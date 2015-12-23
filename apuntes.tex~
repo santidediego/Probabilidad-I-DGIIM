@@ -935,7 +935,5 @@ Sean $F$ y $G$ dos funciones de densidad de variables aleatorias con sus corresp
 \item Si $G$ es continua en $R$, entonces existe un número finito $s$ tal que o bien $H(s)=\pm \alpha$ o $H(s+0)=\alpha$
 \item Si $G$ tiene una derivada $G^{\prime}$ en $R$, entonces existe un número finito $a$ tal que:
 $$\left| \int H(x+a)p(x)dx \right| \geq \frac{\alpha}{2}\left( 1-6\int_{\frac{\alpha}{2\beta}}^{\infty}p(x)dx \right)\,\,\, , \,\,\, \beta=sup|G^{\prime}|$$
-\item Para todo $a\in R$:
-$$\frac{1}{2\pi}\int \left| \frac{h(u)\omega(u)}{u}du \right|\geq \left| \int H(x+a)p(x)dx  \right|$$
 \end{enumerate}
 \end{document}
