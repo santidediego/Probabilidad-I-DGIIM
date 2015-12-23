@@ -910,4 +910,19 @@ Si $S_{nn}=\displaystyle\sum_{k=1}^n X_{nk}$ donde los sumandos son variables al
 \begin{lemma}
 Si $X_n - X\stackrel{\mathbb{P}}{\longrightarrow} 0$ o $P[X_n \neq X_n^{\prime}]\longrightarrow 0$ entonces las sucesiones $\delta(X_n)$ y $delta(N_n^{prime})$ son equivalentes.
 \end{lemma}
+Una vistos estos resultados, ya estamos en posición de poder dar una solución completa al problema clásico del límite central, pero antes enunciaremos:
+\subsubsection{Criterio clásico de convergencia degenerada}
+Se tiene que $\delta \left( \dfrac{S_n}{n} \right)\rightarrow \delta(0)$ si y solamente si:
+\begin{enumerate}
+\item $\sum\displaystyle\int_{|x|\geq n}dF_k \rightarrow 0$
+\item $dfrac{1}{n}\sum\displaystyle\int_{|x|<n} x dF_k \rightarrow 0$
+\item $\dfrac{1}{n^2}\sum\left( \displaystyle\int_{|x|<n}x^2 dF_k - \left(  \displaystyle\int_{|x|<n}x\, dF_k \right)^2 \right)\longrightarrow 0$
+\end{enumerate}
+\begin{proof}
+
+\end{proof}
+\subsubsection{Criterio clásico de convergencia normal}
+Se tiene $\delta \left( \dfrac{S_n}{s_n} \right)\rightarrow N(0,1)$ y $max_{k\leq n}\dfrac{\sigma_k}{s_n}\rightarrow 0$ si y solamente si, $\forall \epsilon >0$:
+$$g_n(\epsilon)=\dfrac{1}{s_n^2}\sum\int_{|x|\geq \epsilon s_n}x^2\, dF_k\longrightarrow 0$$
+
 \end{document}
