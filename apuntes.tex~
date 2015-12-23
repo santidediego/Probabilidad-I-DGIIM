@@ -883,28 +883,4 @@ $$F(x)=\frac{1}{\sqrt{2\pi}}\int_{-x}^{x}e^{-\frac{1}{2}y^2}dy$$
 $$F(x)=e^{-\lambda}\sum_{k=0}^x \frac{\lambda^k}{k!}$$
 \end{enumerate}
 Mientras que las dos primeras leyes juegan un papel central en el desarrollo de la teoría de la probabilidad, la de Poisson se ha mantenido ignorada durante mucho tiempo.
-\section{Primer teorema del límite central}
-En el caso de Bernouilli:
-$$\delta\left( \frac{S_n-ES_n}{n}  \right)\rightarrow \delta(0) \,\, y \,\, \delta\left( \frac{S_n-ES_n}{\sigma S_n}  \right)\rightarrow N(0,1)$$
-y en el caso de Poisson:
-$$\delta(S_{nn})\rightarrow P(\lambda)$$
-\begin{proof}
-
-\end{proof}
-\subsubsection{Teorema de composición y descomposición}
-\begin{theorem}
-Los tipos normales y degenerados son cerrados bajo composiciones y descomposiciones. Lo mismo también se cumple para cada familia de Leyes de Poisson $\mathcal{P}(\lambda ; a,b)$ con el mismo b
-\end{theorem}
-\begin{proof}
-
-\end{proof}
-
-\begin{lemma}
-Si $S_{nn}=\displaystyle\sum_{k=1}^n X_{nk}$ donde los sumandos son variables aleatorias independientes (centradas en media), entonces:
-\begin{enumerate}
-\item Si $\dfrac{1}{n^2}\displaystyle\sum_{k=1}^n E|X_{nk}|^2\rightarrow 0$ entonces $\delta \left( \dfrac{S_{nn}}{n} \right)\rightarrow \delta(0)$
-\item Si $\dfrac{1}{s_{nn}^3}\displaystyle\sum_{k=1}^n E|X_{nk}|^3\rightarrow 0$ entonces $\delta \left( \dfrac{S_{nn}}{s_nn} \right)\rightarrow N(0,1)$
-\end{enumerate}
-\end{lemma}
-
 \end{document}
