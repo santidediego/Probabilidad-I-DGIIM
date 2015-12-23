@@ -924,5 +924,16 @@ Se tiene que $\delta \left( \dfrac{S_n}{n} \right)\rightarrow \delta(0)$ si y so
 \subsubsection{Criterio clásico de convergencia normal}
 Se tiene $\delta \left( \dfrac{S_n}{s_n} \right)\rightarrow N(0,1)$ y $max_{k\leq n}\dfrac{\sigma_k}{s_n}\rightarrow 0$ si y solamente si, $\forall \epsilon >0$:
 $$g_n(\epsilon)=\dfrac{1}{s_n^2}\sum\int_{|x|\geq \epsilon s_n}x^2\, dF_k\longrightarrow 0$$
+\begin{proof}
 
+\end{proof}
+\section{Aproximación normal}
+En sus investigaciones sobre la convergencia normal, Liapunov no solo examinó las condiciones para la velocidad de la convergencia. Sus resultados fueron mejorados por Berry y nos dicen lo básico sobre como debemos proceder por pasos.
+\\\\
+Sean $F$ y $G$ dos funciones de densidad de variables aleatorias con sus correspondientes funciones características $f$ y $g$ y sea $H=F-G$ , $h=f-g$. Excluimos el caso trivial en el que $\alpha=sup|h|$ , esto es, $H=h=0$. Tenemos entonces dos resultados
+\begin{enumerate}
+\item Si $G$ es continua en $R$, entonces existe un número finito $s$ tal que o bien $H(s)=\pm \alpha$ o $H(s+0)=\alpha$
+\item Si $G$ tiene una derivada $G^{\prime}$ en $R$, entonces existe un número finito $a$ tal que:
+$$\left| \int H(x+a)p(x)dx \right| \geq \frac{\alpha}{2}\left( 1-6\int_{\frac{\alpha}{2\beta}}^{\infty}p(x)dx \right)\,\,\, , \,\,\, \beta=sup|G^{\prime}|$$
+\end{enumerate}
 \end{document}
