@@ -877,9 +877,9 @@ Así nacieron las tres leyes básicas de la teoría de la probabilidad:
 ATENCION: ESTO HAY QUE PONERLO BIEN, ESPERAR A CLASE!!!
 \begin{enumerate}
 \item La ley de degeneración $\delta(0)$ de una variable aleatoria degenera a 0 teniendo un punto de incremento solo en $x=0$
-\item La ley normal $N(0,1)$ de una variable aleatoria normal con su derivada definida viene dada por:
+\item La ley normal $N(0,1)$ de una variable aleatoria normal con su función de densidad definida viene dada por:
 $$F(x)=\frac{1}{\sqrt{2\pi}}\int_{-x}^{x}e^{-\frac{1}{2}y^2}dy$$
-\item La ley de Poisson $\mathcal{P}(\lambda)$ de una variable aleatoria de Poisson con derivada definida viene dada por:
+\item La ley de Poisson $\mathcal{P}(\lambda)$ de una variable aleatoria de Poisson con su función de densidad definida viene dada por:
 $$F(x)=e^{-\lambda}\sum_{k=0}^x \frac{\lambda^k}{k!}$$
 \end{enumerate}
 Mientras que las dos primeras leyes juegan un papel central en el desarrollo de la teoría de la probabilidad, la de Poisson se ha mantenido ignorada durante mucho tiempo.
@@ -906,5 +906,8 @@ Si $S_{nn}=\displaystyle\sum_{k=1}^n X_{nk}$ donde los sumandos son variables al
 \item Si $\dfrac{1}{s_{nn}^3}\displaystyle\sum_{k=1}^n E|X_{nk}|^3\rightarrow 0$ entonces $\delta \left( \dfrac{S_{nn}}{s_nn} \right)\rightarrow N(0,1)$
 \end{enumerate}
 \end{lemma}
-
+\subsubsection{Lema de equivalencia de leyes}
+\begin{lemma}
+Si $X_n - X\stackrel{\mathbb{P}}{\longrightarrow} 0$ o $P[X_n \neq X_n^{\prime}]\longrightarrow 0$ entonces las sucesiones $\delta(X_n)$ y $delta(N_n^{prime})$ son equivalentes.
+\end{lemma}
 \end{document}
