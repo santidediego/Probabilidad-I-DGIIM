@@ -765,7 +765,7 @@ Las familias de variables aleatorias son independientes si y solo si sus subfami
 \end{theorem}
 \section{Multiplicación de variables aleatorias independientes}
 \textbf{Definición: } Las variables aleatorias $X_t\, , \, t\in T$ son independientes si para cada clase finita $(S_{t_1},\ldots , S_{t_n})$ de conjuntos de Borel en R:
-$P\bigcup_{k=1}^{n}[X_{t_k}\in S{t_k}]=\displaystyle\prod_{k=1}^n P[X_{t_k}\in S_{t_k}]$
+$P\bigcap_{k=1}^{n}[X_{t_k}\in S{t_k}]=\displaystyle\prod_{k=1}^n P[X_{t_k}\in S_{t_k}]$
 \subsubsection{Lema de la multiplicación}
 \begin{lemma}
 Si $X_1, \ldots , X_n$ son variables aleatorias independientes no negativas, entonces $E\displaystyle\prod_{k=1}^{n}X_k=\displaystyle\prod_{k=1}^{n} E X_k$
@@ -786,7 +786,7 @@ A la inversa, si su producto es integrable y ninguna de ellas degenera a $0$, en
 \begin{theorem}
 Las tres definiciones siguientes de independencia de variables aleatorias $X_t$ son equivalentes:
 \begin{itemize}
-\item $P\bigcup_{k=1}^n [X_{tk}\in S_{tk}]=\displaystyle\prod_{k=1}^n P[X_{tk}\in S_{tk}]$
+\item $P\bigcap_{k=1}^n [X_{tk}\in S_{tk}]=\displaystyle\prod_{k=1}^n P[X_{tk}\in S_{tk}]$
 \item $F_{t_1\ldots t_n}(x_{t_1},\ldots ,x_{t_n})=F_{t_1}(x_{t_1})\ldots F_{t_n}(x_{t_n})$
 \item $f_{t_1\ldots t_n}(u_{t_1},\ldots ,u_{t_n})=f_{t_1}(u_{t_1})\ldots f_{t_n}(u_{t_n})$
 \end{itemize}
@@ -794,14 +794,19 @@ Las tres definiciones siguientes de independencia de variables aleatorias $X_t$ 
 \begin{proof}
 
 \end{proof}
-\subsubsection{Criterio no-cero de Borel}
+\subsubsection{Criterio cero-uno de Borel}
 Si los eventos $A_n$ son independientes, entonces $P(\displaystyle\lim_{sup}A_n)=0$ o 1 dependiendo de si $\sum P A_n<\infty$ o $\sum P A_n=\infty$ 
 \begin{proof}
 
 \end{proof}
+De este criterio podemos deducir una ley muy importante, la Ley cero-uno de Kolmogorov
+\subsection{Ley cero-uno de Kolmogorov}
+Sea $X_n$ una sucesión de variables aleatorias independientes. Entonces los eventos en la cola tienen o bien probabilidad 0 o 1 y las funciones cola son degeneradas.
+\begin{proof}
+\end{proof}
 \subsection{Variables aleatorias independientes y espacios producto}
 \section{Convergencia y estabilidad de sumas; centramiento y truncamiento}
-Esta sección está dedicada a la investigación de las sumas de variables aleatorias independientes y especialmente, a sus propiedades en el límite.
+Esta sección está dedicada a la investigación de las sumas de variables aleatorias independientes y especialmente, a sus propiedades en el límite. Primero de todo, consideraremos $S_n=\displaystyle\sum_{k=1}^n X_k$ una suma de variables aleatorias independientes $X_1, X_2,\ldots X_n$
 \\\\
 \textbf{Definición de estabilidad: }Dadas dos sucesiones $a_n$ y $b_n$ tendiendo a $\infty$, decimos que la sucesión $S_n$ es estable en probabilidad o c.s. si $\dfrac{S_n}{b_n}-a_n\stackrel{\mathcal{P}}{\rightarrow}0$ o $\dfrac{S_n}{b_n}-a_n\stackrel{c.s.}{\rightarrow}0$
 \\\\
@@ -814,6 +819,8 @@ El Teorema del Límite Central, que desarrollaremos más adelante, es una consec
 Además enunciamos también otra ley muy parecida a esta y también muy importante que es la \textbf{Ley fuerte de Borel de los grandes números}, que constituye una versión de esta pero con la convergencia casi segura.
 \subsubsection{Ley fuerte de Borel de los grandes números}
 Si se tienen las hipótesis anteriores, entonces: $\dfrac{S_n}{n}-p \stackrel{c.s.}{\longrightarrow}0$
+\subsection{Ley débil de los grandes números}
+\subsection{Ley fuerte de los grandes números}
 \subsection{Centramiento y truncamiento}
 Diremos que centramos $X$ a $c$ si reemplazamos $X$ por $X-c$. Si $X$ es integrable, entonces podemos centrarla a su esperanza $EX$ de forma que $X$ es reemplazada por $X-EX$. Es decir, diremos que una variable aleatoria está centrada a su media si y solo si su media existe y es igual a 0.
 \\\\
@@ -844,11 +851,12 @@ Sean $X_1$ , $X_2$ integrables. Entonces, como el centramiento no modifica la va
 $$\sigma^2 S_n=ES_n^2=\sum_{k=1}^n EX_k^2+\sum_{j,k=1}EX_jX_k=\sum_{k=1}^n\sigma^2 X_k$$
 como $X_j$ y $X_k$ son independientes, tenemos que:
 $$EX_jX_k=EX_j\cdot EX_k=0$$
+Con esto en mente podemos enunciar la:
 \textbf{Desigualdad de Bienaymé: }Si las variables aleatorias independientes $X_n$ son independientes e integrabless, entonces:
 $$ \sigma^2 S_n=\sum_{k=1}^n \sigma^2 X_k$$
-Con la desigualdad anterior obtenemos la siguiente:
-$$\frac{\displaystyle\sum_{k=1}^n \sigma^2 X_k-\epsilon ^2}{sup(S_n-ES_n)^2}\leq P[|S_n-ES_n|\geq \epsilon]\leq \frac{\sigma^2(S_n-ES_n)}{\epsilon^2} \leq   \frac{1}{\epsilon^2}\sum_{k=1}^n\sigma^2 (X_k)$$
-Además se tiene el siguiente corolario:
+Con la desigualdad anterior obtenemos la famosa \textbf{desigualdad de Bienaymé}:
+$$\frac{\displaystyle\sum_{k=1}^n \sigma^2 X_k-\epsilon ^2}{sup(S_n-ES_n)^2}\leq P[|S_n-ES_n|\geq \epsilon]\leq \frac{\sigma^2(S_n-ES_n)}{\epsilon^2} \leq   \frac{1}{\epsilon^2}\sum_{k=1}^n\sigma^2 X_k$$
+Esta desigualdad, aplicada a $(S_{n+k}-ES_{n+k})-(S_n-ES_n)$ y remplazando $\epsilon$ por $b_n$ y pasando al límite se tiene el siguiente corolario:
 \\\\
 \textbf{Corolario: }Si las series $\sum\sigma^2 X_n$ convergen, entonces las series $\sum (X_n-EX_n)$ convergen en probabilidad. Si $\dfrac{1}{b_n^2}\displaystyle\sum_{k=1}^n \sigma^2 X_k\rightarrow 0$, entonces $\dfrac{S_n - ES_n}{b_n}\stackrel{\mathcal{P}}{\rightarrow}0$
 \\\\
@@ -945,4 +953,12 @@ $$sup |H|\leq\dfrac{2}{\pi}\int_{0}^{u}\left| \frac{h(u)}{u} \right| du + \frac{
 
 \end{proof}
 \subsubsection{Teorema de aproximación normal}
+FALTA LA PARTE PREELIMINAR
+\subsection{Teorema de representación}
+\begin{theorem}
+La familia de funciones características idénticamente distribuidas coincide con la familia de funciones características de la forma $e^\phi$
+\end{theorem}
+\begin{proof}
+
+\end{proof}
 \end{document}
