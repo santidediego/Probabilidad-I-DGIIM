@@ -819,8 +819,6 @@ El Teorema del Límite Central, que desarrollaremos más adelante, es una consec
 Además enunciamos también otra ley muy parecida a esta y también muy importante que es la \textbf{Ley fuerte de Borel de los grandes números}, que constituye una versión de esta pero con la convergencia casi segura.
 \subsubsection{Ley fuerte de Borel de los grandes números}
 Si se tienen las hipótesis anteriores, entonces: $\dfrac{S_n}{n}-p \stackrel{c.s.}{\longrightarrow}0$
-\subsection{Ley débil de los grandes números}
-\subsection{Ley fuerte de los grandes números}
 \subsection{Centramiento y truncamiento}
 Diremos que centramos $X$ a $c$ si reemplazamos $X$ por $X-c$. Si $X$ es integrable, entonces podemos centrarla a su esperanza $EX$ de forma que $X$ es reemplazada por $X-EX$. Es decir, diremos que una variable aleatoria está centrada a su media si y solo si su media existe y es igual a 0.
 \\\\
@@ -865,7 +863,10 @@ La demostración pasa por notar que:
 $$P[\sum_{k}^{n+h}(X_k - EX_k)\geq\epsilon]\leq \dfrac{\displaystyle\sum_{k}^{n+h}\sigma^2 X_k}{\epsilon^2}\longrightarrow 0$$
 \end{proof}
 Este último corolario es debido a Tchebichev (cuando $b_n=n$). En el caso de Bernouilli, donde $b_n=n$, $EX_n=p$ , $\sigma^2 X_n=pq$ se reduce a la ley de Bernouilli de los grandes números.
-
+\subsection{Ley débil de los grandes números}
+\subsection{Ley fuerte de los grandes números}
+Sea ${X_n}$ una sucesión de variables aleatorias independientes e idénticamente distribuidas con una ley común $\mathcal{L}(X)$. Entonces:
+$$E|X|<\infty \Longleftrightarrow \dfrac{S_n}{n}=\dfrac{\sum_{k=1}^n X_k}{n}=\dfrac{X_1 \ldots X_n}{n}\stackrel{c.s}{\longrightarrow}EX$$
 \chapter{El problema del límite central}
 El problema del límite central en probabilidad es el problema de convergencia de leyes de secuencias de sumas de variables aleatorias.
 \section{Preeliminares}
