@@ -881,10 +881,8 @@ El tercer teorema del límite central fue obtenido por Poisson, quien modificó 
 A partir de aqúi Poisson probó que para $k=0,1,2,\ldots$
 $$P[S_{nn}=k]\rightarrow \dfrac{\lambda^k}{k!}e^{-\lambda}$$
 Así nacieron las tres leyes básicas de la teoría de la probabilidad:
-\\\\
-ATENCION: ESTO HAY QUE PONERLO BIEN, ESPERAR A CLASE!!!
 \begin{enumerate}
-\item La ley de degeneración $\delta(0)$ de una variable aleatoria degenera a 0 teniendo un punto de incremento solo en $x=0$
+\item La ley de degeneración $\mathcal{L}$ de una variable aleatoria degenera a 0 teniendo un punto de incremento solo en $x=0$
 \item La ley normal $N(0,1)$ de una variable aleatoria normal con su función de densidad definida viene dada por:
 $$F(x)=\frac{1}{\sqrt{2\pi}}\int_{-x}^{x}e^{-\frac{1}{2}y^2}dy$$
 \item La ley de Poisson $\mathcal{P}(\lambda)$ de una variable aleatoria de Poisson con su función de densidad definida viene dada por:
@@ -893,20 +891,35 @@ $$F(x)=e^{-\lambda}\sum_{k=0}^x \frac{\lambda^k}{k!}$$
 Mientras que las dos primeras leyes juegan un papel central en el desarrollo de la teoría de la probabilidad, la de Poisson se ha mantenido ignorada durante mucho tiempo.
 \section{Primer teorema del límite central}
 En el caso de Bernouilli:
-$$\delta\left( \frac{S_n-ES_n}{n}  \right)\rightarrow \delta(0) \,\, y \,\, \delta\left( \frac{S_n-ES_n}{\sigma S_n}  \right)\rightarrow N(0,1)$$
+$$\mathcal{L}\left( \frac{S_n-ES_n}{n}  \right)\rightarrow \mathcal{L}(0) \,\, y \,\, \mathcal{L}\left( \frac{S_n-ES_n}{\sigma S_n}  \right)\rightarrow N(0,1)$$
 y en el caso de Poisson:
-$$\delta(S_{nn})\rightarrow P(\lambda)$$
+$$\mathcal{L}(S_{nn})\rightarrow P(\lambda)$$
 \begin{proof}
 
 \end{proof}
+Si consideramos variables aleatorias centradas en media, podemos enunciar el siguiente lema. Pero antes notamos $s_n=\sigma(S_n)$ y además tendremos en cuenta que las variables aleatorias están centradas en media, por lo que $EX_k=0$ y $ES_n=0$ a partir de ahora
+\begin{lemma}
+Si los sumandos son independientes, indénticamente distribuidos y centrados en media, entonces $\mathcal{L} \left( \dfrac{S_n}{n} \right)\rightarrow \mathcal{L}$ y $\mathcal{L} \left( \dfrac{S_n}{s_n} \right)\rightarrow N(0,1)$
+\end{lemma}
 \subsubsection{Teorema de composición y descomposición}
 \begin{theorem}
 Los tipos normales y degenerados son cerrados bajo composiciones y descomposiciones. Lo mismo también se cumple para cada familia de Leyes de Poisson $\mathcal{P}(\lambda ; a,b)$ con el mismo b
 \end{theorem}
+Una vez visto el lema anterior, enunciamos el siguiente teorema:
+\begin{theorem}
+Consideramos $S_n=\displaystyle\sum_{k=1}^n X_k$ y $s_n=\sigma S_n$ donde los sumandos son variables aleatorias independientes centradas en media. Entonces:
+\begin{enumerate}
+\item Si $\dfrac{1}{n^{1+\delta}}\displaystyle\sum_{k=1}^n E|X_k|^{1+\delta}\rightarrow 0$ para $0\leq\delta\leq 1$. Entonces:
+$$\mathcal{L}\left( \frac{S_n}{n} \right)\rightarrow \mathcal{L}(0)$$
+\item Si $\dfrac{1}{s_n^{2+\delta}}\displaystyle\sum_{k=1}^n E|X_k|^{2+\delta}\rightarrow 0$ para un $\delta$ positivo, entonces:
+$$\mathcal{L}\left( \frac{S_n}{s_n} \right)\rightarrow N(0,1)$$
+\end{enumerate}
+\end{theorem}
 \begin{proof}
-
 \end{proof}
-
+Notar que si tomamos $\delta=1$, el teorema se convierte en el conocido Teorema de Tchevichev. Además también contiene al resultado de Markov:
+\\\\
+\textbf{Resultado de Markov:} Si $E|X_k|^{1+\delta}\leq c < \infty$, entonces $\mathcal{L}\left( \dfrac{S_n}{n} \right)\rightarrow \mathcal{L}(0)$, $\forall \delta >0$
 \begin{lemma}
 Si $S_{nn}=\displaystyle\sum_{k=1}^n X_{nk}$ donde los sumandos son variables aleatorias independientes (centradas en media), entonces:
 \begin{enumerate}
@@ -916,48 +929,19 @@ Si $S_{nn}=\displaystyle\sum_{k=1}^n X_{nk}$ donde los sumandos son variables al
 \end{lemma}
 \subsubsection{Lema de equivalencia de leyes}
 \begin{lemma}
-Si $X_n - X\stackrel{\mathbb{P}}{\longrightarrow} 0$ o $P[X_n \neq X_n^{\prime}]\longrightarrow 0$ entonces las sucesiones $\delta(X_n)$ y $delta(N_n^{prime})$ son equivalentes.
+Si $X_n - X_n ^{\prime}  \stackrel{\mathbb{P}}{\longrightarrow} 0$ o $P[X_n \neq X_n^{\prime}]\longrightarrow 0$ entonces las sucesiones $\delta(X_n)$ y $\delta(X_n^{\prime})$ son equivalentes.
 \end{lemma}
 Una vistos estos resultados, ya estamos en posición de poder dar una solución completa al problema clásico del límite central, pero antes enunciaremos:
 \subsubsection{Criterio clásico de convergencia degenerada}
 Se tiene que $\delta \left( \dfrac{S_n}{n} \right)\rightarrow \delta(0)$ si y solamente si:
 \begin{enumerate}
 \item $\sum\displaystyle\int_{|x|\geq n}dF_k \rightarrow 0$
-\item $dfrac{1}{n}\sum\displaystyle\int_{|x|<n} x dF_k \rightarrow 0$
+\item $\dfrac{1}{n}\sum\displaystyle\int_{|x|<n} x dF_k \rightarrow 0$
 \item $\dfrac{1}{n^2}\sum\left( \displaystyle\int_{|x|<n}x^2 dF_k - \left(  \displaystyle\int_{|x|<n}x\, dF_k \right)^2 \right)\longrightarrow 0$
 \end{enumerate}
-\begin{proof}
-
-\end{proof}
 \subsubsection{Criterio clásico de convergencia normal}
 Se tiene $\delta \left( \dfrac{S_n}{s_n} \right)\rightarrow N(0,1)$ y $max_{k\leq n}\dfrac{\sigma_k}{s_n}\rightarrow 0$ si y solamente si, $\forall \epsilon >0$:
 $$g_n(\epsilon)=\dfrac{1}{s_n^2}\sum\int_{|x|\geq \epsilon s_n}x^2\, dF_k\longrightarrow 0$$
-\begin{proof}
-
-\end{proof}
-\section{Aproximación normal}
-En sus investigaciones sobre la convergencia normal, Liapunov no solo examinó las condiciones para la velocidad de la convergencia. Sus resultados fueron mejorados por Berry y nos dicen lo básico sobre como debemos proceder por pasos.
-\\\\
-Sean $F$ y $G$ dos funciones de densidad de variables aleatorias con sus correspondientes funciones características $f$ y $g$ y sea $H=F-G$ , $h=f-g$. Excluimos el caso trivial en el que $\alpha=sup|h|$ , esto es, $H=h=0$. Tenemos entonces dos resultados
-\begin{enumerate}
-\item Si $G$ es continua en $R$, entonces existe un número finito $s$ tal que o bien $H(s)=\pm \alpha$ o $H(s+0)=\alpha$
-\item Si $G$ tiene una derivada $G^{\prime}$ en $R$, entonces existe un número finito $a$ tal que:
-$$\left| \int H(x+a)p(x)dx \right| \geq \frac{\alpha}{2}\left( 1-6\int_{\frac{\alpha}{2\beta}}^{\infty}p(x)dx \right)\,\,\, , \,\,\, \beta=sup|G^{\prime}|$$
-\item Para todo $a\in R$:
-$$\frac{1}{2\pi}\int \left| \frac{h(u)\omega(u)}{u}du \right|\geq \left| \int H(x+a)p(x)dx  \right|$$
-\end{enumerate}
-\subsubsection{Desigualdad básica}
-Si $G$ tiene derivada $G^{prime}$ en $R$, entonces $\forall U>0$,
-$$sup |H|\leq\dfrac{2}{\pi}\int_{0}^{u}\left| \frac{h(u)}{u} \right| du + \frac{24}{\pi U}sup |G^{\prime}|$$
-\begin{proof}
-
-\end{proof}
-\subsubsection{Teorema de aproximación normal}
-FALTA LA PARTE PREELIMINAR
-\subsection{Teorema de representación}
-\begin{theorem}
-La familia de funciones características idénticamente distribuidas coincide con la familia de funciones características de la forma $e^\phi$
-\end{theorem}
 \begin{proof}
 
 \end{proof}
