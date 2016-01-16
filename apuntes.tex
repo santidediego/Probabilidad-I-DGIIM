@@ -700,13 +700,19 @@ $$ M_X(t) = E(e^{tX}); \, t \in \mathbb{R} $$
 \begin{lemma}
 de Borel-Cantelli
 \\\\
-Sea $(\Omega,a,P) \, , \, A_n \in a$. Entonces, si $\displaystyle\sum P \, A_n < \infty \Longrightarrow P(\displaystyle \lim_{sup}A_n)=0$
+\begin{itemizw}
+\item Sea $(\Omega,a,P) \, , \, A_n \in a$. Entonces, si $\displaystyle\sum P \, A_n < \infty \Longrightarrow P(\displaystyle \lim_{sup}A_n)=0$
+\item ${A_n}$ independientes $\Longrightarrow P(\displaystyle\lim_{sup}(A_n))=0$ si $\sum P(A_k)<\infty$ o 1 si $\sum P(A_k)=\infty$
+\end{itemize}
 \end{lemma}
-
 \begin{proof}
 $$\lim_{sup}A_n=\bigcap_{n=1}^\infty \bigcup_{k=n}^{\infty}A_k=\bigcap_{n=1}^\infty B_n$$
 $$P(\lim_{sup}A_n)=P\lim B_n=\lim P\, B_n \leq \lim_n P\bigcup_{k=n}^\infty A_k \leq \lim_n \sum_{k=n}^\infty P\, A_k=0$$
-El recíproco no es cierto
+Ahora la segunda parte:
+\\\\
+Para el caso 0 queda probado con la primera parte, para el caso 1, se tiene:
+$$P(\displaystyle\lim_{sup}A_n)^c = P(\lim_{inf}A_n^c)=P(\bigcup_{n}\bigcap_{k=n}A_k^c)=P(\lim_{n}\bigcap_{k=n}A_k^c)=$$
+$$\lim_n P(\bigcap_{k=n}A_k^c)=\lim_n \prod_{k=n}(1-P(A_k))\leq \lim_{n}\prod_{k=n}^N e^{-P(A_n)}=\lim_n e^{-\sum_k P(A_k)}=0$$
 \qed
 \end{proof}
 
