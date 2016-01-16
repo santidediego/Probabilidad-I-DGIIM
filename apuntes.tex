@@ -692,47 +692,6 @@ Tenemos entonces que:
 Llamamos función generatriz de momentos de la variable aleatoria $X$ a la función:
 $$ M_X(t) = E(e^{tX}); \, t \in \mathbb{R} $$
 
-\newpage
-
-\section{Apuntes escritos a recolocar}
-
-\section{Espacios de probabilidad y variables aleatorias}
-\begin{lemma}
-de Borel-Cantelli
-\\\\
-Sea $(\Omega,a,P) \, , \, A_n \in a$. Entonces, si $\displaystyle\sum P \, A_n < \infty \Longrightarrow P(\displaystyle \lim_{sup}A_n)=0$
-\end{lemma}
-
-\begin{proof}
-$$\lim_{sup}A_n=\bigcap_{n=1}^\infty \bigcup_{k=n}^{\infty}A_k=\bigcap_{n=1}^\infty B_n$$
-$$P(\lim_{sup}A_n)=P\lim B_n=\lim P\, B_n \leq \lim_n P\bigcup_{k=n}^\infty A_k \leq \lim_n \sum_{k=n}^\infty P\, A_k=0$$
-El recíproco no es cierto
-\qed
-\end{proof}
-
-\begin{lemma}
-Sea $Y\leq \mathbb {X}_n\leq Z$ con $Y,\, Z$ integrables y tal que $X_n\stackrel{c.s}{\longrightarrow}X$. Entonces se tiene que $\displaystyle \int X_n \rightarrow \displaystyle \int X$
-\end{lemma}
-
-\section{Funciones características y funciones de distribución}
-\subsection{Función característica}
-Función puntual que se define sobre la recta real, no negativa, no decreciente, continua por la izquierda y finita. Para nosotros será la función que está entre 0 y 1.\\
-
-Verifica estas tres propiedades:
-\begin{itemize}
-\item $0\leq F[a,b]\leq \infty$
-\item $F[a,b]\rightarrow 0 \, , \, a\rightarrow b$
-\item Si $a_1\leq b_1\leq a_2\leq b_2\leq\ldots\leq a_n \leq b_n$, entonces:
-$$\sum_{k=1}^n F[a_k,b_k]-\sum_{k=1}^{n-1}F[b_k,a_{k+1}]=F[a_1,b_n]$$
-\end{itemize}
-Las funciones de distribución representan medidas
-\begin{theorem}
-La relación $\mu[a,b]=F[a,b]$ establece una correspondencia uno a uno (da igual pasar de una a otra)
-$$\int_\mathbb{R} g(X)dP_{X}(x)=\int_\mathbb{R} g\, Pg=\int_{\Omega}g(X(\omega))dP(\omega)$$
-\end{theorem}
-
-\section{Leyes de la probabilidad y tipos de leyes}
-
 \chapter{Independencia}
 \section{Concepto de independencia}
 \textbf{Definición: }Se dice que los eventos $A_t$ son independientes si para todo subconjunto finito $(t_i,\ldots ,t_n)$ se tiene que:
