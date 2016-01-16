@@ -25,8 +25,8 @@
 \newpage
 \chapter*{Agradecimientos} % si no queremos que añada la palabra "Capitulo"
 \addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
-\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado 
- 
+\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado
+
 ¡Un saludo a mi gente de Tinder, se os quiere!
 
 \chapter*{Resumen} % si no queremos que añada la palabra "Capitulo"
@@ -64,7 +64,7 @@ Al par ($\Omega$, $\mathcal{A}$) se le llama espacio medible, y a los conjuntos 
 
 Si tomamos la relación de inclusión entre conjuntos ($\subseteq$) como una relación de orden, podemos hablar sin ningún tipo de problema de sucesiones monótonas. En este sentido, una sucesión creciente de conjuntos sería una sucesión $\{A_n\}_{n \in \mathbb{N}}$ en la que se cumple que $A_i \subseteq A_{i+1}, \forall i \in \mathbb{N}$. De forma análoga se podría ver qué es una sucesión decreciente de conjuntos.\\
 
-Resulta que existe una forma intuitiva de definir el límite de una sucesión monótona de conjuntos. En particular, el límite de una sucesión creciente de conjuntos $\{A_n\}_{n \in \mathbb{N} }$ se puede definir como 
+Resulta que existe una forma intuitiva de definir el límite de una sucesión monótona de conjuntos. En particular, el límite de una sucesión creciente de conjuntos $\{A_n\}_{n \in \mathbb{N} }$ se puede definir como
 
 $$\lim_{n\to\infty} A_n = \bigcup_{k \in \mathbb{N}}^{\infty} A_k$$
 
@@ -80,7 +80,7 @@ No solo se puede hablar de límites en sucesiones monótonas. Para definir los l
 
 Dada una sucesión de conjuntos $\{A_n\}_{n\in\mathbb{N} }$ podemos considerar el conjunto
 
-$$ B_n = \bigcap_{k=n}^{\infty} A_k $$ 
+$$ B_n = \bigcap_{k=n}^{\infty} A_k $$
 
 y este conjunto contiene aquellos elementos que están en \textbf{todos} los $A_k$ para $k \geq n$. Es fácil probar que la sucesión $\{B_n\}_{n\in\mathbb{N}}$ es una sucesión creciente de conjuntos, y por tanto se puede obtener el límite $\lim_{n\to\infty} B_n$. Informalmente, ese límite es un conjunto que contiene a todos los elementos de $A_n$ que están en todos los conjuntos $A_k$ a partir de cierto $n\in\mathbb{N}$. Definimos el límite inferior de $A_n$ como
 
@@ -90,28 +90,28 @@ Análogamente, podríamos definir la sucesión de conjuntos $\{C_n\}_{n\in\mathb
 
 $$ C_n = \bigcup_{k=n}^{\infty} A_n $$
 
-Cada $C_n$ contiene todos los elementos que están presentes en algún $A_k$ para $k \geq n$. Es fácil también ver que la sucesión $\{C_n\}_{n\in\mathbb{N}}$ es una sucesión decreciente de conjuntos, y por tanto su límite también está bien definido. Se puede definir entonces el límite superior de $\{A_n\}_{n\in\mathbb{N}}$ como 
+Cada $C_n$ contiene todos los elementos que están presentes en algún $A_k$ para $k \geq n$. Es fácil también ver que la sucesión $\{C_n\}_{n\in\mathbb{N}}$ es una sucesión decreciente de conjuntos, y por tanto su límite también está bien definido. Se puede definir entonces el límite superior de $\{A_n\}_{n\in\mathbb{N}}$ como
 
 $$ \limsup A_n = \lim_{n\to\infty} C_n = \bigcap_{n\in\mathbb{N}} \bigcup_{k=n}^{\infty} A_n $$
 
 Informalmente se puede pensar en este límite superior de $A_n$ como el conjunto de los elementos que están en infinitos conjuntos de la sucesión.\\
 
-A partir de estas definiciones, es fácil comprobar que 
+A partir de estas definiciones, es fácil comprobar que
 
 $$ \liminf A_n \subseteq \limsup A_n $$
 
 \subsection{Límite de una sucesión de conjuntos}
 
-Diremos que una sucesión de conjuntos tiene límite si su límite inferior y superior coinciden, y el límite tendrá como valor efectivamente el de estos límites. Es decir: 
+Diremos que una sucesión de conjuntos tiene límite si su límite inferior y superior coinciden, y el límite tendrá como valor efectivamente el de estos límites. Es decir:
 
-$$ \lim A_n = \liminf A_n = \limsup A_n $$ 
+$$ \lim A_n = \liminf A_n = \limsup A_n $$
 
 en caso de que límite superior e inferior coincidan.
 
 \section{Funciones sobre conjuntos}
 
 Una vez definidos los conceptos sobre conjuntos con los que vamos a trabajar, pasamos a definir las funciones sobre conjuntos. Vamos entonces a definir lo que es una función de conjunto. Sean los espacios medibles ($\Omega$, $\mathcal{A}$) y($\Omega'$, $\mathcal{A}'$), definimos la función:
-$$ X: \mathcal{A} \to \mathcal{A}'$$ 
+$$ X: \mathcal{A} \to \mathcal{A}'$$
 $$ A \longrightarrow X(A)$$
 
 A raíz de esta definición podemos definir también lo que se conoce como función inversa. Dada una función $X$, la función inversa de $X$, $X^{-1}$, asigna a cada conjunto $A' \in \mathcal{A}'$ el conjunto $A \in \mathcal{A}$ tal que $X(A) = A'$. La propiedad básica que cumplen las funciones inversas es que preservan las operaciones e inclusiones de conjuntos.
@@ -126,7 +126,7 @@ Se dice que $\varphi$ es aditiva si $\varphi(\displaystyle\sum_{1}^{n}A_k)=\disp
 Se dice que $\varphi$ es $\sigma$-aditiva si $\varphi(\displaystyle\sum_1^\infty A_k)=\displaystyle\sum_1^\infty \varphi(A_k)$
 \subsubsection{Función subaditiva}
 Sea $\varphi$ definida como antes. Se dice que $\varphi$ es \textbf{subaditiva} si $\varphi(A \cup B) \leq \varphi(A) + \varphi(B)$
-\begin{lemma} 
+\begin{lemma}
 Si $\exists B\, : \, \varphi(B)<\infty \Rightarrow \varphi(\emptyset)=0$
 \end{lemma}
 \begin{theorem}
@@ -140,7 +140,7 @@ Entonces $\varphi(\displaystyle\sum A_n^{+})=\displaystyle\sum\varphi(A_n^{+})$ 
 \qed
 \end{proof}
 
-\begin{theorem} 
+\begin{theorem}
 Si $\varphi$ es $\sigma$-aditiva, $\varphi \geq 0$, entonces: $\varphi$ es no decreciente y subaditiva
 \end{theorem}
 
@@ -152,17 +152,17 @@ Veamos que es no decreciente $(A \subseteq B \Rightarrow \varphi (A) \leq \varph
 
 Una vez introducido el concepto de límite para una sucesión de conjuntos, vamos a tratar de definir la continuidad para funciones de conjunto. Tendremos tres tipos de continuidad, cada uno relacionado con un tipo de sucesiones de conjuntos de las que hemos definido anteriormente. En esta sección trabajaremos con una función $\varphi : \Omega \to \Omega'$\\
 
-Diremos que $\varphi$ es continua por abajo si cumple que, dada una sucesión creciente de elementos $A_n \uparrow A$, se tiene que 
+Diremos que $\varphi$ es continua por abajo si cumple que, dada una sucesión creciente de elementos $A_n \uparrow A$, se tiene que
 
 $$ \lim \varphi (A_n) = \varphi (A) $$
 
-Por otra parte, diremos que $\varphi$ es continua por arriba si cumple que dada una sucesión decreciente de elementos $A_n \downarrow A$, se tiene que 
+Por otra parte, diremos que $\varphi$ es continua por arriba si cumple que dada una sucesión decreciente de elementos $A_n \downarrow A$, se tiene que
 
 $$ \lim \varphi (A_n) = \varphi (A)$$
 
 Por último, diremos que una función es continua si lo es por arriba y por abajo.
 
-\begin{theorem} 
+\begin{theorem}
 Teorema de continuidad para funciones sobre conjuntos\\
 
 Sea $\varphi$ una función $\sigma$-aditiva. Entonces, $\varphi$ es aditiva y continua. Inversamente, si $\varphi$ es aditiva y, o bien continua por abajo, o finita y continua en $\emptyset$, entonces $\varphi$ es $\sigma$-aditiva.
@@ -186,9 +186,9 @@ $$ \varphi \left( \sum_{n}^{\infty} A_n \right) = \varphi \left( \lim \sum_{k=1}
 Y por tanto es $\sigma$-aditiva. Si es finita y continua en $\emptyset$, entonces se obtiene la $\sigma$-aditividad de:
 $$ \varphi \left( \sum_{n}^{\infty} A_n \right) = \varphi \left( \sum_{k=1}^{n} A_k \right) + \varphi \left( \sum_{k=n+1}^{\infty} A_k \right) = \sum_{k=1}^{n} \varphi (A_k) + \varphi \left( \sum_{k=n+1}^{\infty} A_k \right) $$
 
-Y tenemos que 
+Y tenemos que
 $$ \varphi \left( \sum_{k=n+1}^{\infty} A_k \right) \to \varphi (\emptyset) = 0 $$
-\qed 
+\qed
 \end{proof}
 
 Una vez demostrado este teorema, vamos a ver un teorema que nos relaciona las propiedades del supremo e ínfimo de una función $\sigma$-aditiva con los conjuntos sobre los que está dicha función definida:
@@ -212,7 +212,7 @@ Haciendo tender ahora $n \to +\infty$ y tomando $\displaystyle C = \lim \cup_{k 
 
 \chapter{Medidas y probabilidades}
 
-\section{Concepto de medida, media exterior y probabilidad} 
+\section{Concepto de medida, media exterior y probabilidad}
 Una función de conjuntos $\mu^\circ$ es una medida si verifica:
 \begin{itemize}
 \item Es $\sigma$-aditiva, es decir,  $\mu^\circ (\cup A_j) = \displaystyle \sum \mu^\circ (A_j)$
@@ -232,7 +232,7 @@ $\mathcal{P}(\emptyset)=0$\\
 $\forall A \in \mathcal{A}, 0 \leq \mathcal{P}(A) \leq 1$\\
 Es una función $\sigma$-aditiva\\
 
-De forma análoga al concepto de espacio de medida, podemos definir ahora el de espacio probabilístico. Un espacio probabilístico es una tupla formada por un conjunto $\Omega$, una $\sigma$-álgebra sobre ese conjunto, $\mathcal{A}$, y una función de probabilidad $\mathcal{P}$. 
+De forma análoga al concepto de espacio de medida, podemos definir ahora el de espacio probabilístico. Un espacio probabilístico es una tupla formada por un conjunto $\Omega$, una $\sigma$-álgebra sobre ese conjunto, $\mathcal{A}$, y una función de probabilidad $\mathcal{P}$.
 
 \begin{theorem}
 Teorema de sucesión
@@ -483,7 +483,7 @@ $\mathbb{X}_n \stackrel{c.s.}{\longrightarrow}\mathbb{X}\Longleftrightarrow \mat
 $$\Longrightarrow$$
 $\exists n_0\, : \, \forall n\geq n_0$ se tiene que:
 $$|\mathbb{X}_n(\omega)-\mathbb{X}(\omega)|<\frac{\epsilon}{2}\, \omega \in A \, P(A)=1$$
-$$|\mathbb{X}_n(\omega)-\mathbb{X}_m(\omega)|\leq|\mathbb{X}_n(\omega)-\mathbb{X}(\omega)|+|\mathbb{X}_m(\omega)-\mathbb{X}(\omega)|<\epsilon$$ 
+$$|\mathbb{X}_n(\omega)-\mathbb{X}_m(\omega)|\leq|\mathbb{X}_n(\omega)-\mathbb{X}(\omega)|+|\mathbb{X}_m(\omega)-\mathbb{X}(\omega)|<\epsilon$$
 $$\Longleftarrow$$
 \begin{center}
 ${\mathbb{X}_n(\omega)}$ de Cauchy
@@ -557,7 +557,7 @@ Sea $\{X_n\} \geq 0$ tal que $X_n \uparrow X$. Entonces, se tiene que $\displays
 \begin{proof}
 Tomamos las sucesiones $X_{km} \uparrow X_k$. La sucesión $Y_n = \displaystyle \max_{k \geq n} X_{kn}$ es una sucesión de funciones simples no negativas y no decreciente, y además
 $$X_{kn} \leq Y_n \leq X_n \rightarrow \int X_{kn} \leq \int Y_n \leq \int X_n$$
-Ahora, cuando $n \rightarrow \infty$, tenemos que 
+Ahora, cuando $n \rightarrow \infty$, tenemos que
 $$X_k \leq lim Y_n \leq X \rightarrow \int X_k \leq \int lim Y_n \leq \int X$$
 Por último, cuando $K \rightarrow \infty$, obtenemos
 $$X \leq lim Y_n \leq X \rightarrow lim \int X_n \leq \int lim Y_n \leq lim \int X_n$$
@@ -577,7 +577,7 @@ Sean $Y$, $Z$ dos funciones integrables (pueden no mantener su signo) y $X_n$ un
 \item Si $X_n \leq Z \, \forall n \Longrightarrow E(\lim \sup X_n)\geq \lim \sup E(X_n)$
 \end{enumerate}
 \end{theorem}
- 
+
 \begin{proof}
 Si $X_n \geq 0$, tenemos que:
 $$ X_n \geq Y_n = \inf_{k \geq n} X_n \uparrow \lim \inf X_n \stackrel{TCM}{=} \lim \inf E(X_n) \geq \lim Y_n = E(\lim \inf X_n)$$
@@ -592,7 +592,7 @@ En otro caso:
 \subsection{Teorema de la convergencia dominada}
 \begin{theorem}
 Sea $X_n$ una sucesión de variables aleatorias t.q.  $X_n \stackrel{\mathcal{P}}{\rightarrow} X$ o $X_n \stackrel{c.s.}{\rightarrow} X$  . Si $\exists Y \, t.q. \, |X_n |\leq Y$. Entonces se tiene que $X$ es integrable y:
-$$\lim\int X_n\, dP=\int X\, dP$$ 
+$$\lim\int X_n\, dP=\int X\, dP$$
 \end{theorem}
 
 \begin{proof}
@@ -634,8 +634,8 @@ Sea $X$ una v.a. y sea $g$ una función boreliana. Entonces se tiene:
 
 \begin{description}
 \item[i)] Si $g$ es par y no decreciente en $[0,\infty) \, \forall a>0$ , entonces:
-$$\dfrac{Eg(X)-g(a)}{sup\, g(X)}\leq P[|X|\geq a]\leq \dfrac{E g(X)}{g(a)}$$ 
-\item[ii)] (Desigualdad de Tchevychev) Si $g$ es no decreciente en $\mathbb{R}$, 
+$$\dfrac{Eg(X)-g(a)}{sup\, g(X)}\leq P[|X|\geq a]\leq \dfrac{E g(X)}{g(a)}$$
+\item[ii)] (Desigualdad de Tchevychev) Si $g$ es no decreciente en $\mathbb{R}$,
 $$ P[|X-EX] \geq a] \leq \frac{Var X}{a^2}$$
 \item[iii)] (Desigualdad de Markov) Si $g(X) = |X|^r$
 $$ \frac{EX^r - a^r}{sup X^r} \leq P[|X| \geq a] \leq \frac{EX^r}{a^r} $$
@@ -696,7 +696,7 @@ $$ M_X(t) = E(e^{tX}); \, t \in \mathbb{R} $$
 \section{Concepto de independencia}
 \textbf{Definición: }Se dice que los eventos $A_t$ son independientes si para todo subconjunto finito $(t_i,\ldots ,t_n)$ se tiene que:
 $$P\bigcap_{k=1}^n A_{tk}=\displaystyle\prod_{k=1}^{n}P\, A_{tk}$$
-De hecho, el concepto de independencia es relativo a la familia de clases. Una clase de eventos se dice independiente si sus eventos son independientes. 
+De hecho, el concepto de independencia es relativo a la familia de clases. Una clase de eventos se dice independiente si sus eventos son independientes.
 
 \begin{theorem}
 Se tiene que las subclases de una clase independiente son independientes.
@@ -835,7 +835,7 @@ Además enunciamos también otra ley muy parecida a esta y también muy importan
 \subsubsection{Ley fuerte de Borel de los grandes números}
 Si se tienen las hipótesis anteriores, entonces: $\dfrac{S_n}{n}-p \stackrel{c.s.}{\longrightarrow}0$
 \begin{theorem}
-Sea f(x) continua en $[0,1] \Rightarrow \exists {P_n(x)}$ tal que $\lim P_n (x) = f(x)$ uniformemente $ \forall x \in [0,1]$.  
+Sea f(x) continua en $[0,1] \Rightarrow \exists {P_n(x)}$ tal que $\lim P_n (x) = f(x)$ uniformemente $ \forall x \in [0,1]$.
 \end{theorem}
 \begin{proof}
 \end{proof}
@@ -884,7 +884,7 @@ Esta desigualdad, aplicada a $(S_{n+k}-ES_{n+k})-(S_n-ES_n)$ y remplazando $\eps
 \\\\
 \textbf{Corolario: }
 \begin{itemize}
-\item Si las series $\sum\sigma^2 X_n$ convergen, entonces las series $\sum (X_n-EX_n)$ convergen en probabilidad. 
+\item Si las series $\sum\sigma^2 X_n$ convergen, entonces las series $\sum (X_n-EX_n)$ convergen en probabilidad.
 \item Si $\dfrac{1}{b_n^2}\displaystyle\sum_{k=1}^n \sigma^2 X_k\rightarrow 0$, entonces $\dfrac{S_n - ES_n}{b_n}\stackrel{\mathcal{P}}{\rightarrow}0$\\
 \end{itemize}
 \begin{proof}
@@ -919,12 +919,20 @@ A partir de aqúi Poisson probó que para $k=0,1,2,\ldots$
 $$P[S_{nn}=k]\rightarrow \dfrac{\lambda^k}{k!}e^{-\lambda}$$
 Así nacieron las tres leyes básicas de la teoría de la probabilidad:
 \begin{enumerate}
-% AÑADIR LEYES DE MARIADEL (PAGINA 35)
 \item La ley de degeneración $\mathcal{L}$ de una variable aleatoria degenera a 0 teniendo un punto de incremento solo en $x=0$
 \item La ley normal $N(0,1)$ de una variable aleatoria normal con su función de densidad definida viene dada por:
 $$F(x)=\frac{1}{\sqrt{2\pi}}\int_{-x}^{x}e^{-\frac{1}{2}y^2}dy$$
 \item La ley de Poisson $\mathcal{P}(\lambda)$ de una variable aleatoria de Poisson con su función de densidad definida viene dada por:
 $$F(x)=e^{-\lambda}\sum_{k=0}^x \frac{\lambda^k}{k!}$$
+\end{enumerate}
+Para comprobar que son válidas, debemos ver que el límite de las distribuciones es justamente la distribución del límite:
+\begin{enumerate}
+\item \textbf{Ley degenerada: }Tenemos que ver que: $\varphi_{X}(t)=E(e^{itX})=\int_{-\infty}^{\infty}=1$
+$$\varphi_{\frac{S_n -ES_n}{n}}(t)=E(e^{it\frac{S_n-ES_n}{n}})=E(e^{it\sum^n X_k-EX_k\frac{1}{n}})=E(\prod_{k=1}^{n}e^{it(X_k-p)\frac{1}{n}})=$$
+$$\prod_{k=1}^{n}E(e^{it\frac{X_k-p}{n}})=\prod_{k=1}^{n}(pe^{\frac{itq}{n}}+qe^{\frac{-itp}{n}})=(p(1+\frac{ip}{n}t+\ldots)+q(1-\frac{ip}{n}+\ldots))^n=$$
+$$((p+q)+o(\frac{1}{n}))^n\rightarrow 1$$
+\item \textbf{Ley normal: }Tenemos que ver que: $\varphi_X=E(e^{itX})=\frac{1}{\sqrt{2 \pi}}\int_{-\infty}^{x}e^{itX}e^{-\frac{x^2}{2}}dx=e^{-\frac{t^2}{2}}$
+$$\varphi_{\frac{S_n-E(ES_n)}{\sqrt{npq}}}=E(e^{it\frac{\sum X_k-p}{\sqrt{npq}}})$$
 \end{enumerate}
 Mientras que las dos primeras leyes juegan un papel central en el desarrollo de la teoría de la probabilidad, la de Poisson se ha mantenido ignorada durante mucho tiempo.
 \section{Primer teorema del límite central (Problema clásico)}
