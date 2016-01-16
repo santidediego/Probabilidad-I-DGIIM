@@ -737,7 +737,12 @@ $$\int_\mathbb{R} g(X)dP_{X}(x)=\int_\mathbb{R} g\, Pg=\int_{\Omega}g(X(\omega))
 \section{Concepto de independencia}
 \textbf{Definición: }Se dice que los eventos $A_t$ son independientes si para todo subconjunto finito $(t_i,\ldots ,t_n)$ se tiene que:
 $$P\bigcap_{k=1}^n A_{tk}=\displaystyle\prod_{k=1}^{n}P\, A_{tk}$$
-De hecho, el concepto de independencia es relativo a la familia de clases. Una clase de eventos se dice independiente si sus eventos son independientes. Además se tiene que las subclases de una clase independiente son independientes.
+De hecho, el concepto de independencia es relativo a la familia de clases. Una clase de eventos se dice independiente si sus eventos son independientes. 
+\begin{theorem}
+Se tiene que las subclases de una clase independiente son independientes.
+\end{theorem}
+\begin{proof}
+\end{proof}
 \section{Suma de variables aleatorias independientes}
 \subsubsection{Teorema de Borel}
 \begin{theorem}
@@ -745,7 +750,7 @@ Las funciones de Borel de funciones aleatorias independientes son independientes
 \end{theorem}
 \subsubsection{Teorema de extensión}
 \begin{theorem}
-Los $\sigma$ campos independientes sobre clases independientes cerradas para la intersección finita son independientes
+Los $\sigma$ campos minimales independientes sobre clases independientes cerradas para la intersección finita son independientes
 \end{theorem}
 Esto tiene tres aplicaciones fundamentales:
 \begin{enumerate}
@@ -782,6 +787,7 @@ A la inversa, si su producto es integrable y ninguna de ellas degenera a $0$, en
 \begin{proof}
 
 \end{proof}
+% Recordatorio de función caracteristica (meter arriba)
 \subsubsection{Teorema de equivalencia}
 \begin{theorem}
 Las tres definiciones siguientes de independencia de variables aleatorias $X_t$ son equivalentes:
@@ -799,11 +805,14 @@ Si los eventos $A_n$ son independientes, entonces $P(\displaystyle\lim_{sup}A_n)
 \begin{proof}
 
 \end{proof}
+% Introducir corolarios de la ley 0-1 de Borel
 De este criterio podemos deducir una ley muy importante, la Ley cero-uno de Kolmogorov
 \subsection{Ley cero-uno de Kolmogorov}
 Sea $X_n$ una sucesión de variables aleatorias independientes. Entonces los eventos en la cola tienen o bien probabilidad 0 o 1 y las funciones cola son degeneradas.
 \begin{proof}
+% HACER DEMOSTRACIÓN, IMPORTANTE (MOJO)
 \end{proof}
+% Añadir corolario del la ley 0-1 de Kolmogorov
 \subsection{Variables aleatorias independientes y espacios producto}
 \section{Convergencia y estabilidad de sumas; centramiento y truncamiento}
 Esta sección está dedicada a la investigación de las sumas de variables aleatorias independientes y especialmente, a sus propiedades en el límite. Primero de todo, consideraremos $S_n=\displaystyle\sum_{k=1}^n X_k$ una suma de variables aleatorias independientes $X_1, X_2,\ldots X_n$
@@ -819,6 +828,11 @@ El Teorema del Límite Central, que desarrollaremos más adelante, es una consec
 Además enunciamos también otra ley muy parecida a esta y también muy importante que es la \textbf{Ley fuerte de Borel de los grandes números}, que constituye una versión de esta pero con la convergencia casi segura.
 \subsubsection{Ley fuerte de Borel de los grandes números}
 Si se tienen las hipótesis anteriores, entonces: $\dfrac{S_n}{n}-p \stackrel{c.s.}{\longrightarrow}0$
+\begin{theorem}
+Sea f(x) continua en $[0,1] \Rightarrow \exists {P_n(x)} tal que \lim P_n (x) = f(x)$ uniformemente $ \forall x \in [0,1]$.  
+\end{theorem}
+\begin{proof}
+\end{proof}
 \subsection{Centramiento y truncamiento}
 Diremos que centramos $X$ a $c$ si reemplazamos $X$ por $X-c$. Si $X$ es integrable, entonces podemos centrarla a su esperanza $EX$ de forma que $X$ es reemplazada por $X-EX$. Es decir, diremos que una variable aleatoria está centrada a su media si y solo si su media existe y es igual a 0.
 \\\\
@@ -843,8 +857,14 @@ Por consiguiente, dada una familia contable de variables aleatorias, podemos hac
 \textbf{Definición de convergencia equivalente: } Se dice que $X_n$ y $X_n^{\prime}$ son equivalentes en la convergencia si el conjunto de convergencia de ambos es el mismo c.s.
 
 \begin{lemma}
-Si las series $\sum P[X_n\neq X_n^{\prime}]$ convergen, entonces las sucesiones $X_n$ y $X_n^{\prime}$ son cola-equivalentes, y por tanto, las series $\sum X_n$ y $\sum X_n^{\prime}$ son equivalentes en la convergencia y las series $\dfrac{S_n}{b_n}$ y $\dfrac{S_n^{\prime}}{b_n}$ con $b\rightarrow\infty$ convergen al mismo evento y al mismo límite, excluyendo el evento nulo.
+Si las series $\sum P[X_n\neq X_n^{\prime}]$ convergen, entonces las sucesiones $X_n$ y $X_n^{\prime}$ son cola-equivalentes, y por tanto, las series $X_n$ y $X_n^{\prime}$ son equivalentes en la convergencia y las series $\dfrac{S_n}{b_n}$ y $\dfrac{S_n^{\prime}}{b_n}$ con $b\rightarrow\infty$ convergen al mismo evento y al mismo límite, excluyendo el evento nulo.
 \end{lemma}
+
+\begin{proof}
+
+\end{proof}
+\textbf{Corolario: } Si las series $\sum P[X_n\neq X_n^{\prime}]$ convergen, entonces las sucesiones $X_n$ y $X_n^{\prime}$ son cola-equivalentes, y por tanto, las series $\sum X_n$ y $\sum X_n^{\prime}$ son equivalentes en cuanto a convergencia.\\
+
 Sean $X_1$ , $X_2$ integrables. Entonces, como el centramiento no modifica la varianza, podemos asumir, cuando computamos varianzas, que esas variables aleatorias están centradas a la media. Entonces:
 $$\sigma^2 S_n=ES_n^2=\sum_{k=1}^n EX_k^2+\sum_{j,k=1}EX_jX_k=\sum_{k=1}^n\sigma^2 X_k$$
 como $X_j$ y $X_k$ son independientes, tenemos que:
@@ -856,18 +876,28 @@ Con la desigualdad anterior obtenemos la famosa \textbf{desigualdad de Bienaymé
 $$\frac{\displaystyle\sum_{k=1}^n \sigma^2 X_k-\epsilon ^2}{sup(S_n-ES_n)^2}\leq P[|S_n-ES_n|\geq \epsilon]\leq \frac{\sigma^2(S_n-ES_n)}{\epsilon^2} \leq   \frac{1}{\epsilon^2}\sum_{k=1}^n\sigma^2 X_k$$
 Esta desigualdad, aplicada a $(S_{n+k}-ES_{n+k})-(S_n-ES_n)$ y remplazando $\epsilon$ por $b_n$ y pasando al límite se tiene el siguiente corolario:
 \\\\
-\textbf{Corolario: }Si las series $\sum\sigma^2 X_n$ convergen, entonces las series $\sum (X_n-EX_n)$ convergen en probabilidad. Si $\dfrac{1}{b_n^2}\displaystyle\sum_{k=1}^n \sigma^2 X_k\rightarrow 0$, entonces $\dfrac{S_n - ES_n}{b_n}\stackrel{\mathcal{P}}{\rightarrow}0$
-\\\\
+\textbf{Corolario: }
+\begin{itemize}
+\item Si las series $\sum\sigma^2 X_n$ convergen, entonces las series $\sum (X_n-EX_n)$ convergen en probabilidad. 
+\item Si $\dfrac{1}{b_n^2}\displaystyle\sum_{k=1}^n \sigma^2 X_k\rightarrow 0$, entonces $\dfrac{S_n - ES_n}{b_n}\stackrel{\mathcal{P}}{\rightarrow}0$\\
+\end{itemize}
 \begin{proof}
+% REVISAR DEMOSTRACIÓN
 La demostración pasa por notar que:
 $$P[\sum_{k}^{n+h}(X_k - EX_k)\geq\epsilon]\leq \dfrac{\displaystyle\sum_{k}^{n+h}\sigma^2 X_k}{\epsilon^2}\longrightarrow 0$$
 \end{proof}
 Este último corolario es debido a Tchebichev (cuando $b_n=n$). En el caso de Bernouilli, donde $b_n=n$, $EX_n=p$ , $\sigma^2 X_n=pq$ se reduce a la ley de Bernouilli de los grandes números.
+
+% DESIGUALDADES DE KOLMOGOROV (PAGINAS 31 A 34 DE MARIADEL)
+
 \subsection{Ley débil de los grandes números}
-\subsection{Ley fuerte de los grandes números}
+\subsection{Ley fuerte de los grandes números DE Kolmogorov}
 Sea ${X_n}$ una sucesión de variables aleatorias independientes e idénticamente distribuidas con una ley común $\mathcal{L}(X)$. Entonces:
 $$E|X|<\infty \Longleftrightarrow \dfrac{S_n}{n}=\dfrac{\sum_{k=1}^n X_k}{n}=\dfrac{X_1 \ldots X_n}{n}\stackrel{c.s}{\longrightarrow}EX$$
-\chapter{El problema del límite central}
+
+% METODOS DE MONTECARLO
+
+\chapter{El problema central del límite}
 El problema del límite central en probabilidad es el problema de convergencia de leyes de secuencias de sumas de variables aleatorias.
 \section{Preeliminares}
 Consideramos $S_n$ el número de ocurrencias de un determinado evento con probabilidad $p$ en $n$ intentos idénticos e independientes. Para evitar trivialidades asumimos que $pq\neq 0$, donde $q=1-p$. Si $X_k$ denota el indicador del evento en el $k$-ésimo intento, entonces $S_n=\displaystyle\sum_{k=1}^n X_k$ con $n=1,2,\ldots$ donde los sumandos son indicadores independientes e idénticamente distribuidos. Este es el caso de Bernouilli; como $EX_k=p$ y $EX_k^2=p$, entonces $\sigma^2 X_k=p-p^2=pq$ de donde se sigue que:
@@ -883,6 +913,7 @@ A partir de aqúi Poisson probó que para $k=0,1,2,\ldots$
 $$P[S_{nn}=k]\rightarrow \dfrac{\lambda^k}{k!}e^{-\lambda}$$
 Así nacieron las tres leyes básicas de la teoría de la probabilidad:
 \begin{enumerate}
+% AÑADIR LEYES DE MARIADEL (PAGINA 35)
 \item La ley de degeneración $\mathcal{L}$ de una variable aleatoria degenera a 0 teniendo un punto de incremento solo en $x=0$
 \item La ley normal $N(0,1)$ de una variable aleatoria normal con su función de densidad definida viene dada por:
 $$F(x)=\frac{1}{\sqrt{2\pi}}\int_{-x}^{x}e^{-\frac{1}{2}y^2}dy$$
@@ -890,7 +921,7 @@ $$F(x)=\frac{1}{\sqrt{2\pi}}\int_{-x}^{x}e^{-\frac{1}{2}y^2}dy$$
 $$F(x)=e^{-\lambda}\sum_{k=0}^x \frac{\lambda^k}{k!}$$
 \end{enumerate}
 Mientras que las dos primeras leyes juegan un papel central en el desarrollo de la teoría de la probabilidad, la de Poisson se ha mantenido ignorada durante mucho tiempo.
-\section{Primer teorema del límite central}
+\section{Primer teorema del límite central (Problema clásico)}
 En el caso de Bernouilli:
 $$\mathcal{L}\left( \frac{S_n-ES_n}{n}  \right)\rightarrow \mathcal{L}(0) \,\, y \,\, \mathcal{L}\left( \frac{S_n-ES_n}{\sigma S_n}  \right)\rightarrow N(0,1)$$
 y en el caso de Poisson:
@@ -907,7 +938,11 @@ Si los sumandos son independientes, indénticamente distribuidos y centrados en 
 Los tipos normales y degenerados son cerrados bajo composiciones y descomposiciones. Lo mismo también se cumple para cada familia de Leyes de Poisson $\mathcal{P}(\lambda ; a,b)$ con el mismo b
 \end{theorem}
 Una vez visto el lema anterior, enunciamos el siguiente teorema:
-\begin{theorem}
+
+% FALTA LA PRIMERA EXTENSIÓN DEL TEOREMA
+
+\begin{theorem} \textbf{Segunda extensión del problema clásico central del límite}\\
+
 Consideramos $S_n=\displaystyle\sum_{k=1}^n X_k$ y $s_n=\sigma S_n$ donde los sumandos son variables aleatorias independientes centradas en media. Entonces:
 \begin{enumerate}
 \item Si $\dfrac{1}{n^{1+\delta}}\displaystyle\sum_{k=1}^n E|X_k|^{1+\delta}\rightarrow 0$ para $0\leq\delta\leq 1$. Entonces:
