@@ -759,10 +759,27 @@ Las tres definiciones siguientes de independencia de variables aleatorias $X_t$ 
 \begin{proof}
 
 \end{proof}
-\subsubsection{Criterio cero-uno de Borel}
-Si los eventos $A_n$ son independientes, entonces $P(\displaystyle\lim_{sup}A_n)=0$ o 1 dependiendo de si $\sum P A_n<\infty$ o $\sum P A_n=\infty$ 
-\begin{proof}
+\subsubsection{Criterio 0-1 de Borel}
+\begin{lemma}
+Criterio 0-1 de Borel
+\\\\
+Sea $(\Omega,\mathcal{A},P) \, , \, A_n \in \mathcal{A}$ independientes. Entonces:
+\begin{itemize}
+\item Si $\displaystyle\sum P \, A_n < \infty \Longrightarrow P(\displaystyle \lim_{sup}A_n)=0$
+\item Si $\sum P(A_k)=\infty \Longrightarrow P(\displaystyle \lim_{sup}A_n)=1$
+\end{itemize}
+\end{lemma}
 
+\begin{proof}
+$$\lim_{sup}A_n=\bigcap_{n=1}^\infty \bigcup_{k=n}^{\infty}A_k=\bigcap_{n=1}^\infty B_n$$
+$$P(\lim_{sup}A_n)=P\lim B_n=\lim P\, B_n \leq \lim_n P\bigcup_{k=n}^\infty A_k \leq \lim_n \sum_{k=n}^\infty P\, A_k=0$$
+El recíproco no es cierto
+Ahora la segunda parte:
+\\\\
+Para el caso 0 queda probado con la primera parte, para el caso 1, se tiene:
+$$P(\displaystyle\lim_{sup}A_n)^c = P(\lim_{inf}A_n^c)=P(\bigcup_{n}\bigcap_{k=n}A_k^c)=P(\lim_{n}\bigcap_{k=n}A_k^c)=$$
+$$\lim_n P(\bigcap_{k=n}A_k^c)=\lim_n \prod_{k=n}(1-P(A_k))\leq \lim_{n}\prod_{k=n}^N e^{-P(A_n)}=\lim_n e^{-\sum_k P(A_k)}=0$$
+\qed
 \end{proof}
 % Introducir corolarios de la ley 0-1 de Borel
 De este criterio podemos deducir una ley muy importante, la Ley cero-uno de Kolmogorov
