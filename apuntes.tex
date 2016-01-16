@@ -697,11 +697,11 @@ $$ M_X(t) = E(e^{tX}); \, t \in \mathbb{R} $$
 \textbf{Definición: }Se dice que los eventos $A_t$ son independientes si para todo subconjunto finito $(t_i,\ldots ,t_n)$ se tiene que:
 $$P\bigcap_{k=1}^n A_{tk}=\displaystyle\prod_{k=1}^{n}P\, A_{tk}$$
 De hecho, el concepto de independencia es relativo a la familia de clases. Una clase de eventos se dice independiente si sus eventos son independientes. 
+
 \begin{theorem}
 Se tiene que las subclases de una clase independiente son independientes.
 \end{theorem}
-\begin{proof}
-\end{proof}
+
 \section{Suma de variables aleatorias independientes}
 \subsubsection{Teorema de Borel}
 \begin{theorem}
@@ -735,7 +735,21 @@ $P\bigcap_{k=1}^{n}[X_{t_k}\in S{t_k}]=\displaystyle\prod_{k=1}^n P[X_{t_k}\in S
 Si $X_1, \ldots , X_n$ son variables aleatorias independientes no negativas, entonces $E\displaystyle\prod_{k=1}^{n}X_k=\displaystyle\prod_{k=1}^{n} E X_k$
 \end{lemma}
 \begin{proof}
+Basta demostrar el resultado para dos variables, dado que el resto se demuestra por inducción. En primer lugar, veamos que se verifica la condición para funciones simples.\\
 
+Sean $X = \sum_j x_j I_{A_j}, Y = \sum_k y_k I_{B_k}$ variables simples no negativas, donde $A_j = [X = x_j], B_k = [Y = y_k]$.\\
+
+Por ser $X,Y$ independientes, $P(A_jB_k) = P(A_j)P(B_k) \Rightarrow E(XY) = \sum_{k,j} P(A_jB_k) = \sum_{j,k} P(A_j)P(B_k) = E(X)E(Y)$\\
+
+Sean ahora $X,Y$ variables aleatorias no negativas independientes. Su independencia implica la de
+$$ A_{nj}=[\frac{j-1}{2^n} \leq X < \frac{j}{2^n}], B_{nk}=[\frac{k-1}{2^n} \leq Y < \frac{k}{2^n}]$$
+Finalmente, tendremos la independencia de las variables aleatorias simples:
+$$ X_n = \sum_{j=1}^{n2^n} \frac {j-1}{2^n}I_{A_{nj}}, Y_n = \sum_{k=1}^{n2^n} \frac {k-1}{2^n}I_{B_{nk}}$$
+Tenemos entonces que:
+$$ 0 \leq X_n \uparrow X, 0 \leq Y_n \uparrow Y \Rightarrow X_nY_n \uparrow XY$$
+$$ E(X_nY_n) = E(X_n)E(Y_n)$$
+De donde se extrae por el teorema de la convergencia dominada que $E(XY) = E(X)E(Y)$
+\qed
 \end{proof}
 \subsubsection{Teorema de la multiplicación}
 \begin{theorem}
@@ -744,7 +758,12 @@ Sean $X_1,\ldots X_n$ variables aleatorias independientes. Si dichas variables a
 A la inversa, si su producto es integrable y ninguna de ellas degenera a $0$, entonces todas ellas son integrables.
 \end{theorem}
 \begin{proof}
+La independencia de $X,Y$ nos da la independencia de $X', Y'$, donde $X' \in {X^+, X^-, |X|}; Y' \in {Y^+, Y^-, |Y|}$, por lo que $E(X'Y') = E(X')E(Y')$.\\
 
+Si $X,Y$ son integrables, también lo son $X',Y'$ y por la anterior igualdad también lo es $X'Y'$, lo cual nos da $|XY|$, y por tanto $XY$ integrables con:
+$$ E(XY) = E[(X^+-X^-)(Y^+-Y^-)] = E(X^+)E(Y^+) - E(X^+)E(Y^-) - $$
+$$ - E(X^-)E(Y^+) + E(X^-)E(Y^-) = E(X)E(Y) $$
+\qed
 \end{proof}
 % Recordatorio de función caracteristica (meter arriba)
 \subsubsection{Teorema de equivalencia}
