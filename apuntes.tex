@@ -932,7 +932,8 @@ $$\varphi_{\frac{S_n -ES_n}{n}}(t)=E(e^{it\frac{S_n-ES_n}{n}})=E(e^{it\sum^n X_k
 $$\prod_{k=1}^{n}E(e^{it\frac{X_k-p}{n}})=\prod_{k=1}^{n}(pe^{\frac{itq}{n}}+qe^{\frac{-itp}{n}})=(p(1+\frac{ip}{n}t+\ldots)+q(1-\frac{ip}{n}+\ldots))^n=$$
 $$((p+q)+o(\frac{1}{n}))^n\rightarrow 1$$
 \item \textbf{Ley normal: }Tenemos que ver que: $\varphi_X=E(e^{itX})=\frac{1}{\sqrt{2 \pi}}\int_{-\infty}^{x}e^{itX}e^{-\frac{x^2}{2}}dx=e^{-\frac{t^2}{2}}$
-$$\varphi_{\frac{S_n-E(ES_n)}{\sqrt{npq}}}=E(e^{it\frac{\sum X_k-p}{\sqrt{npq}}})$$
+$$\varphi_{\frac{S_n-E(ES_n)}{\sqrt{npq}}}=E(e^{it\frac{\sum X_k-p}{\sqrt{npq}}})=\prod_{k=1}^{n} E(e^{it\frac{X_k-p}{\sqrt{npq}}})=\prod_{k=1}^{n}E(1+\frac{i(X_p-p)}{\sqrt{npq}}t+\ldots)=$$
+$$\prod_{k=1}^{n}(1+\frac{i^2pq}{npq}\frac{t^2}{2}+\ldots)=(1+\frac{-t^2}{2n}+\ldots)^n=e^{-\frac{t^2}{2}}$$
 \end{enumerate}
 Mientras que las dos primeras leyes juegan un papel central en el desarrollo de la teoría de la probabilidad, la de Poisson se ha mantenido ignorada durante mucho tiempo.
 \section{Primer teorema del límite central (Problema clásico)}
