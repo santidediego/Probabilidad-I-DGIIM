@@ -765,18 +765,25 @@ $$ E(XY) = E[(X^+-X^-)(Y^+-Y^-)] = E(X^+)E(Y^+) - E(X^+)E(Y^-) - $$
 $$ - E(X^-)E(Y^+) + E(X^-)E(Y^-) = E(X)E(Y) $$
 \qed
 \end{proof}
-% Recordatorio de función caracteristica (meter arriba)
+
 \subsubsection{Teorema de equivalencia}
 \begin{theorem}
-Las tres definiciones siguientes de independencia de variables aleatorias $X_t$ son equivalentes:
-\begin{itemize}
+Para cada clase finita de conjuntos de Borel $S_t$ y de puntos $x_t, u_y \in \mathbb{R}$, son equivalentes las tres definiciones siguientes de independencia de variables aleatorias $X_t$:
+\begin{enumerate}
 \item $P\bigcap_{k=1}^n [X_{tk}\in S_{tk}]=\displaystyle\prod_{k=1}^n P[X_{tk}\in S_{tk}]$
 \item $F_{t_1\ldots t_n}(x_{t_1},\ldots ,x_{t_n})=F_{t_1}(x_{t_1})\ldots F_{t_n}(x_{t_n})$
 \item $f_{t_1\ldots t_n}(u_{t_1},\ldots ,u_{t_n})=f_{t_1}(u_{t_1})\ldots f_{t_n}(u_{t_n})$
-\end{itemize}
+\end{enumerate}
 \end{theorem}
-\begin{proof}
-
+\begin{proof}$\,$\\
+$i) \Rightarrow ii)$\\
+Tomamos $S_t = ]-\infty, x_t[$ y aplicamos la definición.\\
+$ii) \Rightarrow i)$\\
+$S_t = ]-\infty, x_t[$, $\mathcal{C}_t = {]-\infty, x_y[, t \in T}$ son independientes. Por el teorema de extensión, los $\sigma$-campos minimales sobre ellos son independientes.\\
+$i) \Rightarrow iii)$\\
+Aplicación directa del teorema de la multiplicación.\\
+$iii) \Rightarrow ii)$\\
+Tenemos que $F_{t_1,...,t_n}([a_{t_1},...,a_{t_n};b_{t_1},...,b_{t_n}]) = F_{t_1}([a_{t_1},...,a_{t_n};b_{t_1},...,b_{t_n}])$\\$F_{t_2}([a_{t_1},...,a_{t_n};b_{t_1},...,b_{t_n}])...F_{t_n}([a_{t_1},...,a_{t_n};b_{t_1},...,b_{t_n}])$. Haciendo $a_t \rightarrow - \infty$, $b \uparrow x_t$ tenemos $ii)$
 \end{proof}
 \subsubsection{Criterio 0-1 de Borel}
 \begin{lemma}
