@@ -788,9 +788,9 @@ Aplicación directa del teorema de la multiplicación.\\
 $iii) \Rightarrow ii)$\\
 Tenemos que $F_{t_1,...,t_n}([a_{t_1},...,a_{t_n};b_{t_1},...,b_{t_n}]) = F_{t_1}([a_{t_1},...,a_{t_n};b_{t_1},...,b_{t_n}])$\\$F_{t_2}([a_{t_1},...,a_{t_n};b_{t_1},...,b_{t_n}])...F_{t_n}([a_{t_1},...,a_{t_n};b_{t_1},...,b_{t_n}])$. Haciendo $a_t \rightarrow - \infty$, $b \uparrow x_t$ tenemos $ii)$
 \end{proof}
-\subsubsection{Criterio 0-1 de Borel}
+\subsubsection{Lema de Borel-Cantelli}
 \begin{lemma}
-Criterio 0-1 de Borel
+Lema de Borel-Cantelli
 \\\\
 Sea $(\Omega,\mathcal{A},P) \, , \, A_n \in \mathcal{A}$. Entonces:
 \begin{itemize}
@@ -814,14 +814,49 @@ $$P(\displaystyle\lim_{sup}A_n)^c = P(\lim_{inf}A_n^c)=P(\bigcup_{n}\bigcap_{k=n
 $$\lim_n P(\bigcap_{k=n}A_k^c)=\lim_n \prod_{k=n}(1-P(A_k))\leq \lim_{n}\prod_{k=n}^N e^{-P(A_n)}=\lim_n e^{-\sum_k P(A_k)}=0$$
 \qed
 \end{proof}
-% Introducir corolarios de la ley 0-1 de Borel
-De este criterio podemos deducir una ley muy importante, la Ley cero-uno de Kolmogorov
-\subsection{Ley cero-uno de Kolmogorov}
-Sea $X_n$ una sucesión de variables aleatorias independientes. Entonces los eventos en la cola tienen o bien probabilidad 0 o 1 y las funciones cola son degeneradas.
+De esta ley se extraen una serie de corolarios importantes:\\
+
+\textbf{Corolario 1: }Si $A_n$ son independientes:
+$$P(\lim \sup (A_N)) = 0 \Leftrightarrow \sum_n P(A_n) < \infty$$
+
+\textbf{Corolario 2: }Sea ${X_n}$ una colección de variables aleatorias independientes, entonces;
+$$ X_n \stackrel{c.s.}{\rightarrow} 0 \Leftrightarrow \sum_n p([X_n \geq \varepsilon]) < \infty$$
+
 \begin{proof}
-% HACER DEMOSTRACIÓN, IMPORTANTE (MOJO)
+$\sum P([|X_n| \geq \varepsilon]) = 0 \Leftrightarrow P(\lim \sup ([|X_n] \geq \varepsilon)) = 0 \Leftrightarrow \displaystyle P ( \bigcap_n \bigcup_{k=n} [|X_n| \geq \varepsilon]) = 0 \Leftrightarrow P (\lim_n \bigcup_{k=n} [|X_n| \geq \varepsilon] \Leftrightarrow \lim_{n \rightarrow \infty} P (\bigcup_{k=n} [|X_k| \geq \varepsilon = 0 \Leftrightarrow X_n \stackrel{c.s.}{\rightarrow} 0$
 \end{proof}
-% Añadir corolario del la ley 0-1 de Kolmogorov
+
+\textbf{Corolario 3: } ${X_n}$ son independientes y $ X_n \stackrel{\mathbb{P}}{\rightarrow} 0 \Leftrightarrow \exists {X_{n_k}} \subset {X_n}$ tal que ${X_{n_k}} \stackrel{c.s.}{\rightarrow} 0 $ 
+
+\begin{proof}
+$\exists X_{n_k}: P[|X_{n_k}| \geq \frac{1}{2^k}] \leq \frac{1}{2^k}$\\
+$\displaystyle \sum_k P ([|X_{n_k}| \geq \frac{1}{2^k}]) \leq \sum_k \frac{1}{2^k} = 1 \Leftrightarrow X_{n_k} \stackrel{c.s.}{\rightarrow}0$
+\end{proof}
+
+Pasamos ahora a ver otra ley importante en el estudio de la probabilidad, la cual se conoce como la ley 0-1 de Kolmogorov. Para ello, comenzamos definiendo el concepto de $\sigma$-campo cola.\\
+
+Sean ${X_n}$ independientes, tenemos las siguientes relaciones entre los $\sigma$-campos asociados:\\
+
+$\mathcal{B}(X_n, X_{n+1}) \supseteq \mathcal{B}(X_n)$\\
+$\mathcal{B}(X_n, X_{n+1}, ...) \supseteq \mathcal{B}(X_{n+1}, ...)$ suceción decreciente\\
+$\mathcal{B}(X_n, X_{n+1}, ...), \mathcal{B}(X_{n+1}, X_{n+2}, ...), ... \downarrow \lim_n \sup \mathcal{B}(X_n) \equiv \mathcal{C}$\\
+
+Dicho límite es un $\sigma$-campo, conocido como el $\sigma$-campo cola, que será equivalente a $\emptyset$ o $\Omega$.
+
+\subsection{Ley 0-1 de Kolmogorov}
+Sea $X_n$ una sucesión de variables aleatorias independientes. Entonces los eventos en la cola tienen o bien probabilidad 0 o 1 y las funciones cola son degeneradas.
+\begin{proof}$\,$\\
+$i)$\\
+Por un lado, tenemos que: $\mathcal{C} \subseteq \mathcal{B}(X_{n+1}, ...)$\\
+Además, $\mathcal{B}(X_1, ..., X_n)$ es independiente de $\mathcal{B}(X_{n+1}, X_{n+2},...)$, lo que implica que $mathcal{C}, \mathcal{B}(X_1,...,X_n)$ son independientes. De aquí tenemos que $\mathcal{C}$ es independiente de $\mathcal{B}(X_1,...,X_n,X_{n+1},...)$, por lo que $\mathcal{C}$ es independiente consigo mismo, ya que está contenido en el $\sigma$-campo que hace medibles a todos. Una vez aquí, tenemos que:
+$$ P(AA) = P(A)P(A) = P(A)\, \forall A \in \mathcal{C} \Rightarrow P(A) = \{0,1\}\, \forall A \in \mathcal{C}$$
+$ii)$\\
+Los límites de las sucesiones de variables aleatorias independientes son $\mathcal{C}$-medibles (también para lim sup). Por tanto, es una variable aleatoria que degenera
+\end{proof}
+
+A raíz de esta ley, podemos extraer también un corolario.\\
+
+\textbf{Corolario: }Sea $X_n$ una sucesión de variables aleatorias independientes.
 \subsection{Variables aleatorias independientes y espacios producto}
 \section{Convergencia y estabilidad de sumas; centramiento y truncamiento}
 Esta sección está dedicada a la investigación de las sumas de variables aleatorias independientes y especialmente, a sus propiedades en el límite. Primero de todo, consideraremos $S_n=\displaystyle\sum_{k=1}^n X_k$ una suma de variables aleatorias independientes $X_1, X_2,\ldots X_n$
