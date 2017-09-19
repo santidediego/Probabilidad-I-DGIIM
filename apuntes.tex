@@ -1,6 +1,6 @@
 \documentclass[12pt,a4paper]{book}
 \usepackage[utf8]{inputenc}
-% \usepackage[spanish]{babel}
+\usepackage[spanish]{babel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -21,6 +21,7 @@
 \maketitle
 \newtheorem{theorem}{Teorema}[section]
 \newtheorem{lemma}{Lema}[section]
+\newtheorem{criterion}{Criterio}[section]
 \newtheorem{proof}{Demostración}[section]
 \newpage
 \chapter*{Agradecimientos} % si no queremos que añada la palabra "Capitulo"
@@ -40,19 +41,18 @@
 \section{Introducción: Espacio medible}
 
 \subsection*{Concepto de $\sigma$-álgebra}
-Sea un conjunto $\Omega$, y sea $\mathcal{A}$ una $\sigma$-álgebra sobre $\Omega$. Se dice que $\mathcal{A}$ es una $\sigma$-álgebra si cumple las siguientes propiedades:
-
+Sea un conjunto $\Omega$, una
+familia de subconjuntos $\mathcal{A}$ es $\sigma$-álgebra sobre $\Omega$ si: 
 \begin{enumerate}
 \item $\Omega \in \mathcal{A}$
 \item Si $A \in \mathcal{A} \Rightarrow \overline{A} \in \mathcal{A}$
 \item Si $A_1, A_2, A_3\ldots \in \mathcal{A} \Rightarrow \displaystyle \bigcup_{n \in \mathbb{N}}^{\infty} A_n \in \mathcal{A}$
 \end{enumerate}
-
-Es decir, una $\sigma$-álgebra es una clase de conjuntos cerrada para las operaciones complementario y unión numerable. Existen una serie de propiedades inmediatas derivadas de las propiedades que definen a la $\sigma$-álgebra:\\
-
-$\emptyset \in \mathcal{A}$\\
-
-$\mathcal{A}$ es cerrada para la operación intersección numerable.
+Una $\sigma$-álgebra es una clase de conjuntos cerrada para el complementario y unión numerable. Existen una serie de propiedades inmediatas derivadas:
+\begin{itemize}
+	\item $\emptyset \in \mathcal{A}$
+	\item $\mathcal{A}$ es cerrada para la  intersección numerable.
+\end{itemize}
 
 \subsection*{Espacio medible}
 
@@ -62,21 +62,22 @@ Al par ($\Omega$, $\mathcal{A}$) se le llama espacio medible, y a los conjuntos 
 
 \subsection{Límites en sucesiones monótonas}
 
-Si tomamos la relación de inclusión entre conjuntos ($\subseteq$) como una relación de orden, podemos hablar sin ningún tipo de problema de sucesiones monótonas. En este sentido, una sucesión creciente de conjuntos sería una sucesión $\{A_n\}_{n \in \mathbb{N}}$ en la que se cumple que $A_i \subseteq A_{i+1}, \forall i \in \mathbb{N}$. De forma análoga se podría ver qué es una sucesión decreciente de conjuntos.\\
+Si tomamos la relación de inclusión entre conjuntos ($\subseteq$) como una relación de orden, podemos hablar sin ningún tipo de problema de sucesiones monótonas. En este sentido, una sucesión   $\{A_n\}_{n \in \mathbb{N}}$  creciente de conjuntos cumpliría que $A_i \subseteq A_{i+1}, \forall i \in \mathbb{N}$. De forma análoga para sucesión decreciente de conjuntos.\\
 
-Resulta que existe una forma intuitiva de definir el límite de una sucesión monótona de conjuntos. En particular, el límite de una sucesión creciente de conjuntos $\{A_n\}_{n \in \mathbb{N} }$ se puede definir como
-
-$$\lim_{n\to\infty} A_n = \bigcup_{k \in \mathbb{N}}^{\infty} A_k$$
+El límite de una sucesión creciente de conjuntos $\{A_n\}_{n \in \mathbb{N} }$ se puede definir
+$$\lim_{n\to\infty} A_n = \bigcup_{k=1}^{\infty} A_k$$
 
 Esta definición aprovecha la relación de orden entre los conjuntos de la sucesión para afirmar que \textit{si un elemento está en el último conjunto de la sucesión, entonces está en todos los anteriores, y por tanto en \textbf{todos}}, por ello se puede utilizar una intersección numerable (que está perfectamente definida) para formalizar el concepto.\\
 
 Con una intuición análoga se define el límite de una sucesión decreciente de conjuntos. Si $\{A_n\}_{n\in\mathbb{N}}$ es una sucesión decreciente de conjuntos, entonces:
 
-$$ \lim_{n\to\infty} A_n = \bigcap_{k\in\mathbb{N}}^{\infty} A_k $$
+$$ \lim_{n\to\infty} A_n = \bigcap_{k=1}^{\infty} A_k $$
 
 \subsection{Límites superiores e inferiores}
 
-No solo se puede hablar de límites en sucesiones monótonas. Para definir los límites en sucesiones arbitrarias de conjuntos tenemos que recurrir a los conceptos de límite inferior y límite superior. La intuición de estos límites superior e inferior pasan por el concepto de las colas de la sucesión.\\
+No solo se puede hablar de límites en sucesiones monótonas. 
+Para definir los límites en sucesiones arbitrarias de conjuntos tenemos que recurrir a los conceptos de límite inferior y superior. 
+La intuición de estos límites superior e inferior pasan por el concepto de las colas de la sucesión.\\
 
 Dada una sucesión de conjuntos $\{A_n\}_{n\in\mathbb{N} }$ podemos considerar el conjunto
 
@@ -102,7 +103,7 @@ $$ \liminf A_n \subseteq \limsup A_n $$
 
 \subsection{Límite de una sucesión de conjuntos}
 
-Diremos que una sucesión de conjuntos tiene límite si su límite inferior y superior coinciden, y el límite tendrá como valor efectivamente el de estos límites. Es decir:
+Diremos que una sucesión de conjuntos tiene límite si su límite inferior y superior coinciden, y el límite tendrá dicho  valor. Es decir,
 
 $$ \lim A_n = \liminf A_n = \limsup A_n $$
 
@@ -122,8 +123,8 @@ $$\varphi : \mathcal{A} \rightarrow \mathbb{R}$$
 \begin{center}
 $\varphi (A)$ es único\\
 \end{center}
-Se dice que $\varphi$ es aditiva si $\varphi(\displaystyle\sum_{1}^{n}A_k)=\displaystyle\sum_1^n\varphi(A_k)$\\
-Se dice que $\varphi$ es $\sigma$-aditiva si $\varphi(\displaystyle\sum_1^\infty A_k)=\displaystyle\sum_1^\infty \varphi(A_k)$
+Se dice que $\varphi$ es aditiva si $\varphi\left(\displaystyle\sum_{1}^{n}A_k\right)=\displaystyle\sum_1^n\varphi(A_k)$\\
+Se dice que $\varphi$ es $\sigma$-aditiva si $\varphi\left(\displaystyle\sum_1^\infty A_k\right)=\displaystyle\sum_1^\infty \varphi(A_k)$
 \subsubsection{Función subaditiva}
 Sea $\varphi$ definida como antes. Se dice que $\varphi$ es \textbf{subaditiva} si $\varphi(A \cup B) \leq \varphi(A) + \varphi(B)$
 \begin{lemma}
@@ -137,15 +138,22 @@ Tomemos las sucesiones: \\
 Si $\varphi(A_n)\geq 0 \Longrightarrow A_n^{+}=A_n$ y $A_n^{-}=\emptyset$\\
 Si $\varphi(A_n)<0 \Longrightarrow A_n^{+}=\emptyset$ y $A_n^{-}=A_n$\\
 Entonces $\varphi(\displaystyle\sum A_n^{+})=\displaystyle\sum\varphi(A_n^{+})$ y $\varphi(\displaystyle\sum A_n^{-})=\displaystyle\sum\varphi(A_n^{-})$, ambas finitas. Sumando ambas cantidades obtenemos que $\displaystyle\sum(\vert \varphi(A_i)\vert)<\infty$
+
 \qed
 \end{proof}
 
 \begin{theorem}
+	\ 
+	
 Si $\varphi$ es $\sigma$-aditiva, $\varphi \geq 0$, entonces: $\varphi$ es no decreciente y subaditiva
 \end{theorem}
 
 \begin{proof}
-Veamos que es no decreciente $(A \subseteq B \Rightarrow \varphi (A) \leq \varphi (B))$. Podemos escribir $B = (B \cap A) + (B \cap \overline{A}) = A + (B \cap \overline{A})$. Entonces $\varphi (A) \leq \varphi (A) + \varphi (B \cap \overline{A}) = \varphi (B)$.\\
+	\
+	 
+Veamos que es no decreciente $(A \subseteq B \Rightarrow \varphi (A) \leq \varphi (B))$. Podemos escribir $B = (B \cap A) + (B \cap \overline{A}) = A + (B \cap \overline{A})$. Entonces $\varphi (A) \leq \varphi (A) + \varphi (B \cap \overline{A}) = \varphi (B)$.
+
+\qed
 \end{proof}
 
 \section{Continuidad en funciones sobre conjuntos}
@@ -156,7 +164,7 @@ Diremos que $\varphi$ es continua por abajo si cumple que, dada una sucesión cr
 
 $$ \lim \varphi (A_n) = \varphi (A) $$
 
-Por otra parte, diremos que $\varphi$ es continua por arriba si cumple que dada una sucesión decreciente de elementos $A_n \downarrow A$, se tiene que
+Por otra parte, diremos que $\varphi$ es continua por arriba si $\exists A_{n_0} : \varphi (A_{n_0}) < \infty$ y cumple que dada una sucesión decreciente de elementos $A_n \downarrow A$, se tiene que
 
 $$ \lim \varphi (A_n) = \varphi (A)$$
 
@@ -181,12 +189,12 @@ $$ \varphi (A_{n_0}) - \varphi (A) = \varphi (\lim (A_{n_0} - A_n)) = \lim \varp
 De donde se deduce que $ \varphi (A) = \lim \varphi (A_n) $.\\
 
 Inversamente, sea $ \varphi$ una función aditiva. Si $\varphi$ es continua por abajo, tenemos
-$$ \varphi \left( \sum_{n}^{\infty} A_n \right) = \varphi \left( \lim \sum_{k=1}^n A_k \right) = \lim \varphi \left( \sum_{k=1}^n A_k \right) = \lim \sum_{k=1}^n \varphi \left( A_k \right) = \sum_{n}^{\infty} \varphi (A_n) $$
+$$ \varphi \left( \sum_{k=1}^{\infty} A_k \right) = \varphi \left( \lim \sum_{k=1}^n A_k \right) = \lim \varphi \left( \sum_{k=1}^n A_k \right) = \lim \sum_{k=1}^n \varphi \left( A_k \right) = \sum_{k=1}^{\infty} \varphi (A_k) $$
 
 Y por tanto es $\sigma$-aditiva. Si es finita y continua en $\emptyset$, entonces se obtiene la $\sigma$-aditividad de:
-$$ \varphi \left( \sum_{n}^{\infty} A_n \right) = \varphi \left( \sum_{k=1}^{n} A_k \right) + \varphi \left( \sum_{k=n+1}^{\infty} A_k \right) = \sum_{k=1}^{n} \varphi (A_k) + \varphi \left( \sum_{k=n+1}^{\infty} A_k \right) $$
+$$ \varphi \left( \sum_{k=1}^{\infty} A_k \right) = \varphi \left( \sum_{k=1}^{n} A_k \right) + \varphi \left( \sum_{k=n+1}^{\infty} A_k \right) = \sum_{k=1}^{n} \varphi (A_k) + \varphi \left( \sum_{k=n+1}^{\infty} A_k \right) $$
 
-Y tenemos que
+Y tomando límites tenemos que
 $$ \varphi \left( \sum_{k=n+1}^{\infty} A_k \right) \to \varphi (\emptyset) = 0 $$
 \qed
 \end{proof}
@@ -222,7 +230,7 @@ Una función de conjuntos $\mu^\circ$ es una medida si verifica:
 
 A la tupla ($\Omega$, $\mathcal{A}$, $\mu_{\mathcal{A}}$) se le denomina espacio de medida.\\
 
-\textbf{Definición de medida exterior:} Una medida exterior es una función de conjuntos positiva y $\sigma$-subaditiva, es decir, no se cumple la primera propiedad. La $\sigma$-subaditividad implica que $\mu(A \cup B) \leq \mu(A) + \mu(B)$.\\
+Una \textbf{medida exterior} es una función de conjuntos positiva y $\sigma$-subaditiva, es decir, no se cumple la primera propiedad. La $\sigma$-subaditividad implica que $\mu(A \cup B) \leq \mu(A) + \mu(B)$.\\
 
 Para que una medida exterior fuera una medida tendría que ser $\sigma$-aditiva. Es decir, la falla la primera condición. Sí que es positiva ya que $\mu^\circ(\emptyset)=0$ y es creciente. Esta medida exterior se aplica a cualquier conjunto. Va a haber unos subconjuntos en los que la función se comporte como si fuera aditiva.\\
 
@@ -271,6 +279,8 @@ $$ \mu^\circ (\cup_j A_j) \leq \sum_{j,k} \mu (A_{kj}) \leq \sum_j \Big( \mu^\ci
 Claramente es no decreciente, ya que si $A \subseteq B$, todo recubrimiento de $B$ lo será también de $A$, y por tanto, $\mu^\circ(A) \leq \mu^\circ(B)$\\
 
 Por último, $\mu^\circ(\emptyset) = \mu(\emptyset) = 0$
+
+\qed
 \end{proof}
 
 \begin{theorem}
@@ -295,6 +305,7 @@ Haciendo $n \to +\infty$
 $$\mu^\circ(D) \geq \sum_{n=1}^{+\infty} \mu^\circ(A_nD) + \mu^\circ(A^cD) \geq \mu^\circ(AD) + \mu^\circ(A^cD)$$
 Además queda demostrado que $A \in \mathcal{A}^\circ$, así que tenemos que $\mathcal{A}^\circ$ es un $\sigma$-campo.
 Por último, tomando $D = A$, tenemos que $\mu^\circ(A) \geq \displaystyle \sum \mu^\circ(A_n) \Rightarrow \mu^\circ(A) = \sum \mu^\circ(A_n) \Rightarrow \mu^\circ$ es una medida.
+
 \qed
 \end{proof}
 
@@ -304,6 +315,8 @@ Dada una medida $\mu$ sobre un álgebra $\mathcal{C}$, existe una extensión $\m
 \end{theorem}
 
 \begin{proof}
+	\
+
 $\forall A \in \mathcal{C}, \forall D \in \mathcal{C}, \forall \varepsilon>0, \exists \{A_j\} \subset \mathcal{C}$ recubrimiento de $D$ tal que
 $$\mu^\circ(D) + \varepsilon \geq \sum \mu(A_j) \geq \sum \mu (AA_j) + \sum \mu (A^cA_j) \geq \mu^\circ(AD) + \mu^\circ(A^cD) \Rightarrow$$
 $$ \stackrel{\varepsilon \to 0}{\Rightarrow} \mu^\circ(D) \geq \mu^\circ(AD) + \mu^\circ(A^cD), A \in \mathcal{A}^\circ \Rightarrow \mathcal{C} \subseteq \mathcal{A}^\circ, \mathcal{A}(\mathcal{C}) \subseteq \mathcal{A}^\circ $$
@@ -315,6 +328,8 @@ Entonces, de momento $\mathcal{M}$ es un campo.\\
 
 Sean ahora $\{A_n\} \subset \mathcal{M}$ monótona, entonces $\mu_1(\lim A_n) = \lim \mu_1(A_n) = \lim \mu_2(A_n) = \mu_2(\lim A_n) \Rightarrow \mathcal{M}$ cerrada frente al límite de sucesiones monótonas $\Rightarrow \mathcal{M} \sigma$-álgebra que contiene a $\mathcal{C}$, por tanto, contiene a la $\sigma$-álgebra minimal sobre $\mathcal{C}$
 $$ \mathcal{A}(\mathcal{C}) \subseteq \mathcal{M} \Rightarrow \mu_1 = \mu_2 \: en \: \mathcal{A}(\mathcal{C})$$
+
+\qed
 \end{proof}
 
 \chapter{Funciones medibles}
@@ -353,15 +368,17 @@ $$[\inf X_n < x] = \cup [X_n < x], [-X_n < x] = [X_n > -x]$$
 son medibles, y por tanto, las funciones
 $$\sup X_n = - \inf (-X_n), \lim \inf (X_n) = sup (\inf_{k \geq n} X_k)$$
 $$ \lim \sup X_n = - \lim \inf (-X_n)$$
-son medibles en el sentido descriptivo. Por un lado, las funciones de este tipo son claramente cerradas bajo las operaciones de supremo, ínfimo, y límites. Además, toda función simple es medible en el sentido descriptivo, ya que todos los conjuntos $[X \leq x] = \displaystyle \sum_{x_j \leq x} A_j$ son medibles. Entonces, el límite de sucesiones convergentes de funciones simples son medibles, y por tanto las funciones medibles en sentido constructivo lo son en sentido descriptivo.\\
+son medibles en el sentido descriptivo. Por un lado, las funciones de este tipo son claramente cerradas bajo las operaciones de supremo, ínfimo, y límites. Además, toda función simple es medible en el sentido descriptivo, ya que todos los conjuntos $[X \leq x] = \displaystyle \sum_{x_j \leq x} A_j$ son medibles. Entonces, el límite de sucesiones convergentes de funciones simples es medible, y por tanto las funciones medibles en sentido constructivo lo son en sentido descriptivo.\\
 
 Veamos la otra implicación, es decir, que las funciones medibles en sentido descriptivo lo son en sentido constructivo. Sea una función $X$ medible en sentido descriptivo. Entonces, las funciones
-$$X_n = -nI_{[X < n]} + \sum_{-n2^n+1}^{n2^n}\frac{k-1}{2^n}I_{\big[\frac{k-1}{2^n} \leq X < \frac{k}{2^n} \big]} + nI_{X \geq n}, n \in \mathbb{N}$$
+$$X_n = -nI_{[X < n]} + \sum_{k=-n2^n+1}^{n2^n}\frac{k-1}{2^n}I_{\big[\frac{k-1}{2^n} \leq X < \frac{k}{2^n} \big]} + nI_{X \geq n}, n \in \mathbb{N}$$
 son simples. Entonces, dado que
 $$\mid X_n(\omega) - X(\omega)\mid < \frac{1}{2^n} \quad para \quad \mid X(\omega)\mid < n$$
 y
 $$X_n(\omega) = \pm n \quad para \quad  X(\omega) = \pm \infty$$
-se tiene entonces que $X_n \to X$ y esto, con lo anterior, prueba la equivalencia de las dos definiciones de función medible.\qed
+se tiene entonces que $X_n \to X$ y esto, con lo anterior, prueba la equivalencia de las dos definiciones de función medible.
+
+\qed
 \end{proof}
 
 \begin{lemma}
@@ -371,7 +388,9 @@ $X$ es medible $\Longleftrightarrow$ $X^{-1}(S)\in A,S \in B$
 \end{lemma}
 
 \begin{theorem}
-Sea $X:\Omega \longrightarrow \mathbb{R}$, y $g: \mathbb{R} \longrightarrow \mathbb{R}$ continua. Entonces,$ g(X)$ es medible
+	\ 
+	
+Sea $X:\Omega \longrightarrow \mathbb{R}$ medible y $g: \mathbb{R} \longrightarrow \mathbb{R}$ continua. Entonces, $ g(X)$ es medible
 \end{theorem}
 
 \begin{proof}
@@ -384,6 +403,8 @@ $$g(X) = g(\lim X_n) = \lim g(X_n) = \lim \sum_j g(x_j)I_{A_j}$$
 \end{proof}
 
 \begin{theorem}
+	\
+	
 Sean $X$ función medible y $g$ función boreliana. Entonces, $g(X)$ es medible.
 \end{theorem}
 
@@ -397,7 +418,7 @@ $$(gX)^{-1}(B)=X^{-1}(g^{-1}(B))\in \mathcal{A}$$
 Vamos a establecer ahora criterios que nos permitan comparar variables aleatorias. Dado un espacio de probabilidad ($\Omega$, $\mathcal{A}$, $\mathcal{P}$), se dice que dos variables aleatorias son equivalentes si:
 $$ X\mathcal{R}Y \Leftrightarrow \mathcal{P}[X = Y] = 1$$
 Análogamente:
-$$X(\omega) = Y(\omega) \forall \omega \in \Omega \setminus \Lambda, \mathcal{P}(\Lambda) = 0$$
+$$X(\omega) = Y(\omega) \hspace{1cm} \forall \omega \in \Omega \setminus \Lambda, \  \mathcal{P}(\Lambda) = 0$$
 
 \subsection{Definición de convergencia en probabilidad}
 
@@ -412,6 +433,7 @@ $$|X-Y |=|X - X_n - Y + X_n | \leq |X_n - X|+| X_n-Y |$$
 
 $$P[|X - Y| \geq \varepsilon] \leq P[|X_n - X | \geq \frac{\varepsilon}{2} ] + P[| X_n - Y | \geq \frac{\varepsilon}{2}] \rightarrow 0$$
 Y por tanto, $X \mathcal{R} Y$
+
 \qed
 \end{proof}
 
@@ -420,12 +442,16 @@ Y por tanto, $X \mathcal{R} Y$
 Se dice que una variable aleatoria $X$ converge uniformemente en $u$ si se cumple que $\mathcal{P}[\mid X_{n+u} - X_n \mid \geq \varepsilon] \to 0$
 
 \begin{lemma}
+\
+
 La convergencia en probabilidad implica la convergencia uniforme
 \end{lemma}
 
 \begin{proof}
-$$ \mid X_{n+u} - X_n \mid \leq \mid X_{n+u} - X \mid + \mid X - X_n \mid \Rightarrow$$
-$$ \Rightarrow \mathcal{P}[\mid X_{n+u} - X_n \mid \geq \varepsilon] \leq \mathcal{P}\Big[\mid X_{n+u} - X \mid \geq \frac{\varepsilon}{2}\Big] + \mathcal{P}\Big[\mid X_{n} - X \mid \geq \frac{\varepsilon}{2}\Big] \to 0$$
+$$ \mid X_{n+u} - X_n \mid \ \leq \ \mid X_{n+u} - X \mid + \mid X - X_n \mid \Rightarrow$$
+$$ \Rightarrow \mathcal{P}[\mid X_{n+u} - X_n \mid \geq \varepsilon] \ \leq \ \mathcal{P}\Big[\mid X_{n+u} - X \mid \geq \frac{\varepsilon}{2}\Big] + \mathcal{P}\Big[\mid X_{n} - X \mid \geq \frac{\varepsilon}{2}\Big] \to 0$$
+
+\qed
 \end{proof}
 
 \subsection{Propiedades}
@@ -440,8 +466,8 @@ Para demostrarlo basta notar que: $ {X_n}^2 - K^2 = (X_n + K) (X_n -K)$
 Para demostrarlo tenemos que notar que:
 $$X_n Y_n = \dfrac{(X_n + Y_n)^2-(X_n - Y_n)^2}{4}\stackrel{\mathcal{P}}{\longrightarrow} \dfrac{(a+b)^2-(a-b)^2}{4}=ab$$
 
-\item $X_n \stackrel{\mathcal{P}}{\longrightarrow} 1 \Longrightarrow \dfrac{1}{X_n} \stackrel{\mathcal{P}}{\longrightarrow} 1$
-\item $X_n \stackrel{\mathcal{P}}{\longrightarrow} a \wedge Y_n \stackrel{\mathcal{P}}{\longrightarrow} b \Longrightarrow X_nY_n^{-1}\stackrel{\mathcal{P}}{\longrightarrow} ab^{-1}$
+\item $\forall n\in\mathbb{N}$ con $X_n\not = 0, \ X_n \stackrel{\mathcal{P}}{\longrightarrow} 1 \Longrightarrow \dfrac{1}{X_n} \stackrel{\mathcal{P}}{\longrightarrow} 1$
+\item $\forall n\in\mathbb{N}$ con $Y_n\not = 0, \ X_n \stackrel{\mathcal{P}}{\longrightarrow} a \wedge Y_n \stackrel{\mathcal{P}}{\longrightarrow} b\not =0 \Longrightarrow X_nY_n^{-1}\stackrel{\mathcal{P}}{\longrightarrow} ab^{-1}$
 \item $X_n \stackrel{\mathcal{P}}{\longrightarrow} X \wedge Y_n\stackrel{\mathcal{P}}{\longrightarrow} Y \Longrightarrow X_nY_n\stackrel{\mathcal{P}}{\longrightarrow} XY$\\
 
 Para demostrarlo basta notar que: $(X_n - X)(Y_n - Y)\stackrel{\mathcal{P}}{\longrightarrow} 0$ y luego $X_nY_n-XY_n-X_nY+XY\stackrel{\mathcal{P}}{\longrightarrow} 0$ (Por la propiedad siguiente)
@@ -454,41 +480,47 @@ $$g(X_n)\stackrel{\mathcal{P}}{\longrightarrow} g(X)$$
 \end{theorem}
 
 \begin{proof}
-$\mathcal{P}[|X| \geq k] < \frac{\varepsilon}{2} \forall \varepsilon > 0, \exists k$. Consideramos el compacto $[-k,k], A = [|X| < k], B = [|X_n - X| < \delta] \: y \: C = [|g(X_n) - g(X)| < \varepsilon]$. Tenemos que ver si $\mathcal{P}(B)\to 1 \Rightarrow \mathcal{P}(C)\to 1 $:
+$\forall \varepsilon > 0, \exists k>0 : \mathcal{P}[|X| \geq k] < \frac{\varepsilon}{2}$. Consideramos el compacto $[-k,k], \ A = [|X| < k], \ B = [|X_n - X| < \delta] \ y \ C = [|g(X_n) - g(X)| < \varepsilon]$. Tenemos que ver si $\mathcal{P}(B)\to 1 \Rightarrow \mathcal{P}(C)\to 1 $:
 $$ AB \subset C \Rightarrow C^c \subset A^c \cup B^c \Rightarrow \mathcal{P}(C^c) \leq \mathcal{P}(A^c) + \mathcal{P}(B^c) \leq $$
 $$ \leq \mathcal{P}[|X| \geq k] + \mathcal{P}[|X_n - X| \geq \delta] \leq \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$$
 \end{proof}
 
 \subsection{Definición de convergencia casi segura}
 
-Una sucesión de variables aleatorias, ${ X_n }$ , converge con probabilidad 1, o de forma casi segura, a una variable aleatoria $X$ ( que puede degenerar en una constante K) cuando se cumple que:
+Una sucesión de variables aleatorias, ${ X_n }$, converge con probabilidad 1, o de forma casi segura, a una variable aleatoria $X$ (que puede degenerar en una constante K) cuando se cumple que:
 $$P(\lim_{n\rightarrow\infty}X_n=X)=1$$
-De esta forma interpretamos que $X_n\stackrel{c.s}{\longrightarrow}X$ cuando la probabilidad de que en el límite la sucesión de variables  aleatorias y aquella a la que converge sean iguales es uno
+De esta forma interpretamos que $X_n\stackrel{c.s}{\longrightarrow}X$ cuando la probabilidad de que en el límite la sucesión de variables  aleatorias y aquella a la que converge sean iguales es $1$.
 
 \begin{theorem}
 $$X_n\stackrel{c.s}{\longrightarrow}X\Longrightarrow X_n\stackrel{\mathcal{P}}{\longrightarrow}X$$
-$$X_n\stackrel{\mathcal{P}}{\longrightarrow}X\Longrightarrow \exists X_{nk}\,:\, X_{n_k}\stackrel{c.s}{\longrightarrow}_{k\rightarrow\infty}X$$
+$$X_n \text{ finitas c.s.,  }
+X_n\stackrel{\mathcal{P}}{\longrightarrow}X
+\Longrightarrow 
+\exists X_{n_k}\,:\, X_{n_k}
+\stackrel{c.s}{\longrightarrow}_{k\rightarrow\infty}X$$
 \end{theorem}
 \begin{proof}
 $$0=\displaystyle\lim_{n\rightarrow\infty}P\bigcup_{m\geq n}[|X_m - X|\geq \epsilon ]\geq\displaystyle\lim_{n\rightarrow\infty}P[|X_n - X|\geq \epsilon ]$$
+
 \qed
 \end{proof}
 
 \begin{lemma}
 Sea $\mathbb{X}_n$ finita. Entonces se tiene que:
-\\\\
-$\mathbb{X}_n \stackrel{c.s.}{\longrightarrow}\mathbb{X}\Longleftrightarrow \mathbb{X}_n$ es de cauchy
+\\
+$$\mathbb{X}_n \stackrel{c.s.}{\longrightarrow}\mathbb{X}\Longleftrightarrow \mathbb{X}_n \text{ es de Cauchy}$$
 \end{lemma}
 \begin{proof}
 $$\Longrightarrow$$
 $\exists n_0\, : \, \forall n\geq n_0$ se tiene que:
-$$|\mathbb{X}_n(\omega)-\mathbb{X}(\omega)|<\frac{\epsilon}{2}\, \omega \in A \, P(A)=1$$
+$$|\mathbb{X}_n(\omega)-\mathbb{X}(\omega)|<\frac{\epsilon}{2}
+\hspace{0.5cm}  \omega \in A,\ P(A)=1$$
 $$|\mathbb{X}_n(\omega)-\mathbb{X}_m(\omega)|\leq|\mathbb{X}_n(\omega)-\mathbb{X}(\omega)|+|\mathbb{X}_m(\omega)-\mathbb{X}(\omega)|<\epsilon$$
 $$\Longleftarrow$$
 \begin{center}
 ${\mathbb{X}_n(\omega)}$ de Cauchy
 \end{center}
-$$\lim\mathbb{X}_n(\omega)=\mathbb{X}(\omega)\, \omega \in A$$
+$$\lim\mathbb{X}_n(\omega)=\mathbb{X}(\omega)\hspace{0.5cm} \omega \in A$$
 \qed
 \end{proof}
 
@@ -498,7 +530,7 @@ $$\lim\mathbb{X}_n(\omega)=\mathbb{X}(\omega)\, \omega \in A$$
 
 Para el cálculo de probabilidades, nos será muy útil el concepto de integral sobre funciones de conjunto. Este concepto nos servirá para calcular lo que se conoce como la esperanza matemática de una variable aleatoria $X$. En este apartado trabajaremos sobre el espacio de probabilidad $(\Omega, \mathcal{A}, \mathcal{P})$. Comenzaremos definiendo la integral para las funciones simples, para dar luego una definición de integral para funciones no negativas y por último para funciones cualesquiera.\\
 
-Sea entonces $\{A_k\} \in \mathcal{A}$, tal que $\displaystyle \sum_k A_k = \Omega$, partición medible del espacio. Sea entonces la función simple $X = \displaystyle \sum_{j=1}^m x_jI_{A_j}, x_j \geq 0$. La integral de la función $X$ se define como:
+Sea entonces $\{A_k\} \in \mathcal{A}$, tal que $\displaystyle \sum_k A_k = \Omega$, partición medible del espacio. Sea entonces la función simple $X = \displaystyle \sum_{j=1}^m x_jI_{A_j},\ x_j \geq 0$. La integral de la función $X$ se define como:
 $$\int_{\Omega} X d\mathcal{P} = \sum_{j=1}^m x_j\mathcal{P}_{A_j}$$
 Ahora, para cualquier función no negativa $X$, se define la integral de la función como:
 $$\int_{\Omega} X d\mathcal{P} = \lim \int_{\Omega}X_n d \mathcal{P}$$
@@ -510,7 +542,7 @@ $\displaystyle \int (X+Y)d\mathcal{P} = \int Xd\mathcal{P} + \int Yd\mathcal{P}$
 
 \begin{proof}
 
-Sean $X = \displaystyle \sum x_jI_{A_j}$ y $y = \displaystyle \sum y_kI_{B_k}$. Entonces $X+Y = \displaystyle \sum_k \sum_j x_j I_{A_jB_k} + \sum_k \sum_j y_k I_{A_jB_k} = \sum_k \sum_j (x_k+y_j) I_{A_jB_k}$\\
+Sean $X = \displaystyle \sum x_jI_{A_j}$ e $Y = \displaystyle \sum y_kI_{B_k}$. Entonces $X+Y = \displaystyle \sum_k \sum_j x_j I_{A_jB_k} + \sum_k \sum_j y_k I_{A_jB_k} = \sum_k \sum_j (x_k+y_j) I_{A_jB_k}$\\
 
 Si calculamos ahora las integrales:
 $$ \int (X+Y)d\mathcal{P} = \sum_k + \sum_j (x_j + y_k) \mathcal{P}(A_jB_k) =$$
@@ -536,32 +568,41 @@ $\displaystyle X \stackrel{c.s}{=} Y \rightarrow \int X d\mathcal{P} = \int Y d\
 
 Dado un espacio probabilístico $(\Omega, \mathcal{A}, P)$ y una v.a. $X$, se define la esperanza matemática de $X$ como:
 $$E(X)=\int_{\Omega}XdP=\int_{\omega \in \Omega}{X(\omega)dP(\omega)}$$
-\\\\
+\\
 
-La esperanza matemática se define de forma distinta si estamos trabajando con una v.a. discreta o continua. En el caso de una v.a. discreta, sea $p(x_i)$ su función de probabilidad. Definimos la esperanza matemática como:
-
-$$E(X)=x_1p(X=x_1)+\ldots + x_n p(X=x_n)=\sum_{i=1}^{n}{x_i p(x_i)}$$
+La esperanza matemática se define de forma distinta si estamos trabajando con una v.a. discreta o continua. En el caso de una v.a. discreta, sea $P(x_i)$ su función de probabilidad. Definimos la esperanza matemática como:
+$$E(X)=x_1P[X=x_1]+\ldots + x_n P[X=x_n]=\sum_{i=1}^{n}{x_i P(x_i)}$$
 En el caso de una v.a. continua, sea $f(x)$ la función de densidad. Definimos la esperanza matemática como:
-
 $$E(X)=\int_{-\infty}^{+\infty} {xf(x)dx}$$
 
 \subsection{Teorema de la convergencia monótona}
 
 Una vez vista la definición de integral y esperanza matemática y algunas de sus propiedades, vamos a enunciar y demostrar un teorema de convergencia que nos será de mucha utilidad para el estudio de variables aleatorias. Veamos su enunciado y demostración:
 \begin{theorem}
+	\
+	
 Teorema de la convergencia monótona para funciones medibles no negativas\\
 
 Sea $\{X_n\} \geq 0$ tal que $X_n \uparrow X$. Entonces, se tiene que $\displaystyle \int X_n \uparrow \int X$
 \end{theorem}
 
 \begin{proof}
-Tomamos las sucesiones $X_{km} \uparrow X_k$. La sucesión $Y_n = \displaystyle \max_{k \geq n} X_{kn}$ es una sucesión de funciones simples no negativas y no decreciente, y además
-$$X_{kn} \leq Y_n \leq X_n \rightarrow \int X_{kn} \leq \int Y_n \leq \int X_n$$
-Ahora, cuando $n \rightarrow \infty$, tenemos que
-$$X_k \leq lim Y_n \leq X \rightarrow \int X_k \leq \int lim Y_n \leq \int X$$
-Por último, cuando $K \rightarrow \infty$, obtenemos
-$$X \leq lim Y_n \leq X \rightarrow lim \int X_n \leq \int lim Y_n \leq lim \int X_n$$
+\
+
+Tomamos las sucesiones $X_{kn} \uparrow X_k$. La sucesión $Y_n = \displaystyle \max_{k \leq n} X_{kn}$ es una sucesión de funciones simples no negativas y no decreciente, y además
+$$X_{kn} \leq Y_n \leq X_n 
+\hspace{1cm}
+\int X_{kn} \leq \int Y_n \leq \int X_n$$
+Ahora, cuando hacemos $\lim_{n \rightarrow \infty}$, tenemos que
+$$X_k \leq lim Y_n \leq X 
+\hspace{1cm}
+\int X_k \leq \int lim Y_n \leq \lim \int X_n$$
+Por último, cuando $k \rightarrow \infty$, obtenemos
+$$X \leq lim Y_n \leq X 
+\hspace{1cm}
+lim \int X_n \leq \int lim Y_n \leq lim \int X_n$$
 De donde extraemos que $\lim Y_n = X$ y que $\displaystyle \int X = lim \int X_n$
+
 \qed
 \end{proof}
 
@@ -573,14 +614,14 @@ de Fatou-Lebesgue\\
 
 Sean $Y$, $Z$ dos funciones integrables (pueden no mantener su signo) y $X_n$ una sucesión de variables aleatorias, entonces:
 \begin{enumerate}
-\item Si $Y \leq X_n \, \forall n \Longrightarrow$ $E(\lim \inf X_n) \leq \lim \inf E(X_n)$
-\item Si $X_n \leq Z \, \forall n \Longrightarrow E(\lim \sup X_n)\geq \lim \sup E(X_n)$
+\item $\ \forall n\in\mathbb{N} \ Y \leq X_n \Longrightarrow$ $E(\lim \inf X_n) \leq \lim \inf E(X_n)$
+\item $\ \forall n\in\mathbb{N}\ X_n \leq Z \Longrightarrow E(\lim \sup X_n)\geq \lim \sup E(X_n)$
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
 Si $X_n \geq 0$, tenemos que:
-$$ X_n \geq Y_n = \inf_{k \geq n} X_n \uparrow \lim \inf X_n \stackrel{TCM}{=} \lim \inf E(X_n) \geq \lim Y_n = E(\lim \inf X_n)$$
+$$ X_n \geq Y_n = \inf_{k \geq n} X_n \uparrow \lim \inf X_n \stackrel{TCM}{\implies} \lim \inf E(X_n) \geq \lim Y_n = E(\lim \inf X_n)$$
 En otro caso:
 \begin{enumerate}
 \item $X_n - Y \geq 0 \Rightarrow \lim \inf E(X_n) - \lim \inf E(Y) \geq E(\lim \inf X_n) - E(\lim \inf Y)$
@@ -597,9 +638,12 @@ $$\lim\int X_n\, dP=\int X\, dP$$
 
 \begin{proof}
 Por un lado, si tenemos la convergencia casi segura, $|X_n| \leq Y \Rightarrow -Y \leq X_n \leq Y \stackrel{F-L}{\rightarrow} \displaystyle \int X_n \to \int X$.
-Por otro, si la convergencia es en probabilidad, nos bastaría con probar que si $Y_n \stackrel{\mathcal{P}}{\rightarrow} 0 \Rightarrow \displaystyle \int Y_n \stackrel{\mathcal{P}}{\rightarrow} 0$. Entonces, tomaríamos $Y = |X_n - X|$ y tendríamos la demostración. Entonces:
-$$ Y_n \stackrel{\mathcal{P}}{\rightarrow} 0 \Rightarrow \exists \{Y_n'\} \subset \{Y_n\} \, t.q. \, \int Y_n' \rightarrow \lim \sup \int Y_n$$
-De nuevo, tenemos que $Y_n' \stackrel{\mathcal{P}}{\rightarrow} 0$. Tomando anora $\{Y_n''\} \subset \{Y_n'\} \, t.q. \, Y_n'' \stackrel{c.s.}{\rightarrow} 0 \rightarrow \displaystyle \int Y_n'' \rightarrow 0 \stackrel{unic.lim.}{\Rightarrow} \lim \sup \int Y_n = 0 \stackrel{Y_n \geq 0}{\Rightarrow} \int Y_n \rightarrow 0$
+Por otro, si la convergencia es en probabilidad, nos bastaría con probar que si $Y_n \stackrel{\mathcal{P}}{\rightarrow} 0 \Rightarrow \displaystyle \int Y_n \stackrel{\mathcal{P}}{\rightarrow} 0$. Tomamos entonces $Y = |X_n - X|$
+$$ Y_n \stackrel{\mathcal{P}}{\rightarrow} 0 \Rightarrow \exists \{Y_n'\} \subset \{Y_n\} \, t.q. \, \int Y_n' \rightarrow \limsup \int Y_n$$
+De nuevo, tenemos que $Y_n' \stackrel{\mathcal{P}}{\rightarrow} 0$. Tomando ahora $\{Y_n''\} \subset \{Y_n'\} \, t.q. \, Y_n'' \stackrel{c.s.}{\rightarrow} 0 
+\implies 
+\displaystyle \int Y_n'' \rightarrow 0 \stackrel{unic.lim.}{\implies} \lim \sup \int Y_n = 0 \stackrel{Y_n \geq 0}{\implies} \int Y_n \rightarrow 0$
+
 \qed
 \end{proof}
 
@@ -615,39 +659,44 @@ Dicho momento existe si $E|X|^r < \infty$
 
 \subsubsection{Desigualdad $C_r$}
 \begin{lemma}
-$|a+b|^r\leq C_r |a|^r + C_r |b|^r$ con $C_r=1$ si $r=1$ y $C_r=2^r$ si $r>1$\\
+
+\
+	
+$|a+b|^r\leq C_r |a|^r + C_r |b|^r$ con $C_r=1$ si $r\leq1$ y $C_r=2^{r-1}$ si $r>1$\\
 
 Entonces se tiene $E|X+Y|^r \leq C_r E|X|^r + C_r E|Y|^r$
 \end{lemma}
 
 \subsubsection{Desigualdad de Hölder}
-$E|XY| \leq \left(E|X|^r \right)^{\frac{1}{r}}  \left(E|Y|^s \right)^{\frac{1}{s}}$ con $r>s$ ; $ \dfrac{1}{r}+\dfrac{1}{s}=1$
+$E|XY| \leq \left(E|X|^r \right)^{\frac{1}{r}}  \left(E|Y|^s \right)^{\frac{1}{s}}$ con $r>1$ ; $ \dfrac{1}{r}+\dfrac{1}{s}=1$
 
 \subsubsection{Caso particular: Desigualdad de Schwarz}
 $E|XY|\leq \left(E|X|^2 \right)^{\frac{1}{2}} \left(E|Y|^2 \right)^{\frac{1}{2}}$
 
 \subsubsection{Desigualdad de Minkowsky}
-Si $r \geq 1 \Rightarrow (E|X+X'|^r)^{\frac{1}{r}} \leq \left(E|X|^r \right)^{\frac{1}{r}} + \left(E|X'|^r \right)^{\frac{1}{r}}$
+Si $r \geq 1 \text{, entonces } (E|X+X'|^r)^{\frac{1}{r}} \leq \left(E|X|^r \right)^{\frac{1}{r}} + \left(E|X'|^r \right)^{\frac{1}{r}}$
 
 \subsubsection{Desigualdad básica}
-Sea $X$ una v.a. y sea $g$ una función boreliana. Entonces se tiene:
+Sea $X$ una v.a. y $g$ una función boreliana no negativa en $\mathbb{R}$, se tiene:
 
 \begin{description}
-\item[i)] Si $g$ es par y no decreciente en $[0,\infty) \, \forall a>0$ , entonces:
-$$\dfrac{Eg(X)-g(a)}{sup\, g(X)}\leq P[|X|\geq a]\leq \dfrac{E g(X)}{g(a)}$$
-\item[ii)] (Desigualdad de Tchevychev) Si $g$ es no decreciente en $\mathbb{R}$,
-$$ P[|X-EX] \geq a] \leq \frac{Var X}{a^2}$$
+\item[i)] Si $g$ es par y no decreciente en $[0,\infty)$, entonces $\forall a>0$:
+$$\dfrac{Eg(X)-g(a)}{c.s. \sup\, g(X)}\leq P[|X|\geq a]\leq \dfrac{E g(X)}{g(a)}$$
+\item[ii)] (Desigualdad de Tchevychev) 
+
+Si $g(x)=x^2$ y cambiamos la v.a. por $X-EX$, por ser $g$ no decreciente en $\mathbb{R}$, podemos prescindir del valor absoluto:
+$$ P[X-EX \geq a] \leq \frac{Var X}{a^2}$$
 \item[iii)] (Desigualdad de Markov) Si $g(X) = |X|^r$
-$$ \frac{EX^r - a^r}{sup X^r} \leq P[|X| \geq a] \leq \frac{EX^r}{a^r} $$
+$$ \frac{EX^r - a^r}{c.s.\sup X^r} \leq P[|X| \geq a] \leq \frac{EX^r}{a^r} $$
 \end{description}
 
 Vamos a demostrar que en efecto se cumple la desigualdad básica:
 \begin{proof}
-Definimos $A = [|X| \geq A]$
+Definimos $A = [|X| \geq a]$
 $$ Eg(A) = \int_A g(X) d\mathcal{P} + \int_{A^c} g(X) d\mathcal{P} $$
-$$ g(a)\mathcal{P}(A) \leq \int_A g(X) \leq \sup g(X)\mathcal{P}(A) $$
-$$ 0 \leq \int_{A^c} g(X) d\mathcal \leq g(a) $$
-$$ g(a)\mathcal{P}(A) \leq Eg(X) \leq \sup g(X)\mathcal{P}(A) + g(a) $$
+$$ g(a)\mathcal{P}(A)\ \leq\ \int_A g(X)d\mathcal{P} \ \leq \ c.s.\sup g(X)\mathcal{P}(A) $$
+$$ 0 \ \leq \ \int_{A^c} g(X) d\mathcal{P} \ \leq \ g(a) $$
+$$ g(a)\mathcal{P}(A) \ \leq\ Eg(X) \ \leq \ c.s.\sup g(X)\mathcal{P}(A) + g(a) $$
 \qed
 \end{proof}
 
@@ -658,12 +707,12 @@ $$ g(a)\mathcal{P}(A) \leq Eg(X) \leq \sup g(X)\mathcal{P}(A) + g(a) $$
 \end{enumerate}
 
 \section{Convergencia en r-medida}
-Se dice que una sucesión de variables aleatorias $X_n$ converge en r-medida a $X$ si:
+Una sucesión de variables aleatorias $X_n$ converge en r-medida a $X$ si:
 $$ E|X_n - X|^r \to 0$$
 Lo notamos como $X_n \stackrel{r}{\rightarrow} X$
 
 \begin{lemma}
-Si $X_n \stackrel{r}{\rightarrow} X \Rightarrow E|X_n|^r \rightarrow E|X|^r$
+$X_n \stackrel{r}{\rightarrow} X \Rightarrow E|X_n|^r \rightarrow E|X|^r$
 \end{lemma}
 
 \begin{proof}
@@ -676,43 +725,45 @@ Para $r \geq 1$: $|(E|X_n|^r)^{\frac{1}{r}} - (E|X|^r)^{\frac{1}{r}}| \leq (E|X_
 
 \section{Función de distribución, distribución inducida y función generatriz de momentos}
 \subsection{Función de distribución}
-Función puntual que se define sobre la recta real, no negativa, no decreciente, continua por la izquierda y que cumple que $F(-\infty) = 0, F(+\infty) = 1$\\
+Función puntual que se define sobre la recta real, no negativa, no decreciente, continua por la izquierda y que cumple que $F(-\infty) = 0$, $F(+\infty) = 1$\\
 
 \subsection{Distribución inducida}
 Se conoce como distribución inducida por la variable aleatoria $X$ a ($\mathbb{R}$, $\mathcal{B}$, $\mathcal{P}^X$), donde la medida de probabilidad $\mathcal{P}^X$ se define como:
-$$ \mathcal{P}^X(B) = \mathcal{P}(X^{-1}(B)), \, \forall B \in \mathcal{B} $$
+$$ \mathcal{P}^X(B) = \mathcal{P}(X^{-1}(B)) = \mathcal{P}[X\in B], \, \forall B \in \mathcal{B} $$
 Tenemos entonces que:
 \begin{itemize}
-\item $\mathcal{P}^X(B) \geq 0 \forall B \in \mathcal{B}$
+\item $\mathcal{P}^X(B) \geq 0,\  \forall B \in \mathcal{B}$
 \item $\displaystyle \mathcal{P}^X(\sum_j B_j) = \mathcal{P}(X^{-1}(\sum_jB_j)) = \mathcal{P}(\sum_j X^{-1}(B_j)) = \sum_j \mathcal{P}(X^{-1}(B_j)) = \sum_j \mathcal{P}^X(B_j)$
 \item $\displaystyle EX = \int_{\omega \in \Omega} X(\omega) d \mathcal{P(\omega)} = \int_{x \in \mathbb{R}} x d\mathcal{P}^X(x)$
 \end{itemize}
 
 \subsection{Función generatriz de momentos}
 Llamamos función generatriz de momentos de la variable aleatoria $X$ a la función:
-$$ M_X(t) = E(e^{tX}); \, t \in \mathbb{R} $$
+$$ M_X(t) = E(e^{tX}) \hspace{1cm} t \in \mathbb{R} $$
 \subsection{Función característica}
-Dada una variable aleatoria $\mathbb{X}$ continua, definimos su función característica como:
-$$\varphi_X(t)=E(e^{itX})=\int_{-\infty}^{\infty}e^{itx}f_{X}(x)=E(cos(tX))+iE(sen(TX))$$
+Dada una variable aleatoria $X$ continua, definimos su función característica:
+$$\varphi_X(t)=E(e^{itX})=\int_{-\infty}^{\infty}e^{itx}f_{X}(x)=E(cos(tX))+iE(sen(tX))$$
 
 \chapter{Independencia}
 \section{Concepto de independencia}
 \textbf{Definición: }Se dice que los eventos $A_t$ son independientes si para todo subconjunto finito $(t_i,\ldots ,t_n)$ se tiene que:
-$$P\bigcap_{k=1}^n A_{tk}=\displaystyle\prod_{k=1}^{n}P\, A_{tk}$$
-De hecho, el concepto de independencia es relativo a la familia de clases. Una clase de eventos se dice independiente si sus eventos son independientes.
+$$P\bigcap_{k=1}^n A_{t_k}=\displaystyle\prod_{k=1}^{n}P\, A_{t_k}$$
+De hecho, el concepto de independencia es relativo a la familia de clases. Una colección de clases de eventos se dice independiente si seleccionando un evento arbitrario de cada clase dichos eventos son independientes. 
 
 \begin{theorem}
-Se tiene que las subclases de una clase independiente son independientes.
+	\
+	
+Se tiene que las subclases de clases independientes son independientes.
 \end{theorem}
 
 \section{Suma de variables aleatorias independientes}
 \subsubsection{Teorema de Borel}
 \begin{theorem}
-Las funciones de Borel de funciones aleatorias independientes son independientes.
+Las funciones de Borel $g(X_i)$ de funciones aleatorias independientes son independientes.
 \end{theorem}
 \subsubsection{Teorema de extensión}
 \begin{theorem}
-Los $\sigma$ campos minimales independientes sobre clases independientes cerradas para la intersección finita son independientes
+Los $\sigma$-campos minimales sobre clases independientes cerradas para la intersección finita son independientes.
 \end{theorem}
 Esto tiene tres aplicaciones fundamentales:
 \begin{enumerate}
@@ -722,17 +773,18 @@ Esto tiene tres aplicaciones fundamentales:
 \end{enumerate}
 \subsubsection{Teorema de composición}
 \begin{theorem}
-Los $\sigma$ campos compuestos son independientes si y solo si sus $\sigma$ subcampos finitamente compuestos son independientes
+Los $\sigma$-campos compuestos son independientes si y solo si sus $\sigma$-subcampos finitamente compuestos son independientes
 \end{theorem}
 \subsection{Familia de variables aleatorias}
-Una familia de variables aleatorias $X_{T_s}=\{ X_t \, , \, t\in T_s \}$ induce $\sigma$ campos $\mathcal{B}(X_{T_s})$ de eventos
+Una familia de variables aleatorias $X_{T_s}=\{ X_t : t\in T_s \}$ induce $\sigma$-campos $\mathcal{B}(X_{T_s})$ de eventos
 \subsubsection{Teorema de las familias}
 \begin{theorem}
 Las familias de variables aleatorias son independientes si y solo si sus subfamilias finitas son mutuamente independientes
 \end{theorem}
 \section{Multiplicación de variables aleatorias independientes}
-\textbf{Definición: } Las variables aleatorias $X_t\, , \, t\in T$ son independientes si para cada clase finita $(S_{t_1},\ldots , S_{t_n})$ de conjuntos de Borel en R:
-$P\bigcap_{k=1}^{n}[X_{t_k}\in S{t_k}]=\displaystyle\prod_{k=1}^n P[X_{t_k}\in S_{t_k}]$
+\textbf{Definición: } Las variables aleatorias $X_t\, , \, t\in T$ son independientes si para cada clase finita $(S_{t_1},\ldots , S_{t_n})$ de conjuntos de Borel en $\mathbb{R}$,
+$$P\bigcap_{k=1}^{n}[X_{t_k}\in S{t_k}]=\displaystyle\prod_{k=1}^n P[X_{t_k}\in S_{t_k}]$$
+
 \subsubsection{Lema de la multiplicación}
 \begin{lemma}
 Si $X_1, \ldots , X_n$ son variables aleatorias independientes no negativas, entonces $E\displaystyle\prod_{k=1}^{n}X_k=\displaystyle\prod_{k=1}^{n} E X_k$
@@ -744,28 +796,44 @@ Sean $X = \sum_j x_j I_{A_j}, Y = \sum_k y_k I_{B_k}$ variables simples no negat
 
 Por ser $X,Y$ independientes, $P(A_jB_k) = P(A_j)P(B_k) \Rightarrow E(XY) = \sum_{k,j} P(A_jB_k) = \sum_{j,k} P(A_j)P(B_k) = E(X)E(Y)$\\
 
-Sean ahora $X,Y$ variables aleatorias no negativas independientes. Su independencia implica la de
-$$ A_{nj}=[\frac{j-1}{2^n} \leq X < \frac{j}{2^n}], B_{nk}=[\frac{k-1}{2^n} \leq Y < \frac{k}{2^n}]$$
+Sean ahora $X,Y$ variables aleatorias no negativas independientes. 
+Su independencia implica la de
+$$ A_{nj} = \left[\frac{j-1}{2^n} \leq X < \frac{j}{2^n}\right],\  B_{nk} = \left[\frac{k-1}{2^n} \leq Y < \frac{k}{2^n}\right]$$
 Finalmente, tendremos la independencia de las variables aleatorias simples:
-$$ X_n = \sum_{j=1}^{n2^n} \frac {j-1}{2^n}I_{A_{nj}}, Y_n = \sum_{k=1}^{n2^n} \frac {k-1}{2^n}I_{B_{nk}}$$
+$$ X_n = \sum_{j=1}^{n2^n} \frac {j-1}{2^n}I_{A_{nj}}\hspace{0.5cm} Y_n = \sum_{k=1}^{n2^n} \frac {k-1}{2^n}I_{B_{nk}}$$
 Tenemos entonces que:
-$$ 0 \leq X_n \uparrow X, 0 \leq Y_n \uparrow Y \Rightarrow X_nY_n \uparrow XY$$
+$$ 0 \leq X_n \uparrow X, \ 0 \leq Y_n \uparrow Y \implies X_nY_n \uparrow XY$$
 $$ E(X_nY_n) = E(X_n)E(Y_n)$$
-De donde se extrae por el teorema de la convergencia dominada que $E(XY) = E(X)E(Y)$
+De donde se extrae por el teorema de la convergencia monótona que $E(XY) = E(X)E(Y)$
+
 \qed
 \end{proof}
+
 \subsubsection{Teorema de la multiplicación}
 \begin{theorem}
-Sean $X_1,\ldots X_n$ variables aleatorias independientes. Si dichas variables aleatorias son integrables, también lo es su producto y además $E\displaystyle\prod_{k=1}^n X_k=\displaystyle\prod_{k=1}^n E X_k$
+Sean $X_1,\ldots, X_n$ variables aleatorias independientes. Si son integrables, entonces también lo es su producto con: $$E\displaystyle\prod_{k=1}^n X_k=\displaystyle\prod_{k=1}^n E X_k$$
 \\\\
 A la inversa, si su producto es integrable y ninguna de ellas degenera a $0$, entonces todas ellas son integrables.
 \end{theorem}
-\begin{proof}
-La independencia de $X,Y$ nos da la independencia de $X', Y'$, donde $X' \in {X^+, X^-, |X|}; Y' \in {Y^+, Y^-, |Y|}$, por lo que $E(X'Y') = E(X')E(Y')$.\\
 
-Si $X,Y$ son integrables, también lo son $X',Y'$ y por la anterior igualdad también lo es $X'Y'$, lo cual nos da $|XY|$, y por tanto $XY$ integrables con:
-$$ E(XY) = E[(X^+-X^-)(Y^+-Y^-)] = E(X^+)E(Y^+) - E(X^+)E(Y^-) - $$
-$$ - E(X^-)E(Y^+) + E(X^-)E(Y^-) = E(X)E(Y) $$
+\begin{proof}
+$\newline$
+$\Rightarrow$
+
+La independencia de $X,Y$ nos da la independencia de $X', Y'$, donde $X' \in \{X^+, X^-, |X|\}$, $Y' \in \{Y^+, Y^-, |Y|\}$, por lo que $E(X'Y') = E(X')E(Y')$.\\
+
+Si $X,Y$ son integrables, también lo son $X',Y'$ y por la anterior igualdad también lo es $X'Y'$, lo cual nos da también $|XY|$, y por tanto, $XY$ integrables con:
+$$ E(XY) = E[(X^+-X^-)(Y^+-Y^-)] = E(X^+)E(Y^+) - E(X^+)E(Y^-) $$
+$$ - E(X^-)E(Y^+) + E(X^-)E(Y^-) = E(X)E(Y) < \infty$$
+
+$\Leftarrow$
+
+Si $XY$ son integrables, entonces $E(|X|)E(|Y|) = E (|XY|)$
+
+Como ni $X$ ni $Y$ degeneran a $0$, 
+% por tanto $E(|X|)$ y $E(|Y|)$ no desvanecen % No sé lo que es desvanecer, Loeve facts
+$E(|X|)$ y $E(|Y|)$ son finitas y, por tanto, $X$ e $Y$ son integrables.
+
 \qed
 \end{proof}
 
@@ -782,63 +850,110 @@ Para cada clase finita de conjuntos de Borel $S_t$ y de puntos $x_t, u_y \in \ma
 $i) \Rightarrow ii)$\\
 Tomamos $S_t = ]-\infty, x_t[$ y aplicamos la definición.\\
 $ii) \Rightarrow i)$\\
-$S_t = ]-\infty, x_t[$, $\mathcal{C}_t = {]-\infty, x_y[, t \in T}$ son independientes. Por el teorema de extensión, los $\sigma$-campos minimales sobre ellos son independientes.\\
+$S_t = ]-\infty, x_t[$,  $\mathcal{C}_t = {]-\infty, x_y[, t \in T}$ 
+son independientes. 
+Por el teorema de extensión, los $\sigma$-campos minimales sobre ellos son independientes.\\
 $i) \Rightarrow iii)$\\
 Aplicación directa del teorema de la multiplicación.\\
 $iii) \Rightarrow ii)$\\
 Tenemos que $F_{t_1,...,t_n}([a_{t_1},...,a_{t_n};b_{t_1},...,b_{t_n}]) = F_{t_1}([a_{t_1},...,a_{t_n};b_{t_1},...,b_{t_n}])$\\$F_{t_2}([a_{t_1},...,a_{t_n};b_{t_1},...,b_{t_n}])...F_{t_n}([a_{t_1},...,a_{t_n};b_{t_1},...,b_{t_n}])$. Haciendo $a_t \rightarrow - \infty$, $b \uparrow x_t$ tenemos $ii)$
+
+\qed
 \end{proof}
+
 \subsubsection{Lema de Borel-Cantelli}
 \begin{lemma}
 Lema de Borel-Cantelli
 \\\\
 Sea $(\Omega,\mathcal{A},P) \, , \, A_n \in \mathcal{A}$. Entonces:
 \begin{itemize}
+<<<<<<< HEAD
 \item $\displaystyle\sum P(A_n) < \infty \Longrightarrow P(\displaystyle \lim \sup A_n)=0$
 \item Si $ A_n$ son independientes:
 \begin{itemize}
 \item $\displaystyle\sum P(A_n) < \infty \Longrightarrow P(\displaystyle \lim \sup A_n)=0$
 \item $\displaystyle\sum P(A_n) = \infty \Longrightarrow P(\displaystyle \lim \sup A_n)=1$
 \end{itemize}
+=======
+\item $\displaystyle\sum P(A_n) < \infty \Longrightarrow P(\displaystyle \limsup A_n)=0$
+>>>>>>> 375d58444d7558815eb3da3bbd1ae1f24298975a
 \end{itemize}
 \end{lemma}
 
 \begin{proof}
-$$\lim_{sup}A_n=\bigcap_{n=1}^\infty \bigcup_{k=n}^{\infty}A_k=\bigcap_{n=1}^\infty B_n$$
-$$P(\lim_{sup}A_n)=P\lim B_n=\lim P\, B_n \leq \lim_n P\bigcup_{k=n}^\infty A_k \leq \lim_n \sum_{k=n}^\infty P\, A_k=0$$
-El recíproco no es cierto
-Ahora la segunda parte:
-\\\\
-Para el caso 0 queda probado con la primera parte, para el caso 1, se tiene:
-$$P(\displaystyle\lim_{sup}A_n)^c = P(\lim_{inf}A_n^c)=P(\bigcup_{n}\bigcap_{k=n}A_k^c)=P(\lim_{n}\bigcap_{k=n}A_k^c)=$$
-$$\lim_n P(\bigcap_{k=n}A_k^c)=\lim_n \prod_{k=n}(1-P(A_k))\leq \lim_{n}\prod_{k=n}^N e^{-P(A_n)}=\lim_n e^{-\sum_k P(A_k)}=0$$
+	$$\limsup A_n=\bigcap_{n=1}^\infty \bigcup_{k=n}^{\infty}A_k=\bigcap_{n=1}^\infty B_n$$
+	$$P(\limsup A_n)=P\lim B_n=\lim P\, B_n = \lim_n P\bigcup_{k=n}^\infty A_k \leq \lim_n \sum_{k=n}^\infty P\, A_k=0$$
+	El recíproco no es cierto.
+	
 \qed
 \end{proof}
+
+\subsubsection{Criterio cero-uno de Borel}
+\begin{criterion} 
+	\ 
+\begin{itemize}
+\item Si $ A_n$ son independientes 
+	\begin{itemize}
+	\item $\displaystyle\sum P(A_n) < \infty \Longrightarrow P(\displaystyle \limsup A_n)=0$
+	\item $\displaystyle\sum P(A_n) = \infty \Longrightarrow P(\displaystyle \limsup A_n)=1$
+	\end{itemize}
+\end{itemize}
+\end{criterion}
+
+\begin{proof}
+	\
+	
+Usamos las sucesiones definidas anteriormente, para el caso 0 queda probado con el lema de Borel-Cantelli, para el caso 1, se tiene:
+$$P(\displaystyle\limsup A_n)^c = P(\liminf A_n^c)=P(\bigcup_{n}\bigcap_{k=n}A_k^c)=P(\lim_{n}\bigcap_{k=n}A_k^c)=$$
+$$\lim_n P(\bigcap_{k=n}A_k^c)=\lim_n \prod_{k=n}(1-P(A_k))\leq \lim_{n}\prod_{k=n} e^{-P(A_n)}=\lim_n e^{-\sum_k P(A_k)}=0$$
+
+\qed
+\end{proof}
+
 De esta ley se extraen una serie de corolarios importantes:\\
 
 \textbf{Corolario 1: }Si $A_n$ son independientes:
-$$P(\lim \sup (A_N)) = 0 \Leftrightarrow \sum_n P(A_n) < \infty$$
+$$P(\lim \sup (A_n)) = 0 \Leftrightarrow \sum_{n\in\mathbb{N}} P(A_n) < \infty$$
 
 \textbf{Corolario 2: }Sea ${X_n}$ una colección de variables aleatorias independientes, entonces;
-$$ X_n \stackrel{c.s.}{\rightarrow} 0 \Leftrightarrow \sum_n p([X_n \geq \varepsilon]) < \infty$$
+$$ X_n \stackrel{c.s.}{\rightarrow} 0 \Leftrightarrow \sum_n P([X_n \geq \varepsilon]) < \infty$$
 
-\begin{proof}
-$\sum P([|X_n| \geq \varepsilon]) = 0 \Leftrightarrow P(\lim \sup ([|X_n] \geq \varepsilon)) = 0 \Leftrightarrow \displaystyle P ( \bigcap_n \bigcup_{k=n} [|X_n| \geq \varepsilon]) = 0 \Leftrightarrow P (\lim_n \bigcup_{k=n} [|X_n| \geq \varepsilon] \Leftrightarrow \lim_{n \rightarrow \infty} P (\bigcup_{k=n} [|X_k| \geq \varepsilon = 0 \Leftrightarrow X_n \stackrel{c.s.}{\rightarrow} 0$
-\end{proof}
+\textbf{Demostración}
+	
+$\sum P([|X_n| \geq \varepsilon]) = 0 
+\ \Leftrightarrow \
+P(\lim \sup ([|X_n] \geq \varepsilon])) = 0 
+\ \Leftrightarrow \
+\displaystyle P ( \bigcap_n \bigcup_{k=n} [|X_n| \geq \varepsilon]) = 0 
+\ \Leftrightarrow \
+P (\lim_n \bigcup_{k=n} [|X_n| \geq \varepsilon])
+\ \Leftrightarrow \
+\lim_{n \rightarrow \infty} P (\bigcup_{k=n} [|X_k| \geq \varepsilon]) = 0 
+\ \Leftrightarrow \
+X_n \stackrel{c.s.}{\rightarrow} 0$
 
-\textbf{Corolario 3: } ${X_n}$ son independientes y $ X_n \stackrel{\mathbb{P}}{\rightarrow} 0 \Leftrightarrow \exists {X_{n_k}} \subset {X_n}$ tal que ${X_{n_k}} \stackrel{c.s.}{\rightarrow} 0 $ 
+\qed
 
-\begin{proof}
-$\exists X_{n_k}: P[|X_{n_k}| \geq \frac{1}{2^k}] \leq \frac{1}{2^k}$\\
+\textbf{Corolario 3: }
+
+${X_n}$ son independientes y $ X_n \stackrel{\mathbb{P}}{\rightarrow} 0 \Leftrightarrow \exists {X_{n_k}} \subset {X_n}$ tal que ${X_{n_k}} \stackrel{c.s.}{\rightarrow} 0 $ 
+
+\
+
+\textbf{Demostración}
+
+$\exists X_{n_k}: P[|X_{n_k}| \geq \frac{1}{2^k}] \ \leq \ \frac{1}{2^k}$\\
 $\displaystyle \sum_k P ([|X_{n_k}| \geq \frac{1}{2^k}]) \leq \sum_k \frac{1}{2^k} = 1 \Leftrightarrow X_{n_k} \stackrel{c.s.}{\rightarrow}0$
-\end{proof}
+
+\qed
+
 
 Pasamos ahora a ver otra ley importante en el estudio de la probabilidad, la cual se conoce como la ley 0-1 de Kolmogorov. Para ello, comenzamos definiendo el concepto de $\sigma$-campo cola.\\
 
 Sean ${X_n}$ independientes, tenemos las siguientes relaciones entre los $\sigma$-campos asociados:\\
 
 $\mathcal{B}(X_n, X_{n+1}) \supseteq \mathcal{B}(X_n)$\\
-$\mathcal{B}(X_n, X_{n+1}, ...) \supseteq \mathcal{B}(X_{n+1}, ...)$ suceción decreciente\\
+$\mathcal{B}(X_n, X_{n+1}, ...) \supseteq \mathcal{B}(X_{n+1}, ...)$ sucesión decreciente\\
 $\mathcal{B}(X_n, X_{n+1}, ...), \mathcal{B}(X_{n+1}, X_{n+2}, ...), ... \downarrow \lim_n \sup \mathcal{B}(X_n) \equiv \mathcal{C}$\\
 
 Dicho límite es un $\sigma$-campo, conocido como el $\sigma$-campo cola, que será equivalente a $\emptyset$ o $\Omega$.
@@ -848,76 +963,111 @@ Sea $X_n$ una sucesión de variables aleatorias independientes. Entonces los eve
 \begin{proof}$\,$\\
 $i)$\\
 Por un lado, tenemos que: $\mathcal{C} \subseteq \mathcal{B}(X_{n+1}, ...)$\\
-Además, $\mathcal{B}(X_1, ..., X_n)$ es independiente de $\mathcal{B}(X_{n+1}, X_{n+2},...)$, lo que implica que $mathcal{C}, \mathcal{B}(X_1,...,X_n)$ son independientes. De aquí tenemos que $\mathcal{C}$ es independiente de $\mathcal{B}(X_1,...,X_n,X_{n+1},...)$, por lo que $\mathcal{C}$ es independiente consigo mismo, ya que está contenido en el $\sigma$-campo que hace medibles a todos. Una vez aquí, tenemos que:
-$$ P(AA) = P(A)P(A) = P(A)\, \forall A \in \mathcal{C} \Rightarrow P(A) = \{0,1\}\, \forall A \in \mathcal{C}$$
+Además, $\mathcal{B} (X_1, ..., X_n)$ es independiente de $\mathcal{B}(X_{n+1}, X_{n+2},...)$, lo que implica que $\mathcal{C}, \mathcal{B}(X_1,...,X_n)$ son independientes. De aquí tenemos que $\mathcal{C}$ es independiente de $\mathcal{B}(X_1,...,X_n,X_{n+1},...)$, por lo que $\mathcal{C}$ es independiente consigo mismo, ya que está contenido en el $\sigma$-campo que hace medibles a todos. Una vez aquí, tenemos que:
+$$ P(AA) = P(A)P(A) = P(A)\, \ \forall A \in \mathcal{C} \Rightarrow P(A) = \{0,1\}\,\ \forall A \in \mathcal{C}$$
 $ii)$\\
-Los límites de las sucesiones de variables aleatorias independientes son $\mathcal{C}$-medibles (también para lim sup). Por tanto, es una variable aleatoria que degenera
+Los límites de las sucesiones de variables aleatorias independientes son $\mathcal{C}$-medibles (también para limsup). Por tanto, es una variable aleatoria que degenera
+
+\qed
 \end{proof}
 
 A raíz de esta ley, podemos extraer también un corolario.\\
 
-\textbf{Corolario: }Sea $X_n$ una sucesión de variables aleatorias independientes.
+\textbf{Corolario. }Sea $X_n$ una sucesión de variables aleatorias independientes, entonces $X_n$ converge c.s. o diverge c.s., igualmente para la serie $\sum_{n\in\mathbb{N}} X_n$
+
+
 \subsection{Variables aleatorias independientes y espacios producto}
 \section{Convergencia y estabilidad de sumas; centramiento y truncamiento}
 Esta sección está dedicada a la investigación de las sumas de variables aleatorias independientes y especialmente, a sus propiedades en el límite. Primero de todo, consideraremos $S_n=\displaystyle\sum_{k=1}^n X_k$ una suma de variables aleatorias independientes $X_1, X_2,\ldots X_n$
 \\\\
-\textbf{Definición de estabilidad: }Dadas dos sucesiones $a_n$ y $b_n$ tendiendo a $\infty$, decimos que la sucesión $S_n$ es estable en probabilidad o c.s. si $\dfrac{S_n}{b_n}-a_n\stackrel{\mathcal{P}}{\rightarrow}0$ o $\dfrac{S_n}{b_n}-a_n\stackrel{c.s.}{\rightarrow}0$
+\textbf{Definición de estabilidad: }Si existe una sucesión $\{a_n\}$ y otra $\{b_n\} \rightarrow \infty$ de forma que $\dfrac{S_n}{b_n}-a_n\stackrel{\mathcal{P}}{\rightarrow}0$ o $\dfrac{S_n}{b_n}-a_n\stackrel{c.s.}{\rightarrow}0$, entonces decimos que la sucesión $S_n$ es estable en probabilidad o c.s. 
 \\\\
-A continuación presentamos una ley que ha marcado el desarrollo de toda la teoría de la probabilidad
-\subsection{Ley de Bernouilli de los grandes números}
+A continuación presentamos una ley que ha marcado el desarrollo de toda la teoría de la probabilidad.
+
+
+\subsection{Ley de Bernouilli de los grandes números} % Pag 244 del Loeve
 Sean $X_1,\ldots X_n$ variables aleatorias independientes e idénticamente distribuidas tales que $P[X_n=1]=p$ y $P[X_n=0]=q=1-p$. Entonces se tiene que:
 $$\dfrac{S_n}{n}-p \stackrel{\mathcal{P}}{\longrightarrow}0$$
 El Teorema del Límite Central, que desarrollaremos más adelante, es una consecuencia directa del perfeccionamiento de esta ley por parte de Moivre y Laplace.
-\\\\
-Además enunciamos también otra ley muy parecida a esta y también muy importante que es la \textbf{Ley fuerte de Borel de los grandes números}, que constituye una versión de esta pero con la convergencia casi segura.
-\subsubsection{Ley fuerte de Borel de los grandes números}
-Si se tienen las hipótesis anteriores, entonces: $\dfrac{S_n}{n}-p \stackrel{c.s.}{\longrightarrow}0$
+
+\subsection{Ley fuerte de Borel de los grandes números} % Pag 244 del Loeve
+Con las hipótesis anteriores de la ley de Bernouilli de los grandes números, entonces: $$\dfrac{S_n}{n}-p \stackrel{c.s.}{\longrightarrow}0$$
 \begin{theorem}
 Sea f(x) continua en $[0,1] \Rightarrow \exists {P_n(x)}$ tal que $\lim P_n (x) = f(x)$ uniformemente $ \forall x \in [0,1]$.
 \end{theorem}
-\begin{proof}
+\begin{proof}*
 \end{proof}
 \subsection{Centramiento y truncamiento}
 Diremos que centramos $X$ a $c$ si reemplazamos $X$ por $X-c$. Si $X$ es integrable, entonces podemos centrarla a su esperanza $EX$ de forma que $X$ es reemplazada por $X-EX$. Es decir, diremos que una variable aleatoria está centrada a su media si y solo si su media existe y es igual a 0.
 \\\\
-Ahora vamos a introducir la varianza matemática. Sea $X$ integrable, llamaremos varianza de $X$ al segundo momento de $X-EX$. Dicho momento existe pero podría ser $\infty$ y lo denotaremos como $\sigma^2 X$. Por consiguiente:
-$$\sigma^2 X=E(X-EX)^2=EX^2-(EX)^2$$
-Se tiene que para todo $c$ finito:
+Sea $X$ integrable, llamaremos varianza de $X$ al segundo momento de $X-EX$ (podría ser $\infty$) y lo denotaremos como $\sigma^2 X$. Por consiguiente:
+$$\sigma^2 X = Var(X) = E(X-EX)^2=EX^2-(EX)^2$$
+Para todo $c$ finito si centramos una variable en $c$ su varianza no cambia:
 $$\sigma^2(X-c)=E(X-c-E(X-c))^2=E(X-EX)^2$$
-lo que quiere decir que cuando centramos una variable su varianza no cambia
+
+Una vez visto el centramiento vamos con el \textbf{truncamiento}, útil cuando no existe la media.
 \\\\
-Una vez visto el centramiento vamos con el \textbf{truncamiento}. El método del truncamiento es útil cuando no existe la media.
-\\\\
-Diremos que truncamos $X$ a $c>0$ (finita) cuando reemplazamos $X$ por $X^c=X$ o $0$ dependiendo de si $|X|<c$ o si $|X|\geq c$ ; se dice entonces que $X^c$ es $X$ truncada a $c$. Lo que estamos haciendo en realidad es definir una variable truncada, $X^c$ como hemos visto anteriormente.
+Diremos que truncamos $X$ a $c>0$ (finita) cuando reemplazamos $X$ por $X^c$ si $|X|<c$ o por $0$ si $|X|\geq c$, se define la variable $X^c$ como $X$ truncada a $c$. 
 \\\\
 Tenemos entonces que si $F$ es el diferencial de $X$, entonces existen todos los momentos de $X^c$ y son finitos; estos son:
 $$EX^c=\int_{|X|<c}x\, dF\,\,\, , \,\,\, E(X^c)^2=\int_{|X|<c}x^2\, dF \,\,\, , \,\,\,  \ldots$$
 Siempre podremos seleccionar un $c$ suficientemente grande para hacer que $P[X\neq X^c]=P[|X|\geq c]$ sea arbitrariamente pequeño. Además nosotros también podemos seleccionar el $c_j$ suficientemente grande para conseguir $P\bigcup [X_j\neq X_j^{c_j}]$ arbitrariamente pequeño, de tal forma que, dado $\epsilon > 0$, tenemos:
-$$P\bigcup [X_j\neq X_j^{c_j}]\leq \sum P[|X_j|\geq c_j]<\frac{\epsilon}{2^j}$$
-Por consiguiente, dada una familia contable de variables aleatorias, podemos hacer corresponder una familia de variables aleatorias que difiere de la primera en un evento de probabilidad pequeña. Además, si estamos interesados principalmente en propiedades en el límite, no necesatamos probabilidades pequeñas arbitrarias.
+$$P\left( 
+\bigcup [X_j\neq X_j^{c_j}] \right)
+\ \leq \ 
+\sum P[|X_j|\geq c_j] 
+\ < \
+\frac{\epsilon}{2^j}$$
+Por consiguiente, dada una familia numerable de variables aleatorias, podemos hacer corresponder una familia de variables aleatorias que difiere de la primera en un evento de probabilidad pequeña. Además, si estamos interesados principalmente en propiedades en el límite, no necesitamos probabilidades pequeñas arbitrarias.
 \\\\
-\textbf{Definición: sucesiones cola-equivalentes: }Sean dos sucesiones $X_n$ y $X_n^{\prime}$. Se dice que son cola-equivalentes si difieren casi seguramente en un número finito de elementos, en otras palabras, si $\forall \omega\in\Omega$ existe un número finito $n(\omega)$ tal que para $n\geq n(\omega)$ las dos sucesiones $X_n(\omega)$ y $X_n^{\prime}{\omega}$ son la misma.
-\\\\
-\textbf{Definición de convergencia equivalente: } Se dice que $X_n$ y $X_n^{\prime}$ son equivalentes en la convergencia si el conjunto de convergencia de ambos es el mismo c.s.
+\textbf{Definición. }Dadas dos sucesiones $X_n$ y $X_n^{\prime}$, se dice que son \textbf{cola-equivalentes} si difieren casi seguramente en un número finito de elementos.
+En otras palabras, si $\forall \omega\in\Omega$ existe un número finito $n(\omega)$ tal que para $n\geq n(\omega)$ las dos sucesiones $X_n(\omega)$ y $X_n^{\prime}(\omega)$ son la misma.
 
-\begin{lemma}
-Si las series $\sum P[X_n\neq X_n^{\prime}]$ convergen, entonces las sucesiones $X_n$ y $X_n^{\prime}$ son cola-equivalentes, y por tanto, las series $X_n$ y $X_n^{\prime}$ son equivalentes en la convergencia y las series $\dfrac{S_n}{b_n}$ y $\dfrac{S_n^{\prime}}{b_n}$ con $b\rightarrow\infty$ convergen al mismo evento y al mismo límite, excluyendo el evento nulo.
+\
+
+$X_n$ y $X_n^{'}$ son cola-equivalentes si 
+$P \left( \limsup [X_n \not = X_n^{'}] \right) = 0$.
+\\\\
+\textbf{Definición. } % Pag 245 Loeve
+Se dice que $X_n$ y $X_n^{\prime}$ son  \textbf{equivalentes en la convergencia} si el conjunto de convergencia de ambos es el mismo c.s.
+
+
+
+\begin{lemma} (de equivalencia)
+	
+Si las series $\sum_{n\in\mathbb{N}} P[X_n\neq X_n^{\prime}]$ convergen, entonces las sucesiones $X_n$ y $X_n^{\prime}$ son cola-equivalentes, por tanto, las series $\sum_{n\in\mathbb{N}} X_n$ y $\sum_{n\in\mathbb{N}} X_n^{\prime}$ son equivalentes en  convergencia y las series $\dfrac{S_n}{b_n}$ y $\dfrac{S_n^{\prime}}{b_n}$ con $b_n \rightarrow\infty$ convergen al mismo evento y al mismo límite, excluyendo el evento nulo.
 \end{lemma}
 
-\begin{proof}
 
-\end{proof}
-\textbf{Corolario: } Si las series $\sum P[X_n\neq X_n^{\prime}]$ convergen, entonces las sucesiones $X_n$ y $X_n^{\prime}$ son cola-equivalentes, y por tanto, las series $\sum X_n$ y $\sum X_n^{\prime}$ son equivalentes en cuanto a convergencia.\\
+% Sean $X_n$ variables aleatorias independientes truncadas en $E(X_n)$, entonces $$ Var\left( \sum_{k=1}^n \right) = \sum_{k=1}^n Var(X_k) $$
 
-Sean $X_1$ , $X_2$ integrables. Entonces, como el centramiento no modifica la varianza, podemos asumir, cuando computamos varianzas, que esas variables aleatorias están centradas a la media. Entonces:
-$$\sigma^2 S_n=ES_n^2=\sum_{k=1}^n EX_k^2+\sum_{j,k=1}EX_jX_k=\sum_{k=1}^n\sigma^2 X_k$$
+\
+
+Si las variables aleatorias $X_n$ son independientes e integrables, entonces:
+$$ \sigma^2 S_n=\sum_{k=1}^n \sigma^2 X_k \hspace{1.5cm} \text{(Igualdad de Bienaymé)}$$
+
+\
+
+\textbf{Demostración}
+
+Sean $X_1$, $X_2$ integrables, como el centramiento no modifica la varianza, podemos asumir, cuando computamos varianzas, que esas variables aleatorias están centradas a la media. Entonces:
+$$\sigma^2 S_n=ES_n^2=\sum_{k=1}^n EX_k^2+\sum_{j,k=1, j\not = k}^n EX_jX_k=\sum_{k=1}^n\sigma^2 X_k$$
 como $X_j$ y $X_k$ son independientes, tenemos que:
 $$EX_jX_k=EX_j\cdot EX_k=0$$
-Con esto en mente podemos enunciar la:
-\textbf{Desigualdad de Bienaymé: }Si las variables aleatorias independientes $X_n$ son independientes e integrabless, entonces:
-$$ \sigma^2 S_n=\sum_{k=1}^n \sigma^2 X_k$$
-Con la desigualdad anterior obtenemos la famosa \textbf{desigualdad de Bienaymé}:
-$$\frac{\displaystyle\sum_{k=1}^n \sigma^2 X_k-\epsilon ^2}{sup(S_n-ES_n)^2}\leq P[|S_n-ES_n|\geq \epsilon]\leq \frac{\sigma^2(S_n-ES_n)}{\epsilon^2} \leq   \frac{1}{\epsilon^2}\sum_{k=1}^n\sigma^2 X_k$$
+
+\qed
+
+
+\
+
+Entonces obtenemos la \textbf{desigualdad de Bienaymé-Tchebychev}:
+$$\frac{\displaystyle\sum_{k=1}^n \sigma^2 X_k-\epsilon ^2}{c.s.sup(S_n-ES_n)^2} 
+\ \leq \ 
+P[|S_n-ES_n|\geq \epsilon]
+\ \leq \ 
+\frac{\sigma^2(S_n-ES_n)}{\epsilon^2} 
+\ \leq \ 
+\frac{1}{\epsilon^2}\sum_{k=1}^n\sigma^2 X_k$$
 Esta desigualdad, aplicada a $(S_{n+k}-ES_{n+k})-(S_n-ES_n)$ y remplazando $\epsilon$ por $b_n$ y pasando al límite se tiene el siguiente corolario:
 \\\\
 \textbf{Corolario: }
@@ -928,32 +1078,44 @@ Esta desigualdad, aplicada a $(S_{n+k}-ES_{n+k})-(S_n-ES_n)$ y remplazando $\eps
 \begin{proof}
 % REVISAR DEMOSTRACIÓN
 La demostración pasa por notar que:
-$$P[\sum_{k}^{n+h}(X_k - EX_k)\geq\epsilon]\leq \dfrac{\displaystyle\sum_{k}^{n+h}\sigma^2 X_k}{\epsilon^2}\longrightarrow 0$$
+$$P \left[\sum_{k}^{n+h}(X_k - EX_k)\geq\epsilon\right]
+\ \leq \ \dfrac{\displaystyle\sum_{k}^{n+h}\sigma^2 X_k}{\epsilon^2}\longrightarrow 0$$
 \end{proof}
 Este último corolario es debido a Tchebichev (cuando $b_n=n$). En el caso de Bernouilli, donde $b_n=n$, $EX_n=p$ , $\sigma^2 X_n=pq$ se reduce a la ley de Bernouilli de los grandes números.
 
 % DESIGUALDADES DE KOLMOGOROV (PAGINAS 31 A 34 DE MARIADEL)
 
 \subsection{Ley débil de los grandes números}
-\subsection{Ley fuerte de los grandes números DE Kolmogorov}
+Sea $\{X_n\}$ una sucesión infinita de variables aleatorias independientes que tienen el mismo valor esperado $\mu$ y varianza $\sigma^2$, entonces 
+$$
+ \overline{X}_n = \frac{X_1+\cdots+X_n}{n} 
+ \stackrel{P}{\longrightarrow} \mu
+$$
+
+\subsection{Ley fuerte de los grandes números de Kolmogorov}
 Sea ${X_n}$ una sucesión de variables aleatorias independientes e idénticamente distribuidas con una ley común $\mathcal{L}(X)$. Entonces:
-$$E|X|<\infty \Longleftrightarrow \dfrac{S_n}{n}=\dfrac{\sum_{k=1}^n X_k}{n}=\dfrac{X_1 \ldots X_n}{n}\stackrel{c.s}{\longrightarrow}EX$$
+$$E|X| < \infty
+\Longleftrightarrow 
+\dfrac{S_n}{n}=\dfrac{\sum_{k=1}^n X_k}{n}\stackrel{c.s}{\longrightarrow}EX$$
+
+% Prueba página 251 del Loeve
+
 
 % METODOS DE MONTECARLO
 
 \chapter{El problema central del límite}
 El problema del límite central en probabilidad es el problema de convergencia de leyes de secuencias de sumas de variables aleatorias.
 \section{Preeliminares}
-Consideramos $S_n$ el número de ocurrencias de un determinado evento con probabilidad $p$ en $n$ intentos idénticos e independientes. Para evitar trivialidades asumimos que $pq\neq 0$, donde $q=1-p$. Si $X_k$ denota el indicador del evento en el $k$-ésimo intento, entonces $S_n=\displaystyle\sum_{k=1}^n X_k$ con $n=1,2,\ldots$ donde los sumandos son indicadores independientes e idénticamente distribuidos. Este es el caso de Bernouilli; como $EX_k=p$ y $EX_k^2=p$, entonces $\sigma^2 X_k=p-p^2=pq$ de donde se sigue que:
+Consideramos $S_n$ el número de ocurrencias de un evento con probabilidad $p$ en $n$ intentos idénticos e independientes. Para evitar trivialidades asumimos que $pq\neq 0$, donde $q=1-p$. Si $X_k$ denota el indicador del evento en el $k$-ésimo intento, entonces $S_n=\displaystyle\sum_{k=1}^n X_k$ con $n=1,2,\ldots$ donde los sumandos son indicadores independientes e idénticamente distribuidos. Este es el caso de Bernouilli; como $EX_k=p$ y $EX_k^2=p$, entonces $\sigma^2 X_k=p-p^2=pq$ de donde se sigue que:
 $$ES_n=\sum_{k=1}^nEX_k=np \,\,\, , \,\,\, \sigma^2 S_n=\sum_{k=1}^n \sigma^2 X_k=npq$$
-EL primer teorema del límite central publicado en 1713 dice que $\dfrac{S_n}{n}\stackrel{\mathcal{P}}{\longrightarrow}p$
+El primer teorema del límite central publicado en 1713 dice que $\dfrac{S_n}{n}\stackrel{\mathcal{P}}{\longrightarrow}p$
 \\\\
 Puliendo este resultado, de Moivre obtuvo el segundo teorema de límites, que en la forma integral dada por Laplace, dice que:
 $$P\left[ \frac{S_n -np}{\sqrt{npq}}< x \right]\rightarrow \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{-\frac{1}{2}y^2}dy\, ,\,\,\, -\infty\leq x\leq \infty$$
 \\\\
 El tercer teorema del límite central fue obtenido por Poisson, quien modificó el caso de Bernouilli asumiendo que la probabilidad $p=p_n$ depende del número de intentos de tal manera que $np_n\rightarrow\lambda>0$. Por consiguiente, escribiendo ahora $X_{nk}$ y $S_{nn}$ en lugar de $X_k$ y $S_n$, el caso de Poisson corresponde a una serie de sumas $S_{nn}=\displaystyle\sum_{k=1}^n X_{nk}$ donde, para cada n, los sumandos $X_{nk}$ son indicadores independientes e idénticamente distribuidos con $P[X_{nk}=1]=\dfrac{\lambda}{n}+o \left( \dfrac{1}{n}\right)$
 \\\\
-A partir de aqúi Poisson probó que para $k=0,1,2,\ldots$
+A partir de aquí Poisson probó que para $k=0,1,2,\ldots$
 $$P[S_{nn}=k]\rightarrow \dfrac{\lambda^k}{k!}e^{-\lambda}$$
 Así nacieron las tres leyes básicas de la teoría de la probabilidad:
 \begin{enumerate}
@@ -1033,6 +1195,6 @@ Se tiene que $\mathcal{L} \left( \dfrac{S_n}{n} \right)\rightarrow \mathcal{L}(0
 Se tiene $\mathcal{L} \left( \dfrac{S_n}{s_n} \right)\rightarrow N(0,1)$ y $max_{k\leq n}\dfrac{\sigma_k}{s_n}\rightarrow 0$ si y solamente si, $\forall \epsilon >0$:
 $$g_n(\epsilon)=\dfrac{1}{s_n^2}\sum\int_{|x|\geq \epsilon s_n}x^2\, dF_k\longrightarrow 0$$
 \begin{proof}
-
+.
 \end{proof}
 \end{document}
