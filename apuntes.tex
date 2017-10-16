@@ -357,6 +357,26 @@ $$ \mathcal{A}(\mathcal{C}) \subseteq \mathcal{M} \Rightarrow \mu_1 = \mu_2 \: e
 
 \chapter{Funciones medibles}
 
+Antes de nada, vamos a puntualizar unas características básicas de la inversa de una función que podrían pasar desapercividas:
+
+\begin{lemma}
+	Sea $X: \Omega \to \overline{\mathbb{R}}$ y $S',S, S_t \subset \mathbb{R} \forall t	\in \mathbb{N}$
+	\begin{itemize}
+		\item $X^{-1}(S'-S)=X^{-1}(S')-X^{-1}(S))$	
+		\item $X^{-1}(\cup_t S_t)=\cup_t X^{-1}(S_t)$
+		\item $X^{-1}(\cap_t S_t)=\cap_t X^{-1}(S_t)$
+	\end{itemize}
+\end{lemma}
+
+\begin{lemma}
+	Sea $X: \Omega \to \overline{\mathbb{R}}$
+	\begin{itemize}
+		\item La imagen inversa de un $\sigma$-campo sobre $\mathbb{R}$ es un $\sigma$-campo
+		\item La imagen inversa de un de $\mathcal{B}(\mathcal{C})$($\sigma$-campo de borel sobre $\mathcal{C}$) es el mínimo $\sigma$-campo sobre $X^{-1}(\mathcal{C})$.
+		\item La clase de todos los conjuntos cuya antiimagen está en un $\sigma$-campo es un $\sigma$-campo.
+	\end{itemize}
+\end{lemma}
+
 Una vez definidos los conceptos sobre espacios de medida y espacios probabilísticos, vamos a aproximarnos al concepto de función medible. Para ello, daremos dos definiciones de función medible, para demostrar más adelante que estas dos definiciones son equivalentes. Empecemos con la definición constructiva de función medible. Dado que nos interesa que el codominio sea $\mathbb{R}$, trabajaremos con funciones definidas entre un espacio medible ($\Omega$, $\mathcal{A}$) y ($\mathbb{R}$, $\mathcal{B}$), donde $\mathcal{B}$ representa la $\sigma$-álgebra de Borel.\\
 
 Primero, se define la función puntual $X: \Omega \to \mathbb{R}$, que asigna a cada $\omega \in \Omega$ un número $x = X(\omega)$ único. Llamaremos a esta función variable aleatoria. Utilizaremos de aquí en adelante la siguiente notación:
@@ -404,11 +424,7 @@ se tiene entonces que $X_n \to X$ y esto, con lo anterior, prueba la equivalenci
 \qed
 \end{proof}
 
-\begin{lemma}
-Sea $X:A\longrightarrow B$\\
-
-$X$ es medible $\Longleftrightarrow$ $X^{-1}(S)\in A,S \in B$
-\end{lemma}
+%Este lemma era la definición descriptiva de función medible.
 
 \begin{theorem}
 	\ 
