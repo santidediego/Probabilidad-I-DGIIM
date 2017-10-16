@@ -85,7 +85,7 @@ $$ B_n = \bigcap_{k=n}^{\infty} A_k $$
 
 y este conjunto contiene aquellos elementos que están en \textbf{todos} los $A_k$ para $k \geq n$. Es fácil probar que la sucesión $\{B_n\}_{n\in\mathbb{N}}$ es una sucesión creciente de conjuntos, y por tanto se puede obtener el límite $\lim_{n\to\infty} B_n$. Informalmente, ese límite es un conjunto que contiene a todos los elementos de $A_n$ que están en todos los conjuntos $A_k$ a partir de cierto $n\in\mathbb{N}$. Definimos el límite inferior de $A_n$ como
 
-$$ \liminf A_n = \lim_{n\to\infty} B_n = \bigcup_{n\in\mathbb{N}} \bigcap_{k=n}^{\infty} A_k $$
+$$ \liminf A_n = \lim_{n\to\infty} B_n = \bigcup_{n\in\mathbb{N}} \bigcap_{k=n}^{\infty} A_n $$
 
 Análogamente, podríamos definir la sucesión de conjuntos $\{C_n\}_{n\in\mathbb{N}}$ como
 
@@ -93,7 +93,7 @@ $$ C_n = \bigcup_{k=n}^{\infty} A_n $$
 
 Cada $C_n$ contiene todos los elementos que están presentes en algún $A_k$ para $k \geq n$. Es fácil también ver que la sucesión $\{C_n\}_{n\in\mathbb{N}}$ es una sucesión decreciente de conjuntos, y por tanto su límite también está bien definido. Se puede definir entonces el límite superior de $\{A_n\}_{n\in\mathbb{N}}$ como
 
-$$ \limsup A_n = \lim_{n\to\infty} C_n = \bigcap_{n\in\mathbb{N}} \bigcup_{k=n}^{\infty} A_k $$
+$$ \limsup A_n = \lim_{n\to\infty} C_n = \bigcap_{n\in\mathbb{N}} \bigcup_{k=n}^{\infty} A_n $$
 
 Informalmente se puede pensar en este límite superior de $A_n$ como el conjunto de los elementos que están en infinitos conjuntos de la sucesión.\\
 
@@ -145,7 +145,7 @@ Si $\varphi$ es $\sigma$-aditiva y $\displaystyle\sum\varphi(A_i)<\infty\Rightar
 Tomemos las sucesiones: \\
 Si $\varphi(A_n)\geq 0 \Longrightarrow A_n^{+}=A_n$ y $A_n^{-}=\emptyset$\\
 Si $\varphi(A_n)<0 \Longrightarrow A_n^{+}=\emptyset$ y $A_n^{-}=A_n$\\
-Entonces $\varphi(\displaystyle\sum A_n^{+})=\displaystyle\sum\varphi(A_n^{+})$ y $\varphi(\displaystyle\sum A_n^{-})=\displaystyle\sum\varphi(A_n^{-})$, ambas finitas. Sumando ambas cantidades obtenemos que $\displaystyle\sum(\vert \varphi(A_i)\vert)<\infty$
+Entonces $\varphi(\displaystyle\sum A_n^{+})=\displaystyle\sum\varphi(A_n^{+})$ y $\varphi(\displaystyle\sum A_n^{-})=\displaystyle\sum\varphi(A_n^{-})$, ambas finitas. Sumando ambas cantidades obtenemos que $\displaystyle\sum(\vert \varphi(A_i)\vert)<\infty$f
 
 \qed
 \end{proof}
@@ -440,6 +440,8 @@ $$g(X) = g(\lim X_n) = \lim g(X_n) = \lim \sum_j g(x_j)I_{A_j}$$
 
 \qed
 \end{proof}
+
+Para este teorema introduceremos el concepto de función boreliana. Esta es una función $g:(\mathbb{R},\mathcal{B})\to(\mathbb{R},\mathcal{B})$ tal que $g^{-1}(B)\in \mathcal{B}, \forall b\in\mathcal{B}$
 
 \begin{theorem}
 	\
