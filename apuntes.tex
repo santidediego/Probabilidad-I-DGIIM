@@ -521,7 +521,7 @@ $$g(X_n)\stackrel{\mathcal{P}}{\longrightarrow} g(X)$$
 \end{theorem}
 
 \begin{proof}
-$\forall \varepsilon > 0, \exists k>0 : \mathcal{P}[|X| \geq k] < \frac{\varepsilon}{2}$. Consideramos el compacto $[-k,k], \ A = [|X| < k], \ B = [|X_n - X| < \delta] \ y \ C = [|g(X_n) - g(X)| < \varepsilon]$. Tenemos que ver si $\mathcal{P}(B)\to 1 \Rightarrow \mathcal{P}(C)\to 1 $:
+$\forall \varepsilon > 0, \exists k>0 : \mathcal{P}[|X| \geq k] < \frac{\varepsilon}{2}$. Consideramos el compacto $[-k,k], \ A = [|X| < k], \ B_n = [|X_n - X| < \delta] \ y \ C = [|g(X_n) - g(X)| < \varepsilon]$. Tenemos que ver si $\mathcal{P}(B_n)\to 1 \Rightarrow \mathcal{P}(C)\to 1 $:
 $$ AB \subset C \Rightarrow C^c \subset A^c \cup B^c \Rightarrow \mathcal{P}(C^c) \leq \mathcal{P}(A^c) + \mathcal{P}(B^c) \leq $$
 $$ \leq \mathcal{P}[|X| \geq k] + \mathcal{P}[|X_n - X| \geq \delta] \leq \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$$
 \end{proof}
@@ -679,7 +679,7 @@ $$\lim\int X_n\, dP=\int X\, dP$$
 
 \begin{proof}
 Por un lado, si tenemos la convergencia casi segura, $|X_n| \leq Y \Rightarrow -Y \leq X_n \leq Y \stackrel{F-L}{\rightarrow} \displaystyle \int X_n \to \int X$.
-Por otro, si la convergencia es en probabilidad, nos bastaría con probar que si $Y_n \stackrel{\mathcal{P}}{\rightarrow} 0 \Rightarrow \displaystyle \int Y_n \stackrel{\mathcal{P}}{\rightarrow} 0$. Tomamos entonces $Y = |X_n - X|$
+Por otro, si la convergencia es en probabilidad, nos bastaría con probar que si $Y_n \stackrel{\mathcal{P}}{\rightarrow} 0 \Rightarrow \displaystyle \int Y_n \stackrel{\mathcal{P}}{\rightarrow} 0$. Tomamos entonces $Y_n = |X_n - X|$
 $$ Y_n \stackrel{\mathcal{P}}{\rightarrow} 0 \Rightarrow \exists \{Y_n'\} \subset \{Y_n\} \, t.q. \, \int Y_n' \rightarrow \limsup \int Y_n$$
 De nuevo, tenemos que $Y_n' \stackrel{\mathcal{P}}{\rightarrow} 0$. Tomando ahora $\{Y_n''\} \subset \{Y_n'\} \, t.q. \, Y_n'' \stackrel{c.s.}{\rightarrow} 0 
 \implies 
