@@ -19,6 +19,7 @@
 
 \begin{document}
 \maketitle
+
 \newtheorem{theorem}{Teorema}[section]
 \newtheorem{lemma}{Lema}[section]
 \newtheorem{criterion}{Criterio}[section]
@@ -577,10 +578,13 @@ Ahora, para cualquier función no negativa $X$, se define la integral de la func
 $$\int_{\Omega} X d\mathcal{P} = \lim \int_{\Omega}X_n d \mathcal{P}$$
 Donde $\{X_{n}\} \to X$. Finalmente, la integral en $\Omega$ de una función medible $X$ se define como:
 $$\int_{\Omega} X d\mathcal{P} = \int_{\Omega}X^{+} d\mathcal{P} - \int_{\Omega} X^{-} d\mathcal{P}$$
-donde $X^{+} = XI_{[X\geq0]}$ y $X^{-} = -XI_{[X<0]}$. Si $\displaystyle \int_{\Omega}Xd\mathcal{P}$ es finita, es decir, si los dos términos de la diferencia anterior son finitos, entonces se dice que $X$ es integrable en $\Omega$. Ahora, una vez definida la integral, vamos a ver algunas de sus propiedades. Tenemos primero una serie de propiedades relacionadas con la aditividad de la integral. Sean $X,Y$ dos funciones medibles, entonces (no se demostrarán las propiedades triviales):\\
+donde $X^{+} = XI_{[X\geq0]}$ y $X^{-} = -XI_{[X<0]}$. Si $\displaystyle \int_{\Omega}Xd\mathcal{P}$ es finita, es decir, si los dos términos de la diferencia anterior son finitos, entonces se dice que $X$ es integrable en $\Omega$. Ahora, una vez definida la integral, vamos a ver algunas de sus propiedades. Tenemos primero una serie de propiedades relacionadas con la aditividad de la integral. \\
 
-$\displaystyle \int (X+Y)d\mathcal{P} = \int Xd\mathcal{P} + \int Yd\mathcal{P}$\\
 
+\begin{theorem} Sean $X,Y$ dos funciones medibles, entonces :
+
+$$\displaystyle \int (X+Y)d\mathcal{P} = \int Xd\mathcal{P} + \int Yd\mathcal{P}$$
+ \end{theorem}
 \begin{proof}
 
 Sean $X = \displaystyle \sum x_jI_{A_j}$ e $Y = \displaystyle \sum y_kI_{B_k}$. Entonces $X+Y = \displaystyle \sum_k \sum_j x_j I_{A_jB_k} + \sum_k \sum_j y_k I_{A_jB_k} = \sum_k \sum_j (x_k+y_j) I_{A_jB_k}$\\
@@ -591,18 +595,24 @@ $$ = \sum_j x_j \mathcal{P}(A_j) + \sum_k y_k \mathcal{P}(B_k) = \int Xd\mathcal
 \qed
 \end{proof}
 
-$\displaystyle \int_{A+B} X d\mathcal{P} = \int_A X d\mathcal{P} + \int_B X d \mathcal{P}$\\
 
-$\displaystyle \int cXd\mathcal{P} = c\int Xd\mathcal{P}$\\
+	
 
-Veamos ahora algunas propiedades relacionadas con el orden:\\
+\textbf{Corolario 1: } $\displaystyle \int_{A+B} X d\mathcal{P} = \int_A X d\mathcal{P} + \int_B X d \mathcal{P}$\\
 
-$X \geq 0 \rightarrow \displaystyle \int X d\mathcal{P} \geq \int 0 = 0$\\
 
-$X \geq Y \rightarrow \displaystyle \int X d\mathcal{P} \geq \int Y d\mathcal{P}$\\
+\textbf{Corolario 2: } $\displaystyle \int cXd\mathcal{P} = c\int Xd\mathcal{P}$\\
 
-$\displaystyle X \stackrel{c.s}{=} Y \rightarrow \int X d\mathcal{P} = \int Y d\mathcal{P}$\\
+Por último veamos ahora algunas propiedades relacionadas con el orden:\\
+\begin{itemize}
+	
+\item $X \geq 0 \Rightarrow \displaystyle \int X d\mathcal{P} \geq \int 0 = 0$\\
 
+\item $X \geq Y \Rightarrow \displaystyle \int X d\mathcal{P} \geq \int Y d\mathcal{P}$\\
+
+\item $\displaystyle X \stackrel{c.s}{=} Y \Rightarrow \int X d\mathcal{P} = \int Y d\mathcal{P}$\\
+
+\end{itemize}
 \section{Esperanza matemática}
 
 \subsection{Definición general}
@@ -864,18 +874,15 @@ A la inversa, si su producto es integrable y ninguna de ellas degenera a $0$, en
 
 \begin{proof}
 $\newline$
-$\Rightarrow$
-
+$\boxed{\Rightarrow}$
 La independencia de $X,Y$ nos da la independencia de $X', Y'$, donde $X' \in \{X^+, X^-, |X|\}$, $Y' \in \{Y^+, Y^-, |Y|\}$, por lo que $E(X'Y') = E(X')E(Y')$.\\
 
 Si $X,Y$ son integrables, también lo son $X',Y'$ y por la anterior igualdad también lo es $X'Y'$, lo cual nos da también $|XY|$, y por tanto, $XY$ integrables con:
 $$ E(XY) = E[(X^+-X^-)(Y^+-Y^-)] = E(X^+)E(Y^+) - E(X^+)E(Y^-) $$
-$$ - E(X^-)E(Y^+) + E(X^-)E(Y^-) = E(X)E(Y) < \infty$$
+$$ - E(X^-)E(Y^+) + E(X^-)E(Y^-) = E(X)E(Y) < \infty$$\\
 
-$\Leftarrow$
-
-Si $XY$ son integrables, entonces $E(|X|)E(|Y|) = E (|XY|)$
-
+$\boxed{\Leftarrow}$
+Si $XY$ son integrables, entonces $E(|X|)E(|Y|) = E (|XY|)$.
 Como ni $X$ ni $Y$ degeneran a $0$, 
 % por tanto $E(|X|)$ y $E(|Y|)$ no desvanecen % No sé lo que es desvanecer, Loeve facts
 $E(|X|)$ y $E(|Y|)$ son finitas y, por tanto, $X$ e $Y$ son integrables.
@@ -893,17 +900,22 @@ Para cada clase finita de conjuntos de Borel $S_t$ y de puntos $x_t, u_y \in \ma
 \end{enumerate}
 \end{theorem}
 \begin{proof}$\,$\\
-$i) \Rightarrow ii)$\\
+\begin{itemize}
+	
+\item[$i) \Rightarrow ii)$]
 Tomamos $S_t = ]-\infty, x_t[$ y aplicamos la definición.\\
-$ii) \Rightarrow i)$\\
+
+\item[$ii) \Rightarrow i)$]
 $S_t = ]-\infty, x_t[$,  $\mathcal{C}_t = {]-\infty, x_y[, t \in T}$ 
 son independientes. 
 Por el teorema de extensión, los $\sigma$-campos minimales sobre ellos son independientes.\\
-$i) \Rightarrow iii)$\\
+\item[$i) \Rightarrow iii)$]
 Aplicación directa del teorema de la multiplicación.\\
-$iii) \Rightarrow ii)$\\
+
+\item[$iii) \Rightarrow ii)$]
 Tenemos que $F_{t_1,...,t_n}([a_{t_1},...,a_{t_n};b_{t_1},...,b_{t_n}]) = F_{t_1}([a_{t_1},...,a_{t_n};b_{t_1},...,b_{t_n}])$\\$F_{t_2}([a_{t_1},...,a_{t_n};b_{t_1},...,b_{t_n}])...F_{t_n}([a_{t_1},...,a_{t_n};b_{t_1},...,b_{t_n}])$. Haciendo $a_t \rightarrow - \infty$, $b \uparrow x_t$ tenemos $ii)$
 
+\end{itemize}
 \qed
 \end{proof}
 
@@ -1002,13 +1014,15 @@ Dicho límite es un $\sigma$-campo, conocido como el $\sigma$-campo cola, que se
 \subsection{Ley 0-1 de Kolmogorov}
 Sea $X_n$ una sucesión de variables aleatorias independientes. Entonces los eventos en la cola tienen o bien probabilidad 0 o 1 y las funciones cola son degeneradas.
 \begin{proof}$\,$\\
-$i)$\\
+\begin{itemize}
+\item[$i)$]
 Por un lado, tenemos que: $\mathcal{C} \subseteq \mathcal{B}(X_{n+1}, ...)$\\
 Además, $\mathcal{B} (X_1, ..., X_n)$ es independiente de $\mathcal{B}(X_{n+1}, X_{n+2},...)$, lo que implica que $\mathcal{C}, \mathcal{B}(X_1,...,X_n)$ son independientes. De aquí tenemos que $\mathcal{C}$ es independiente de $\mathcal{B}(X_1,...,X_n,X_{n+1},...)$, por lo que $\mathcal{C}$ es independiente consigo mismo, ya que está contenido en el $\sigma$-campo que hace medibles a todos. Una vez aquí, tenemos que:
 $$ P(AA) = P(A)P(A) = P(A)\, \ \forall A \in \mathcal{C} \Rightarrow P(A) = \{0,1\}\,\ \forall A \in \mathcal{C}$$
-$ii)$\\
+\item[$ii)$]
 Los límites de las sucesiones de variables aleatorias independientes son $\mathcal{C}$-medibles (también para limsup). Por tanto, es una variable aleatoria que degenera
 
+\end{itemize}
 \qed
 \end{proof}
 
@@ -1016,8 +1030,6 @@ A raíz de esta ley, podemos extraer también un corolario.\\
 
 \textbf{Corolario. }Sea $X_n$ una sucesión de variables aleatorias independientes, entonces $X_n$ converge c.s. o diverge c.s., igualmente para la serie $\sum_{n\in\mathbb{N}} X_n$
 
-
-\subsection{Variables aleatorias independientes y espacios producto}
 \section{Convergencia y estabilidad de sumas; centramiento y truncamiento}
 Esta sección está dedicada a la investigación de las sumas de variables aleatorias independientes y especialmente, a sus propiedades en el límite. Primero de todo, consideraremos $S_n=\displaystyle\sum_{k=1}^n X_k$ una suma de variables aleatorias independientes $X_1, X_2,\ldots X_n$
 \\\\
@@ -1036,8 +1048,6 @@ Con las hipótesis anteriores de la ley de Bernouilli de los grandes números, e
 \begin{theorem}
 Sea f(x) continua en $[0,1] \Rightarrow \exists {P_n(x)}$ tal que $\lim P_n (x) = f(x)$ uniformemente $ \forall x \in [0,1]$.
 \end{theorem}
-\begin{proof}*
-\end{proof}
 \subsection{Centramiento y truncamiento}
 Diremos que centramos $X$ a $c$ si reemplazamos $X$ por $X-c$. Si $X$ es integrable, entonces podemos centrarla a su esperanza $EX$ de forma que $X$ es reemplazada por $X-EX$. Es decir, diremos que una variable aleatoria está centrada a su media si y solo si su media existe y es igual a 0.
 \\\\
@@ -1235,7 +1245,6 @@ Se tiene que $\mathcal{L} \left( \dfrac{S_n}{n} \right)\rightarrow \mathcal{L}(0
 \subsubsection{Criterio clásico de convergencia normal}
 Se tiene $\mathcal{L} \left( \dfrac{S_n}{s_n} \right)\rightarrow N(0,1)$ y $max_{k\leq n}\dfrac{\sigma_k}{s_n}\rightarrow 0$ si y solamente si, $\forall \epsilon >0$:
 $$g_n(\epsilon)=\dfrac{1}{s_n^2}\sum\int_{|x|\geq \epsilon s_n}x^2\, dF_k\longrightarrow 0$$
-\begin{proof}
-.
-\end{proof}
+
+%TODO
 \end{document}
